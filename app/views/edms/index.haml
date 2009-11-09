@@ -1,0 +1,7 @@
+
+- @edms.each do |edm|
+  %div.edm
+    %h2= edm.title
+    %blockquote= edm.text
+  
+#pagination= will_paginate @edms

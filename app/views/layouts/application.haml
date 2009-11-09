@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+%html
+  %head
+    %title ParlyTags
+    <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+    = stylesheet_link_tag "screen"
+  %body
+    #doc.yui-t7
+      #hd{:role=>"banner"}
+        %h1 ParlyTags
+      #bd{:role=>"main"}
+        #div.yui-g
+          = yield
+      #ft{:role=>"contentinfo"}
+        %p Footer
+
+
+
+  
