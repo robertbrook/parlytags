@@ -1,0 +1,10 @@
+log/*.log
+tmp/**/*
+test
+coverage
+config/database.yml
+.DS_Store
+doc/api
+doc/app
+db/*.sqlite3
+public/stylesheets/*
