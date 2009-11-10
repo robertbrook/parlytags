@@ -12,22 +12,29 @@ module ParlyTags::DataLoader
     
     doc = Nokogiri::XML(open(SAMPLE_EDMS_FILE))
     
-    doc.xpath('//motion').each do |motion|        
-        Edm.create :motion_xml_id=>motion.xpath("id/text()").to_s, 
-                           :session=>motion.xpath("session/text()").to_s,
-                           :number=>motion.xpath("number/text()").to_s,
-                           :title=>motion.xpath("title/text()").to_s,
-                           :text=>motion.xpath("text/text()").to_s,
-                           :signature_count=>motion.xpath("signature_count/text()").to_s
-        # p motion.xpath("number/text()")
-        #        Edm.create(:number=>motion.xpath("number/text()").to_s)
+    doc.xpath('//motion').each do |motion|
+      puts "loading #{motion.xpath("number/text()").to_s}"   
+      edm = Edm.create :motion_xml_id => motion.xpath("id/text()").to_s, 
+                   :session=>motion.xpath("session/text()").to_s,
+                   :number=>motion.xpath("number/text()").to_s,
+                   :title=>motion.xpath("title/text()").to_s,
+                   :text=>motion.xpath("text/text()").to_s,
+                   :signature_count=>motion.xpath("signature_count/text()").to_s
+      
+      puts "creating proposer"
+      Proposer.create :member_xml_id => motion.xpath("proposer/@id").to_s,
+                      :name => motion.xpath("proposer/text()").to_s,
+                      :edm_id => edm.id
+      
+      motion.xpath('signatures/signature').each do |signature|
+        puts "creating signatory"
+        signatory = Signatory.new :date => signature.xpath("date/text()").to_s,
+                                  :type => signature.xpath("type/text()").to_s,
+                                  :member_name => signature.xpath("mp/text()").to_s,
+                                  :member_xml_id => signature.xpath("mp/@id").to_s
+                                  
+        edm.signatories << signatory
+      end
     end
-
-    # IO.foreach(CONSTITUENCY_FILE) do |line|
-    #       constituency_id = line[0..2]
-    #       constituency_name = line[3..(line.length-1)].strip
-    #       Constituency.create :name=>constituency_name, :ons_id=>constituency_id
-    #     end
   end
-
 end

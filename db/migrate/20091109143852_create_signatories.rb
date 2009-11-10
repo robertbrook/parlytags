@@ -1,10 +1,10 @@
 class CreateSignatories < ActiveRecord::Migration
   def self.up
     create_table :signatories do |t|
-      t.integer :edm_id
-      t.integer :member_id
       t.string :date
       t.string :type
+      t.string :member_name
+      t.string :member_xml_id
       
       t.timestamps
     end

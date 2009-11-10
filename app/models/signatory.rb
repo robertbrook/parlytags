@@ -1,3 +1,3 @@
 class Signatory < ActiveRecord::Base
-  belongs_to :edm
+  has_and_belongs_to_many :edms
 end

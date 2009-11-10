@@ -6,7 +6,6 @@ class CreateEdms < ActiveRecord::Migration
       t.string :number
       t.string :title
       t.text :text
-      t.integer :proposer_id
       t.integer :signature_count
       
       t.timestamps
