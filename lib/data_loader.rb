@@ -38,13 +38,13 @@ module ParlyTags::DataLoader
         puts " creating signature (#{signature_type})"
         case signature_type
           when 'Proposed'
-            new_signature = Proposer.new :date => signature_date, :member_id => member.id
+            new_signature = Proposer.new :date => signature_date, :member_id => member.id, :edm_id => edm.id
             edm.proposers << new_signature
           when 'Seconded'
-            new_signature = Seconder.new :date => signature_date, :member_id => member.id
+            new_signature = Seconder.new :date => signature_date, :member_id => member.id, :edm_id => edm.id
             edm.seconders << new_signature
           when 'Signed'
-            new_signature = Signatory.new :date => signature_date, :member_id => member.id
+            new_signature = Signatory.new :date => signature_date, :member_id => member.id, :edm_id => edm.id
             edm.signatories << new_signature
           else
             raise "Unrecognised signature type: #{signature_type}"

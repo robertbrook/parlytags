@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091112190909) do
+ActiveRecord::Schema.define(:version => 20091112221530) do
 
   create_table "edms", :force => true do |t|
     t.integer  "motion_xml_id"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20091112190909) do
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "edm_id"
   end
 
 end
