@@ -2,15 +2,18 @@ class Proposer < ActiveRecord::Base
   belongs_to :edm
   
   def display_name
-    first_name = ""
+    first_part = ""
     surname = ""
+    
     if name[/, (.*)/]
-      first_name = $1
+      first_part = $1
     end
+    
     if name[/^(.*),/]
       surname = $1
     end
-    "#{first_name} #{surname}"
+    
+    "#{first_part} #{surname}"
   end
     
 end
