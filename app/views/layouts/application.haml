@@ -9,10 +9,11 @@
       #hd{:role=>"banner"}
         %h1 ParlyTags
       #bd{:role=>"main"}
-        #div.yui-g
-          = yield
+        - if Rails.env =="development"
+          <div style="position:absolute; left: 0; top: 0; padding: 0.5em;"><a href="javascript:var firebug=document.createElement('script');firebug.setAttribute('src','http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js');document.body.appendChild(firebug);(function(){if(window.firebug.version){firebug.init();}else{setTimeout(arguments.callee);}})();void(firebug);">Firebug</a></div>          
+        #div.yui-g= yield
       #ft{:role=>"contentinfo"}
-        %p Footer
+        %p Source code ~ Contact email
 
 
 
