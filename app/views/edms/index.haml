@@ -2,6 +2,10 @@
 - @edms.each do |edm|
   %div.edm
     %h2= edm.title
+    %div.number
+      ="EDM #{edm.number}"
+    %div.sponsor
+      = "Primary sponsor: #{edm.proposer.display_name}"
     %blockquote= edm.text
   
 #pagination= will_paginate @edms
