@@ -1,13 +1,10 @@
 
 - @edms.each do |edm|
-  %div.edm
+  #edm
     %h2= edm.title
-    %div.number
-      ="EDM #{edm.number}"
-    %div.sponsor
-      = "Primary sponsor: #{edm.proposer.display_name}"
+    #number="EDM #{edm.number}"
+    #sponsor= "Primary sponsor: #{edm.proposer.display_name}"
     %blockquote= edm.text
-    %div.sig_count
-      = %Q|[ #{pluralize(edm.signature_count, "signature")} ]|
+    #sig_count= %Q|[ #{pluralize(edm.signature_count, "signature")} ]|
   
 #pagination= will_paginate @edms
