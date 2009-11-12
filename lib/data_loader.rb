@@ -9,8 +9,8 @@ module ParlyTags::DataLoader
   def load_edms
     # check file actually exists!
     Edm.delete_all
-    Proposer.delete_all
-    Signatory.delete_all
+    Member.delete_all
+    Signature.delete_all
     
     doc = Nokogiri::XML(open(SAMPLE_EDMS_FILE))
     
@@ -25,23 +25,30 @@ module ParlyTags::DataLoader
                    :text=>motion.xpath("text/text()").to_s,
                    :signature_count=>motion.xpath("signature_count/text()").to_s
       
-      # create a Proposer
-      puts "creating Proposer"
-      Proposer.create :member_xml_id => motion.xpath("proposer/@id").to_s,
-                      :name => motion.xpath("proposer/text()").to_s,
-                      :edm_id => edm.id
-      
+      # loop through the signatures, and for each one
       motion.xpath('signatures/signature').each do |signature|
         
-        # make a Signatory, for each signature …
-        puts "creating Signatory"
-        signatory = Signatory.new :date => signature.xpath("date/text()").to_s,
-                                  :signatory_type => signature.xpath("type/text()").to_s,
-                                  :member_name => signature.xpath("mp/text()").to_s,
-                                  :member_xml_id => signature.xpath("mp/@id").to_s
-                             
-        # … then attach the new Signatory to the Edm                          
-        edm.signatories << signatory
+        # make or find a Member
+        member =  Member.find_or_create_by_name_and_member_xml_id(signature.xpath("mp/text()").to_s, signature.xpath("mp/@id").to_s)
+        
+        signature_date = signature.xpath("date/text()").to_s
+        signature_type = signature.xpath("type/text()").to_s
+        
+        # make an appropriate sub-type of Signature and attach it to the Edm
+        puts " creating signature (#{signature_type})"
+        case signature_type
+          when 'Proposed'
+            new_signature = Proposer.new :date => signature_date, :member_id => member.id
+            edm.proposers << new_signature
+          when 'Seconded'
+            new_signature = Seconder.new :date => signature_date, :member_id => member.id
+            edm.seconders << new_signature
+          when 'Signed'
+            new_signature = Signatory.new :date => signature_date, :member_id => member.id
+            edm.signatories << new_signature
+          else
+            raise "Unrecognised signature type: #{signature_type}"
+        end
       end
     end
   end

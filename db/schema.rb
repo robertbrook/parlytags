@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091112143551) do
+ActiveRecord::Schema.define(:version => 20091112190909) do
 
   create_table "edms", :force => true do |t|
     t.integer  "motion_xml_id"
@@ -22,24 +22,25 @@ ActiveRecord::Schema.define(:version => 20091112143551) do
     t.datetime "updated_at"
   end
 
-  create_table "edms_signatories", :id => false, :force => true do |t|
-    t.integer "edm_id"
-    t.integer "signatory_id"
-  end
-
-  create_table "proposers", :force => true do |t|
-    t.integer  "member_xml_id"
+  create_table "member_signatures", :force => true do |t|
     t.integer  "edm_id"
-    t.string   "name"
+    t.integer  "signature_id"
+    t.integer  "signature_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "signatories", :force => true do |t|
-    t.string   "date"
-    t.string   "signatory_type"
-    t.string   "member_name"
+  create_table "members", :force => true do |t|
+    t.string   "name"
     t.string   "member_xml_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "signatures", :force => true do |t|
+    t.integer  "member_id"
+    t.string   "date"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

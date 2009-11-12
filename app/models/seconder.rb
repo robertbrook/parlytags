@@ -1,0 +1,2 @@
+class Seconder < Signature
+end

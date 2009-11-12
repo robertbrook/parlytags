@@ -1,4 +1,6 @@
 class Edm < ActiveRecord::Base
-  has_one :proposer
-  has_and_belongs_to_many :signatories
+  has_many :member_signatures
+  has_many :proposers, :through => :member_signatures, :source => :signature, :source_type => 'Proposer'
+  has_many :seconders, :through => :member_signatures, :source => :signature, :source_type => 'Seconder'
+  has_many :signatories, :through => :member_signatures, :source => :signature, :source_type => 'Signatory'
 end

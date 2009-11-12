@@ -5,7 +5,7 @@
     %div.number
       ="EDM #{edm.number}"
     %div.sponsor
-      = "Primary sponsor: #{edm.proposer.display_name}"
+      ="Primary sponsor: #{edm.proposers.first.member.display_name}"
     %blockquote= edm.text
     %div.sig_count
       = %Q|[ #{pluralize(edm.signature_count, "signature")} ]|
