@@ -9,6 +9,8 @@ module ParlyTags::DataLoader
   def load_edms
     # check file actually exists!
     Edm.delete_all
+    Proposer.delete_all
+    Signatory.delete_all
     
     doc = Nokogiri::XML(open(SAMPLE_EDMS_FILE))
     
@@ -29,7 +31,7 @@ module ParlyTags::DataLoader
       motion.xpath('signatures/signature').each do |signature|
         puts "creating signatory"
         signatory = Signatory.new :date => signature.xpath("date/text()").to_s,
-                                  :type => signature.xpath("type/text()").to_s,
+                                  :signatory_type => signature.xpath("type/text()").to_s,
                                   :member_name => signature.xpath("mp/text()").to_s,
                                   :member_xml_id => signature.xpath("mp/@id").to_s
                                   
