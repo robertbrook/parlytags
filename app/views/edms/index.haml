@@ -7,5 +7,7 @@
     %div.sponsor
       = "Primary sponsor: #{edm.proposer.display_name}"
     %blockquote= edm.text
+    %div.sig_count
+      = %Q|[ #{pluralize(edm.signature_count, "signature")} ]|
   
 #pagination= will_paginate @edms
