@@ -1,18 +1,21 @@
 class Member < ActiveRecord::Base
+  
+  has_friendly_id :display_name, :use_slug => true, :strip_diacritics => true
+  
   has_many :proposers
   has_many :seconders
   has_many :signatories
   
   def edms_proposed
-    proposers
+    proposers.collect { |x| x.edm }
   end
   
   def edms_signed
-    signatories
+    signatories.collect { |x| x.edm }
   end
   
   def edms_seconded
-    seconders
+    seconders.collect { |x| x.edm }
   end
   
   def display_name
