@@ -3,6 +3,7 @@
   .edm
     %h2= edm.title
     .number="EDM #{edm.number}"
+    .date=edm.proposers.first.date
     .sponsor
       ="#{edm.proposers.first.member.display_name}"
       - if edm.signatories_and_seconders_count > 0
