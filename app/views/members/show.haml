@@ -2,6 +2,6 @@
   #member
     %h2= @member.display_name
     #stats
-      %p= link_to "EDMs proposed #{@member.edms_proposed.count}", member_proposed_path(@member)
-      %p= link_to "EDMs seconded #{@member.edms_seconded.count}", member_seconded_path(@member)
-      %p= link_to "EDMs signed #{@member.edms_signed.count}", member_signed_path(@member)
+      %p= link_to "EDMs proposed #{@member.edms_proposed.size}", member_proposed_path(@member)
+      %p= link_to "EDMs seconded #{@member.edms_seconded.size}", member_seconded_path(@member)
+      %p= link_to "EDMs signed #{@member.edms_signed.size}", member_signed_path(@member)
