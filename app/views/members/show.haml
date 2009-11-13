@@ -1,0 +1,7 @@
+-if @member
+  #member
+    %h2= @member.display_name
+    #stats
+      %p="EDMs proposed #{@member.edms_proposed.count}"
+      %p="EDMs seconded #{@member.edms_seconded.count}"
+      %p="EDMs signed #{@member.edms_signed.count}"
