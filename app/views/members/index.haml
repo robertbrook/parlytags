@@ -1,0 +1,6 @@
+%h2 Members
+
+- @members.each do |member|
+    %p= link_to member.display_name, member_path(member)
+    
+#pagination= will_paginate @edms

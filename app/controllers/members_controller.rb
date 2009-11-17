@@ -1,4 +1,8 @@
 class MembersController < ApplicationController
+  
+  def index
+    @members = Member.paginate :page => params[:page], :order => 'name'
+  end
     
   def show
     member_slug = params[:member]
