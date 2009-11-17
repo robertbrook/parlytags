@@ -1,8 +1,9 @@
 class Edm < ActiveRecord::Base
-  has_many :member_signatures
-  has_many :proposers, :through => :member_signatures, :source => :signature, :conditions => "type = 'Proposer'"
-  has_many :seconders, :through => :member_signatures, :source => :signature, :conditions => "type = 'Seconder'"
-  has_many :signatories, :through => :member_signatures, :source => :signature, :conditions => "type = 'Signatory'"
+  has_many :motion_signatures
+  has_many :proposers, :through => :motion_signatures, :source => :signature, :conditions => "type = 'Proposer'"
+  has_many :seconders, :through => :motion_signatures, :source => :signature, :conditions => "type = 'Seconder'"
+  has_many :signatories, :through => :motion_signatures, :source => :signature, :conditions => "type = 'Signatory'"
+  belongs_to :session
   
   def signatories_and_seconders_count
     signatories.size + seconders.size
