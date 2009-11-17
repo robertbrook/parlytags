@@ -4,8 +4,6 @@ class CreateSignatures < ActiveRecord::Migration
       t.integer :member_id
       t.string  :date
       t.string  :type
-
-      t.timestamps
     end
   end
 
