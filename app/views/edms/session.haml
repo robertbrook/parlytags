@@ -3,6 +3,8 @@
     = session.name
   -else
     = link_to session.name, edm_session_path(session.name)
+  &middot;
+= link_to "show all", root_path
 
 - @edms.each do |edm|
   .edm
