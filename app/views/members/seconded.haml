@@ -1,6 +1,6 @@
 -if @member
   #member
-    %h2= @member.display_name
+    %h2= link_to @member.display_name, member_path(@member)
     - @edms.each do |edm|
       .edm
         %h3= edm.title
