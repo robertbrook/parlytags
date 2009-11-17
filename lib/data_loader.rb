@@ -43,15 +43,15 @@ module ParlyTags::DataLoader
           puts " creating signature (#{signature_type})"
           case signature_type
             when 'Proposed'
-              new_signature = Proposer.new :date => signature_date, :member_id => member.id, :edm_id => edm.id
+              new_signature = Proposer.new :date => signature_date, :member_id => member.id, :edm_id => edm.id, :session_id => session.id
               edm.proposers << new_signature
               session.proposers << new_signature
             when 'Seconded'
-              new_signature = Seconder.new :date => signature_date, :member_id => member.id, :edm_id => edm.id
+              new_signature = Seconder.new :date => signature_date, :member_id => member.id, :edm_id => edm.id, :session_id => session.id
               edm.seconders << new_signature
               session.seconders << new_signature
             when 'Signed'
-              new_signature = Signatory.new :date => signature_date, :member_id => member.id, :edm_id => edm.id
+              new_signature = Signatory.new :date => signature_date, :member_id => member.id, :edm_id => edm.id, :session_id => session.id
               edm.signatories << new_signature
               session.signatories << new_signature
             else

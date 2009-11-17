@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091117134208) do
+ActiveRecord::Schema.define(:version => 20091117150811) do
 
   create_table "edms", :force => true do |t|
     t.integer  "motion_xml_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20091117134208) do
     t.string  "date"
     t.string  "type"
     t.integer "edm_id"
+    t.integer "session_id"
   end
 
   create_table "slugs", :force => true do |t|
