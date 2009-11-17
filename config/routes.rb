@@ -36,6 +36,7 @@ ActionController::Routing::Routes.draw do |map|
   map.member_proposed 'member/:member/proposed', :controller => "members", :action => 'proposed'
   map.member_seconded 'member/:member/seconded', :controller => "members", :action => 'seconded'
   map.member_signed   'member/:member/signed', :controller => "members", :action => 'signed'
+  map.edm_session '/:session', :controller => "edms", :action => 'session'
 
   # See how all your routes lay out with "rake routes"
 

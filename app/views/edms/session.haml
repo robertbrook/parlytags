@@ -1,5 +1,8 @@
 - @sessions.each do |session|
-  = link_to session.name, edm_session_path(session.name)
+  -if session.name == params[:session]
+    = session.name
+  -else
+    = link_to session.name, edm_session_path(session.name)
 
 - @edms.each do |edm|
   .edm
