@@ -24,12 +24,16 @@ module ParlyTags::DataLoader
         session = Session.find_or_create_by_name(motion.xpath("session/text()").to_s)
         
         # create an Edm
-        puts "loading #{motion.xpath("number/text()").to_s}"   
+        puts "loading #{motion.xpath("number/text()").to_s}"  
+        
+        edm_text = motion.xpath("text/text()").to_s
+        edm_text.gsub!('&#xC3;&#xBA;', '&pound;')
+         
         edm = Edm.create :motion_xml_id => motion.xpath("id/text()").to_s,
                      :session_id => session.id,
                      :number => motion.xpath("number/text()").to_s,
                      :title => motion.xpath("title/text()").to_s,
-                     :text => motion.xpath("text/text()").to_s,
+                     :text => edm_text,
                      :signature_count => motion.xpath("signature_count/text()").to_s
       
         # loop through the signatures, and for each one
