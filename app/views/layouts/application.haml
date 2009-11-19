@@ -7,7 +7,10 @@
   %body#tags-parliament-uk
     #doc.yui-t7
       #hd{:role=>"banner"}
-        %h1= link_to "ParlyTags", root_path
+        - if request.request_uri == root_path
+          %h1= "ParlyTags"
+        - else 
+          %h1= link_to "ParlyTags", root_path
       #bd{:role=>"main"}
         #div.yui-g= yield
       #ft{:role=>"contentinfo"}
