@@ -9,39 +9,60 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091112143551) do
+ActiveRecord::Schema.define(:version => 20091117150811) do
 
   create_table "edms", :force => true do |t|
     t.integer  "motion_xml_id"
-    t.string   "session"
     t.string   "number"
     t.string   "title"
     t.text     "text"
     t.integer  "signature_count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "session_id"
   end
 
-  create_table "edms_signatories", :id => false, :force => true do |t|
-    t.integer "edm_id"
-    t.integer "signatory_id"
-  end
-
-  create_table "proposers", :force => true do |t|
-    t.integer  "member_xml_id"
-    t.integer  "edm_id"
+  create_table "members", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "signatories", :force => true do |t|
-    t.string   "date"
-    t.string   "signatory_type"
-    t.string   "member_name"
     t.string   "member_xml_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "motion_signatures", :force => true do |t|
+    t.integer "edm_id"
+    t.integer "signature_id"
+    t.string  "signature_type"
+  end
+
+  create_table "session_signatures", :force => true do |t|
+    t.integer "session_id"
+    t.integer "signature_id"
+    t.integer "signature_type"
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "signatures", :force => true do |t|
+    t.integer "member_id"
+    t.string  "date"
+    t.string  "type"
+    t.integer "edm_id"
+    t.integer "session_id"
+  end
+
+  create_table "slugs", :force => true do |t|
+    t.string   "name"
+    t.integer  "sluggable_id"
+    t.integer  "sequence",                     :default => 1, :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.string   "scope",          :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "slugs", ["name", "sluggable_type", "scope", "sequence"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
+  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
 end

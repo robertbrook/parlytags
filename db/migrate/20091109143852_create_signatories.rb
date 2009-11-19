@@ -5,8 +5,6 @@ class CreateSignatories < ActiveRecord::Migration
       t.string :type
       t.string :member_name
       t.string :member_xml_id
-      
-      t.timestamps
     end
   end
 

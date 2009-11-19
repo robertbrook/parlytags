@@ -1,9 +1,20 @@
+- @sessions.each do |session|
+  = link_to session.name, edm_session_path(session.name)
+  &middot;
+= link_to "show all", root_path
 
 - @edms.each do |edm|
-  #edm
+  .edm
     %h2= edm.title
-    #number="EDM #{edm.number}"
-    #sponsor= "#{edm.proposer.display_name} and " + pluralize(edm.signature_count, "other")
+    .number="EDM #{edm.number}"
+    - if edm.proposers.first
+      .date=edm.proposers.first.date
+      .sponsor
+        =link_to edm.proposers.first.member.display_name, member_path(edm.proposers.first.member)
+        - if edm.signatories_and_seconders_count > 0
+          ="and #{pluralize(edm.signatories_and_seconders_count, 'other')}"
+        - if edm.seconders_count > 0
+          ="(#{edm.seconders_count} of whom seconded the motion)"
     %blockquote= edm.text
   
 #pagination= will_paginate @edms

@@ -1,0 +1,23 @@
+-if @member
+  
+  #member
+    %h2= @member.display_name
+    
+    #sessions
+      - @sessions.each do |session|
+        -if session.name == params[:session]
+          =session.name
+        -else
+          = link_to session.name, member_session_path(@member, session.name)
+        &middot;
+      = link_to "show all", member_path(@member)
+    
+    #stats
+      -if params[:session]
+        %p= link_to "EDMs proposed #{@member.edms_proposed(@session_id).size}", member_proposed_session_path(@member, params[:session])
+        %p= link_to "EDMs seconded #{@member.edms_seconded(@session_id).size}", member_seconded_session_path(@member, params[:session])
+        %p= link_to "EDMs signed #{@member.edms_signed(@session_id).size}", member_signed_session_path(@member, params[:session])
+      -else
+        %p= link_to "EDMs proposed #{@member.edms_proposed(@session_id).size}", member_proposed_path(@member)
+        %p= link_to "EDMs seconded #{@member.edms_seconded(@session_id).size}", member_seconded_path(@member)
+        %p= link_to "EDMs signed #{@member.edms_signed(@session_id).size}", member_signed_path(@member)
