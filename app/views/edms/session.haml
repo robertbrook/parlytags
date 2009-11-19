@@ -4,7 +4,7 @@
   -else
     = link_to session.name, edm_session_path(session.name)
   &middot;
-= link_to "show all", root_path
+= link_to "All EDMs", root_path
 
 - @edms.each do |edm|
   .edm
@@ -17,7 +17,7 @@
         - if edm.signatories_and_seconders_count > 0
           ="and #{pluralize(edm.signatories_and_seconders_count, 'other')}"
         - if edm.seconders_count > 0
-          ="(#{edm.seconders_count} of whom seconded the motion)"
+          =", #{edm.seconders_count} of whom seconded the motion"
     %blockquote= edm.text
   
 #pagination= will_paginate @edms

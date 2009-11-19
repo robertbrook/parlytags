@@ -7,6 +7,9 @@
   %body#tags-parliament-uk
     #doc.yui-t7
       #hd{:role=>"banner"}
+        %form#search{:role=>"search"} 
+          %input{:type=>"text"}
+          %input{:type=>"submit", :value=>"Search"} 
         %h1= link_to_unless_current "ParlyTags", root_path
       #bd{:role=>"main"}
         #div.yui-g= yield
