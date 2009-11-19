@@ -7,14 +7,14 @@
   %body#tags-parliament-uk
     #doc.yui-t7
       #hd{:role=>"banner"}
-        - if request.request_uri == root_path
-          %h1= "ParlyTags"
-        - else 
-          %h1= link_to "ParlyTags", root_path
+        %h1= link_to_unless_current "ParlyTags", root_path
       #bd{:role=>"main"}
         #div.yui-g= yield
       #ft{:role=>"contentinfo"}
-        %p Source code ~ Contact email
+        %p
+          <a href="http://github.com/robertbrook/parlytags">Source code</a> ~ 
+          <a href="mailto:mail@robertbrook.com">Contact email</a> ~
+          <a href="http://www.parliament.uk/site_information/parliamentary_copyright.cfm">Parliamentary Copyright</a>
 
 
 
