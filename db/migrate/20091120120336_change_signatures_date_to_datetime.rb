@@ -1,6 +1,6 @@
 class ChangeSignaturesDateToDatetime < ActiveRecord::Migration
   def self.up
-    change_column :signatures, :date, :datetime
+    change_column :signatures, :date, :date
   end
 
   def self.down
