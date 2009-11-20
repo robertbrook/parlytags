@@ -6,6 +6,7 @@ module ParlyTags::DataLoader
   DATA_DIR = File.expand_path(File.dirname(__FILE__) + '/../data')
   
   SAMPLE_FILES = ["#{DATA_DIR}/1996-1997.xml", "#{DATA_DIR}/2000-2001.xml"]
+  #SAMPLE_FILES = ["#{DATA_DIR}/test.xml"]
 
   def load_edms
     Edm.delete_all
@@ -17,6 +18,8 @@ module ParlyTags::DataLoader
       
       # TODO: check file actually exists!
       doc = Nokogiri::XML(open(file))
+
+      amendments = []
     
       doc.xpath('//motion').each do |motion|
         
@@ -35,6 +38,12 @@ module ParlyTags::DataLoader
                      :title => motion.xpath("title/text()").to_s,
                      :text => edm_text,
                      :signature_count => motion.xpath("signature_count/text()").to_s
+        
+        # store amendment edms in an array to deal with once we've finished loading        
+        # (we can't do anything with them yet as the parent EDM may not exist at this point)  
+        if edm.is_amendment?
+          amendments << edm
+        end
       
         # loop through the signatures, and for each one
         motion.xpath('signatures/signature').each do |signature|
@@ -65,6 +74,21 @@ module ParlyTags::DataLoader
           end
         end
       end
-    end
+    
+      puts "wiring up the amendments"
+      amendments.each do |amendment|
+        parts = amendment.number.split("A")
+        amendment_number = parts.pop()
+        amended_edm = parts.join("A")
+        parent = Edm.find_by_number_and_session_id(amended_edm, amendment.session_id)
+        if parent
+          amendment.amendment_number = amendment_number
+          amendment.parent_id = parent.id
+          amendment.save!
+        end
+      end
+      puts ""
+    end  
   end
+  
 end

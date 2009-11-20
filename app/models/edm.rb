@@ -8,6 +8,14 @@ class Edm < ActiveRecord::Base
   
   delegate :name, :to => :session, :prefix => :session
   
+  acts_as_tree :order => "amendment_number"
+  
+  class << self
+    def amendment_format
+      /(\d+)A(\d+)/
+    end
+  end
+  
   def signatories_and_seconders_count
     signatories.size + seconders.size
   end
@@ -21,24 +29,11 @@ class Edm < ActiveRecord::Base
   end
   
   def is_amendment?
-    amendment_format = /\d+A\d+/
-    if number =~ amendment_format
+    if number =~ Edm.amendment_format
       true
     else
       false
     end
   end
-  
-  def has_amendments?
-    edm_amendments.size > 0
-  end
-  
-  def edm_amended
-    amendment_format = /(\d+)A\d+/
-    if number =~ amendment_format
-      return Edm.find_by_number_and_session_id($1, session_id)
-    end
-    nil
-  end
-  
+    
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091120120336) do
+ActiveRecord::Schema.define(:version => 20091120135836) do
 
   create_table "edms", :force => true do |t|
     t.integer  "motion_xml_id"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20091120120336) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "session_id"
+    t.integer  "parent_id"
+    t.integer  "amendment_number"
   end
 
   create_table "members", :force => true do |t|
