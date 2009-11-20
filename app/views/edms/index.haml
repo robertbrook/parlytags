@@ -12,9 +12,10 @@
       .sponsor
         =link_to edm.proposers.first.member.display_name, member_path(edm.proposers.first.member)
         - if edm.signatories_and_seconders_count > 0
-          ="and #{pluralize(edm.signatories_and_seconders_count, 'other')}"
-        - if edm.seconders_count > 0
-          ="(#{edm.seconders_count} of whom seconded the motion)"
+          - additional_text = "and #{pluralize(edm.signatories_and_seconders_count, 'other')}"
+          - if edm.seconders_count > 0
+            - additional_text << ", #{edm.seconders_count} of whom seconded the motion"
+          =additional_text
     %blockquote
       %span.number= edm.number
       = edm.text
