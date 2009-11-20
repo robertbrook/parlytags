@@ -6,19 +6,6 @@
   &middot;
 = link_to "All EDMs", root_path
 
-- @edms.each do |edm|
-  .edm
-    %h2= edm.title
-    .number="EDM #{edm.number}"
-    - if edm.proposers.first
-      .date=edm.proposers.first.date
-      .sponsor
-        =link_to edm.proposers.first.member.display_name, member_path(edm.proposers.first.member)
-        - if edm.signatories_and_seconders_count > 0
-          - additional_text = "and #{pluralize(edm.signatories_and_seconders_count, 'other')}"
-          - if edm.seconders_count > 0
-            - additional_text << ", #{edm.seconders_count} of whom seconded the motion"
-          =additional_text
-    %blockquote= edm.text
+=render :partial => "partials/edm", :collection => @edms  
   
 #pagination= will_paginate @edms
