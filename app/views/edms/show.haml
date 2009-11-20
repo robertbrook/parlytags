@@ -10,8 +10,12 @@
       %span.number= @edm.number
       = @edm.text
       
-    = "This EDM has been signed by #{pluralize(@edm.signatories.size, 'MP')}"
+    %p= "This EDM was seconded by #{pluralize(@edm.seconders.size, 'MP')}"
+    - @edm.seconders.each do |signatory|
+      %p= link_to signatory.member.display_name, member_path(signatory.member)
     
+      
+    %p= "This EDM has been signed by #{pluralize(@edm.signatories.size, 'MP')}"
     - @edm.signatories.each do |signatory|
       %p= link_to signatory.member.display_name, member_path(signatory.member)
       
