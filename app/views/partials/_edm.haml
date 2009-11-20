@@ -1,8 +1,8 @@
 .edm
-  - if edm.proposers.first
+  - if edm.has_proposer?
     %span.date=edm.proposers.first.date
-  %h2= edm.title
-  - if edm.proposers.first
+  %h2= link_to edm.title, edm_path(edm.session_name, edm.number)
+  - if edm.has_proposer?
     .sponsor
       =link_to edm.proposers.first.member.display_name, member_path(edm.proposers.first.member)
       - if edm.signatories_and_seconders_count > 0
