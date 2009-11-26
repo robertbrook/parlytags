@@ -43,8 +43,8 @@ ActionController::Routing::Routes.draw do |map|
   map.member_signed_session   'members/:member/:session/signed', :controller => "members", :action => 'signed'
   map.member_session 'members/:member/:session', :controller => "members", :action => 'show'
   map.members '/members', :controller => "members", :action => 'index'
-  map.edm ':session/:edm', :controller => "edms", :action => 'show'
-  map.edm_session '/:session', :controller => "edms", :action => 'session'
+  map.edm ':session/edms/:edm', :controller => "edms", :action => 'show'
+  map.edm_session '/:session/edms', :controller => "edms", :action => 'session'
 
   # See how all your routes lay out with "rake routes"
 
