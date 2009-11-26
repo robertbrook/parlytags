@@ -1,8 +1,7 @@
-require 'spec_helper'
-require 'spec/runner/resources/custom_example_group_runner'
-require 'fakefs/spec_helpers'
+require File.dirname(__FILE__) + '/../../spec_helper.rb'
+require File.dirname(__FILE__) + '/resources/custom_example_group_runner'
 
-describe "OptionParser" do  
+describe "OptionParser" do
   before(:each) do
     @out = StringIO.new
     @err = StringIO.new
@@ -12,20 +11,6 @@ describe "OptionParser" do
   def parse(args)
     @parser.parse(args)
     @parser.options
-  end
-  
-  describe "with fakefs" do
-    include FakeFS::SpecHelpers
-
-    it "should not use colour by default" do
-      options = parse([])
-      options.colour.should == false
-    end
-
-    it "should use progress bar formatter by default" do
-      options = parse([])
-      options.formatters[0].class.should equal(Spec::Runner::Formatter::ProgressBarFormatter)
-    end
   end
   
   it "should leave the submitted argv alone" do
@@ -60,15 +45,6 @@ describe "OptionParser" do
     options = parse(["--drb", "-u"])
     options.debug.should be_false
   end
-
-  it "should accept port option" do
-    options = parse(["--port", "9000"])
-    options.drb_port.should == 9000
-  end
-
-  it 'should require argument to port option' do
-    lambda { parse(["--port"]) }.should raise_error(OptionParser::MissingArgument)
-  end
   
   it "should accept dry run option" do
     options = parse(["--dry-run"])
@@ -96,6 +72,11 @@ describe "OptionParser" do
   it "should not be verbose by default" do
     options = parse([])
     options.verbose.should be_nil
+  end
+  
+  it "should not use colour by default" do
+    options = parse([])
+    options.colour.should == false
   end
   
   it "should print help to stdout if no args and spec_comand?" do
@@ -204,7 +185,7 @@ describe "OptionParser" do
     FileUtils.rm 'test.html' if File.exist?('test.html')
     options = parse(["--format", "html:test.html"])
     options.formatters # creates the file
-    File.should exist('test.html')
+    File.should be_exist('test.html')
     options.formatters[0].class.should equal(Spec::Runner::Formatter::HtmlFormatter)
     options.formatters[0].close
     FileUtils.rm 'test.html'
@@ -223,6 +204,11 @@ describe "OptionParser" do
   it "should use quiet backtrace tweaker by default" do
     options = parse([])
     options.backtrace_tweaker.should be_instance_of(Spec::Runner::QuietBacktraceTweaker)
+  end
+  
+  it "should use progress bar formatter by default" do
+    options = parse([])
+    options.formatters[0].class.should equal(Spec::Runner::Formatter::ProgressBarFormatter)
   end
   
   it "should use specdoc formatter when format is s" do
@@ -522,30 +508,4 @@ describe "OptionParser" do
     options = parse(["--autospec"])
     options.autospec.should be(true)
   end
-  
-  describe "implicitly loading spec/spec.opts" do
-    include FakeFS::SpecHelpers
-
-    it "uses spec/spec.opts if present" do
-      File.open('spec/spec.opts', 'w') { |f| f.write "--colour" }
-      options = parse(['ignore.rb'])
-      options.colour.should be(true)
-    end
-  
-    it "does not try to load spec/spec.opts if not present" do
-      FileUtils.rm 'spec/spec.opts'
-      options = parse(['ignore.rb'])
-      options.colour.should be(false)
-    end
-  
-    it "uses specified opts if supplied" do
-      options = nil
-      File.open("spec/spec.opts",'w') { |f| f.write "" }
-      File.open("spec/alternate.opts",'w') { |f| f.write "--colour" }
-      options = parse(['-O','spec/alternate.opts'])
-      options.colour.should be(true)
-    end
-  end
-  
-  
 end

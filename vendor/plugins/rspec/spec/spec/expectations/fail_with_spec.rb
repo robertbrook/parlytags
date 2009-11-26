@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../spec_helper.rb'
 
 describe Spec::Expectations, "#fail_with with no diff" do
   before(:each) do
@@ -47,27 +47,19 @@ describe Spec::Expectations, "#fail_with with diff" do
     @differ.should_receive(:diff_as_string).and_return("diff")
     lambda {
       Spec::Expectations.fail_with "the message", "expected", "actual"
-    }.should fail_with("the message\n\n Diff:diff")
+    }.should fail_with("the message\nDiff:diff")
   end
   
   it "should call differ if expected/actual are not strings" do
     @differ.should_receive(:diff_as_object).and_return("diff")
     lambda {
       Spec::Expectations.fail_with "the message", :expected, :actual
-    }.should fail_with("the message\n\n Diff:diff")
-  end
-  
-  it "should call differ if expected/actual are both hashes" do
-    @differ.should_receive(:diff_as_hash).and_return("diff")
-    lambda {
-      Spec::Expectations.fail_with "the message", {:a => :b}, {:a => 'b'}
-    }.should fail_with("the message\n\n Diff:diff")
+    }.should fail_with("the message\nDiff:diff")
   end
   
   it "should not call differ if expected or actual are procs" do
     @differ.should_not_receive(:diff_as_string)
     @differ.should_not_receive(:diff_as_object)
-    @differ.should_not_receive(:diff_as_hash)
     lambda {
       Spec::Expectations.fail_with "the message", lambda {}, lambda {}
     }.should fail_with("the message")

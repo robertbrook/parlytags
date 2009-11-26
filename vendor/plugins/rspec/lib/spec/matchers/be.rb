@@ -4,10 +4,9 @@ module Spec
     class Be #:nodoc:
       include Spec::Matchers::Pretty
       
-      def initialize(*args, &block)
+      def initialize(*args)
         @expected = args.empty? ? true : set_expected(args.shift)
         @args = args
-        @block = block
         @comparison_method = nil
       end
       
@@ -18,37 +17,27 @@ module Spec
       
       def run_predicate_on(actual)
         begin
-          return @result = actual.__send__(predicate, *@args, &@block)
+          return @result = actual.__send__(predicate, *@args)
         rescue NameError => predicate_missing_error
           "this needs to be here or rcov will not count this branch even though it's executed in a code example"
         end
 
         begin
-          return @result = actual.__send__(present_tense_predicate, *@args, &@block)
+          return @result = actual.__send__(present_tense_predicate, *@args)
         rescue NameError
           raise predicate_missing_error
         end
       end
       
       def failure_message_for_should
-        if handling_predicate?
-          if predicate == :nil?
-            "expected nil, got #{@actual.inspect}"
-          else
-            "expected #{predicate}#{args_to_s} to return true, got #{@result.inspect}"
-          end
-        else
+        handling_predicate? ?
+          "expected #{predicate}#{args_to_s} to return true, got #{@result.inspect}" :
           "expected #{@comparison_method} #{expected}, got #{@actual.inspect}".gsub('  ',' ')
-        end
       end
       
       def failure_message_for_should_not
         if handling_predicate?
-          if predicate == :nil?
-            "expected not nil, got nil"
-          else
           "expected #{predicate}#{args_to_s} to return false, got #{@result.inspect}"
-          end
         else
           message = <<-MESSAGE
 'should_not be #{@comparison_method} #{expected}' not only FAILED,
@@ -197,8 +186,8 @@ it is a bit confusing.
     #   collection.should be_empty #passes if target.empty?
     #   target.should_not be_empty #passes unless target.empty?
     #   target.should_not be_old_enough(16) #passes unless target.old_enough?(16)
-    def be(*args, &block)
-      Matchers::Be.new(*args, &block)
+    def be(*args)
+      Matchers::Be.new(*args)
     end
 
     # passes if target.kind_of?(klass)

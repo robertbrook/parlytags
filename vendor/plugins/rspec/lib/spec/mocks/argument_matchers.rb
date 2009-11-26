@@ -15,12 +15,6 @@ module Spec
         end
       end
 
-      class NoArgsMatcher
-        def description
-          "no args"
-        end
-      end
-
       class AnyArgMatcher
         def initialize(ignore)
         end
@@ -28,9 +22,11 @@ module Spec
         def ==(other)
           true
         end
-        
+      end
+
+      class NoArgsMatcher
         def description
-          "anything"
+          "no args"
         end
       end
 
@@ -143,14 +139,6 @@ module Spec
       end
 
       # :call-seq:
-      #   object.should_receive(:message).with(no_args())
-      #
-      # Passes if no arguments are passed along with the message
-      def no_args
-        NoArgsMatcher.new
-      end
-      
-      # :call-seq:
       #   object.should_receive(:message).with(any_args())
       #
       # Passes if object receives :message with any args at all. This is
@@ -165,6 +153,14 @@ module Spec
       # Passes as long as there is an argument.
       def anything
         AnyArgMatcher.new(nil)
+      end
+      
+      # :call-seq:
+      #   object.should_receive(:message).with(no_args)
+      #
+      # Passes if no arguments are passed along with the message
+      def no_args
+        NoArgsMatcher.new
       end
       
       # :call-seq:
@@ -225,7 +221,7 @@ module Spec
       
       alias_method :a_kind_of, :kind_of
       
-    private
+      private
       
       def anythingize_lonely_keys(*args)
         hash = args.last.class == Hash ? args.delete_at(-1) : {}

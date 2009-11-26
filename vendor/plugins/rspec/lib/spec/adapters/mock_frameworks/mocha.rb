@@ -5,12 +5,7 @@ require 'mocha/object'
 module Spec
   module Adapters
     module MockFramework
-      # Mocha::Standalone was deprecated as of Mocha 0.9.7.  
-      begin
-        include Mocha::API
-      rescue NameError
-        include Mocha::Standalone
-      end
+      include Mocha::Standalone
       def setup_mocks_for_rspec
         mocha_setup
       end

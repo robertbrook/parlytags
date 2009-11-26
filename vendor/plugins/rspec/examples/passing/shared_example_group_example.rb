@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + '/spec_helper'
+
 module SharedExampleGroupExample
   class OneThing
     def what_things_do

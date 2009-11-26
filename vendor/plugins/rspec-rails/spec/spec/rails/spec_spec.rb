@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../spec_helper'
 
 describe "script/spec file" do
   it "should run a spec" do

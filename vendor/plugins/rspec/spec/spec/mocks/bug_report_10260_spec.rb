@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../spec_helper.rb'
 
 describe "An RSpec Mock" do
   it "should hide internals in its inspect representation" do

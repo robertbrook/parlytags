@@ -1,77 +1,3 @@
-=== development (in git)
-
-* enhancements
-  * added match_unless_raises to matcher DSL
-    * supports easy wrapping of t/u assertions in matchers
-    * thanks to Chad Fowler and Glenn Vanderburg for the name
-  * and_yield provides configurable eval_context
-    * Eric Meyer & David Chelimsky
-  * CTRL-C actually stops execution! (Bryan Helmkamp - #911)
-  * make drb port configurable (Chris Flipse - #875)
-
-* bug fixes
-  * don't define top-level context() method when running in IRB (#899)
-  * remove Ruby warning for uninitialized ivar (Bryan Helmkamp - #892)
-  * fully qualify reference to Default (Alex Sharp - #895)
-
-=== Version 1.2.9 / 2009-10-05
-
-* enhancements
-  * manage backtrace-ignore patterns with Spec::Runner.configure (Martin
-    Emde). Closes #870.
-  * friendly mock argument expectation failure message (Tim Harper). Closes
-    #868.
-  * added double() as alias for stub() and mock()
-  * failure messages for doubles, mocks and stubs use the right name
-  * add let() method to assign memoized attributes (suggestion from Stuart
-    Halloway). Closes #857.
-  * add its method so you can say:
-      describe Array do
-        its(:length) { should == 0 }
-    (Stephen Touset). Closes #833
-  * spec command automatically uses spec/spec.opts if it is present
-    (suggestion from Yehuda Katz)
-  * rspec now adds PROJECT_ROOT/lib and PROJECT_ROOT/spec to the load path
-    * determines PROJECT_ROOT by recursing up until it finds a directory
-      that has a ./spec directory (thanks to Scott Taylor)
-    * supports require 'spec_helper'
-    * supports running specs from the PROJECT_ROOT or any directory
-      below it
-    * closes #733
-  * better handling of determining test names in test/unit/interop mode
-    * Joe Ferris
-    * closes #854
-
-* bug fixes
-
-  * Fixed problem with colorized output when writing to a file
-    * Corey Ehmke
-    * closes #777
-
-* not really a bug fix or enhancement
-  * temporarily moved heckle feature to features-pending (waiting to see what
-    happens with
-    http://rubyforge.org/tracker/index.php?func=detail&aid=26786&group_id=1513&atid=5921)
-
-=== Version 1.2.8 / 2009-07-16
-
-* enhancements
-  * better messages for should[_not] be_nil (Chad Humphries and Rob Sanheim)
-  * should and should_not accept optional custom message
-    (suggestion from Rob Sanheim)
-    * result.should be_nil, "expected result to be nil"
-  * added 'spec/stubs/cucumber' to plug RSpec's stubbing framework into
-    Cucumber scenarios.
-  * added unstub method to remove a stub mid-example (Scott Taylor). Closes
-    #853.
-  * add more readable diff when expected and actual are hashes (Ryan Bigg).
-    Closes #848.
-
-* bug fixes
-  * fixed --line option for ruby 1.9.1
-  * fix stub_chain conflict between two chains starting with the same message
-    (Mike Rohland). Closes #846.
-
 === Version 1.2.7 / 2009-06-22
 
 * enhancments
@@ -111,7 +37,7 @@
   * add stub_chain method
     * also alias_method :stub, :stub!, so you can stub with less bang
   * added options to example_group_proxy
-
+    
 * bug fixes
 
   * ensure correct handling of ordered message expectations with duplicate

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../../spec_helper'
 
 [:response, :controller].each do |subject_method|
   ['isolation','integration'].each do |mode|

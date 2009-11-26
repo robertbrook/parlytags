@@ -11,20 +11,12 @@ module Spec
         #     subject { CheckingAccount.new(:amount => 50, :currency => :USD) }
         #     it { should have_a_balance_of(50, :USD) }
         #     it { should_not be_overdrawn }
-        #     its(:currency) { should == :USD }
         #   end
         #
         # See +ExampleMethods#should+ for more information about this approach.
         def subject(&block)
           block.nil? ?
             explicit_subject || implicit_subject : @explicit_subject_block = block
-        end
-        
-        def its(attribute, &block)
-          describe(attribute) do
-            define_method(:subject) { super().send(attribute) }
-            it(&block)
-          end
         end
 
         attr_reader :explicit_subject_block # :nodoc:
@@ -87,8 +79,8 @@ module Spec
         #   describe Person do
         #     it { should be_eligible_to_vote }
         #   end
-        def should(matcher=nil, message=nil)
-          self == subject ? self.__should_for_example_group__(matcher) : subject.should(matcher,message)
+        def should(matcher=nil)
+          self == subject ? self.__should_for_example_group__(matcher) : subject.should(matcher)
         end
 
         # Just like +should+, +should_not+ delegates to the subject (implicit or
@@ -99,8 +91,8 @@ module Spec
         #   describe Person do
         #     it { should_not be_eligible_to_vote }
         #   end
-        def should_not(matcher=nil, message=nil)
-          self == subject ? self.__should_not_for_example_group__(matcher) : subject.should_not(matcher,message)
+        def should_not(matcher=nil)
+          self == subject ? self.__should_not_for_example_group__(matcher) : subject.should_not(matcher)
         end
       end
     end

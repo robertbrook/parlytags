@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../../spec_helper'
 
 describe "A template with an implicit helper", :type => :view do
   before(:each) do

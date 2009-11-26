@@ -1,3 +1,6 @@
+require File.dirname(__FILE__) + '/spec_helper'
+
+
 class Team
   attr_reader :players
   def initialize

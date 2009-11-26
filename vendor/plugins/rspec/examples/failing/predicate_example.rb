@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + '/spec_helper'
+
 class BddFramework
   def intuitive?
     true

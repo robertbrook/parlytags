@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + '/spec_helper'
+
 describe "Mocker" do
 
   it "should be able to call mock()" do

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../spec_helper.rb'
 
 describe "should satisfy { block }" do
   it "should pass if block returns true" do

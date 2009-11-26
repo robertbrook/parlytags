@@ -38,15 +38,11 @@ module Spec
           begin
             before_each_example
             instance_eval(&@_implementation)
-          rescue Interrupt
-            exit 1
           rescue Exception => e
             execution_error ||= e
           end
           begin
             after_each_example
-          rescue Interrupt
-            exit 1
           rescue Exception => e
             execution_error ||= e
           end
@@ -117,7 +113,7 @@ module Spec
         @_implementation = implementation
         @_backtrace = caller
       end
-      
+
     private
 
       include Matchers

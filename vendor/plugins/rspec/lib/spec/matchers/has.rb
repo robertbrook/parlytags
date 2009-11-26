@@ -3,12 +3,12 @@ module Spec
     
     class Has
       
-      def initialize(expected, *args, &block)
-        @expected, @args, @block = expected, args, block
+      def initialize(expected, *args)
+        @expected, @args = expected, args
       end
       
       def matches?(actual)
-        actual.__send__(predicate(@expected), *@args, &@block)
+        actual.__send__(predicate(@expected), *@args)
       end
       
       def failure_message_for_should

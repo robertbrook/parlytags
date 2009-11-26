@@ -2,9 +2,6 @@ Given %r{^a file named "([^"]+)" with:$} do |file_name, code|
   create_file(file_name, code)
 end
 
-Given /^a directory named "([^\"]*)"$/ do |dirname|
-  create_directory(dirname)
-end
 
 When %r{^I run "spec ([^"]+)"$} do |file_and_args|
   spec(file_and_args)
@@ -18,7 +15,8 @@ When %r{^I run "cmdline.rb ([^"]+)"$} do |file_and_args|
   cmdline(file_and_args)
 end
 
-Then /^the (.*) should include (.*)$/ do |stream, string_or_regex|
+
+Then /^the (.*) should match (.*)$/ do |stream, string_or_regex|
   written = case(stream)
     when 'stdout' then last_stdout
     when 'stderr' then last_stderr

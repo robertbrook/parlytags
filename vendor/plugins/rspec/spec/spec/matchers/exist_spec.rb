@@ -1,11 +1,11 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../spec_helper.rb'
 
 class Substance
   def initialize exists, description
     @exists = exists
     @description = description
   end
-  def exist?(arg=nil)
+  def exist?
     @exists
   end
   def inspect
@@ -34,10 +34,6 @@ describe "should exist" do
   
     it "passes if target exists" do
       @real.should exist
-    end
-  
-    it "passes if target exists with args" do
-      @real.should exist('this arg')
     end
   
     it "fails if target does not exist" do

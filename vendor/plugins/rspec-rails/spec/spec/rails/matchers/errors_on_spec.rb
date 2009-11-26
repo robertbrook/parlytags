@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../../spec_helper'
 
 describe "error_on" do
   it "should provide a description including the name of what the error is on" do

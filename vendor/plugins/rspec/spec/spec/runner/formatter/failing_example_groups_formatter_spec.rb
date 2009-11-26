@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../../spec_helper'
 require 'spec/runner/formatter/failing_example_groups_formatter'
 
 module Spec

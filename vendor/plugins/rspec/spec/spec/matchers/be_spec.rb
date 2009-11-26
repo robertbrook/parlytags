@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../spec_helper.rb'
 
 describe "should be_predicate" do  
   it "should pass when actual returns true for :predicate?" do
@@ -16,13 +16,6 @@ describe "should be_predicate" do
     lambda {
       actual.should be_happy
     }.should fail_with("expected happy? to return true, got false")
-  end
-  
-  it "should fail when actual returns false for :predicate?" do
-    actual = stub("actual", :happy? => nil)
-    lambda {
-      actual.should be_happy
-    }.should fail_with("expected happy? to return true, got nil")
   end
   
   it "should fail when actual does not respond to :predicate?" do
@@ -51,11 +44,6 @@ end
 describe "should_not be_predicate" do
   it "should pass when actual returns false for :sym?" do
     actual = stub("actual", :happy? => false)
-    actual.should_not be_happy
-  end
-  
-  it "should pass when actual returns nil for :sym?" do
-    actual = stub("actual", :happy? => nil)
     actual.should_not be_happy
   end
   
@@ -117,114 +105,6 @@ describe "should_not be_predicate(*args)" do
   end
 end
 
-describe "should be_predicate(&block)" do
-  it "should pass when actual returns true for :predicate?(&block)" do
-    actual = mock("actual")
-    delegate = mock("delegate")
-    actual.should_receive(:happy?).and_yield
-    delegate.should_receive(:check_happy).and_return(true)
-    actual.should be_happy { delegate.check_happy }
-  end
-
-  it "should fail when actual returns false for :predicate?(&block)" do
-    actual = mock("actual")
-    delegate = mock("delegate")
-    actual.should_receive(:happy?).and_yield
-    delegate.should_receive(:check_happy).and_return(false)
-    lambda {
-      actual.should be_happy { delegate.check_happy }
-    }.should fail_with("expected happy? to return true, got false")
-  end
-
-  it "should fail when actual does not respond to :predicate?" do
-    delegate = mock("delegate", :check_happy => true)
-    lambda {
-      Object.new.should be_happy { delegate.check_happy }
-    }.should raise_error(NameError)
-  end
-end
-
-describe "should_not be_predicate(&block)" do
-  it "should pass when actual returns false for :predicate?(&block)" do
-    actual = mock("actual")
-    delegate = mock("delegate")
-    actual.should_receive(:happy?).and_yield
-    delegate.should_receive(:check_happy).and_return(false)
-    actual.should_not be_happy { delegate.check_happy }
-  end
-
-  it "should fail when actual returns true for :predicate?(&block)" do
-    actual = mock("actual")
-    delegate = mock("delegate")
-    actual.should_receive(:happy?).and_yield
-    delegate.should_receive(:check_happy).and_return(true)
-    lambda {
-      actual.should_not be_happy { delegate.check_happy }
-    }.should fail_with("expected happy? to return false, got true")
-  end
-
-  it "should fail when actual does not respond to :predicate?" do
-    delegate = mock("delegate", :check_happy => true)
-    lambda {
-      Object.new.should_not be_happy { delegate.check_happy }
-    }.should raise_error(NameError)
-  end
-end
-
-describe "should be_predicate(*args, &block)" do
-  it "should pass when actual returns true for :predicate?(*args, &block)" do
-    actual = mock("actual")
-    delegate = mock("delegate")
-    actual.should_receive(:older_than?).with(3).and_yield(3)
-    delegate.should_receive(:check_older_than).with(3).and_return(true)
-    actual.should be_older_than(3) { |age| delegate.check_older_than(age) }
-  end
-
-  it "should fail when actual returns false for :predicate?(*args, &block)" do
-    actual = mock("actual")
-    delegate = mock("delegate")
-    actual.should_receive(:older_than?).with(3).and_yield(3)
-    delegate.should_receive(:check_older_than).with(3).and_return(false)
-    lambda {
-      actual.should be_older_than(3) { |age| delegate.check_older_than(age) }
-    }.should fail_with("expected older_than?(3) to return true, got false")
-  end
-
-  it "should fail when actual does not respond to :predicate?" do
-    delegate = mock("delegate", :check_older_than => true)
-    lambda {
-      Object.new.should be_older_than(3) { |age| delegate.check_older_than(age) }
-    }.should raise_error(NameError)
-  end
-end
-
-describe "should_not be_predicate(*args, &block)" do
-  it "should pass when actual returns false for :predicate?(*args, &block)" do
-    actual = mock("actual")
-    delegate = mock("delegate")
-    actual.should_receive(:older_than?).with(3).and_yield(3)
-    delegate.should_receive(:check_older_than).with(3).and_return(false)
-    actual.should_not be_older_than(3) { |age| delegate.check_older_than(age) }
-  end
-
-  it "should fail when actual returns true for :predicate?(*args, &block)" do
-    actual = mock("actual")
-    delegate = mock("delegate")
-    actual.should_receive(:older_than?).with(3).and_yield(3)
-    delegate.should_receive(:check_older_than).with(3).and_return(true)
-    lambda {
-      actual.should_not be_older_than(3) { |age| delegate.check_older_than(age) }
-    }.should fail_with("expected older_than?(3) to return false, got true")
-  end
-
-  it "should fail when actual does not respond to :predicate?" do
-    delegate = mock("delegate", :check_older_than => true)
-    lambda {
-      Object.new.should_not be_older_than(3) { |age| delegate.check_older_than(age) }
-    }.should raise_error(NameError)
-  end
-end
-
 describe "should be_true" do
   it "should pass when actual equal(true)" do
     true.should be_true
@@ -257,7 +137,7 @@ describe "should be_nil" do
   it "should fail when actual is not nil" do
     lambda {
       :not_nil.should be_nil
-    }.should fail_with("expected nil, got :not_nil")
+    }.should fail_with("expected nil? to return true, got false")
   end
 end
 
@@ -269,7 +149,7 @@ describe "should_not be_nil" do
   it "should fail when actual is nil" do
     lambda {
       nil.should_not be_nil
-    }.should fail_with("expected not nil, got nil")
+    }.should fail_with("expected nil? to return false, got true")
   end
 end
 

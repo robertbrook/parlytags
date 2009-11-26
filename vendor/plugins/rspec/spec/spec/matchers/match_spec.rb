@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../spec_helper.rb'
 
 describe "should match(expected)" do
   it "should pass when target (String) matches expected (Regexp)" do

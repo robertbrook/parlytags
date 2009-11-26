@@ -1,4 +1,4 @@
-require 'spec_helper'
+  require File.dirname(__FILE__) + '/../../spec_helper'
 
 module Spec
   module Example
@@ -732,27 +732,6 @@ module Spec
           end
         end
 
-        describe "#let" do
-          let(:counter) do
-            Class.new do
-              def initialize
-                @count = 0
-              end
-              def count
-                @count += 1
-              end
-            end.new
-          end
-
-          it "generates an instance method" do
-            counter.count.should == 1
-          end
-          
-          it "caches the value" do
-            counter.count.should == 1
-            counter.count.should == 2
-          end
-        end
       end
     end
   end

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../../spec_helper.rb'
 
 Spec::Matchers.define :have_public_instance_method do |method|
   match do |klass|

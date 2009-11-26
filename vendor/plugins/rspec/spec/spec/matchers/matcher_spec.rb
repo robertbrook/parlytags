@@ -1,10 +1,8 @@
-require 'spec_helper'
-
-class UnexpectedError < StandardError; end
+require File.dirname(__FILE__) + '/../../spec_helper'
 
 module Spec
   module Matchers
-    describe Matcher do
+    describe Spec::Matchers::Matcher do
       context "without overrides" do
         before(:each) do
           @matcher = Spec::Matchers::Matcher.new(:be_a_multiple_of, 3) do |multiple|
@@ -13,7 +11,7 @@ module Spec
             end
           end
         end
-
+        
         it "provides a default description" do
           @matcher.description.should == "be a multiple of 3"
         end
@@ -28,32 +26,32 @@ module Spec
           @matcher.failure_message_for_should_not.should == "expected 9 not to be a multiple of 3"
         end
       end
-
+      
       it "is not diffable by default" do
         matcher = Spec::Matchers::Matcher.new(:name) {}
         matcher.should_not be_diffable
       end
-
+      
       it "is diffable when told to be" do
         matcher = Spec::Matchers::Matcher.new(:name) { diffable }
         matcher.should be_diffable
       end
-
+      
       it "provides expected" do
         matcher = Spec::Matchers::Matcher.new(:name, 'expected string') {}
         matcher.expected.should == ['expected string']
       end
-
+      
       it "provides actual" do
         matcher = Spec::Matchers::Matcher.new(:name, 'expected string') do
           match {|actual|}
         end
-
+        
         matcher.matches?('actual string')
-
+        
         matcher.actual.should == 'actual string'
       end
-
+      
       context "with overrides" do
         before(:each) do
           @matcher = Spec::Matchers::Matcher.new(:be_boolean, true) do |boolean|
@@ -88,16 +86,16 @@ module Spec
           @matcher.matches?(false)
           @matcher.failure_message_for_should.should == "expected false to be the boolean true"
         end
-
+        
         it "overrides the failure message for #should_not" do
           @matcher.matches?(true)
           @matcher.failure_message_for_should_not.should == "expected true not to be the boolean true"
         end
       end
-
+      
       context "#new" do
         it "passes matches? arg to match block" do
-          matcher = Spec::Matchers::Matcher.new(:ignore) do
+          matcher = Spec::Matchers::Matcher.new(:ignore) do 
             match do |actual|
               actual == 5
             end
@@ -117,22 +115,22 @@ module Spec
 
       context "with no args" do
         before(:each) do
-          @matcher = Spec::Matchers::Matcher.new(:matcher_name) do
+          @matcher = Spec::Matchers::Matcher.new(:matcher_name) do 
             match do |actual|
               actual == 5
             end
-          end
+          end 
         end
-
+        
         it "matches" do
           @matcher.matches?(5).should be_true
         end
-
+        
         it "describes" do
           @matcher.description.should == "matcher name"
         end
       end
-
+      
       context "with 1 arg" do
         before(:each) do
           @matcher = Spec::Matchers::Matcher.new(:matcher_name, 1) do |expected|
@@ -141,16 +139,16 @@ module Spec
             end
           end
         end
-
+        
         it "matches" do
           @matcher.matches?(5).should be_true
         end
-
+        
         it "describes" do
           @matcher.description.should == "matcher name 1"
         end
       end
-
+      
       context "with multiple args" do
         before(:each) do
           @matcher = Spec::Matchers::Matcher.new(:matcher_name, 1, 2, 3, 4) do |a,b,c,d|
@@ -159,16 +157,16 @@ module Spec
             end
           end
         end
-
+        
         it "matches" do
           @matcher.matches?(10).should be_true
         end
-
+        
         it "describes" do
           @matcher.description.should == "matcher name 1, 2, 3, and 4"
         end
       end
-
+      
       it "supports helper methods" do
         matcher = Spec::Matchers::Matcher.new(:be_similar_to, [1,2,3]) do |sample|
           match do |actual|
@@ -179,95 +177,25 @@ module Spec
             a.sort == b.sort
           end
         end
-
+        
         matcher.matches?([2,3,1]).should be_true
       end
-
+      
       it "supports fluent interface" do
         matcher = Spec::Matchers::Matcher.new(:first_word) do
           def second_word
             self
           end
         end
-
+        
         matcher.second_word.should == matcher
       end
-
+      
       it "treats method missing normally for undeclared methods" do
         matcher = Spec::Matchers::Matcher.new(:ignore) { }
         expect { matcher.non_existent_method }.to raise_error(NoMethodError)
       end
 
-      it "has access to other matchers" do
-        matcher = Spec::Matchers::Matcher.new(:ignore, 3) do |expected|
-          match do |actual|
-            extend Spec::Matchers
-            actual.should eql(5 + expected)
-          end
-        end
-
-        matcher.matches?(8).should be_true
-      end
-
-      it "lets you override the actual() in messages" do
-        matcher = Spec::Matchers::Matcher.new(:be_foo) do
-          match do |actual|
-            @submitted = actual
-            false
-          end
-
-          def actual
-            "replaced"
-          end
-        end
-
-        matcher.matches?("foo")
-        matcher.failure_message_for_should.should =~ /replaced/
-      end
-
-      describe "#match_unless_raises" do
-        context "with a passing assertion" do
-          let(:mod) do
-            Module.new do
-              def assert_equal(a,b)
-                a == b ? nil : (raise UnexpectedError.new("#{a} does not equal #{b}"))
-              end
-            end
-          end
-          let(:matcher) do
-            m = mod
-            Spec::Matchers::Matcher.new :equal, 4 do |expected|
-              extend m
-              match_unless_raises UnexpectedError do
-                assert_equal expected, actual
-              end
-            end
-          end
-          it "passes as you would expect" do
-            matcher.matches?(4).should be_true
-          end
-          it "fails as you would expect" do
-            matcher.matches?(5).should be_false
-          end
-        end
-
-        context "with an unexpected error" do
-          let(:matcher) do
-            Spec::Matchers::Matcher.new :foo, :bar do |expected|
-              match_unless_raises SyntaxError do |actual|
-                raise "unexpected exception"
-              end
-            end
-          end
-
-          it "raises the error" do
-            expect do
-              matcher.matches?(:bar)
-            end.to raise_error("unexpected exception")
-          end
-        end
-
-      end
     end
   end
 end

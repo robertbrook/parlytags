@@ -1,4 +1,5 @@
-require 'examples/passing/stack'
+require File.dirname(__FILE__) + '/spec_helper'
+require File.dirname(__FILE__) + '/stack'
 
 class StackExamples < Spec::ExampleGroup
   describe(Stack)

@@ -10,7 +10,6 @@ Upgrade.rdoc
 bin/autospec
 bin/spec
 cucumber.yml
-email.txt
 examples/failing/README.txt
 examples/failing/diffing_spec.rb
 examples/failing/failing_implicit_docstrings_example.rb
@@ -24,6 +23,7 @@ examples/failing/partial_mock_example.rb
 examples/failing/pending_example.rb
 examples/failing/predicate_example.rb
 examples/failing/raising_example.rb
+examples/failing/spec_helper.rb
 examples/failing/syntax_error_example.rb
 examples/failing/team_spec.rb
 examples/failing/timeout_behaviour.rb
@@ -50,6 +50,7 @@ examples/passing/predicate_example.rb
 examples/passing/shared_example_group_example.rb
 examples/passing/shared_stack_examples.rb
 examples/passing/simple_matcher_example.rb
+examples/passing/spec_helper.rb
 examples/passing/stack.rb
 examples/passing/stack_spec.rb
 examples/passing/stack_spec_with_nested_example_groups.rb
@@ -59,43 +60,33 @@ examples/ruby1.9.compatibility/access_to_constants_spec.rb
 features/before_and_after_blocks/before_and_after_blocks.feature
 features/command_line/line_number_option.feature
 features/command_line/line_number_option_with_example_with_no_name.feature
-features/example_groups/define_example_attribute.feature
 features/example_groups/example_group_with_should_methods.feature
 features/example_groups/implicit_docstrings.feature
 features/example_groups/nested_groups.feature
-features/expectations/customized_message.feature
 features/expectations/expect_change.feature
 features/expectations/expect_error.feature
 features/extensions/custom_example_group.feature
 features/formatters/custom_formatter.feature
+features/heckle/heckle.feature
 features/interop/examples_and_tests_together.feature
 features/interop/rspec_output.feature
 features/interop/test_but_not_test_unit.feature
 features/interop/test_case_with_should_methods.feature
-features/load_paths/add_lib_to_load_path.feature
-features/load_paths/add_spec_to_load_path.feature
 features/matchers/define_diffable_matcher.feature
 features/matchers/define_matcher.feature
 features/matchers/define_matcher_outside_rspec.feature
-features/matchers/define_matcher_with_fluent_interface.feature
-features/matchers/define_wrapped_matcher.feature
-features/matchers/match_unless_raises.feature
-features/matchers/match_unless_raises_unexpected_error.feature
 features/mock_framework_integration/use_flexmock.feature
 features/mock_framework_integration/use_mocha.feature
 features/mock_framework_integration/use_rr.feature
-features/mocks/block_local_expectations.feature
 features/mocks/mix_stubs_and_mocks.feature
 features/mocks/stub_implementation.feature
 features/pending/pending_examples.feature
 features/runner/specify_line_number.feature
-features/spec_helper/spec_helper.feature
 features/step_definitions/running_rspec_steps.rb
 features/subject/explicit_subject.feature
 features/subject/implicit_subject.feature
 features/support/env.rb
 features/support/matchers/smart_match.rb
-geminstaller.yml
 init.rb
 lib/autotest/discover.rb
 lib/autotest/rspec.rb
@@ -131,7 +122,6 @@ lib/spec/expectations/extensions.rb
 lib/spec/expectations/extensions/kernel.rb
 lib/spec/expectations/fail_with.rb
 lib/spec/expectations/handler.rb
-lib/spec/extensions/instance_exec.rb
 lib/spec/interop/test.rb
 lib/spec/interop/test/unit/autorunner.rb
 lib/spec/interop/test/unit/testcase.rb
@@ -150,6 +140,7 @@ lib/spec/matchers/eql.rb
 lib/spec/matchers/equal.rb
 lib/spec/matchers/errors.rb
 lib/spec/matchers/exist.rb
+lib/spec/matchers/extensions/instance_exec.rb
 lib/spec/matchers/generated_descriptions.rb
 lib/spec/matchers/has.rb
 lib/spec/matchers/have.rb
@@ -171,7 +162,6 @@ lib/spec/mocks/argument_expectation.rb
 lib/spec/mocks/argument_matchers.rb
 lib/spec/mocks/error_generator.rb
 lib/spec/mocks/errors.rb
-lib/spec/mocks/example_methods.rb
 lib/spec/mocks/extensions.rb
 lib/spec/mocks/extensions/object.rb
 lib/spec/mocks/framework.rb
@@ -181,6 +171,7 @@ lib/spec/mocks/mock.rb
 lib/spec/mocks/order_group.rb
 lib/spec/mocks/proxy.rb
 lib/spec/mocks/space.rb
+lib/spec/mocks/spec_methods.rb
 lib/spec/rake/spectask.rb
 lib/spec/rake/verify_rcov.rb
 lib/spec/ruby.rb
@@ -213,7 +204,6 @@ lib/spec/runner/line_number_query.rb
 lib/spec/runner/option_parser.rb
 lib/spec/runner/options.rb
 lib/spec/runner/reporter.rb
-lib/spec/stubs/cucumber.rb
 lib/spec/test/unit.rb
 lib/spec/version.rb
 resources/helpers/cmdline.rb
@@ -227,6 +217,7 @@ spec/autotest/autotest_matchers.rb
 spec/autotest/discover_spec.rb
 spec/autotest/failed_results_re_spec.rb
 spec/autotest/rspec_spec.rb
+spec/rspec_suite.rb
 spec/ruby_forker.rb
 spec/spec.opts
 spec/spec/dsl/main_spec.rb
@@ -246,7 +237,7 @@ spec/spec/example/shared_example_group_spec.rb
 spec/spec/example/subclassing_example_group_spec.rb
 spec/spec/example/subject_spec.rb
 spec/spec/expectations/differs/default_spec.rb
-spec/spec/expectations/extensions/kernel_spec.rb
+spec/spec/expectations/extensions/object_spec.rb
 spec/spec/expectations/fail_with_spec.rb
 spec/spec/expectations/handler_spec.rb
 spec/spec/expectations/wrap_expectation_spec.rb
@@ -257,7 +248,6 @@ spec/spec/interop/test/unit/resources/spec_with_options_hash.rb
 spec/spec/interop/test/unit/resources/test_case_that_fails.rb
 spec/spec/interop/test/unit/resources/test_case_that_passes.rb
 spec/spec/interop/test/unit/resources/test_case_with_errors.rb
-spec/spec/interop/test/unit/resources/test_case_with_various_names.rb
 spec/spec/interop/test/unit/resources/testsuite_adapter_spec_with_test_unit.rb
 spec/spec/interop/test/unit/spec_spec.rb
 spec/spec/interop/test/unit/test_unit_spec_helper.rb
@@ -288,10 +278,8 @@ spec/spec/matchers/respond_to_spec.rb
 spec/spec/matchers/satisfy_spec.rb
 spec/spec/matchers/simple_matcher_spec.rb
 spec/spec/matchers/throw_symbol_spec.rb
-spec/spec/mocks/and_yield_spec.rb
 spec/spec/mocks/any_number_of_times_spec.rb
 spec/spec/mocks/argument_expectation_spec.rb
-spec/spec/mocks/argument_matchers_spec.rb
 spec/spec/mocks/at_least_spec.rb
 spec/spec/mocks/at_most_spec.rb
 spec/spec/mocks/bug_report_10260_spec.rb
@@ -305,7 +293,6 @@ spec/spec/mocks/bug_report_7805_spec.rb
 spec/spec/mocks/bug_report_8165_spec.rb
 spec/spec/mocks/bug_report_8302_spec.rb
 spec/spec/mocks/bug_report_830_spec.rb
-spec/spec/mocks/double_spec.rb
 spec/spec/mocks/failing_argument_matchers_spec.rb
 spec/spec/mocks/hash_including_matcher_spec.rb
 spec/spec/mocks/hash_not_including_matcher_spec.rb
@@ -327,7 +314,6 @@ spec/spec/mocks/stub_implementation_spec.rb
 spec/spec/mocks/stub_spec.rb
 spec/spec/mocks/stubbed_message_expectations_spec.rb
 spec/spec/mocks/twice_counts_spec.rb
-spec/spec/mocks/unstub_spec.rb
 spec/spec/package/bin_spec_spec.rb
 spec/spec/rake/spectask_spec.rb
 spec/spec/runner/class_and_argument_parser_spec.rb
@@ -342,6 +328,9 @@ spec/spec/runner/formatter/base_formatter_spec.rb
 spec/spec/runner/formatter/base_text_formatter_spec.rb
 spec/spec/runner/formatter/failing_example_groups_formatter_spec.rb
 spec/spec/runner/formatter/failing_examples_formatter_spec.rb
+spec/spec/runner/formatter/html_formatted-1.8.4.html
+spec/spec/runner/formatter/html_formatted-1.8.5-jruby.html
+spec/spec/runner/formatter/html_formatted-1.8.5.html
 spec/spec/runner/formatter/html_formatted-1.8.6-jruby.html
 spec/spec/runner/formatter/html_formatted-1.8.6.html
 spec/spec/runner/formatter/html_formatted-1.8.7.html
@@ -352,7 +341,7 @@ spec/spec/runner/formatter/profile_formatter_spec.rb
 spec/spec/runner/formatter/progress_bar_formatter_spec.rb
 spec/spec/runner/formatter/snippet_extractor_spec.rb
 spec/spec/runner/formatter/specdoc_formatter_spec.rb
-spec/spec/runner/formatter/text_mate_formatted-1.8.6-jruby.html
+spec/spec/runner/formatter/text_mate_formatted-1.8.4.html
 spec/spec/runner/formatter/text_mate_formatted-1.8.6.html
 spec/spec/runner/formatter/text_mate_formatted-1.8.7.html
 spec/spec/runner/formatter/text_mate_formatted-1.9.1.html
@@ -378,6 +367,6 @@ spec/spec/runner/spec.opts
 spec/spec/runner/spec_drb.opts
 spec/spec/runner/spec_spaced.opts
 spec/spec/runner_spec.rb
+spec/spec/spec_classes.rb
 spec/spec_helper.rb
 spec/support/macros.rb
-spec/support/spec_classes.rb

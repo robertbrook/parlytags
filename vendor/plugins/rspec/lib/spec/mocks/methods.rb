@@ -19,37 +19,11 @@ module Spec
       
       alias_method :stub, :stub!
 
-      def unstub!(message)
-        __mock_proxy.remove_stub(message)
-      end
-
-      alias_method :unstub, :unstub!
-
-      # :call-seq:
-      #   object.stub_chain(:first, :second, :third).and_return(:this)
-      #
-      # Supports stubbing a chain of methods. Each argument represents
-      # a method name to stub, and each one returns a proxy object that
-      # can accept more stubs, until the last, which returns whatever
-      # is passed to +and_return_.
-      #
-      # == Examples
-      #   
-      #   # with this in an example ...
-      #   article = double('article')
-      #   Article.stub_chain(:authored_by, :published, :recent).and_return([article])
-      #   # then this will return an Array with the article double in it:
-      #   Article.authored_by(params[:author_id]).published.recent
       def stub_chain(*methods)
         if methods.length > 1
-          if matching_stub = __mock_proxy.find_matching_method_stub(methods[0])
-            methods.shift
-            matching_stub.invoke_return_block.stub_chain(*methods)
-          else
-            next_in_chain = Object.new
-            stub!(methods.shift) {next_in_chain}
-            next_in_chain.stub_chain(*methods)
-          end
+          next_in_chain = Object.new
+          stub!(methods.shift) {next_in_chain}
+          next_in_chain.stub_chain(*methods)
         else
           stub!(methods.shift)
         end
