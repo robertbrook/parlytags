@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091120135836) do
+ActiveRecord::Schema.define(:version => 20091126151042) do
 
   create_table "edms", :force => true do |t|
     t.integer  "motion_xml_id"
@@ -66,5 +66,12 @@ ActiveRecord::Schema.define(:version => 20091120135836) do
 
   add_index "slugs", ["name", "sluggable_type", "scope", "sequence"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
+  create_table "tests", :force => true do |t|
+    t.string   "name"
+    t.datetime "birthday"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
