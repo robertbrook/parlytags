@@ -17,22 +17,16 @@ class TextParser
       term = ""
       unless already_used(words_used, i)
         word = words[i]
-        if word.capitalize == word
-        
-          #don't add the 'word' if it's a number or a single character
-          if word.to_i == 0 && word.length > 1
-            term = word
-          end
-        
-          #check the following words...
-          unless is_punctuation(word[-1,1])
+        if valid_term?(word)
+          term = word
+                
+          #check the words that follow...
+          unless trailing_punctuation?(word)
             next_offset = i+1
             next_word = words[next_offset]
-            while (next_word == next_word.capitalize) || (is_joining_word(next_word) && words[next_offset+1] == words[next_offset+1].capitalize)
-              unless is_punctuation(term[-1,1])
-                term = "#{term} #{next_word}"
-                words_used << next_offset
-              end
+            while within_term_phrase?(words, next_offset)
+              term = "#{term} #{next_word}"
+              words_used << next_offset
               next_offset += 1
               next_word = words[next_offset]
             end
@@ -68,16 +62,40 @@ class TextParser
       input
     end
     
-    def is_punctuation input
-      ",.,;!?".include?(input)
+    def trailing_punctuation? word
+      last_char = word[-1,1]
+      ",.,;!?".include?(last_char)
     end
     
     def already_used used, number
       used.include?(number)
     end
     
-    def is_joining_word word
+    def joining_word? word
       joining_words = ["of", "the"]
       joining_words.include?(word)
+    end
+    
+    def valid_term? word
+      return false if word.nil?
+      return false unless word.to_i == 0
+      return false unless word.length > 1
+      word == word.capitalize
+    end
+    
+    def within_term_phrase? words, current_offset
+      word = words[current_offset]
+      next_word = words[current_offset+1]
+      if current_offset > 0
+        previous_word = words[current_offset-1]
+      else
+        previous_word = ""
+      end
+      return false if trailing_punctuation?(previous_word)
+      return true if valid_term?(word)
+      if joining_word?(word)
+        return true if valid_term?(next_word)
+      end
+      false
     end
 end
