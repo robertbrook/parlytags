@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091126151042) do
+ActiveRecord::Schema.define(:version => 20091204134215) do
 
   create_table "edms", :force => true do |t|
     t.integer  "motion_xml_id"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(:version => 20091126151042) do
     t.integer  "session_id"
     t.integer  "parent_id"
     t.integer  "amendment_number"
+  end
+
+  create_table "known_places", :force => true do |t|
+    t.string  "name"
+    t.string  "geonameId"
+    t.string  "yahooId"
+    t.integer "lat",       :limit => 10, :precision => 10, :scale => 0
+    t.integer "long",      :limit => 10, :precision => 10, :scale => 0
   end
 
   create_table "members", :force => true do |t|
@@ -48,11 +56,11 @@ ActiveRecord::Schema.define(:version => 20091126151042) do
   end
 
   create_table "signatures", :force => true do |t|
-    t.integer  "member_id"
-    t.datetime "date"
-    t.string   "type"
-    t.integer  "edm_id"
-    t.integer  "session_id"
+    t.integer "member_id"
+    t.string  "type"
+    t.integer "edm_id"
+    t.integer "session_id"
+    t.date    "date"
   end
 
   create_table "slugs", :force => true do |t|
@@ -66,12 +74,5 @@ ActiveRecord::Schema.define(:version => 20091126151042) do
 
   add_index "slugs", ["name", "sluggable_type", "scope", "sequence"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
-
-  create_table "tests", :force => true do |t|
-    t.string   "name"
-    t.datetime "birthday"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end
