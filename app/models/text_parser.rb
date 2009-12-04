@@ -15,23 +15,26 @@ class TextParser
         
     for i in 0..words.length-1
       term = ""
-      unless words_used.include?(i)
-        if words[i].capitalize == words[i]
+      unless already_used(words_used, i)
+        word = words[i]
+        if word.capitalize == word
         
           #don't add the 'word' if it's a number or a single character
-          if words[i].to_i == 0 && words[i].length > 1
-            term = words[i]
+          if word.to_i == 0 && word.length > 1
+            term = word
           end
         
-          #check the next word...
-          unless is_punctuation(words[i][-1,1])
+          #check the following words...
+          unless is_punctuation(word[-1,1])
             next_offset = i+1
-            while words[next_offset] == words[next_offset].capitalize
+            next_word = words[next_offset]
+            while (next_word == next_word.capitalize) || (is_joining_word(next_word) && words[next_offset+1] == words[next_offset+1].capitalize)
               unless is_punctuation(term[-1,1])
-                term = "#{term} #{words[next_offset]}"
+                term = "#{term} #{next_word}"
                 words_used << next_offset
               end
               next_offset += 1
+              next_word = words[next_offset]
             end
           end
         
@@ -67,5 +70,14 @@ class TextParser
     
     def is_punctuation input
       ",.,;!?".include?(input)
+    end
+    
+    def already_used used, number
+      used.include?(number)
+    end
+    
+    def is_joining_word word
+      joining_words = ["of", "the"]
+      joining_words.include?(word)
     end
 end

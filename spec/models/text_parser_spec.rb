@@ -32,7 +32,7 @@ describe TextParser do
     end
     
     it 'should create an array of capitalised words from the text' do
-      @parser.search_terms.should == ["That", "House", "Union", "Communication Workers", "Cleveland", "Darlington", "Durham", "Consigna"]
+      @parser.search_terms.should == ["That", "House", "Union of Communication Workers", "Cleveland", "Darlington", "Durham", "Consigna"]
     end
   end
 end
