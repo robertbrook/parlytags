@@ -1,14 +1,19 @@
 .edm
   %h2= link_to edm.title, edm_path(edm.session_name, edm.number)
   - if edm.has_proposer?
-    %p.date= edm.proposers.first.date.strftime("%d/%m/%Y")
-    .sponsor
+    %span.date
+      = edm.proposers.first.date.strftime("%A, ") 
+      = Integer(edm.proposers.first.date.strftime("%d")).ordinalize 
+      = edm.proposers.first.date.strftime("%B, %Y.")
+    %span.sponsor
       =link_to edm.proposers.first.member.display_name, member_path(edm.proposers.first.member)
       - if edm.signatories_and_seconders_count > 0
-        - additional_text = "and #{pluralize(edm.signatories_and_seconders_count, 'other')}"
+        - additional_text = "and #{pluralize(edm.signatories_and_seconders_count, 'other')}."
         - if edm.seconders_count > 0
           - additional_text << ", #{edm.seconders_count} of whom seconded the motion"
         =additional_text
+  - else
+    %em.warning= "This EDM has no recorded proposer"
   %blockquote
     %span.number= edm.number
     = edm.text
