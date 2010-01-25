@@ -25,6 +25,12 @@ describe TextParser do
       parser.words.should be_an(Array)
     end
     
+    it 'should create an empty array of words from the text if no terms exists' do
+      test_text = "something about nothing in particular. nothing to see here!"
+      parser = TextParser.new(test_text)
+      parser.search_terms.should == []
+    end 
+    
     it 'should concatenate adjacent capital words together' do
       test_text = "Something about Price Waterhouse Cooper. Or something!"
       parser = TextParser.new(test_text)
@@ -34,5 +40,8 @@ describe TextParser do
     it 'should create an array of capitalised words from the text' do
       @parser.search_terms.should == ["That", "House", "Union of Communication Workers", "Cleveland", "Darlington", "Durham", "Consigna"]
     end
+    
+    it 'should have a spec for previous_word in within_term_phrase'
+    
   end
 end
