@@ -1,24 +1,12 @@
 <!DOCTYPE html>
-%html{:lang => "en-GB"}
+%html
   %head
     %title ParlyTags
-    <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
     = stylesheet_link_tag "screen"
-  %body#tags-parliament-uk
-    #doc.yui-t7
-      #hd{:role=>"banner"}
-        %form#search{:role=>"search"} 
-          %input{:type=>"text"}
-          %input{:type=>"submit", :value=>"Search"} 
-        %h1= link_to_unless_current "ParlyTags", root_path
-      #bd{:role=>"main"}
-        #div.yui-g= yield
-      #ft{:role=>"contentinfo"}
-        %p
-          <a href="http://github.com/robertbrook/parlytags">Source code</a> ~ 
-          <a href="mailto:mail@robertbrook.com">Contact email</a> ~
-          <a href="http://www.parliament.uk/site_information/parliamentary_copyright.cfm">Parliamentary Copyright</a>
-
-
-
+  %body
+    %form#search
+      %input{:type=>"text"}
+      %input{:type=>"submit", :value=>"Search"} 
+    %h1= link_to_unless_current "PARLYTAGS", root_path
+    = yield      
   

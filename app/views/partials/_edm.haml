@@ -9,6 +9,8 @@
         - if edm.seconders_count > 0
           - additional_text << ", #{edm.seconders_count} of whom seconded the motion"
         =additional_text
+  - else
+    %em.warning= "This EDM has no recorded proposer"
   %blockquote
     %span.number= edm.number
     = edm.text
