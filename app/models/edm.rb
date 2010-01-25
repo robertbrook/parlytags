@@ -9,6 +9,7 @@ class Edm < ActiveRecord::Base
   delegate :name, :to => :session, :prefix => :session
   
   acts_as_tree :order => "amendment_number"
+  is_taggable :tags
   
   class << self
     def amendment_format
