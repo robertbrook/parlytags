@@ -28,7 +28,7 @@ describe TextParser do
     it 'should create an empty array of words from the text if no terms exists' do
       test_text = "something about nothing in particular. nothing to see here!"
       parser = TextParser.new(test_text)
-      parser.search_terms.should == []
+      parser.terms.should == []
     end 
     
     it 'should concatenate adjacent capital words together' do
