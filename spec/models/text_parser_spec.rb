@@ -87,7 +87,9 @@ describe TextParser do
       parser.terms.should == ["St Thomas's Hospital"]
     end
     
-    it 'should have a spec for previous_word in within_term_phrase'
-    
+    it 'should not return duplicate phrases' do
+      parser = TextParser.new("calls upon the Government to; Government")
+      parser.terms.should == ["Government"]
+    end    
   end
 end
