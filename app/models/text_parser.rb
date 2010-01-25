@@ -6,18 +6,25 @@ class TextParser
   end
 
   def words
-    text.split(" ")
+    if text.blank?
+      return nil
+    else
+      return text.split(" ")
+    end
   end
   
-  def search_terms
-    terms = []
+  def terms
+    if words.nil?
+      return []
+    end
+    found_terms = []
     words_used = []
         
     for i in 0..words.length-1
       term = ""
       unless already_used(words_used, i)
         word = words[i]
-        if valid_term?(word)
+        if valid_word?(word)
           term = word
                 
           #check the words that follow...
@@ -33,23 +40,23 @@ class TextParser
           end
         
           #make sure term has been set before trying to add it!
-          if term != ""
-            terms << term unless terms.include?(term)
+          if valid_term?(term)
+            found_terms << term unless found_terms.include?(term)
           end
         end
       end
     end
     
-    all_terms = terms.join("^")
+    all_terms = found_terms.join("^")
     all_terms = remove_punctuation(all_terms)
     all_terms.gsub!(" ^", "^")
     
     if all_terms
-      terms = all_terms.split("^")
+      found_terms = all_terms.split("^")
     else
-      terms = []
+      found_terms = []
     end
-    terms
+    found_terms
   end
   
   private
@@ -59,12 +66,22 @@ class TextParser
       input.gsub!('.', ' ')
       input.gsub!('!', ' ')
       input.gsub!('?', ' ')
-      input
+      input.gsub!(')', ' ')
+      input.gsub!('(', ' ')
+      input.gsub!('"', '')
+      input.gsub!("`", '')
+      input.gsub!('  ', ' ')
+      input.gsub!('  ', ' ')
+      input.gsub!(/^&\W*/, '')
+      input.gsub!(/^\'/, '')
+      input.gsub!(/\'$/, '')
+      input.gsub!(/\'s$/, '')
+      input.strip
     end
     
     def trailing_punctuation? word
       last_char = word[-1,1]
-      ",.,;!?".include?(last_char)
+      ".,;!?".include?(last_char) unless word == "St."
     end
     
     def already_used used, number
@@ -76,11 +93,18 @@ class TextParser
       joining_words.include?(word)
     end
     
-    def valid_term? word
+    def valid_word? word
       return false if word.nil?
       return false unless word.to_i == 0
       return false unless word.length > 1
-      word == word.capitalize
+      remove_punctuation(word) == remove_punctuation(word).capitalize
+    end
+    
+    def valid_term? term
+      return false if term.nil?
+      return false unless term.to_i == 0
+      return false unless remove_punctuation(term).length > 2
+      true
     end
     
     def within_term_phrase? words, current_offset
@@ -92,9 +116,9 @@ class TextParser
         previous_word = ""
       end
       return false if trailing_punctuation?(previous_word)
-      return true if valid_term?(word)
+      return true if valid_word?(word)
       if joining_word?(word)
-        return true if valid_term?(next_word)
+        return true if valid_word?(next_word)
       end
       false
     end

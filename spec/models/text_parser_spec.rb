@@ -28,11 +28,57 @@ describe TextParser do
     it 'should concatenate adjacent capital words together' do
       test_text = "Something about Price Waterhouse Cooper. Or something!"
       parser = TextParser.new(test_text)
-      parser.search_terms.should == ["Something", "Price Waterhouse Cooper", "Or"]
+      parser.terms.should == ["Something", "Price Waterhouse Cooper"]
     end
     
     it 'should create an array of capitalised words from the text' do
-      @parser.search_terms.should == ["That", "House", "Union of Communication Workers", "Cleveland", "Darlington", "Durham", "Consigna"]
+      @parser.terms.should == ["That", "House", "Union of Communication Workers", "Cleveland", "Darlington", "Durham", "Consigna"]
+    end
+  end
+  
+  describe 'when extracting a list of terms' do
+    it 'should exclude terms shorter than 3 characters' do
+      parser = TextParser.new("It should work As Expected")
+      parser.terms.should == ["As Expected"]
+    end
+    
+    it 'should exclude terms that will be shorter than 3 characters with puncutation removed' do
+      parser = TextParser.new("`a' hat")
+      parser.terms.should == []
+    end
+    
+    it 'should return an empty array when passed blank text' do
+      parser = TextParser.new("")
+      parser.terms.should == []
+    end
+    
+    it 'should not include lower case words wrapped with punctuation' do
+      parser = TextParser.new("'and the thing shouldn't break at this point")
+      parser.terms.should == []
+      parser = TextParser.new("(and neither should This Example)")
+      parser.terms.should == ["This Example"]
+    end
+    
+    it 'should not include terms that start with html escaped values' do
+      parser = TextParser.new('&pound700 for')
+      parser.terms.should == []
+      parser = TextParser.new('&pound;1,000,000')
+      parser.terms.should == []
+    end
+    
+    it 'should remove trailing single quotes' do
+      parser = TextParser.new("Government Management Network'")
+      parser.terms.should == ["Government Management Network"]
+    end
+    
+    it 'should remove apostrophe s from the end of the term string' do
+      parser = TextParser.new("Prime Minister's")
+      parser.terms.should == ["Prime Minister"]
+    end
+    
+    it 'should retain apostrophe s in the middle of a term string' do
+      parser = TextParser.new("St. Thomas's Hospital")
+      parser.terms.should == ["St Thomas's Hospital"]
     end
   end
 end

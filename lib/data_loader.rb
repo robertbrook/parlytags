@@ -31,13 +31,20 @@ module ParlyTags::DataLoader
         
         edm_text = motion.xpath("text/text()").to_s
         edm_text.gsub!('&#xC3;&#xBA;', '&pound;')
-         
-        edm = Edm.create :motion_xml_id => motion.xpath("id/text()").to_s,
+        
+        # find the tags
+        term_extractor = TextParser.new(edm_text)
+        tag_list = term_extractor.terms.join(",")
+        
+        edm = Edm.new(:motion_xml_id => motion.xpath("id/text()").to_s,
                      :session_id => session.id,
                      :number => motion.xpath("number/text()").to_s,
                      :title => motion.xpath("title/text()").to_s,
                      :text => edm_text,
-                     :signature_count => motion.xpath("signature_count/text()").to_s
+                     :signature_count => motion.xpath("signature_count/text()").to_s,
+                     :tag_list => tag_list
+                     )
+        edm.save
         
         # store amendment edms in an array to deal with once we've finished loading        
         # (we can't do anything with them yet as the parent EDM may not exist at this point)  
