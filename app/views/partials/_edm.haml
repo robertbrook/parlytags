@@ -2,9 +2,7 @@
   %h2= link_to edm.title, edm_path(edm.session_name, edm.number)
   - if edm.has_proposer?
     %span.date
-      = edm.proposers.first.date.strftime("%A, ") 
-      = Integer(edm.proposers.first.date.strftime("%d")).ordinalize 
-      = edm.proposers.first.date.strftime("%B, %Y.")
+      = edm.proposers.first.date.to_s(:swanky)
     %span.sponsor
       =link_to edm.proposers.first.member.display_name, member_path(edm.proposers.first.member)
       - if edm.signatories_and_seconders_count > 0

@@ -1,0 +1,1 @@
+Time::DATE_FORMATS.merge!(:swanky => lambda { |time| time.strftime "%A, #{time.day.ordinalize} %B, %Y"})
