@@ -38,7 +38,7 @@ describe TextParser do
     end
     
     it 'should create an array of capitalised words from the text' do
-      @parser.terms.should == ["That", "House", "Union of Communication Workers", "Cleveland", "Darlington", "Durham", "Consigna"]
+      @parser.terms.should == ["Union of Communication Workers", "Cleveland", "Darlington", "Durham", "Consigna"]
     end
   end
   
@@ -62,7 +62,7 @@ describe TextParser do
       parser = TextParser.new("'and the thing shouldn't break at this point")
       parser.terms.should == []
       parser = TextParser.new("(and neither should This Example)")
-      parser.terms.should == ["This Example"]
+      parser.terms.should == ["Example"]
     end
     
     it 'should not include terms that start with html escaped values' do
@@ -88,8 +88,8 @@ describe TextParser do
     end
     
     it 'should not return duplicate phrases' do
-      parser = TextParser.new("calls upon the Government to; Government")
-      parser.terms.should == ["Government"]
-    end    
+      parser = TextParser.new("the United Kingdom, something something United Kingdom")
+      parser.terms.should == ["United Kingdom"]
+    end
   end
 end

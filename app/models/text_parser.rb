@@ -41,21 +41,13 @@ class TextParser
         
           #make sure term has been set before trying to add it!
           if valid_term?(term)
+            term = remove_punctuation(term)
             found_terms << term unless found_terms.include?(term)
           end
         end
       end
     end
     
-    all_terms = found_terms.join("^")
-    all_terms = remove_punctuation(all_terms)
-    all_terms.gsub!(" ^", "^")
-    
-    if all_terms
-      found_terms = all_terms.split("^")
-    else
-      found_terms = []
-    end
     found_terms
   end
   
@@ -97,6 +89,7 @@ class TextParser
       return false if word.nil?
       return false unless word.to_i == 0
       return false unless word.length > 1
+      return false if is_stop_word?(word)
       remove_punctuation(word) == remove_punctuation(word).capitalize
     end
     
@@ -104,7 +97,18 @@ class TextParser
       return false if term.nil?
       return false unless term.to_i == 0
       return false unless remove_punctuation(term).length > 2
+      return false if is_stop_phrase?(term)
       true
+    end
+    
+    def is_stop_word? word
+      stop_words = "|That|This|"
+      stop_words.include?("|#{word}|")
+    end
+    
+    def is_stop_phrase? term
+      stop_phrases = "|Government|Her Majesty's Government|Right|House|Member|Act|Right Honourable|"
+      stop_phrases.include?("|#{term}|")
     end
     
     def within_term_phrase? words, current_offset
