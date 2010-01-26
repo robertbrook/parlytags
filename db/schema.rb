@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100125134926) do
+ActiveRecord::Schema.define(:version => 20100126104854) do
 
   create_table "edms", :force => true do |t|
     t.integer  "motion_xml_id"
@@ -45,6 +45,28 @@ ActiveRecord::Schema.define(:version => 20100125134926) do
     t.string  "signature_type"
   end
 
+  create_table "places", :force => true do |t|
+    t.integer "geoname_id"
+    t.string  "name"
+    t.string  "ascii_name"
+    t.text    "alternate_names"
+    t.float   "lat"
+    t.float   "long"
+    t.string  "feature_class"
+    t.string  "feature_code"
+    t.string  "country_code"
+    t.string  "cc2"
+    t.string  "admin1_code"
+    t.string  "admin2_code"
+    t.string  "admin3_code"
+    t.string  "admin4_code"
+    t.integer "population"
+    t.integer "elevation"
+    t.integer "gtopo30"
+    t.string  "timezone"
+    t.date    "last_modified"
+  end
+
   create_table "session_signatures", :force => true do |t|
     t.integer "session_id"
     t.integer "signature_id"
@@ -56,11 +78,11 @@ ActiveRecord::Schema.define(:version => 20100125134926) do
   end
 
   create_table "signatures", :force => true do |t|
-    t.integer  "member_id"
-    t.datetime "date"
-    t.string   "type"
-    t.integer  "edm_id"
-    t.integer  "session_id"
+    t.integer "member_id"
+    t.string  "type"
+    t.integer "edm_id"
+    t.integer "session_id"
+    t.date    "date"
   end
 
   create_table "slugs", :force => true do |t|

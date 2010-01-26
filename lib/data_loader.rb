@@ -7,7 +7,39 @@ module ParlyTags::DataLoader
   
   SAMPLE_FILES = ["#{DATA_DIR}/1996-1997.xml", "#{DATA_DIR}/2000-2001.xml"]
   #SAMPLE_FILES = ["#{DATA_DIR}/test.xml"]
+  
+  GEO_FILE = "#{DATA_DIR}/GB.txt"
 
+  def load_places
+    Place.delete_all
+    
+    file = File.open(GEO_FILE)
+    file.each do |line|
+      fields = line.split("\t")
+      Place.create!(
+        :geoname_id => fields[0],
+        :name => fields[1],
+        :ascii_name => fields[2],
+        :alternate_names => fields[3],
+        :lat => fields[4],
+        :long => fields[5],
+        :feature_class => fields[6],
+        :feature_code => fields[7],
+        :country_code => fields[8],
+        :cc2 => fields[9],
+        :admin1_code => fields[10],
+        :admin2_code => fields[11],
+        :admin3_code => fields[12],
+        :admin4_code => fields[13],
+        :population => fields[14],
+        :elevation => fields[15],
+        :gtopo30 => fields[16],
+        :timezone => fields[17],
+        :last_modified => fields[18]
+      )
+    end
+  end
+  
   def load_edms
     Edm.delete_all
     Member.delete_all
