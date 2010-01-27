@@ -138,5 +138,10 @@ describe TextParser do
       parser = TextParser.new("Mr C.M.J. Matthews")
       parser.terms.should == ["Mr C M J Matthews"]
     end
+    
+    it 'should not allow "and the" as a joining phrase' do
+      parser = TextParser.new("immediate action to prevent Mr C.M.J. Matthews and the MAFF vet Mr Whyte from continuing")
+      parser.terms.should == ["Mr C M J Matthews", "MAFF", "Mr Whyte"]
+    end
   end
 end
