@@ -9,7 +9,7 @@ class TextParser
     if text.blank?
       return nil
     else
-      return text.split(" ")
+      return text.gsub("\n"," ").split(" ")
     end
   end
   
@@ -28,7 +28,7 @@ class TextParser
           term = word
                 
           #check the words that follow...
-          unless trailing_punctuation?(word)
+          unless trailing_punctuation?(word) && !(word =~ /^(?:[A-Z]\.)+$/)
             next_offset = i+1
             next_word = words[next_offset]
             while within_term_phrase?(words, next_offset)
@@ -40,9 +40,25 @@ class TextParser
           end
         
           #make sure term has been set before trying to add it!
-          if valid_term?(term)
+          if valid_term?(term.strip)
             term = remove_punctuation(term)
-            found_terms << term unless found_terms.include?(term)
+            term = remove_final_apostrophe(term)
+            subterms = term.split(" ")
+            if subterms.length == 3 && subterms[1] == "and"
+              found_terms << subterms[0]
+              found_terms << subterms[2]
+            else
+              if subterms.last =~ /^\d+$/
+                subterms.pop
+                if joining_word?(subterms.last)
+                  subterms.pop
+                end
+                term = subterms.join(" ")
+              end
+              if valid_term?(term.strip)
+                found_terms << term unless found_terms.include?(term)
+              end
+            end
           end
         end
       end
@@ -53,22 +69,29 @@ class TextParser
   
   private
     def remove_punctuation input
-      input.gsub!(',', ' ')
-      input.gsub!(';', ' ')
-      input.gsub!('.', ' ')
-      input.gsub!('!', ' ')
-      input.gsub!('?', ' ')
-      input.gsub!(')', ' ')
-      input.gsub!('(', ' ')
-      input.gsub!('"', '')
-      input.gsub!("`", '')
-      input.gsub!('  ', ' ')
-      input.gsub!('  ', ' ')
-      input.gsub!(/^&\W*/, '')
-      input.gsub!(/^\'/, '')
-      input.gsub!(/\'$/, '')
-      input.gsub!(/\'s$/, '')
-      input.strip
+      output = input.gsub(',', ' ') unless input.nil?
+      output = output.gsub(';', ' ') unless output.nil?
+      output = output.gsub('.', ' ') unless output.nil?
+      output = output.gsub('!', ' ') unless output.nil?
+      output = output.gsub('?', ' ') unless output.nil?
+      output = output.gsub(')', ' ') unless output.nil?
+      output = output.gsub('(', ' ') unless output.nil?
+      output = output.gsub('"', '') unless output.nil?
+      output = output.gsub("`", '') unless output.nil?
+      output = output.gsub('  ', ' ') unless output.nil?
+      output = output.gsub('  ', ' ') unless output.nil?
+      output = output.gsub(/^&\W*/, '') unless output.nil?
+      output = output.gsub(/^\'/, '') unless output.nil?
+      output = output.gsub(/\'$/, '') unless output.nil?
+      if output.nil?
+        return ""
+      else
+        return output.strip
+      end
+    end
+    
+    def remove_final_apostrophe term
+      term.gsub(/\'s$/, '')
     end
     
     def trailing_punctuation? word
@@ -81,16 +104,17 @@ class TextParser
     end
     
     def joining_word? word
-      joining_words = ["of", "the"]
+      joining_words = ["of", "the", "and", "for", "le", "de"]
       joining_words.include?(word)
     end
     
     def valid_word? word
       return false if word.nil?
-      return false unless word.to_i == 0
-      return false unless word.length > 1
-      return false if is_stop_word?(word)
-      remove_punctuation(word) == remove_punctuation(word).capitalize
+      return false if is_stop_word?(remove_punctuation(word))
+      return true if remove_punctuation(word) == remove_punctuation(word).capitalize || remove_punctuation(word) =~ /^[0-9+]$/
+      return true if remove_punctuation(word) == remove_punctuation(word).upcase
+      return true if remove_punctuation(word) =~ /[A-Z].*-.*/
+      return remove_punctuation(word) =~ /^[A-Z][a-z]*\'[A-Z][a-z]*$/
     end
     
     def valid_term? term
@@ -102,13 +126,17 @@ class TextParser
     end
     
     def is_stop_word? word
-      stop_words = "|That|This|"
-      stop_words.include?("|#{word}|")
+      stop_words = ["That", "This", "House"]
+      stop_words.include?(word)
     end
     
     def is_stop_phrase? term
-      stop_phrases = "|Government|Her Majesty's Government|Right|House|Member|Act|Right Honourable|"
-      stop_phrases.include?("|#{term}|")
+      stop_phrases = ["Government", "Her Majesty's Government", "Right", "Parliament", "Member", "Members",
+          "Act", "Right Honourable", "Humble Address", "Her Majesty", "Even", "Bill", "Closed", "Centre",
+          "The Status", "Agency", "Address", "State", "Members of the House", "Minister", "Ministers",
+          "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+          "November", "December", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "EDM", "Her Majesty's Ministers"]
+      stop_phrases.include?(term.strip)
     end
     
     def within_term_phrase? words, current_offset
@@ -119,10 +147,15 @@ class TextParser
       else
         previous_word = ""
       end
-      return false if trailing_punctuation?(previous_word)
+      return false if trailing_punctuation?(previous_word) unless previous_word =~ /^(?:[A-Z]\.)+$/
       return true if valid_word?(word)
       if joining_word?(word)
         return true if valid_word?(next_word)
+        if current_offset+2 < words.length
+          return true if joining_word?(next_word) && valid_word?(words[current_offset+2])
+          return true if next_word == "-" && valid_word?(words[current_offset+2])
+          return true if next_word =~ /[0-9*]/ && valid_word?(words[current_offset+2])
+        end
       end
       false
     end

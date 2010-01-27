@@ -85,11 +85,58 @@ describe TextParser do
     it 'should retain apostrophe s in the middle of a term string' do
       parser = TextParser.new("St. Thomas's Hospital")
       parser.terms.should == ["St Thomas's Hospital"]
+      parser = TextParser.new("Guy's and Lewisham Mental Health Trust")
+      parser.terms.should == ["Guy's and Lewisham Mental Health Trust"]
     end
     
     it 'should not return duplicate phrases' do
       parser = TextParser.new("the United Kingdom, something something United Kingdom")
       parser.terms.should == ["United Kingdom"]
+    end
+    
+    it 'should return hyphenated place names' do
+      parser = TextParser.new("the London Borough of Richmond-upon-Thames")
+      parser.terms.should == ["London Borough of Richmond-upon-Thames"]
+    end
+    
+    it 'should return terms containing an isolated hyphen' do
+      parser = TextParser.new("making One Point - Then Another and so on")
+      parser.terms.should == ["One Point - Then Another"]
+    end
+    
+    it 'should deal with company names such as Mercury One 2 One' do
+      parser = TextParser.new("Mercury One 2 One")
+      parser.terms.should == ["Mercury One 2 One"]
+    end
+    
+    it 'should not include Minister as a term' do
+      parser = TextParser.new("and calls on the Health and Safety Executive, the Minister and the railway watchdogs ")
+      parser.terms.should == ["Health and Safety Executive"]
+    end
+    
+    it 'should return names that include an apostrophe' do
+      parser = TextParser.new("Joyce D'Silva")
+      parser.terms.should == ["Joyce D'Silva"]
+    end
+    
+    it 'should exclude numbers from the end of terms' do
+      parser = TextParser.new("Conservative supporters, 64 per cent. of Lib Dem and 55 per cent")
+      parser.terms.should == ["Conservative", "Lib Dem"]
+    end
+    
+    it 'should exclude month and year from terms' do
+      parser = TextParser.new("this scheme was established in April 1996")
+      parser.terms.should == []
+    end
+    
+    it 'should include words in all caps' do
+      parser = TextParser.new("the OFSTED Report")
+      parser.terms.should == ["OFSTED Report"]
+    end
+    
+    it 'should handle initials correctly' do
+      parser = TextParser.new("Mr C.M.J. Matthews")
+      parser.terms.should == ["Mr C M J Matthews"]
     end
   end
 end
