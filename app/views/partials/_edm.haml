@@ -18,3 +18,5 @@
   %ul.tags
     - edm.tags.each do |tag|
       %li.tag= link_to tag.name, '/search?q=' + tag.name
+      -unless tag == edm.tags.last 
+        &middot;
