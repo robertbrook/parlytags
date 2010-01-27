@@ -78,11 +78,11 @@ ActiveRecord::Schema.define(:version => 20100126104854) do
   end
 
   create_table "signatures", :force => true do |t|
-    t.integer "member_id"
-    t.string  "type"
-    t.integer "edm_id"
-    t.integer "session_id"
-    t.date    "date"
+    t.integer  "member_id"
+    t.datetime "date"
+    t.string   "type"
+    t.integer  "edm_id"
+    t.integer  "session_id"
   end
 
   create_table "slugs", :force => true do |t|
