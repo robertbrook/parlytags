@@ -1,6 +1,33 @@
 require File.dirname(__FILE__) + '/../spec_helper.rb'
 
 describe Edm do
+
+  describe 'when asked to find by tag' do
+    before do
+      @edm1 = mock_model(Edm)
+      @edm2 = mock_model(Edm)
+      @tag1 = mock_model(Tag)
+      @tag2 = mock_model(Tag)
+      @taggings1 = mock_model(Tagging, :taggable_id => 4)
+      @taggings2 = mock_model(Tagging, :taggable_id => 1)
+      @taggings = [@taggings1, @taggings2]
+      @tag1.stub!(:taggings).and_return(@taggings1)
+      @tag2.stub!(:taggings).and_return(@taggings2)
+    end
+    
+    it 'should return a list of edms when given single tag' do
+      Tag.should_receive(:find_by_name_and_kind).with("some_tag", "tag").and_return(@tag1)
+      @taggings1.stub!(:find_all_by_taggable_type).with("Edm").and_return(@taggings)
+      Edm.should_receive(:find).with([4, 1]).and_return([@edm1, @edm2])
+      Edm.find_all_by_tag("some_tag").should == [@edm1, @edm2]
+    end
+    
+    it 'should return a list of edms when given an array of tags'
+  end
+  
+  describe 'when asked to generate geotags' do
+    it 'should behave as expected'
+  end
   
   describe 'when checking signature totals' do
     before do
