@@ -17,7 +17,7 @@ class Edm < ActiveRecord::Base
     end
     
     def find_all_by_tag tag_name, tag_kind="tag"
-      if tag_name.is_a?String
+      if tag_name.is_a?(String)
         tag = Tag.find_by_name_and_kind(tag_name, tag_kind)
         if tag
           tag_links = tag.taggings.find_all_by_taggable_type(self.name)
@@ -26,7 +26,7 @@ class Edm < ActiveRecord::Base
             return self.find(instance_ids)
           end
         end
-      elsif tag_name.is_a?Array
+      elsif tag_name.is_a?(Array)
         tag_list = %Q|'#{tag_name.join("','")}'|
         tags = Tag.find(:all, :conditions => "name in (#{tag_list}) AND kind='#{tag_kind}'")
         if tags
