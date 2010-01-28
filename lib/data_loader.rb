@@ -78,6 +78,9 @@ module ParlyTags::DataLoader
                      )
         edm.save
         
+        # make some geotags (warning: assumes places data already loaded)
+        edm.generate_geotags
+        
         # store amendment edms in an array to deal with once we've finished loading        
         # (we can't do anything with them yet as the parent EDM may not exist at this point)  
         if edm.is_amendment?

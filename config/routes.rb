@@ -45,6 +45,8 @@ ActionController::Routing::Routes.draw do |map|
   map.members '/members', :controller => "members", :action => 'index'
   map.edm ':session/edms/:edm', :controller => "edms", :action => 'show'
   map.edm_session '/:session/edms', :controller => "edms", :action => 'session'
+  
+  map.search '/search/:q', :controller => "search", :action => 'show'
 
   # See how all your routes lay out with "rake routes"
 
