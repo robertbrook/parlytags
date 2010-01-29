@@ -135,10 +135,11 @@ describe TextParser do
     end
     
     it 'should cope without an Oxford Comma' do
-      pending ("Ireland works, but Northern Ireland doesn't?") do
-        parser = TextParser.new("England, Wales and Northern Ireland")
-        parser.terms.should == ["England", "Wales", "Northern Ireland"]
-      end
+      parser = TextParser.new("England, Wales and Northern Ireland")
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Wales").and_return([mock_model(Place)])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Northern Ireland").and_return([mock_model(Place)])
+      
+      parser.terms.should == ["England", "Wales", "Northern Ireland", "Wales and Northern Ireland"]
     end
     
     it 'should handle initials correctly' do

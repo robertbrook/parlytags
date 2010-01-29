@@ -48,6 +48,13 @@ class TextParser
               found_terms << subterms[0]
               found_terms << subterms[2]
             else
+              if term.include?(" and ")
+                parts = term.split(" and ")
+                parts.each do |part|
+                  place = Place.find_all_by_ascii_name_or_alternate_names(part)
+                  found_terms << part unless place.blank?
+                end
+              end
               if subterms.last =~ /^\d+$/
                 subterms.pop
                 if joining_word?(subterms.last)
