@@ -35,7 +35,7 @@ class Edm < ActiveRecord::Base
             tag_links = tag.taggings.find_all_by_taggable_type(self.name)
             if tag_links
               tag_ids = tag_links.collect { |x| x.taggable_id }
-              instance_ids << tag_ids
+              instance_ids += tag_ids
             end
           end
           return self.find(instance_ids)

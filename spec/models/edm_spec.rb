@@ -19,14 +19,43 @@ describe Edm do
       Tag.should_receive(:find_by_name_and_kind).with("some_tag", "tag").and_return(@tag1)
       @taggings1.stub!(:find_all_by_taggable_type).with("Edm").and_return(@taggings)
       Edm.should_receive(:find).with([4, 1]).and_return([@edm1, @edm2])
+      
       Edm.find_all_by_tag("some_tag").should == [@edm1, @edm2]
     end
     
-    it 'should return a list of edms when given an array of tags'
+    it 'should return a list of edms when given an array of tags' do
+      Tag.should_receive(:find).with(:all, :conditions => "name in ('some_tag','some_other_tag') AND kind='tag'").and_return([@tag1, @tag2])
+      @taggings1.stub!(:find_all_by_taggable_type).with("Edm").and_return([@taggings1])
+      @taggings2.stub!(:find_all_by_taggable_type).with("Edm").and_return([@taggings2])
+      Edm.should_receive(:find).with([4, 1]).and_return([@edm1, @edm2])
+      
+      Edm.find_all_by_tag(["some_tag", "some_other_tag"]).should == [@edm1, @edm2]
+    end
   end
   
-  describe 'when asked to generate geotags' do
-    it 'should behave as expected'
+  describe 'when handling geotags' do
+    before do
+      @edm = Edm.new()
+      @place1 = mock_model(Place, :id => 1234, :ascii_name => "London")
+      @place2 = mock_model(Place, :id => 2314, :ascii_name => "Westminster")
+    end
+    
+    it 'should create geotags for each tag that corresponds to a place name when asked to generate geotags' do
+      Place.should_receive(:find_all_by_ascii_name).with("London").and_return([@place1])
+      Place.should_receive(:find_all_by_ascii_name).with("Westminster").and_return([@place2])
+      Place.should_receive(:find_all_by_ascii_name).with("foo").and_return([])
+      @edm.should_receive(:tag_list).and_return(["London", "Westminster", "foo"])
+      @edm.stub(:save!)
+      
+      @edm.generate_geotags.should == ["1234", "2314"]
+    end
+    
+    it 'should return an array of tagged place names when asked for place_names' do
+      @edm.should_receive(:geotag_list).and_return(["1234", "2314"])
+      Place.should_receive(:find).with(["1234", "2314"]).and_return([@place1, @place2])
+      
+      @edm.place_names.should == ["London", "Westminster"]
+    end
   end
   
   describe 'when checking signature totals' do
