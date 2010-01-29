@@ -47,7 +47,7 @@ class Edm < ActiveRecord::Base
   def generate_geotags
     geotags = ""
     tag_list.each do |tag|
-      places = Place.find_all_by_ascii_name(tag)
+      places = Place.find_all_by_ascii_name_or_alternate_names(tag)
       place_list = places.collect { |x| "#{x.id}" }
       unless place_list.blank?
         if geotags.blank?

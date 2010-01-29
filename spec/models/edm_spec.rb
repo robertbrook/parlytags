@@ -41,9 +41,9 @@ describe Edm do
     end
     
     it 'should create geotags for each tag that corresponds to a place name when asked to generate geotags' do
-      Place.should_receive(:find_all_by_ascii_name).with("London").and_return([@place1])
-      Place.should_receive(:find_all_by_ascii_name).with("Westminster").and_return([@place2])
-      Place.should_receive(:find_all_by_ascii_name).with("foo").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("London").and_return([@place1])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Westminster").and_return([@place2])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("foo").and_return([])
       @edm.should_receive(:tag_list).and_return(["London", "Westminster", "foo"])
       @edm.stub(:save!)
       
