@@ -147,17 +147,13 @@ describe TextParser do
     end
     
     it 'should handle text starting with "Mc"' do
-      pending ("Stops at J") do
-        parser = TextParser.new("Mr C.M.J. McMatthews")
-        parser.terms.should == ["Mr C M J McMatthews"]
-      end
+      parser = TextParser.new("Mr C.M.J. McMatthews")
+      parser.terms.should == ["Mr C M J McMatthews"]
     end
     
     it 'should handle text starting with "Mac"' do
-      pending ("Stops at J") do
-        parser = TextParser.new("Mr C.M.J. MacMatthews")
-        parser.terms.should == ["Mr C M J MacMatthews"]
-      end
+      parser = TextParser.new("Mr C.M.J. MacMatthews")
+      parser.terms.should == ["Mr C M J MacMatthews"]
     end
     
     it 'should not allow "and the" as a joining phrase' do

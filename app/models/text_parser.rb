@@ -109,7 +109,9 @@ class TextParser
     def valid_word? word
       return false if word.nil?
       return false if is_stop_word?(remove_punctuation(word))
-      return true if remove_punctuation(word) == remove_punctuation(word).capitalize || remove_punctuation(word) =~ /^[0-9+]$/
+      return true if remove_punctuation(word) =~ /^[0-9+]$/
+      return true if remove_punctuation(word) =~ /^M(?:a?)c[A-Z]+[a-z]*$/
+      return true if remove_punctuation(word) == remove_punctuation(word).capitalize
       return true if remove_punctuation(word) == remove_punctuation(word).upcase
       return true if remove_punctuation(word) =~ /[A-Z].*-.*/
       return remove_punctuation(word) =~ /^[A-Z][a-z]*\'[A-Z][a-z]*$/
