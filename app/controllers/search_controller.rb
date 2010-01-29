@@ -3,12 +3,17 @@ class SearchController < ApplicationController
   def index
     term = params[:q]
     if term
-      results = do_search(term)
+      results = do_search(term.strip)
       if results
         edms = Edm.find_all_by_tag(results.name)
         @results = edms.paginate :page => params[:page], :order => 'created_at DESC'
       end
-      @place = Place.find_by_ascii_name(term)
+      @place = Place.find_all_by_ascii_name_or_alternate_names(term)
+      if @place.blank?
+        @place = nil
+      else
+        @place = @place.first
+      end
     end
   end
   

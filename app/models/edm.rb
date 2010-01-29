@@ -67,7 +67,7 @@ class Edm < ActiveRecord::Base
     tags_list = []
     places = Place.find(tags)
     tags_list = places.collect { |x| x.ascii_name }
-    tags_list
+    tags_list += places.collect { |x| x.alternate_names }
   end
   
   def signatories_and_seconders_count
