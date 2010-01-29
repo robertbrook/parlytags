@@ -2,12 +2,19 @@
   = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :size => 24
   = submit_tag 'Search'
 
+-if @place
+  = %Q|<iframe width="590" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=#{@place.lat},#{@place.long}&amp;sll=#{@place.lat},#{@place.long}&amp;sspn=0.13682,0.318947&amp;ie=UTF8&amp;ll=#{@place.lat},#{@place.long}&amp;spn=0.004528,0.00912&amp;z=10&amp;output=embed"></iframe><br /><small><a href="http://maps.google.co.uk/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=#{@place.lat},#{@place.long}&amp;sll=#{@place.lat},#{@place.long}&amp;sspn=0.13682,0.318947&amp;ie=UTF8&amp;ll=#{@place.lat},#{@place.long}&amp;spn=0.004528,0.00912&amp;z=16" style="color:#0000FF;text-align:left">View Larger Map</a></small>|
+    
 -if @results
+  
   #pagination= will_paginate @results
 
   =render :partial => "partials/edm", :collection => @results
 
   #pagination= will_paginate @results
+  
 -elsif @last_search_term
-  No results found for 
-  %span.search_term= @last_search_term 
+  %p.no-results 
+    No results found for 
+    %span.search_term= @last_search_term
+    

@@ -134,9 +134,30 @@ describe TextParser do
       parser.terms.should == ["OFSTED Report"]
     end
     
+    it 'should cope without an Oxford Comma' do
+      pending ("Ireland works, but Northern Ireland doesn't?") do
+        parser = TextParser.new("England, Wales and Northern Ireland")
+        parser.terms.should == ["England", "Wales", "Northern Ireland"]
+      end
+    end
+    
     it 'should handle initials correctly' do
       parser = TextParser.new("Mr C.M.J. Matthews")
       parser.terms.should == ["Mr C M J Matthews"]
+    end
+    
+    it 'should handle text starting with "Mc"' do
+      pending ("Stops at J") do
+        parser = TextParser.new("Mr C.M.J. McMatthews")
+        parser.terms.should == ["Mr C M J McMatthews"]
+      end
+    end
+    
+    it 'should handle text starting with "Mac"' do
+      pending ("Stops at J") do
+        parser = TextParser.new("Mr C.M.J. MacMatthews")
+        parser.terms.should == ["Mr C M J MacMatthews"]
+      end
     end
     
     it 'should not allow "and the" as a joining phrase' do

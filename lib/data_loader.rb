@@ -62,6 +62,8 @@ module ParlyTags::DataLoader
         puts "loading #{motion.xpath("number/text()").to_s}"  
         
         edm_text = motion.xpath("text/text()").to_s
+        
+        # to get around invalid markup
         edm_text.gsub!('&#xC3;&#xBA;', '&pound;')
         
         # find the tags

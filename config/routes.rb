@@ -31,7 +31,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "edms"
+  map.root :controller => "search"
   
   map.member '/members/:member', :controller => "members", :action => 'show'
   map.member_proposed 'members/:member/proposed', :controller => "members", :action => 'proposed'

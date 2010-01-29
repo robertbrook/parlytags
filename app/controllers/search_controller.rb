@@ -8,6 +8,7 @@ class SearchController < ApplicationController
         edms = Edm.find_all_by_tag(results.name)
         @results = edms.paginate :page => params[:page], :order => 'created_at DESC'
       end
+      @place = Place.find_by_ascii_name(term)
     end
   end
   
