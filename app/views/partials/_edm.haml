@@ -16,7 +16,7 @@
     %span.number= edm.number
     = edm.text
   %ul.tags
-    - edm.tags.each do |tag|
-      %li.tag= link_to tag.name, '/search?q=' + tag.name
-      -unless tag == edm.tags.last 
+    - edm.tag_list.each do |tag|
+      %li.tag= link_to tag, '/search?q=' + tag
+      -unless tag == edm.tag_list.last
         &middot;

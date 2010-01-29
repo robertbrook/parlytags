@@ -4,9 +4,6 @@
     %title ParlyTags
     = stylesheet_link_tag "screen"
   %body
-    %form#search
-      %input{:type=>"text"}
-      %input{:type=>"submit", :value=>"Search"} 
     %h1= link_to_unless_current "PARLYTAGS", root_path
     = yield      
   
