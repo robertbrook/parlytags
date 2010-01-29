@@ -16,7 +16,11 @@
     %span.number= edm.number
     = edm.text
   %ul.tags
+    -place_names = edm.place_names
     - edm.tag_list.each do |tag|
-      %li.tag= link_to tag, '/search?q=' + tag
+      -if place_names.include?(tag)
+        %li.tag.geo= link_to tag, '/search?q=' + tag
+      -else
+        %li.tag= link_to tag, '/search?q=' + tag
       -unless tag == edm.tag_list.last
         &middot;

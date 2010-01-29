@@ -62,6 +62,14 @@ class Edm < ActiveRecord::Base
     self.geotag_list
   end
   
+  def place_names
+    tags = geotag_list
+    tags_list = []
+    places = Place.find(tags)
+    tags_list = places.collect { |x| x.ascii_name }
+    tags_list
+  end
+  
   def signatories_and_seconders_count
     signatories.size + seconders.size
   end
