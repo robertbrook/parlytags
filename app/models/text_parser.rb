@@ -69,25 +69,23 @@ class TextParser
   
   private
     def remove_punctuation input
-      output = input.gsub(',', ' ') unless input.nil?
-      output = output.gsub(';', ' ') unless output.nil?
-      output = output.gsub('.', ' ') unless output.nil?
-      output = output.gsub('!', ' ') unless output.nil?
-      output = output.gsub('?', ' ') unless output.nil?
-      output = output.gsub(')', ' ') unless output.nil?
-      output = output.gsub('(', ' ') unless output.nil?
-      output = output.gsub('"', '') unless output.nil?
-      output = output.gsub("`", '') unless output.nil?
-      output = output.gsub('  ', ' ') unless output.nil?
-      output = output.gsub('  ', ' ') unless output.nil?
-      output = output.gsub(/^&\W*/, '') unless output.nil?
-      output = output.gsub(/^\'/, '') unless output.nil?
-      output = output.gsub(/\'$/, '') unless output.nil?
-      if output.nil?
-        return ""
-      else
-        return output.strip
-      end
+      output = input.strip
+      output = output.gsub(',', ' ').strip unless output.nil?
+      output = output.gsub(';', ' ').strip unless output.nil?
+      output = output.gsub('.', ' ').strip unless output.nil?
+      output = output.gsub('!', ' ').strip unless output.nil?
+      output = output.gsub('?', ' ').strip unless output.nil?
+      output = output.gsub(')', ' ').strip unless output.nil?
+      output = output.gsub('(', ' ').strip unless output.nil?
+      output = output.gsub('"', '').strip unless output.nil?
+      output = output.gsub("`", '').strip unless output.nil?
+      output = output.gsub('  ', ' ').strip unless output.nil?
+      output = output.gsub('  ', ' ').strip unless output.nil?
+      output = output.gsub(/^&\W*/, '').strip unless output.nil?
+      output = output.gsub(/^\'/, '').strip unless output.nil?
+      output = output.gsub(/\'$/, '').strip unless output.nil?
+      return "" if output.nil?
+      output
     end
     
     def remove_final_apostrophe term

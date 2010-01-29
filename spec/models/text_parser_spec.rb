@@ -143,5 +143,10 @@ describe TextParser do
       parser = TextParser.new("immediate action to prevent Mr C.M.J. Matthews and the MAFF vet Mr Whyte from continuing")
       parser.terms.should == ["Mr C M J Matthews", "MAFF", "Mr Whyte"]
     end
+    
+    it 'should not all include the term "London \'"' do
+      parser = TextParser.new("concessionary fares in London.'.")
+      parser.terms.should == ["London"]
+    end
   end
 end
