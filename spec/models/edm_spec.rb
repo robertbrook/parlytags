@@ -36,8 +36,8 @@ describe Edm do
   describe 'when handling geotags' do
     before do
       @edm = Edm.new()
-      @place1 = mock_model(Place, :id => 1234, :ascii_name => "London")
-      @place2 = mock_model(Place, :id => 2314, :ascii_name => "Westminster")
+      @place1 = mock_model(Place, :id => 1234, :ascii_name => "London", :alternate_names => 'LON')
+      @place2 = mock_model(Place, :id => 2314, :ascii_name => "Westminster", :alternate_names => '')
     end
     
     it 'should create geotags for each tag that corresponds to a place name when asked to generate geotags' do
@@ -54,7 +54,7 @@ describe Edm do
       @edm.should_receive(:geotag_list).and_return(["1234", "2314"])
       Place.should_receive(:find).with(["1234", "2314"]).and_return([@place1, @place2])
       
-      @edm.place_names.should == ["London", "Westminster"]
+      @edm.place_names.should == ["London", "Westminster", "LON", ""]
     end
   end
   
