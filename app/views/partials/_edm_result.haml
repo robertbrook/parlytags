@@ -1,0 +1,23 @@
+.edm
+  %h2= link_to edm_result.html_title, edm_path(edm_result.session_name, edm_result.number)
+  - if edm_result.has_proposer?
+    %span.date
+      = edm_result.proposers.first.date.to_s(:swanky)
+    %span.sponsor
+      =link_to edm_result.proposers.first.member.display_name, member_path(edm_result.proposers.first.member)
+      - if edm_result.signatories_and_seconders_count > 0
+        - additional_text = "and #{pluralize(edm_result.signatories_and_seconders_count, 'other')}."
+        - if edm_result.seconders_count > 0
+          - additional_text << ", #{edm_result.seconders_count} of whom seconded the motion"
+        =additional_text
+  - else
+    %em.warning= "This EDM has no recorded proposer"
+  %ul.tags
+    -place_names = edm_result.place_names
+    - edm_result.tag_list.each do |tag|
+      -if place_names.include?(tag)
+        %li.tag.geo= link_to tag, '/search?q=' + tag
+      -else
+        %li.tag= link_to tag, '/search?q=' + tag
+      -unless tag == edm_result.tag_list.last
+        &middot;

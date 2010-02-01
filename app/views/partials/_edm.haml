@@ -1,5 +1,5 @@
 .edm
-  %h2= link_to edm.title, edm_path(edm.session_name, edm.number)
+  %h2= link_to edm.html_title, edm_path(edm.session_name, edm.number)
   - if edm.has_proposer?
     %span.date
       = edm.proposers.first.date.to_s(:swanky)

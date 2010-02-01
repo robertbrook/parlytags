@@ -64,10 +64,11 @@ class Edm < ActiveRecord::Base
   
   def place_names
     tags = geotag_list
-    tags_list = []
+    
     places = Place.find(tags)
-    tags_list = places.collect { |x| x.ascii_name }
-    tags_list += places.collect { |x| x.alternate_names }
+    tags_list = places.collect { |x| x.alternate_names.split(",") }
+    tags_list = tags_list.join(",").gsub(",,",",").split(",")
+    tags_list += places.collect { |x| x.ascii_name }
   end
   
   def signatories_and_seconders_count
@@ -80,6 +81,16 @@ class Edm < ActiveRecord::Base
   
   def has_proposer?
     proposers.size > 0
+  end
+  
+  def html_title
+    fixed_title = ""
+    if title =~ /;([\S])/
+      fixed_title = title.gsub(";#{$1}", "; #{$1}")
+    else 
+      fixed_title = title
+    end
+    fixed_title
   end
   
   def is_amendment?
