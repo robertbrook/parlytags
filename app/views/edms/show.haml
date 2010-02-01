@@ -10,15 +10,17 @@
       %span.number= @edm.number
       = @edm.text
       
-    %p= "Seconded by #{pluralize(@edm.seconders.size, 'MP')}"
-    %ol.seconders
-      - @edm.seconders.each do |signatory|
-        %li.seconder= link_to signatory.member.display_name, member_path(signatory.member)
+    - if @edm.seconders.length > 0
+      %p= "Seconded by #{pluralize(@edm.seconders.size, 'Member')}"
+      %ol.seconders
+        - @edm.seconders.each do |signatory|
+          %li.seconder= link_to signatory.member.display_name, member_path(signatory.member)
     
-    %p= "Signed by #{pluralize(@edm.signatories.size, 'MP')}"
-    %ol.signatories
-      - @edm.signatories.each do |signatory|
-        %li.signatory= link_to signatory.member.display_name, member_path(signatory.member)
+    - if @edm.signatories.length > 0
+      %p= "Signed by #{pluralize(@edm.signatories.size, 'Member')}"
+      %ol.signatories
+        - @edm.signatories.each do |signatory|
+          %li.signatory= link_to signatory.member.display_name, member_path(signatory.member)
       
     -unless @edm.children.empty?
       %p Amendments:
