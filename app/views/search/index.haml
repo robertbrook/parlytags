@@ -1,27 +1,35 @@
 
 - if @place
   #map
-    = %Q|<center><iframe width="760" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=#{@place.lat},#{@place.long}&amp;sll=#{@place.lat},#{@place.long}&amp;sspn=0.13682,0.318947&amp;ie=UTF8&amp;ll=#{@place.lat},#{@place.long}&amp;spn=0.004528,0.00912&amp;z=10&amp;output=embed"></iframe></center>|
+    = %Q|<iframe width="700" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=#{@place.lat},#{@place.long}&amp;sll=#{@place.lat},#{@place.long}&amp;ie=UTF8&amp;ll=#{@place.lat},#{@place.long}&amp;spn=0.004528,0.00912&amp;z=10&amp;output=embed"></iframe>|
     
 - if @results
-  Search results for
-  %span.search_term= @last_search_term
+  %h2
+    Search results for
+    %q.search_term= @last_search_term
 
   =render :partial => "partials/edm_result", :collection => @results
 
   #pagination
     = will_paginate @results
-
-- elsif @last_search_term
-  %p.no-results 
-    No results found for 
-    %span.search_term= @last_search_term
     
 - else
-  BIG SEARCH BOX
-  - form_tag(search_url, :method => :get) do
-    = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :size => 24
-    = submit_tag 'Search'
+  - if @last_search_term
+    %p.no-results 
+      There are no items tagged 
+      %q.search_term= @last_search_term
+  #front-page-search
+    %table{:align=>"center"}
+      - form_tag(search_url, :name => 'search', :method => :get) do
+        %tr{:align=>"center"}
+          %td
+            = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : '')
+        %tr{:align=>"center"}
+          %td
+            Try 'London', 'Colchester', 'Essex' …
+        %tr{:align=>"center"}
+          %td
+            = submit_tag 'SEARCH'
   
 
   

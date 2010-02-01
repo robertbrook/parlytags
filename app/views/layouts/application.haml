@@ -6,7 +6,7 @@
     - unless current_page?(:controller => 'search', :action => 'index')
       #search
         - form_tag(search_url, :method => :get) do
-          = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :size => 24
+          = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :size => 32
           = submit_tag 'Search'
     %h1= link_to_unless_current "PARLYTAGS", root_path
     = yield      
