@@ -83,6 +83,10 @@ class Edm < ActiveRecord::Base
     proposers.size > 0
   end
   
+  def html_title
+    title.gsub(";amdt.", "; amdt.")
+  end
+  
   def is_amendment?
     if number =~ Edm.amendment_format
       true

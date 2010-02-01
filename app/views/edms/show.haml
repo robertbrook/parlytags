@@ -1,7 +1,7 @@
 - if @edm
   
   .edm
-    %h2= @edm.title
+    %h2= @edm.html_title
   
     - if @edm.has_proposer?
       %span.date= "Proposed on #{@edm.proposers.first.date.strftime("%A %B %d, %Y")} by #{link_to @edm.proposers.first.member.display_name, member_path(@edm.proposers.first.member)}"
@@ -25,14 +25,14 @@
       
       - @edm.children.each do |amendment|
         .edm
-          %h3= link_to amendment.title, edm_path(amendment.session_name, amendment.number)
+          %h3= link_to amendment.html_title, edm_path(amendment.session_name, amendment.number)
           %blockquote
             %span.number= amendment.number
             = amendment.text
             
           - amendment.children.each do |sub_amendment|
             .edm
-              %h3= link_to sub_amendment.title, edm_path(sub_amendment.session_name, sub_amendment.number)
+              %h3= link_to sub_amendment.html_title, edm_path(sub_amendment.session_name, sub_amendment.number)
               %blockquote
                 %span.number= sub_amendment.number
                 = sub_amendment.text
