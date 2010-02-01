@@ -4,6 +4,9 @@
     = %Q|<center><iframe width="760" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=#{@place.lat},#{@place.long}&amp;sll=#{@place.lat},#{@place.long}&amp;sspn=0.13682,0.318947&amp;ie=UTF8&amp;ll=#{@place.lat},#{@place.long}&amp;spn=0.004528,0.00912&amp;z=10&amp;output=embed"></iframe></center>|
     
 - if @results
+  Search results for
+  %span.search_term= @last_search_term
+
   =render :partial => "partials/edm_result", :collection => @results
 
   #pagination
