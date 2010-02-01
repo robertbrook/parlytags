@@ -84,7 +84,13 @@ class Edm < ActiveRecord::Base
   end
   
   def html_title
-    title.gsub(";amdt.", "; amdt.")
+    fixed_title = ""
+    if title =~ /;([\S])/
+      fixed_title = title.gsub(";#{$1}", "; #{$1}")
+    else 
+      fixed_title = title
+    end
+    fixed_title
   end
   
   def is_amendment?
