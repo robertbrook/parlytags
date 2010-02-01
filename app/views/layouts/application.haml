@@ -3,7 +3,7 @@
     %title ParlyTags
     = stylesheet_link_tag "screen"
   %body
-    - if current_page?(:controller => 'search', :action => 'index')
+    - unless current_page?(:controller => 'search', :action => 'index')
       #search
         - form_tag(search_url, :method => :get) do
           = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :size => 24
