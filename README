@@ -3,6 +3,8 @@
 rake db:create:all
 rake db:migrate
 
+== load test data
+
 rake parlytags:load_edms
 
 rake friendly_id:make_slugs MODEL=Member
