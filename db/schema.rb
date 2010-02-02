@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100126104854) do
+ActiveRecord::Schema.define(:version => 20100202171516) do
 
   create_table "edms", :force => true do |t|
     t.integer  "motion_xml_id"
@@ -22,14 +22,6 @@ ActiveRecord::Schema.define(:version => 20100126104854) do
     t.integer  "session_id"
     t.integer  "parent_id"
     t.integer  "amendment_number"
-  end
-
-  create_table "known_places", :force => true do |t|
-    t.string  "name"
-    t.string  "geonameId"
-    t.string  "yahooId"
-    t.integer "lat",       :limit => 10, :precision => 10, :scale => 0
-    t.integer "long",      :limit => 10, :precision => 10, :scale => 0
   end
 
   create_table "members", :force => true do |t|
