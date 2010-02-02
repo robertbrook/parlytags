@@ -10,6 +10,7 @@ describe Place do
       
       Place.find_all_by_ascii_name_or_alternate_names(term).should == [@place]
     end
+  
   end
   
   describe 'when asked for a geotag' do
