@@ -2,7 +2,7 @@ class Place < ActiveRecord::Base
   
   class << self
     def find_all_by_ascii_name_or_alternate_names(term)
-      term = term.gsub("'","\\'").strip
+      term = term.gsub("'", "\\\\'").strip
       places = find_all_by_ascii_name(term)
       other_places = find(
         :all, 

@@ -54,7 +54,7 @@ describe Edm do
       @edm.should_receive(:geotag_list).and_return(["1234", "2314"])
       Place.should_receive(:find).with(["1234", "2314"]).and_return([@place1, @place2])
       
-      @edm.place_names.should == ["London", "Westminster", "LON", ""]
+      @edm.place_names.should == ["LON", "London", "Westminster"]
     end
   end
   
@@ -93,6 +93,23 @@ describe Edm do
     it 'should return false when the amendment number is 234' do
       edm = Edm.new(:number => '234')
       edm.is_amendment?.should == false
+    end
+  end
+  
+  describe 'when asked for html_title' do
+    it 'should insert a space between the semicolon and amdt' do
+      edm = Edm.new(:number => '234', :title => 'The amendment;amdt 123')
+      edm.html_title.should == "The amendment; amdt 123"
+    end
+    
+    it 'should insert a space between a semicolon and any non-whitespace character' do
+      edm = Edm.new(:number => '234', :title => 'The amendment;&pound; 123')
+      edm.html_title.should == "The amendment; &pound; 123"
+    end
+    
+    it 'should return the original title if there is no semicolon character' do
+      edm = Edm.new(:number => '234', :title => 'No correction needed')
+      edm.html_title.should == "No correction needed"
     end
   end
 end

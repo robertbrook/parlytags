@@ -2,15 +2,42 @@ require File.dirname(__FILE__) + '/../spec_helper.rb'
 
 describe Place do
   
-  describe 'in general' do
-    it 'should pass the correct condition string to the database when asked to find by alternate name or ascii name' do
-      term = "Essex"
-      @place = mock_model(Place, :name => 'County of Essex', :alternate_names => 'Essex')
-      Place.should_receive(:find).with(:all, :conditions => "ascii_name = 'Essex' or alternate_names='Essex'").and_return([@place])
+  describe 'when asked to find by ascii_name or alternate_names' do
+    it 'should correctly escape the search term' do
+      term = "Her Majesty's Opposition's"
+      Place.should_receive(:find_all_by_ascii_name).with("Her Majesty\\'s Opposition\\'s")
       
-      Place.find_all_by_ascii_name_or_alternate_names(term).should == [@place]
+      Place.find_all_by_ascii_name_or_alternate_names(term)
     end
-  
+    
+    it 'should return a single result where there is a direct name match' do
+      term = "Big Ben"
+      place = mock_model(Place)
+      Place.should_receive(:find).with(:all, :conditions => {:ascii_name => 'Big Ben'}).and_return [place]
+      Place.should_receive(:find).with(:all, :conditions => "alternate_names = 'Big Ben' or alternate_names like 'Big Ben,%' or alternate_names like '%,Big Ben,%' or alternate_names like '%,Big Ben'").and_return []
+      
+      Place.find_all_by_ascii_name_or_alternate_names(term).should == [place]
+    end
+    
+    it 'should return a single result where there is one match within alternate_names' do
+      term = "Essex"
+      place = mock_model(Place, :name => 'County of Essex', :alternate_names => 'Essex')
+      Place.should_receive(:find).with(:all, :conditions => {:ascii_name => 'Essex'}).and_return []
+      Place.should_receive(:find).with(:all, :conditions => "alternate_names = 'Essex' or alternate_names like 'Essex,%' or alternate_names like '%,Essex,%' or alternate_names like '%,Essex'").and_return [place]
+      
+      Place.find_all_by_ascii_name_or_alternate_names(term).should == [place]
+    end
+     
+     it 'should return an array of results - where there are matches within name and alternate_name' do
+       term = "Bedford"
+       place1 = mock_model(Place)
+       place2 = mock_model(Place)
+       place3 = mock_model(Place)
+       Place.should_receive(:find).with(:all, :conditions => {:ascii_name => 'Bedford'}).and_return [place1]
+       Place.should_receive(:find).with(:all, :conditions => "alternate_names = 'Bedford' or alternate_names like 'Bedford,%' or alternate_names like '%,Bedford,%' or alternate_names like '%,Bedford'").and_return [place2, place1, place3]
+
+       Place.find_all_by_ascii_name_or_alternate_names(term).should == [place1, place2, place3]
+     end
   end
   
   describe 'when asked for a geotag' do
