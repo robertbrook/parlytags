@@ -19,4 +19,9 @@ namespace :parlytags do
   task :load_edms => :environment do
     load_edms
   end
+  
+  desc "Create items for each Edm"
+  task :create_edm_items => :environment do
+    create_edm_items
+  end
 end

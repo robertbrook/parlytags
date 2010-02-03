@@ -6,7 +6,7 @@ class SearchController < ApplicationController
       results = do_search(term.strip)
       if results
         items = Item.find_all_by_tag(results.name)
-        @results = items.paginate :page => params[:page], :order => 'created_at DESC'
+        @results = items.paginate :page => params[:page]
       end
       @place = Place.find_all_by_ascii_name_or_alternate_names(term)
       if @place.blank?
@@ -20,7 +20,7 @@ class SearchController < ApplicationController
   private
     def do_search term
       @last_search_term = term
-      tags = Tag.find_by_name_and_kind(term, "tag")
+      tags = Tag.find_by_name(term)
       tags
     end
   

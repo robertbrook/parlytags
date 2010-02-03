@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100202171516) do
+ActiveRecord::Schema.define(:version => 20100203144755) do
 
   create_table "edms", :force => true do |t|
     t.integer  "motion_xml_id"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(:version => 20100202171516) do
     t.integer  "session_id"
     t.integer  "parent_id"
     t.integer  "amendment_number"
+  end
+
+  create_table "items", :force => true do |t|
+    t.string "title"
+    t.string "url"
+    t.text   "text"
+    t.string "kind"
+  end
+
+  create_table "items_tags", :id => false, :force => true do |t|
+    t.integer "item_id"
+    t.integer "tag_id"
   end
 
   create_table "members", :force => true do |t|
@@ -43,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20100202171516) do
     t.string  "ascii_name"
     t.text    "alternate_names"
     t.float   "lat"
-    t.float   "long"
+    t.float   "lng"
     t.string  "feature_class"
     t.string  "feature_code"
     t.string  "country_code"
@@ -57,6 +69,19 @@ ActiveRecord::Schema.define(:version => 20100202171516) do
     t.integer "gtopo30"
     t.string  "timezone"
     t.date    "last_modified"
+  end
+
+  create_table "placetags", :force => true do |t|
+    t.string  "name"
+    t.string  "county"
+    t.string  "country"
+    t.integer "place_id"
+    t.integer "geoname_id"
+  end
+
+  create_table "placetags_tags", :id => false, :force => true do |t|
+    t.integer "placetag_id"
+    t.integer "tag_id"
   end
 
   create_table "session_signatures", :force => true do |t|
@@ -89,20 +114,13 @@ ActiveRecord::Schema.define(:version => 20100202171516) do
   add_index "slugs", ["name", "sluggable_type", "scope", "sequence"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
-  create_table "taggings", :force => true do |t|
-    t.integer "tag_id"
-    t.string  "taggable_type", :default => ""
-    t.integer "taggable_id"
-  end
-
-  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
-  add_index "taggings", ["taggable_id", "taggable_type"], :name => "index_taggings_on_taggable_id_and_taggable_type"
-
   create_table "tags", :force => true do |t|
-    t.string "name", :default => ""
-    t.string "kind", :default => ""
+    t.string "name"
   end
 
-  add_index "tags", ["name", "kind"], :name => "index_tags_on_name_and_kind"
+  create_table "tags_items", :id => false, :force => true do |t|
+    t.integer "tag_id"
+    t.integer "item_id"
+  end
 
 end

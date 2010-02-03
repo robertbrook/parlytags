@@ -1,59 +1,54 @@
 class Item < ActiveRecord::Base
-  is_taggable :tags, :geotags
+  has_and_belongs_to_many :tags
   
   class << self
-    def find_all_by_tag tag_name, tag_kind="tag"
+    def find_all_by_tag tag_name
       if tag_name.is_a?(String)
-        tag = Tag.find_by_name_and_kind(tag_name, tag_kind)
-        if tag
-          tag_links = tag.taggings.find_all_by_taggable_type(self.name)
-          if tag_links
-            instance_ids = tag_links.collect { |x| x.taggable_id }
-            return self.find(instance_ids)
-          end
-        end
+        tag = Tag.find_by_name(tag_name)
+        return tag.items if tag
       elsif tag_name.is_a?(Array)
         tag_list = %Q|'#{tag_name.join("','")}'|
-        tags = Tag.find(:all, :conditions => "name in (#{tag_list}) AND kind='#{tag_kind}'")
-        if tags
-          instance_ids = []
+        tags = Tag.find(:all, :conditions => "name in (#{tag_list})")
+        unless tags.empty?
+          items = []
           tags.each do |tag|
-            tag_links = tag.taggings.find_all_by_taggable_type(self.name)
-            if tag_links
-              tag_ids = tag_links.collect { |x| x.taggable_id }
-              instance_ids += tag_ids
+            tag.items.each do |item|
+              items << item unless items.include?(item)
             end
           end
-          return self.find(instance_ids)
+          return items
         end
       end
     end
   end
   
-  def generate_geotags
-    geotags = ""
-    tag_list.each do |tag|
-      places = Place.find_all_by_ascii_name_or_alternate_names(tag)
-      place_list = places.collect { |x| "#{x.id}" }
-      unless place_list.blank?
-        if geotags.blank?
-          geotags = place_list.join(',')
-        else
-          geotags = "#{geotags}, #{place_list.join(',')}"
+  def populate_placetags
+    tags.each do |tag|
+      places = Place.find_all_by_ascii_name_or_alternate_names(tag.name)
+      unless places.empty?
+        places.each do |place|
+          placetag = Placetag.find_by_geoname_id(place.geoname_id)
+          if placetag.nil?
+            placetag = Placetag.new(:name => tag.name)
+            unless ["England","Scotland","Wales","Northern Ireland","Britain","United Kingdom"].include?(tag) || place.admin2_code.blank?
+              counties = Place.find_all_by_feature_code_and_admin2_code_and_admin1_code("ADM2", place.admin2_code, place.admin1_code)
+              if counties.size == 1
+                placetag.county = counties.first.ascii_name
+              else
+                counties.sort_by_distance_from(place)
+                placetag.county = counties.first.ascii_name
+              end
+            end
+            country = Place.find_by_feature_code_and_admin1_code("ADM1", place.admin1_code)
+            placetag.country = country.ascii_name if country
+            placetag.place_id = place.id
+            placetag.geoname_id = place.geoname_id
+            tag.placetags << placetag
+            tag.save
+          end
         end
       end
     end
-    self.geotag_list = geotags
-    save!
-    self.geotag_list
   end
   
-  def place_names
-    tags = geotag_list
-    
-    places = Place.find(tags)
-    tags_list = places.collect { |x| x.alternate_names.split(",") }
-    tags_list = tags_list.join(",").gsub(",,",",").split(",")
-    tags_list += places.collect { |x| x.ascii_name }
-  end
 end

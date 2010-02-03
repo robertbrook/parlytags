@@ -137,21 +137,26 @@ module ParlyTags::DataLoader
   end
   
   def create_edm_items
+    Item.delete_all
+
     Edm.all.each do |edm|
       term_extractor = TextParser.new(edm.text)
-      tag_list = term_extractor.terms.join(",")
+      #tag_list = term_extractor.terms.join(",")
       
       item = Item.new (
         :url => "http://localhost:3000/#{edm.session_name}/edms/#{edm.number}",
         :title => "#{edm.number} - #{edm.title}",
         :text => edm.text,
-        :kind => 'Edm',
-        :tag_list => tag_list
+        :kind => 'Edm'
       )
       
-      item.save
+      term_extractor.terms.each do |term|
+        tag = Tag.find_or_create_by_name(term)
+        item.tags << tag
+      end
       
-      item.generate_geotags
+      item.save
+      item.populate_placetags
     end
   end
   

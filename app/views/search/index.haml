@@ -1,7 +1,7 @@
 
 - if @place
   #map
-    = %Q|<iframe width="700" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=#{@place.lat},#{@place.long}&amp;sll=#{@place.lat},#{@place.long}&amp;ie=UTF8&amp;ll=#{@place.lat},#{@place.long}&amp;spn=0.004528,0.00912&amp;z=10&amp;output=embed"></iframe>|
+    = %Q|<iframe width="700" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=#{@place.lat},#{@place.lng}&amp;sll=#{@place.lat},#{@place.lng}&amp;ie=UTF8&amp;ll=#{@place.lat},#{@place.lng}&amp;spn=0.004528,0.00912&amp;z=10&amp;output=embed"></iframe>|
     
 - if @results
   %h2
