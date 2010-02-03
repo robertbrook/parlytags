@@ -13,6 +13,9 @@ class SearchController < ApplicationController
         @place = nil
       else
         @place = @place.first
+        @map = GMap.new("map")
+        @map.control_init(:large_map => true,:map_type => false)
+        @map.center_zoom_init([@place.lat, @place.lng], 14)
       end
     end
   end
