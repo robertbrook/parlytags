@@ -1,0 +1,11 @@
+.item
+  %h2= link_to item_result.title, item_result.url
+  %ul.tags
+    -place_names = item_result.place_names
+    - item_result.tag_list.each do |tag|
+      -if place_names.include?(tag)
+        %li.tag.geo= link_to tag, '/search?q=' + tag
+      -else
+        %li.tag= link_to tag, '/search?q=' + tag
+      -unless tag == item_result.tag_list.last
+        &middot;

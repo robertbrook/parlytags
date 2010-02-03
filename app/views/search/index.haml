@@ -8,7 +8,7 @@
     Search results for
     %q.search_term= @last_search_term
 
-  =render :partial => "partials/edm_result", :collection => @results
+  =render :partial => "partials/item_result", :collection => @results
 
   #pagination
     = will_paginate @results

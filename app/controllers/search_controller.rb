@@ -5,8 +5,8 @@ class SearchController < ApplicationController
     if term
       results = do_search(term.strip)
       if results
-        edms = Edm.find_all_by_tag(results.name)
-        @results = edms.paginate :page => params[:page], :order => 'created_at DESC'
+        items = Item.find_all_by_tag(results.name)
+        @results = items.paginate :page => params[:page], :order => 'created_at DESC'
       end
       @place = Place.find_all_by_ascii_name_or_alternate_names(term)
       if @place.blank?
