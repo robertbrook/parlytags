@@ -1,10 +1,13 @@
 class Place < ActiveRecord::Base
-  acts_as_mappable
+  acts_as_mappable :default_units => :kms
   
   class << self
     def find_all_by_ascii_name_or_alternate_names(term)
       term = term.gsub("'", "\\\\'").strip
-      places = find_all_by_ascii_name(term)
+      places = find_all_by_name(term)
+      if places.empty?
+        places = find_all_by_ascii_name(term)
+      end
       other_places = find(
         :all, 
         :conditions => "alternate_names = \'#{term}\' or alternate_names like \'#{term},%\' or alternate_names like \'%,#{term},%\' or alternate_names like \'%,#{term}\'"

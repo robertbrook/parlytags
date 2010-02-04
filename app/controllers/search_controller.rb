@@ -26,8 +26,10 @@ class SearchController < ApplicationController
       tags = Tag.find_by_name(term)
       unless tags
         places = Place.find_all_by_ascii_name_or_alternate_names(term)
-        term = places.first.ascii_name
-        tags = Tag.find_by_name(term)
+        unless places.empty?
+          term = places.first.ascii_name
+          tags = Tag.find_by_name(term)
+        end
       end
       tags
     end
