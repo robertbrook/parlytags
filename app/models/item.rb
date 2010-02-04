@@ -34,7 +34,7 @@ class Item < ActiveRecord::Base
               counties = Place.find_all_by_feature_code_and_admin2_code_and_admin1_code("ADM2", place.admin2_code, place.admin1_code)
               if counties.size == 1
                 placetag.county = counties.first.ascii_name
-              else
+              elsif counties.size > 1
                 counties.sort_by_distance_from(place)
                 placetag.county = counties.first.ascii_name
               end
