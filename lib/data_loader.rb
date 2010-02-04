@@ -8,6 +8,15 @@ module ParlyTags::DataLoader
   EDMS_FILES = ["#{DATA_DIR}/test.xml"]  
   GEO_FILE = "#{DATA_DIR}/GB.txt"
 
+  def load_dummy_data
+    puts "loading place data"
+    load_places
+    puts "loading edm data"
+    load_edms
+    puts "generating search data"
+    create_edm_items
+  end
+
   def load_places
     Place.delete_all
     
@@ -20,7 +29,7 @@ module ParlyTags::DataLoader
         :ascii_name => fields[2],
         :alternate_names => fields[3],
         :lat => fields[4],
-        :long => fields[5],
+        :lng => fields[5],
         :feature_class => fields[6],
         :feature_code => fields[7],
         :country_code => fields[8],
@@ -67,22 +76,14 @@ module ParlyTags::DataLoader
         # to get around invalid markup
         edm_text.gsub!('&#xC3;&#xBA;', '&pound;')
         
-        # find the tags
-        term_extractor = TextParser.new(edm_text)
-        tag_list = term_extractor.terms.join(",")
-        
         edm = Edm.new(:motion_xml_id => motion.xpath("id/text()").to_s,
                      :session_id => session.id,
                      :number => motion.xpath("number/text()").to_s,
                      :title => motion.xpath("title/text()").to_s,
                      :text => edm_text,
-                     :signature_count => motion.xpath("signature_count/text()").to_s,
-                     :tag_list => tag_list
+                     :signature_count => motion.xpath("signature_count/text()").to_s
                      )
         edm.save
-        
-        # make some geotags (warning: assumes places data already loaded)
-        edm.generate_geotags
         
         # store amendment edms in an array to deal with once we've finished loading        
         # (we can't do anything with them yet as the parent EDM may not exist at this point)  
@@ -137,6 +138,30 @@ module ParlyTags::DataLoader
         log << "\n"
       end
     end  
+  end
+  
+  def create_edm_items
+    Item.delete_all
+
+    Edm.all.each do |edm|
+      term_extractor = TextParser.new(edm.text)
+      #tag_list = term_extractor.terms.join(",")
+      
+      item = Item.new (
+        :url => "http://localhost:3000/#{edm.session_name}/edms/#{edm.number}",
+        :title => "#{edm.number} - #{edm.title}",
+        :text => edm.text,
+        :kind => 'Edm'
+      )
+      
+      term_extractor.terms.each do |term|
+        tag = Tag.find_or_create_by_name(term)
+        item.tags << tag
+      end
+      
+      item.save
+      item.populate_placetags
+    end
   end
   
 end

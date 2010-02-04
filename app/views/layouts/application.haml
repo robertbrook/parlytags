@@ -2,6 +2,10 @@
   %head
     %title ParlyTags
     = stylesheet_link_tag "screen"
+    -if @map
+      = GMap.header
+      = @map.to_html
+      
   %body
     - unless current_page?(:controller => 'search', :action => 'index')
       #search
