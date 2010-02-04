@@ -31,7 +31,7 @@ module ParlyTags::DataLoader
         :ascii_name => fields[2],
         :alternate_names => fields[3],
         :lat => fields[4],
-        :long => fields[5],
+        :lng => fields[5],
         :feature_class => fields[6],
         :feature_code => fields[7],
         :country_code => fields[8],
