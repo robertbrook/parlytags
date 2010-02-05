@@ -118,9 +118,4 @@ ActiveRecord::Schema.define(:version => 20100203144755) do
     t.string "name"
   end
 
-  create_table "tags_items", :id => false, :force => true do |t|
-    t.integer "tag_id"
-    t.integer "item_id"
-  end
-
 end
