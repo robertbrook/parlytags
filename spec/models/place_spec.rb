@@ -5,7 +5,15 @@ describe Place do
   describe 'when asked to find by ascii_name or alternate_names' do
     it 'should correctly escape the search term' do
       term = "Her Majesty's Opposition's"
-      Place.should_receive(:find_all_by_ascii_name).with("Her Majesty\\'s Opposition\\'s")
+      Place.should_receive(:find_all_by_ascii_name).with("Her Majesty\'s Opposition\'s").and_return([mock_model(Place)])
+      
+      Place.find_all_by_ascii_name_or_alternate_names(term)
+    end
+    
+    it 'should find a matching place if the place name is stored without the apostrophe' do
+      term = "King's Lynn"
+      Place.should_receive(:find_all_by_ascii_name).with("King\'s Lynn").and_return([])
+      Place.should_receive(:find_all_by_ascii_name).with("Kings Lynn").and_return([mock_model(Place)])
       
       Place.find_all_by_ascii_name_or_alternate_names(term)
     end
