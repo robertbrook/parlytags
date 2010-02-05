@@ -5,7 +5,7 @@
 - if @results
   %h2
     Search results for
-    %q.search_term= @last_search_term
+    %q.search_term= @searched_for
 
   =render :partial => "partials/item_result", :collection => @results
 
