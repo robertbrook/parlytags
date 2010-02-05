@@ -11,8 +11,8 @@
     %small
       Usually known as
       = @usually_known_as
-      
-  =render :partial => "partials/item_result", :collection => @results
+  %ul.search-results
+    =render :partial => "partials/item_result", :collection => @results
 
   #pagination
     = will_paginate @results
