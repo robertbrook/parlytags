@@ -45,10 +45,12 @@ class Item < ActiveRecord::Base
             placetag.geoname_id = place.geoname_id
             tag.placetags << placetag
             tag.save
+            place.has_placetag = true
+            place.save
           end
         end
       end
     end
   end
-  
+    
 end

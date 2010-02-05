@@ -70,6 +70,10 @@ describe Item do
       @county2.should_receive(:distance_to).with(@place2, {}).and_return(22)
       @county2.should_receive(:distance=).with(22)
       @county2.should_receive(:distance).and_return(22)
+      @place1.should_receive(:has_placetag=).with(true)
+      @place1.stub!(:save)
+      @place2.should_receive(:has_placetag=).with(true)
+      @place2.stub!(:save)
       
       @item.stub(:save!)
       

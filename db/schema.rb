@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100203144755) do
+ActiveRecord::Schema.define(:version => 20100205120032) do
 
   create_table "edms", :force => true do |t|
     t.integer  "motion_xml_id"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20100203144755) do
     t.integer "gtopo30"
     t.string  "timezone"
     t.date    "last_modified"
+    t.boolean "has_placetag"
   end
 
   create_table "placetags", :force => true do |t|
@@ -116,11 +117,6 @@ ActiveRecord::Schema.define(:version => 20100203144755) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
-  end
-
-  create_table "tags_items", :id => false, :force => true do |t|
-    t.integer "tag_id"
-    t.integer "item_id"
   end
 
 end

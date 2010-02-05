@@ -1,5 +1,6 @@
 class Place < ActiveRecord::Base
   acts_as_mappable :default_units => :kms
+  has_one :placetag
   
   class << self
     def find_all_by_ascii_name_or_alternate_names(term)
@@ -24,7 +25,26 @@ class Place < ActiveRecord::Base
     end
   end
   
-  def geotag
-    Tag.find_by_name_and_kind(id, "geotag")
+  def find_places_within_radius(distance, units = :kms)
+    unless units == :miles
+      units = :kms
+    end
+    Place.find(:all, :origin => self, :within => distance, :units => units)
+  end
+  
+  def find_nearby_tagged_places(limit=10)
+    Place.find(:all, :origin => self, :within => 40, :units => :kms, :conditions => {:feature_class => 'P', :has_placetag => true}, :order => 'distance', :limit => limit )
+  end
+  
+  def find_nearby_items(limit=10)
+    nearby_places = find_nearby_tagged_places
+    items = []
+    nearby_places.each do |place|
+      place.placetag.tags.first.items.each do |item|
+        items << item unless items.include?(item)
+      end
+      break if items.count >= limit
+    end
+    items[0..limit-1]
   end
 end
