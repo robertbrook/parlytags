@@ -23,12 +23,16 @@ class SearchController < ApplicationController
   private
     def do_search term
       @last_search_term = term
+      @searched_for = term
       tags = Tag.find_by_name(term)
       unless tags
         places = Place.find_all_by_ascii_name_or_alternate_names(term)
         unless places.empty?
           term = places.first.ascii_name
           tags = Tag.find_by_name(term)
+          if tags
+            @searched_for = "#{@last_search_term} ( also known as: #{term} )"
+          end
         end
       end
       tags
