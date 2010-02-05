@@ -5,7 +5,6 @@
     -if @map
       = GMap.header
       = @map.to_html
-      
   %body
     - unless current_page?(:controller => 'search', :action => 'index')
       #search

@@ -1,5 +1,6 @@
-.item
-  %h2= link_to item_result.title, item_result.url
+%li.item
+  %span.kind= item_result.kind
+  = link_to item_result.title, item_result.url
   %ul.tags
     - item_result.tags.each do |tag|
       -if tag.placetags.count > 0

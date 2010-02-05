@@ -31,7 +31,7 @@ class SearchController < ApplicationController
           term = places.first.ascii_name
           tags = Tag.find_by_name(term)
           if tags
-            @searched_for = "#{@last_search_term} ( also known as: #{term} )"
+            @usually_known_as = term
           end
         end
       end
