@@ -30,17 +30,10 @@ class Item < ActiveRecord::Base
           placetag = Placetag.find_by_geoname_id(place.geoname_id)
           if placetag.nil?
             placetag = Placetag.new(:name => tag.name)
-            unless ["England","Scotland","Wales","Northern Ireland","Britain","United Kingdom"].include?(tag) || place.admin2_code.blank?
-              counties = Place.find_all_by_feature_code_and_admin2_code_and_admin1_code("ADM2", place.admin2_code, place.admin1_code)
-              if counties.size == 1
-                placetag.county = counties.first.ascii_name
-              elsif counties.size > 1
-                counties.sort_by_distance_from(place)
-                placetag.county = counties.first.ascii_name
-              end
-            end
-            country = Place.find_by_feature_code_and_admin1_code("ADM1", place.admin1_code)
-            placetag.country = country.ascii_name if country
+            county = place.county
+            placetag.county = county if county
+            country = place.country
+            placetag.country = place.country.ascii_name if country
             placetag.place_id = place.id
             placetag.geoname_id = place.geoname_id
             tag.placetags << placetag

@@ -167,4 +167,49 @@ describe Place do
     end
   end
   
+  describe 'when asked for county' do
+    before do
+      @place = Place.new(:admin1_code => "ENG")
+      @county1 = mock_model(Place, :ascii_name => "Hertfordshire")
+      @county2 = mock_model(Place, :ascii_name => "Middlesex")
+    end
+    
+    it 'should return the name of the nearest county when there is an array of counties' do
+      @place.stub!(:ascii_name).and_return("West Drayton")
+      @place.stub!(:admin2_code).and_return("00")
+      Place.should_receive(:find_all_by_feature_code_and_admin2_code_and_admin1_code).with("ADM2", "00", "ENG").and_return([@county1, @county2])
+      @county1.should_receive(:distance_to).with(@place, {}).and_return(220)
+      @county1.should_receive(:distance=).with(220)
+      @county1.should_receive(:distance).and_return(220)
+      @county2.should_receive(:distance_to).with(@place, {}).and_return(22)
+      @county2.should_receive(:distance=).with(22)
+      @county2.should_receive(:distance).and_return(22)
+      
+      @place.county.should == "Middlesex"
+    end
+  
+    it 'should return the name of the county when there is only one county' do
+      @place.stub!(:ascii_name).and_return("Cheshunt")
+      @place.stub!(:admin2_code).and_return("F8")
+      Place.should_receive(:find_all_by_feature_code_and_admin2_code_and_admin1_code).with("ADM2", "F8", "ENG").and_return([@county1])
+    
+      @place.county.should == "Hertfordshire"
+    end
+  end
+  
+  describe 'when asked for country' do
+    before do
+      @place = Place.new(:admin1_code => 'ENG')
+    end
+    
+    it 'should return a country name where there is a valid matching country record' do
+      Place.should_receive(:find_by_feature_code_and_admin1_code).with("ADM1", "ENG").and_return(mock_model(Place, :ascii_name => "England"))
+      @place.country.should == "England"
+    end
+    
+    it 'should return nil where there is no matching country record' do
+      Place.should_receive(:find_by_feature_code_and_admin1_code).with("ADM1", "ENG").and_return(nil)
+      @place.country.should == nil
+    end
+  end
 end

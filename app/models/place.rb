@@ -25,6 +25,23 @@ class Place < ActiveRecord::Base
     end
   end
   
+  def county
+    unless ["England","Scotland","Wales","Northern Ireland","Britain","United Kingdom"].include?(ascii_name) || admin2_code.blank?
+      counties = Place.find_all_by_feature_code_and_admin2_code_and_admin1_code("ADM2", admin2_code, admin1_code)
+      if counties.size == 1
+        return counties.first.ascii_name
+      elsif counties.size > 1
+        counties.sort_by_distance_from(self)
+        return counties.first.ascii_name
+      end
+    end
+  end
+  
+  def country
+    country = Place.find_by_feature_code_and_admin1_code("ADM1", admin1_code)
+    return country.ascii_name if country
+  end
+  
   def find_places_within_radius(distance, units = :kms)
     unless units == :miles
       units = :kms

@@ -21,6 +21,18 @@ class SearchController < ApplicationController
       places = Place.find_all_by_ascii_name_or_alternate_names(term)
       unless places.empty?
         @place = places.first
+        if @place.placetag
+          @place_title = @place.placetag.name
+          if @place.placetag.county
+            @place_title = "#{@place_title.strip}, #{@place.placetag.county.strip}"
+          end
+        else
+          @place_title = @place.ascii_name
+          county = @place.county
+          if county
+            @place_title = "#{@place_title.strip}, #{county.strip}"
+          end
+        end
         if @place.ascii_name != term
           @usually_known_as = @place.ascii_name
         end

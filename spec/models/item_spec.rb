@@ -34,7 +34,9 @@ describe Item do
           :alternate_names => 'LON', 
           :geoname_id => 2324,
           :admin2_code => 'JA',
-          :admin1_code => 'ENG'
+          :admin1_code => 'ENG',
+          :county => nil,
+          :country => mock_model(Place, :ascii_name => "England")
           )
       @place2 = mock_model(Place, 
           :id => 2314, 
@@ -42,7 +44,10 @@ describe Item do
           :alternate_names => '',
           :geoname_id => 3453,
           :admin2_code => '00',
-          :admin1_code => 'ENG')
+          :admin1_code => 'ENG',
+          :county => mock_model(Place, :ascii_name => "Greater London"),
+          :country => mock_model(Place, :ascii_name => "England")
+          )
       @county1 = mock_model(Place, :id => 1, :ascii_name => 'County of Essex')
       @county2 = mock_model(Place, :id => 4, :ascii_name => 'Hertfordshire')
       @tag1 = mock_model(Tag, :name => "London")
@@ -59,17 +64,8 @@ describe Item do
       @tag1.should_receive(:placetags).and_return([@placetag1])
       @tag2.should_receive(:placetags).and_return([@placetag1, @placetag2])
       Placetag.should_receive(:find_by_geoname_id).exactly(2).times.and_return(nil)
-      Place.should_receive(:find_by_feature_code_and_admin1_code).with("ADM1", "ENG").exactly(2).times.and_return(mock_model(Place, :ascii_name => 'England'))
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("London").and_return([@place1])
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Westminster").and_return([@place2])
-      Place.should_receive(:find_all_by_feature_code_and_admin2_code_and_admin1_code).with("ADM2", "JA", "ENG").and_return([@county1])
-      Place.should_receive(:find_all_by_feature_code_and_admin2_code_and_admin1_code).with("ADM2", "00", "ENG").and_return([@county1, @county2])
-      @county1.should_receive(:distance_to).with(@place2, {}).and_return(220)
-      @county1.should_receive(:distance=).with(220)
-      @county1.should_receive(:distance).and_return(220)
-      @county2.should_receive(:distance_to).with(@place2, {}).and_return(22)
-      @county2.should_receive(:distance=).with(22)
-      @county2.should_receive(:distance).and_return(22)
       @place1.should_receive(:has_placetag=).with(true)
       @place1.stub!(:save)
       @place2.should_receive(:has_placetag=).with(true)
