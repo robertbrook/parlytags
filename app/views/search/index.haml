@@ -3,25 +3,31 @@
     #map
       = #%Q|<iframe width="350" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=#{@place.lat},#{@place.lng}&amp;sll=#{@place.lat},#{@place.lng}&amp;ie=UTF8&amp;ll=#{@place.lat},#{@place.lng}&amp;spn=0.004528,0.00912&amp;z=10&amp;output=embed"></iframe>|
       
-  %h2
-    Search results for
-    %strong.search_term= @searched_for
+    %h2
+      ="Nearest #{pluralize(@results.count, "result")} for"
+      %strong.search_term= @searched_for
     
-  - if @usually_known_as
-    %small
-      Usually known as
-      = @usually_known_as
+    - if @usually_known_as
+      %small
+        Usually known as
+        = @usually_known_as
+  - else
+    %h2
+      Search results for
+      %strong.search_term= @searched_for
+  
+    #pagination
+      = will_paginate @results
+        
   %ul.search-results
     =render :partial => "partials/item_result", :collection => @results
-
-  #pagination
-    = will_paginate @results
     
 - else
   - if @last_search_term
     %p.no-results 
       There are no items tagged 
       %strong.search_term= @last_search_term
+
   #front-page-search
     %table{:align=>"center"}
       - form_tag(search_url, :name => 'search', :method => :get) do
