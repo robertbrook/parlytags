@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   def index
     term = params[:q]
     if term
-      do_search(term.strip)
+      term = do_search(term.strip)
       if @place.blank?
         @place = nil
       else
@@ -19,6 +19,18 @@ class SearchController < ApplicationController
       @last_search_term = term
       @searched_for = term
       places = Place.find_all_by_ascii_name_or_alternate_names(term)
+      if places.empty?
+        terms = term.split(",")
+        places = Place.find_all_by_ascii_name_or_alternate_names(terms[0])
+        if places
+          places.each do |place|
+            if place.county_name == terms[1].strip
+              places = [place]
+              break
+            end
+          end
+        end
+      end
       unless places.empty?
         @place = places.first
         if @place.placetag
@@ -28,12 +40,12 @@ class SearchController < ApplicationController
           end
         else
           @place_title = @place.ascii_name
-          county = @place.county
+          county = @place.county_name
           if county
             @place_title = "#{@place_title.strip}, #{county.strip}"
           end
         end
-        if @place.ascii_name != term
+        if @place.ascii_name != term && @place.ascii_name != term.split(",")[0]
           @usually_known_as = @place.ascii_name
         end
         @results = @place.find_nearby_items(10)
@@ -44,6 +56,7 @@ class SearchController < ApplicationController
           @results = items.paginate :page => params[:page]
         end
       end
+      term
     end
   
 end

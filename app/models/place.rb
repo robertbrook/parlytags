@@ -26,20 +26,26 @@ class Place < ActiveRecord::Base
   end
   
   def county_name
-    unless ["England","Scotland","Wales","Northern Ireland","Britain","United Kingdom"].include?(ascii_name) || admin2_code.blank?
-      counties = Place.find_all_by_feature_code_and_admin2_code_and_admin1_code("ADM2", admin2_code, admin1_code)
-      if counties.size == 1
-        return counties.first.ascii_name
-      elsif counties.size > 1
-        counties.sort_by_distance_from(self)
-        return counties.first.ascii_name
-      end
+    counties = possible_counties
+    if counties && counties.size > 0
+      return counties.first.ascii_name
     end
   end
   
   def country_name
     country = Place.find_by_feature_code_and_admin1_code("ADM1", admin1_code)
     return country.ascii_name if country
+  end
+  
+  def alternative_places
+    possible_places = Place.find_all_by_ascii_name_or_alternate_names(ascii_name)
+    places = []
+    possible_places.each do |place|
+      unless place.id == self.id || place.ascii_name == county_name || place.county_name.nil? || place.county_name == county_name
+        places << place
+      end
+    end
+    places
   end
   
   def find_places_within_radius(distance, units = :kms)
@@ -64,4 +70,16 @@ class Place < ActiveRecord::Base
     end
     items[0..limit-1]
   end
+  
+  private
+    def possible_counties
+      unless ["England","Scotland","Wales","Northern Ireland","Britain","United Kingdom"].include?(ascii_name) || admin2_code.blank?
+        counties = Place.find_all_by_feature_code_and_admin2_code_and_admin1_code("ADM2", admin2_code, admin1_code)
+        if counties.size == 1
+          return counties
+        elsif counties.size > 1
+          return counties.sort_by_distance_from(self)
+        end
+      end
+    end
 end
