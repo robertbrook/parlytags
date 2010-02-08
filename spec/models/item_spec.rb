@@ -35,8 +35,8 @@ describe Item do
           :geoname_id => 2324,
           :admin2_code => 'JA',
           :admin1_code => 'ENG',
-          :county => nil,
-          :country => mock_model(Place, :ascii_name => "England")
+          :county_name => nil,
+          :country_name => "England"
           )
       @place2 = mock_model(Place, 
           :id => 2314, 
@@ -45,8 +45,8 @@ describe Item do
           :geoname_id => 3453,
           :admin2_code => '00',
           :admin1_code => 'ENG',
-          :county => mock_model(Place, :ascii_name => "Greater London"),
-          :country => mock_model(Place, :ascii_name => "England")
+          :county_name => "Greater London",
+          :country_name => "England"
           )
       @county1 = mock_model(Place, :id => 1, :ascii_name => 'County of Essex')
       @county2 = mock_model(Place, :id => 4, :ascii_name => 'Hertfordshire')

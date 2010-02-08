@@ -185,7 +185,7 @@ describe Place do
       @county2.should_receive(:distance=).with(22)
       @county2.should_receive(:distance).and_return(22)
       
-      @place.county.should == "Middlesex"
+      @place.county_name.should == "Middlesex"
     end
   
     it 'should return the name of the county when there is only one county' do
@@ -193,7 +193,7 @@ describe Place do
       @place.stub!(:admin2_code).and_return("F8")
       Place.should_receive(:find_all_by_feature_code_and_admin2_code_and_admin1_code).with("ADM2", "F8", "ENG").and_return([@county1])
     
-      @place.county.should == "Hertfordshire"
+      @place.county_name.should == "Hertfordshire"
     end
   end
   
@@ -204,12 +204,12 @@ describe Place do
     
     it 'should return a country name where there is a valid matching country record' do
       Place.should_receive(:find_by_feature_code_and_admin1_code).with("ADM1", "ENG").and_return(mock_model(Place, :ascii_name => "England"))
-      @place.country.should == "England"
+      @place.country_name.should == "England"
     end
     
     it 'should return nil where there is no matching country record' do
       Place.should_receive(:find_by_feature_code_and_admin1_code).with("ADM1", "ENG").and_return(nil)
-      @place.country.should == nil
+      @place.country_name.should == nil
     end
   end
 end

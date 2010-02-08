@@ -30,10 +30,10 @@ class Item < ActiveRecord::Base
           placetag = Placetag.find_by_geoname_id(place.geoname_id)
           if placetag.nil?
             placetag = Placetag.new(:name => tag.name)
-            county = place.county
+            county = place.county_name
             placetag.county = county if county
-            country = place.country
-            placetag.country = place.country.ascii_name if country
+            country = place.country_name
+            placetag.country = place.country_name if country
             placetag.place_id = place.id
             placetag.geoname_id = place.geoname_id
             tag.placetags << placetag

@@ -25,7 +25,7 @@ class Place < ActiveRecord::Base
     end
   end
   
-  def county
+  def county_name
     unless ["England","Scotland","Wales","Northern Ireland","Britain","United Kingdom"].include?(ascii_name) || admin2_code.blank?
       counties = Place.find_all_by_feature_code_and_admin2_code_and_admin1_code("ADM2", admin2_code, admin1_code)
       if counties.size == 1
@@ -37,7 +37,7 @@ class Place < ActiveRecord::Base
     end
   end
   
-  def country
+  def country_name
     country = Place.find_by_feature_code_and_admin1_code("ADM1", admin1_code)
     return country.ascii_name if country
   end
