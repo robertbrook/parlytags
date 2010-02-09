@@ -142,7 +142,8 @@ class TextParser
           "Act", "Right Honourable", "Humble Address", "Her Majesty", "Even", "Bill", "Closed", "Centre",
           "The Status", "Agency", "Address", "State", "Members of the House", "Minister", "Ministers",
           "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
-          "November", "December", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "EDM", "Her Majesty's Ministers"]
+          "November", "December", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "EDM", "Her Majesty's Ministers",
+          "They", "They're", "That", "That'll"]
       stop_phrases.include?(term.strip)
     end
     
