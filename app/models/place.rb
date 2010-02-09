@@ -51,7 +51,11 @@ class Place < ActiveRecord::Base
     possible_places = Place.find_all_by_ascii_name_or_alternate_names(ascii_name)
     places = []
     possible_places.each do |place|
-      unless place.id == self.id || place.ascii_name == county_name ||place.county_name == county_name || place.feature_code == "BNK"
+      unless place.id == self.id || 
+        place.ascii_name == county_name || 
+        place.county_name == county_name || 
+        place.feature_code == "BNK" || place.feature_code == "AIRP" || place.feature_code == "SWT"
+        (place.ascii_name == ascii_name && place.county_name.nil?)
         places << place
       end
     end
