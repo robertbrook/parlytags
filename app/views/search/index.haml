@@ -42,17 +42,14 @@
     = link_to "Subscribe to Email Alerts for this page", "http://www.parliament.uk/site_information/email_alerting.cfm"
     
 - else
-  - if @last_search_term
-    %p.no-results 
-      There are no items tagged 
-      %strong.search_term= @last_search_term
-
   #front-page-search
     - form_tag(search_url, :name => 'search', :method => :get) do
       = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : '')
-      = submit_tag 'SEARCH'
-      
-      
+      = submit_tag 'Search'
+  - if @last_search_term
+    %p.no-results 
+      There are no items tagged 
+      %em.search_term= @last_search_term
       
 - content_for :footer do
   %br
