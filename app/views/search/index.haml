@@ -16,13 +16,12 @@
     - else
       %p.no-nearest= "We can't find anything near this location."
     -unless @place.alternative_places.empty?
-      %p.did-you-mean
-        Did you mean:
+      %p.alternative-places
+        Search for:
         -@place.alternative_places.each do |alternate|
           =link_to "#{alternate.ascii_name}, #{alternate.county_name}", search_url + "?q=#{alternate.ascii_name}, #{alternate.county_name}"
           -unless alternate == @place.alternative_places.last
             &middot;
-          ?
     
   - else
     %h2
@@ -50,10 +49,15 @@
       - form_tag(search_url, :name => 'search', :method => :get) do
         %tr{:align=>"center"}
           %td
+            <a href="http://github.com/robertbrook/parlytags">Source code</a> ~ <a href="mailto:mail@robertbrook.com">Contact email</a> ~ <a href="http://www.parliament.uk/site_information/parliamentary_copyright.cfm">Parliamentary Copyright</a>
+        %tr{:align=>"center"}
+          %td
             = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : '')
         %tr{:align=>"center"}
           %td
             = submit_tag 'SEARCH'
+            
+
   
 
   
