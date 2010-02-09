@@ -32,7 +32,7 @@ class Place < ActiveRecord::Base
     end
     counties = possible_counties
     if counties && counties.size > 0
-      return counties.first.ascii_name
+      return counties.first.ascii_name.gsub("County of ", "")
     end
   end
   
