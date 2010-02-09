@@ -27,7 +27,7 @@ class Place < ActiveRecord::Base
   end
   
   def county_name
-    if ["AREA", "A", "ADM1", "ISL","ADMD", "PCLI"].include?(feature_code)
+    if ["AREA", "A", "ADM1", "ADM2", "ISL","ADMD", "PCLI"].include?(feature_code)
       return nil
     end
     counties = possible_counties
