@@ -2,23 +2,30 @@
   - if @place
     %h2.map_title
       ="Map of #{@place_title}"
-    -unless @place.alternative_places.empty?
-      Did you mean:
-      -@place.alternative_places.each do |alternate|
-        =link_to "#{alternate.ascii_name}, #{alternate.county_name}", search_url + "?q=#{alternate.ascii_name}, #{alternate.county_name}"
-        -unless alternate == @place.alternative_places.last
-          &middot;
+    - if @usually_known_as
+      %span.also-known-as
+        Also known as
+        = @usually_known_as
+    
     #map
       = #%Q|<iframe width="350" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=#{@place.lat},#{@place.lng}&amp;sll=#{@place.lat},#{@place.lng}&amp;ie=UTF8&amp;ll=#{@place.lat},#{@place.lng}&amp;spn=0.004528,0.00912&amp;z=10&amp;output=embed"></iframe>|
       
-    %h2
-      ="Nearest #{pluralize(@results.count, "result")} for"
-      %strong.search_term= @searched_for
+    - if @results.count > 0
+      %h2
+        ="Nearest #{pluralize(@results.count, "result")} for"
+        %strong.search_term= @searched_for
+    - else
+      %p.no-nearest= "We can't find anything near this location."
+    -unless @place.alternative_places.empty?
+      %p.did-you-mean
+        Did you mean:
+        -@place.alternative_places.each do |alternate|
+          =link_to "#{alternate.ascii_name}, #{alternate.county_name}", search_url + "?q=#{alternate.ascii_name}, #{alternate.county_name}"
+          -unless alternate == @place.alternative_places.last
+            &middot;
+          ?
     
-    - if @usually_known_as
-      %small
-        Usually known as
-        = @usually_known_as
+    
   - else
     %h2
       Search results for
