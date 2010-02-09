@@ -9,7 +9,7 @@ class SearchController < ApplicationController
       else
         @map = GMap.new("map")
         @map.control_init(:large_map => true,:map_type => false)
-        @map.center_zoom_init([@place.lat, @place.lng], 14)
+        @map.center_zoom_init([@place.lat, @place.lng], @place.zoom_level)
       end
     end
   end

@@ -12,7 +12,8 @@ class Place < ActiveRecord::Base
       end
       other_places = find(
         :all, 
-        :conditions => "alternate_names = \'#{term.gsub("'", "\\\\'")}\' or alternate_names like \'#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")}\'"
+        :conditions => "alternate_names = \'#{term.gsub("'", "\\\\'")}\' or alternate_names like \'#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")}\'",
+        :order => "feature_class"
         )
       other_places.each do |place|
         places << place unless places.include?(place)
@@ -46,6 +47,24 @@ class Place < ActiveRecord::Base
       end
     end
     places
+  end
+  
+  def zoom_level
+    case feature_code
+      when "PPLC", "PPLA"
+        13
+      when "ADM2"
+        9
+      when "AREA", "A", "ADM1", "ISL"
+        6
+      when "ADMD", "PCLI"
+        5
+      when "MNMT", "MUS"
+        17
+      else
+        14
+    end
+    
   end
   
   def find_places_within_radius(distance, units = :kms)
