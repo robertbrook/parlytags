@@ -98,8 +98,10 @@ class Place < ActiveRecord::Base
     nearby_places = find_nearby_tagged_places
     items = []
     nearby_places.each do |place|
-      place.placetag.tags.first.items.each do |item|
-        items << item unless items.include?(item)
+      if place.placetag
+        place.placetag.tags.first.items.each do |item|
+          items << item unless items.include?(item)
+        end
       end
       break if items.count >= limit
     end
