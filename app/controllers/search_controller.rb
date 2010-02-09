@@ -39,13 +39,13 @@ class SearchController < ApplicationController
             @place_title = "#{@place_title.strip}, #{@place.placetag.county.strip}"
           end
         else
-          @place_title = @place.ascii_name
+          @place_title = @place.display_name
           county = @place.county_name
           if county
             @place_title = "#{@place_title.strip}, #{county.strip}"
           end
         end
-        if @place.ascii_name.downcase != term.downcase && @place.ascii_name.downcase != term.split(",")[0].downcase && @place.ascii_name.downcase != "county of #{term.downcase}"
+        if @place.display_name.downcase != term.downcase && @place.display_name.downcase != term.split(",")[0].downcase && @place.ascii_name.downcase != "county of #{term.downcase}"
           @usually_known_as = @place.ascii_name
         end
         @results = @place.find_nearby_items(10)
