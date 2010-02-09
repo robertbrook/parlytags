@@ -45,7 +45,7 @@ class SearchController < ApplicationController
             @place_title = "#{@place_title.strip}, #{county.strip}"
           end
         end
-        if @place.ascii_name != term && @place.ascii_name != term.split(",")[0]
+        if @place.ascii_name.downcase != term.downcase && @place.ascii_name.downcase != term.split(",")[0].downcase
           @usually_known_as = @place.ascii_name
         end
         @results = @place.find_nearby_items(10)
