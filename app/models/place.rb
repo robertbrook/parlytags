@@ -61,6 +61,8 @@ class Place < ActiveRecord::Base
         5
       when "MNMT", "MUS"
         17
+      when "BAY"
+        10
       else
         14
     end
