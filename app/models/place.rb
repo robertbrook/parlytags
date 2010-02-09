@@ -16,7 +16,9 @@ class Place < ActiveRecord::Base
         :order => "feature_class"
         )
       other_places.each do |place|
-        places << place unless places.include?(place)
+        unless places.include?(place) || place.feature_code == 'BNK'
+          places << place
+        end
       end
       if places.empty? && original_term.include?("'")
         term = original_term.gsub("'", "").strip
@@ -34,6 +36,10 @@ class Place < ActiveRecord::Base
     if counties && counties.size > 0
       return counties.first.ascii_name.gsub("County of ", "")
     end
+    if (counties.nil? || counties.size == 0) && feature_code == "PPLX"
+      city = find_nearest_city()
+      return city.ascii_name if city
+    end
   end
   
   def country_name
@@ -45,7 +51,7 @@ class Place < ActiveRecord::Base
     possible_places = Place.find_all_by_ascii_name_or_alternate_names(ascii_name)
     places = []
     possible_places.each do |place|
-      unless place.id == self.id || place.ascii_name == county_name || place.county_name.nil? || place.county_name == county_name
+      unless place.id == self.id || place.ascii_name == county_name ||place.county_name == county_name || place.feature_code == "BNK"
         places << place
       end
     end
@@ -81,6 +87,11 @@ class Place < ActiveRecord::Base
   
   def find_nearby_tagged_places(limit=10)
     Place.find(:all, :origin => self, :within => 40, :units => :kms, :conditions => {:feature_class => 'P', :has_placetag => true}, :order => 'distance', :limit => limit )
+  end
+  
+  def find_nearest_city
+    place = Place.find(:all, :origin => self, :within => 5, :units => :kms, :conditions => {:feature_code => 'PPLC'}, :order => 'distance', :limit => 1 )
+    place.first
   end
   
   def find_nearby_items(limit=10)

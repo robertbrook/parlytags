@@ -40,7 +40,7 @@ describe Place do
     
     it 'should return a single result where there is one match within alternate_names' do
       term = "Essex"
-      place = mock_model(Place, :name => 'County of Essex', :alternate_names => 'Essex')
+      place = mock_model(Place, :name => 'County of Essex', :alternate_names => 'Essex', :feature_code => 'ADM2')
       Place.should_receive(:find).with(:all, :conditions => {:name => 'Essex'}).and_return([])
       Place.should_receive(:find).with(:all, :conditions => {:ascii_name => 'Essex'}).and_return([])
       Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => "alternate_names = 'Essex' or alternate_names like 'Essex,%' or alternate_names like '%,Essex,%' or alternate_names like '%,Essex'").and_return [place]
@@ -50,9 +50,9 @@ describe Place do
      
      it 'should return an array of results - where there are matches within name and alternate_name' do
        term = "Bedford"
-       place1 = mock_model(Place)
-       place2 = mock_model(Place)
-       place3 = mock_model(Place)
+       place1 = mock_model(Place, :feature_code => 'PPL')
+       place2 = mock_model(Place, :feature_code => 'PPL')
+       place3 = mock_model(Place, :feature_code => 'PPL')
        Place.should_receive(:find).with(:all, :conditions => {:name => 'Bedford'}).and_return([])
        Place.should_receive(:find).with(:all, :conditions => {:ascii_name => 'Bedford'}).and_return([place1])
        Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => "alternate_names = 'Bedford' or alternate_names like 'Bedford,%' or alternate_names like '%,Bedford,%' or alternate_names like '%,Bedford'").and_return [place2, place1, place3]
