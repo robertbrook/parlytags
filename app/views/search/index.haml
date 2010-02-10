@@ -34,6 +34,9 @@
     
   - else
     %h2= "Results for #{h(sanitize(@searched_for))}"
+    
+  %ul.twitter-search-results
+    =render :partial => "partials/item_result", :collection => @twitter_results
   
     #pagination
       = will_paginate @results
@@ -41,8 +44,7 @@
   %ul.search-results
     =render :partial => "partials/item_result", :collection => @results
   
-  %ul.twitter-search-results
-    =render :partial => "partials/item_result", :collection => @twitter_results
+
     
   - content_for :footer do
     = link_to image_tag("envelope.gif", :border=>0), "http://www.parliament.uk/site_information/email_alerting.cfm"
