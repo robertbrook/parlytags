@@ -38,7 +38,7 @@ class SearchController < ApplicationController
         @results = @place.find_nearby_items(10)
       else
         @results = do_tag_search(term)
-        @results << do_twitter_search(term)
+        # @results << do_twitter_search(term)
       end
       term
     end
