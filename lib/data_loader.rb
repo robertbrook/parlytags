@@ -142,7 +142,11 @@ module ParlyTags::DataLoader
   end
   
   def create_edm_items
+    
+    log = Logger.new(STDOUT)
+    
     Item.delete_all
+    log << "Deleted all Items\n"
 
     Edm.all.each do |edm|
       term_extractor = TextParser.new(edm.text)
@@ -154,14 +158,18 @@ module ParlyTags::DataLoader
         :text => edm.text,
         :kind => 'Edm'
       )
+      log << "i"
       
       term_extractor.terms.each do |term|
         tag = Tag.find_or_create_by_name(term)
         item.tags << tag
+        log << "t"
       end
       
       item.save
+      log << "s"
       item.populate_placetags
+      log << "p"
     end
   end
   
