@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100205120032) do
+ActiveRecord::Schema.define(:version => 20100210141623) do
 
   create_table "edms", :force => true do |t|
     t.integer  "motion_xml_id"
@@ -25,10 +25,12 @@ ActiveRecord::Schema.define(:version => 20100205120032) do
   end
 
   create_table "items", :force => true do |t|
-    t.string "title"
-    t.string "url"
-    t.text   "text"
-    t.string "kind"
+    t.string   "title"
+    t.string   "url"
+    t.text     "text"
+    t.string   "kind"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "items_tags", :id => false, :force => true do |t|
