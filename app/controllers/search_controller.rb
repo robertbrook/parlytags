@@ -37,18 +37,27 @@ class SearchController < ApplicationController
         end
         @results = @place.find_nearby_items(10)
       else
-        @results = do_tag_search(term)
-        # @results << do_twitter_search(term)
+        @results = do_tag_search(term) 
+        @twitter_results = do_twitter_search(term)
       end
       term
     end
   
-  
     def do_twitter_search term
-      # @results << ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
+      results = []
+      twitter_results = ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
+      twitter_results.each do |result|
+        item = Item.new (
+          :url => "http://twitter.com/ukparliament/status/#{result["id"].to_s}",
+          :title => result["text"],
+          :kind => 'Tweet',
+          :text => ""
+        )
+        item.save
+      end
+      results = Item.find_all_by_kind("Tweet")
     end
     
-     
     def do_place_search term
       places = Place.find_all_by_ascii_name_or_alternate_names(term)
       if places.empty?
