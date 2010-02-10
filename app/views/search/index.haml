@@ -1,18 +1,16 @@
-- if @results
-  
-  - if @uk_parliament_twitter_results.length > 0
-    %h2= "On Twitter now"
-    %ol.uk_parliament_twitter_results
-      =render :partial => "partials/uk_parliament_twitter_result", :collection => @uk_parliament_twitter_results
-      
-        
+- if @results      
   - if @place
     %h2.map_title= @place_title
     - if @usually_known_as
       %span.also-known-as= "Also known as #{@usually_known_as}"
     
     #map
-     
+    
+    - if @uk_parliament_twitter_results.length > 0
+      %h2= "On Twitter now"
+      %ol.uk_parliament_twitter_results
+        =render :partial => "partials/uk_parliament_twitter_result", :collection => @uk_parliament_twitter_results
+    
     -unless @place.alternative_places.empty?
       %p.alternative-places
         Search for:
@@ -31,6 +29,11 @@
       %p.no-nearest= "We couldn't find anything within about 40km of #{@searched_for.titlecase}"
     
   - else
+    - if @uk_parliament_twitter_results.length > 0
+      %h2= "On Twitter now"
+      %ol.uk_parliament_twitter_results
+        =render :partial => "partials/uk_parliament_twitter_result", :collection => @uk_parliament_twitter_results
+        
     %h2= "Results for #{@searched_for}"
   
     #pagination
@@ -48,6 +51,10 @@
     - form_tag(search_url, :name => 'search', :method => :get) do
       = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :accesskey => 's'
       = submit_tag 'Search'
+  - if @uk_parliament_twitter_results.length > 0
+    %h2= "On Twitter now"
+    %ol.uk_parliament_twitter_results
+      =render :partial => "partials/uk_parliament_twitter_result", :collection => @uk_parliament_twitter_results
   - if @last_search_term
     %p.no-results 
       There are no items tagged 
