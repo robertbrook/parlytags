@@ -1,5 +1,5 @@
 - @title = "#{h(sanitize(@searched_for))} (ParlyTags)"  
-- if @results
+- if @results && !@results.empty?
 
   - if @place
     %h2.map_title= @place_title
