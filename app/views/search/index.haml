@@ -1,4 +1,11 @@
 - if @results
+  
+  - if @uk_parliament_twitter_results.length > 0
+    %h2= "On Twitter now"
+    %ol.uk_parliament_twitter_results
+      =render :partial => "partials/uk_parliament_twitter_result", :collection => @uk_parliament_twitter_results
+      
+        
   - if @place
     %h2.map_title= @place_title
     - if @usually_known_as
@@ -17,6 +24,7 @@
           =link_to "#{place_name}", search_url + "?q=#{place_name}"
           -unless alternate == @place.alternative_places.last
             &middot; 
+              
     - if @results.count > 0
       %h2= "Within about 40km of #{@searched_for.titlecase}"
     - else
@@ -38,7 +46,7 @@
 - else
   #front-page-search
     - form_tag(search_url, :name => 'search', :method => :get) do
-      = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : '')
+      = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :accesskey => 's'
       = submit_tag 'Search'
   - if @last_search_term
     %p.no-results 

@@ -15,7 +15,7 @@ module ParlyTags::DataLoader
     puts "generating search data"
     create_edm_items
   end
-
+  
   def load_places
     Place.delete_all
     
