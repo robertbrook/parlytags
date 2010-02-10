@@ -30,9 +30,6 @@
     = "Within about 40km of #{h(sanitize(@searched_for.titlecase))}"
   -else
     = "Results for #{h(sanitize(@searched_for))}"
-    
-  %ul.twitter-search-results
-    =render :partial => "partials/item_result", :collection => @twitter_results
   
     #pagination
       = will_paginate @results
