@@ -6,6 +6,7 @@ module ParlyTags::DataLoader
   DATA_DIR = File.expand_path(File.dirname(__FILE__) + '/../data')
   EDMS_FILES = ["#{DATA_DIR}/2009-2010.xml"]  
   GEO_FILE = "#{DATA_DIR}/GB.txt"
+  CONSTITUENCY_FILE = "#{DATA_DIR}/constituencies.txt"
 
   def load_dummy_data
     puts "loading place data"
