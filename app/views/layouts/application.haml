@@ -1,6 +1,6 @@
 %html
   %head
-    %title ParlyTags
+    %title= @title ? @title : 'ParlyTags'
     = stylesheet_link_tag "screen"
     -if @map
       = GMap.header
