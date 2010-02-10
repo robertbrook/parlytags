@@ -1,38 +1,34 @@
 - @title = "#{h(sanitize(@searched_for))} (ParlyTags)"  
 
+-if @place
+  %h2.map_title= @place_title
+
+  - if @usually_known_as
+    %span.also-known-as= "Also known as #{@usually_known_as}"
+
+  #map
+
+  -unless @place.alternative_places.empty?
+    %p.alternative-places
+      Search for:
+      -@place.alternative_places.each do |alternate|
+      
+        - if alternate.county_name
+          - display_place_name = "#{alternate.ascii_name} (#{alternate.county_name})"
+          - search_place_name = "#{alternate.ascii_name}, #{alternate.county_name}"
+        
+        - else
+          - display_place_name = search_place_name = alternate.display_name
+        =link_to "#{display_place_name}", search_url + "?q=#{search_place_name}"
+      
+        -unless alternate == @place.alternative_places.last
+          &middot;
+
 - if @results && !@results.empty?
   
   - if @place
-    %h2.map_title= @place_title
-    
-    - if @usually_known_as
-      %span.also-known-as= "Also known as #{@usually_known_as}"
-    
-    #map
-    
-    -unless @place.alternative_places.empty?
-      %p.alternative-places
-        Search for:
-        -@place.alternative_places.each do |alternate|
-          
-          - if alternate.county_name
-            - display_place_name = "#{alternate.ascii_name} (#{alternate.county_name})"
-            - search_place_name = "#{alternate.ascii_name}, #{alternate.county_name}"
-            
-          - else
-            - display_place_name = search_place_name = alternate.display_name
-          =link_to "#{display_place_name}", search_url + "?q=#{search_place_name}"
-          
-          -unless alternate == @place.alternative_places.last
-            &middot; 
-              
-    - if @results.count > 0
-      %h2= "Within about 40km of #{h(sanitize(@searched_for.titlecase))}"
-      
-    - else
-      %p.no-nearest= "We couldn't find any items within about 40km of here."
-    
-  - else
+    %h2= "Within about 40km of #{h(sanitize(@searched_for.titlecase))}"
+  -else
     %h2= "Results for #{h(sanitize(@searched_for))}"
     
   %ul.twitter-search-results
@@ -53,9 +49,12 @@
 - else
   
   - if @last_search_term
-    %p.no-results 
-      There are no items tagged 
-      %em.search_term= h(sanitize(@last_search_term))
+    - if @place
+      %p.no-nearest= "We couldn't find any items within about 40km of here."
+    - else
+      %p.no-results 
+        There are no items tagged 
+        %em.search_term= h(sanitize(@last_search_term))
       
 - content_for :footer do
   %br
