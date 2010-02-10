@@ -118,7 +118,7 @@ class Place < ActiveRecord::Base
   
   private
     def possible_counties
-      unless ["England","Scotland","Wales","Northern Ireland","Britain","United Kingdom"].include?(ascii_name) || admin2_code.blank?
+      unless ["AREA", "A", "ADM1", "ISL"].include?(feature_code) || admin2_code.blank?
         counties = Place.find_all_by_feature_code_and_admin2_code_and_admin1_code("ADM2", admin2_code, admin1_code)
         if counties.size == 1
           return counties
