@@ -150,10 +150,34 @@ module ParlyTags::DataLoader
       term_extractor = TextParser.new(edm.text)
       #tag_list = term_extractor.terms.join(",")
       
+      #hash table for translating the edms.org.uk session format into the edmi session number
+      edmi_sessions = {
+        "2009-2010" => "903", 
+        "2008-2009" => "899", 
+        "2007-2008" => "891",
+        "2006-2007" => "885",
+        "2005-2006" => "875",
+        "2004-2005" => "873",
+        "2003-2004" => "682",
+        "2002-2003" => "681",
+        "2001-2002" => "680",
+        "2000-2001" => "679",
+        "1999-2000" => "703",
+        "1998-1999" => "702",
+        "1997-1998" => "701",
+        "1996-1997" => "700",
+        "1995-1996" => "699",
+        "1994-1995" => "698",
+        "1993-1994" => "697",
+        "1992-1993" => "696",
+        "1991-1992" => "695",
+        "1990-1991" => "694",
+        "1989-1990" => "693"
+        }
+      
       item = Item.new (
-        :url => "http://localhost:3000/#{edm.session_name}/edms/#{edm.number}",
+        :url => "http://edmi.parliament.uk/EDMi/EDMDetails.aspx?EDMID=#{edm.motion_xml_id}&SESSION=#{edmi_sessions[edm.session_name]}",
         :title => "#{edm.number} - #{edm.title}",
-        :text => edm.text,
         :kind => 'Edm'
       )
       log << "i"
