@@ -17,6 +17,15 @@
           =link_to "#{place_name}", search_url + "?q=#{place_name}"
           -unless alternate == @place.alternative_places.last
             &middot; 
+    
+    - if @uk_parliament_twitter_results.length > 0
+      %h2= "On Twitter now"
+      %ol.uk_parliament_twitter_results
+      - @uk_parliament_twitter_results.each do |result|
+        %li.uk_parliament_twitter_result
+          = link_to "@UKParliament", "http://twitter.com/UKParliament/status/" + result["id"].to_s
+          = result["text"]
+              
     - if @results.count > 0
       %h2= "Within about 40km of #{@searched_for.titlecase}"
     - else
