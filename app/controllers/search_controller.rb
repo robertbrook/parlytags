@@ -36,7 +36,7 @@ class SearchController < ApplicationController
         if @place.placetag
           @place_title = @place.placetag.name
           if @place.placetag.county
-            @place_title = "#{@place_title.strip}, #{@place.placetag.county.strip}"
+            @place_title = "#{@place_title.strip} (#{@place.placetag.county.strip})"
           end
         else
           @place_title = @place.ascii_name
