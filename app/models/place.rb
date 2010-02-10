@@ -58,8 +58,8 @@ class Place < ActiveRecord::Base
       unless place.id == self.id || 
         place.ascii_name == county_name || 
         place.county_name == county_name || 
-        place.feature_code == "BNK" || place.feature_code == "AIRP" || place.feature_code == "SWT"
-        (place.ascii_name == ascii_name && place.county_name.nil?)
+        place.feature_code == "BNK" || place.feature_code == "AIRP" || place.feature_code == "SWT" ||
+        (place.ascii_name.downcase == ascii_name.downcase && place.county_name.nil?)
         places << place
       end
     end

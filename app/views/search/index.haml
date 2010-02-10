@@ -13,10 +13,11 @@
         Search for:
         -@place.alternative_places.each do |alternate|
           - if alternate.county_name
-            - place_name = "#{alternate.ascii_name} (#{alternate.county_name})"
+            - display_place_name = "#{alternate.ascii_name} (#{alternate.county_name})"
+            - search_place_name = "#{alternate.ascii_name}, #{alternate.county_name}"
           - else
             - place_name = alternate.display_name
-          =link_to "#{place_name}", search_url + "?q=#{place_name}"
+          =link_to "#{display_place_name}", search_url + "?q=#{search_place_name}"
           -unless alternate == @place.alternative_places.last
             &middot; 
               
