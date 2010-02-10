@@ -6,12 +6,12 @@ class Place < ActiveRecord::Base
     def find_all_by_ascii_name_or_alternate_names(term)
       original_term = term
       term = term.gsub("'", "\'").strip
-      places = find_all_by_name(term)
+      places = find_all_by_name(term, :order => "feature_class")
       if places.empty?
-        places = find_all_by_ascii_name(term)
+        places = find_all_by_ascii_name(term, :order => "feature_class")
       end
       other_places = find(
-        :all, 
+        :all,
         :conditions => "alternate_names = \'#{term.gsub("'", "\\\\'")}\' or alternate_names like \'#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")}\'",
         :order => "feature_class"
         )
