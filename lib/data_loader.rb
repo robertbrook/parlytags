@@ -3,10 +3,8 @@ require 'nokogiri'
 module ParlyTags; end
 module ParlyTags::DataLoader
   
-
   DATA_DIR = File.expand_path(File.dirname(__FILE__) + '/../data')
-  EDMS_FILES = ["#{DATA_DIR}/1996-1997.xml", "#{DATA_DIR}/2000-2001.xml"]  
-  # EDMS_FILES = ["#{DATA_DIR}/test.xml"]  
+  EDMS_FILES = ["#{DATA_DIR}/2009-2010.xml"]  
   GEO_FILE = "#{DATA_DIR}/GB.txt"
 
   def load_dummy_data
@@ -142,7 +140,11 @@ module ParlyTags::DataLoader
   end
   
   def create_edm_items
+    
+    log = Logger.new(STDOUT)
+    
     Item.delete_all
+    log << "Deleted all Items\n"
 
     Edm.all.each do |edm|
       term_extractor = TextParser.new(edm.text)
@@ -154,14 +156,18 @@ module ParlyTags::DataLoader
         :text => edm.text,
         :kind => 'Edm'
       )
+      log << "i"
       
       term_extractor.terms.each do |term|
         tag = Tag.find_or_create_by_name(term)
         item.tags << tag
+        log << "t"
       end
       
       item.save
+      log << "s"
       item.populate_placetags
+      log << "p"
     end
   end
   
