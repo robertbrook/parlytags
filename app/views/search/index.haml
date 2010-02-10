@@ -25,11 +25,11 @@
           &middot;
 
 - if @results && !@results.empty?
-  
+  %h2
   - if @place
-    %h2= "Within about 40km of #{h(sanitize(@searched_for.titlecase))}"
+    = "Within about 40km of #{h(sanitize(@searched_for.titlecase))}"
   -else
-    %h2= "Results for #{h(sanitize(@searched_for))}"
+    = "Results for #{h(sanitize(@searched_for))}"
     
   %ul.twitter-search-results
     =render :partial => "partials/item_result", :collection => @twitter_results
