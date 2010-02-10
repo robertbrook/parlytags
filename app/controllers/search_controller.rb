@@ -18,15 +18,19 @@ class SearchController < ApplicationController
     def do_search term
       @last_search_term = term
       @searched_for = term
-      places = Place.find_all_by_ascii_name_or_alternate_names(term)
-      if places.empty?
-        terms = term.split(",")
-        places = Place.find_all_by_ascii_name_or_alternate_names(terms[0])
-        if places
-          places.each do |place|
-            if place.county_name == terms[1].strip
-              places = [place]
-              break
+      if term.downcase.strip == "united kingdom"
+        places = []
+      else
+        places = Place.find_all_by_ascii_name_or_alternate_names(term)
+        if places.empty?
+          terms = term.split(",")
+          places = Place.find_all_by_ascii_name_or_alternate_names(terms[0])
+          if places
+            places.each do |place|
+              if place.county_name == terms[1].strip
+                places = [place]
+                break
+              end
             end
           end
         end
