@@ -2,14 +2,12 @@
   - if @place
     %h2.map_title= @place_title
     - if @usually_known_as
-      %span.also-known-as
-        Also known as
-        %em= @usually_known_as
+      %span.also-known-as= "Also known as #{@usually_known_as}"
     
     #map
       
     - if @results.count > 0
-      %h2= "More results (within about 40km of #{@searched_for})"
+      %h2= "Within about 40km of #{@searched_for.titlecase}"
     - else
       %p.no-nearest= "We couldn't find anything near this location."
     -unless @place.alternative_places.empty?
@@ -25,9 +23,7 @@
             &middot;
     
   - else
-    %h2
-      Search results for
-      %strong.search_term= @searched_for
+    %h2= "Results for #{@searched_for}"
   
     #pagination
       = will_paginate @results
