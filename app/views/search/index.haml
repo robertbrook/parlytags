@@ -12,11 +12,6 @@
     
     #map
     
-    - if @uk_parliament_twitter_results.length > 0
-      %h2= "On Twitter now"
-      %ol.uk_parliament_twitter_results
-        =render :partial => "partials/uk_parliament_twitter_result", :collection => @uk_parliament_twitter_results
-    
     -unless @place.alternative_places.empty?
       %p.alternative-places
         Search for:
@@ -32,7 +27,7 @@
     - if @results.count > 0
       %h2= "Within about 40km of #{@searched_for.titlecase}"
     - else
-      %p.no-nearest= "We couldn't find anything within about 40km of #{@searched_for.titlecase}"
+      %p.no-nearest= "We couldn't find anything within about 40km of #{@searched_for.titlecase}."
     
   - else
     - if @uk_parliament_twitter_results.length > 0
