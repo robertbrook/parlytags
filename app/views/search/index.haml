@@ -1,9 +1,4 @@
 - if @results
-  
-  - if @uk_parliament_twitter_results.length > 0
-    %h2= "On Twitter now"
-    %ol.uk_parliament_twitter_results
-      =render :partial => "partials/uk_parliament_twitter_result", :collection => @uk_parliament_twitter_results
       
   - if @place
     %h2.map_title= @place_title
@@ -27,14 +22,9 @@
     - if @results.count > 0
       %h2= "Within about 40km of #{h(sanitize(@searched_for.titlecase))}"
     - else
-      %p.no-nearest= "We couldn't find anything within about 40km of #{@searched_for.titlecase}."
+      %p.no-nearest= "We couldn't find any items within about 40km of here."
     
   - else
-    - if @uk_parliament_twitter_results.length > 0
-      %h2= "On Twitter now"
-      %ol.uk_parliament_twitter_results
-        =render :partial => "partials/uk_parliament_twitter_result", :collection => @uk_parliament_twitter_results
-        
     %h2= "Results for #{h(sanitize(@searched_for))}"
   
     #pagination

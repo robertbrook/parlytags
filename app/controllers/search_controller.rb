@@ -3,9 +3,6 @@ class SearchController < ApplicationController
   def index
     term = params[:q]
     if term
-      
-      @uk_parliament_twitter_results = ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
-      
       term = do_search(term.strip)
       if @place.blank?
         @place = nil
@@ -14,11 +11,7 @@ class SearchController < ApplicationController
         @map.control_init(:large_map => true,:map_type => false)
         @map.center_zoom_init([@place.lat, @place.lng], @place.zoom_level)
       end
-      
-      
     end
-    
-    
   end
   
   private
@@ -62,6 +55,7 @@ class SearchController < ApplicationController
           items = Item.find_all_by_tag(tag.name)
           @results = items.paginate :page => params[:page]
         end
+        @results << ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
       end
       term
     end
