@@ -13,7 +13,7 @@
           - if alternate.county_name
             - place_name = "#{alternate.ascii_name} (#{alternate.county_name})"
           - else
-            - place_name = alternate.ascii_name.gsub("County of ", "")
+            - place_name = alternate.display_name
           =link_to "#{place_name}", search_url + "?q=#{place_name}"
           -unless alternate == @place.alternative_places.last
             &middot; 
@@ -58,9 +58,3 @@
   %br
   <a href="http://github.com/robertbrook/parlytags">Source code</a> | <a href="mailto:mail@robertbrook.com">Contact email</a> | <a href="http://www.parliament.uk/site_information/parliamentary_copyright.cfm">Parliamentary Copyright</a>
             
-
-  
-
-  
-  
-    

@@ -28,6 +28,10 @@ class Place < ActiveRecord::Base
     end
   end
   
+  def display_name
+    ascii_name.gsub("County of ", "")
+  end
+  
   def county_name
     if ["AREA", "A", "ADM1", "ADM2", "ISL","ADMD", "PCLI"].include?(feature_code)
       return nil
