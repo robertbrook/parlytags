@@ -3,10 +3,8 @@ require 'nokogiri'
 module ParlyTags; end
 module ParlyTags::DataLoader
   
-
   DATA_DIR = File.expand_path(File.dirname(__FILE__) + '/../data')
-  EDMS_FILES = ["#{DATA_DIR}/1996-1997.xml", "#{DATA_DIR}/2000-2001.xml"]  
-  # EDMS_FILES = ["#{DATA_DIR}/test.xml"]  
+  EDMS_FILES = ["#{DATA_DIR}/2009-2010.xml"]  
   GEO_FILE = "#{DATA_DIR}/GB.txt"
 
   def load_dummy_data
