@@ -38,7 +38,8 @@ class SearchController < ApplicationController
         @results = @place.find_nearby_items(10)
       else
         @results = do_tag_search(term)
-        @results << ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
+        # @results << do_twitter_search(term)
+        # @results << ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
       end
       term
     end
