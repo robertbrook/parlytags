@@ -25,7 +25,7 @@
             &middot; 
               
     - if @results.count > 0
-      %h2= "Within about 40km of #{@searched_for.titlecase}"
+      %h2= "Within about 40km of #{h(sanitize(@searched_for.titlecase))}"
     - else
       %p.no-nearest= "We couldn't find anything within about 40km of #{@searched_for.titlecase}."
     
@@ -35,7 +35,7 @@
       %ol.uk_parliament_twitter_results
         =render :partial => "partials/uk_parliament_twitter_result", :collection => @uk_parliament_twitter_results
         
-    %h2= "Results for #{@searched_for}"
+    %h2= "Results for #{h(sanitize(@searched_for))}"
   
     #pagination
       = will_paginate @results
@@ -59,7 +59,7 @@
   - if @last_search_term
     %p.no-results 
       There are no items tagged 
-      %em.search_term= @last_search_term
+      %em.search_term= h(sanitize(@last_search_term))
       
 - content_for :footer do
   %br
