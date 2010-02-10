@@ -20,6 +20,12 @@ class SearchController < ApplicationController
       @searched_for = term
       if term.downcase.strip == "united kingdom"
         places = []
+      elsif term.upcase == term
+        places = []
+        @results = do_tag_search(term)
+        if @results == []
+          places = do_place_search(term)
+        end
       else
         places = do_place_search(term)
       end
