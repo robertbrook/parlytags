@@ -55,7 +55,7 @@ class SearchController < ApplicationController
           items = Item.find_all_by_tag(tag.name)
           @results = items.paginate :page => params[:page]
         end
-        @results << ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
+        # @results << ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
       end
       term
     end
