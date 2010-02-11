@@ -15,13 +15,8 @@ namespace :parlytags do
     load_places
   end
 
-  desc "Populate data for Edms in DB"
+  desc "Populate data for EDM Items in DB"
   task :load_edms => :environment do
     load_edms
-  end
-  
-  desc "Create items for each Edm"
-  task :create_edm_items => :environment do
-    create_edm_items
   end
 end

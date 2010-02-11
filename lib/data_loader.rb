@@ -13,8 +13,6 @@ module ParlyTags::DataLoader
     load_places
     puts "loading edm data"
     load_edms
-    puts "generating search data"
-    create_edm_items
   end
   
   def load_places
@@ -51,148 +49,71 @@ module ParlyTags::DataLoader
     
     log = Logger.new(STDOUT)
     
-    Edm.delete_all
-    Member.delete_all
-    Signature.delete_all
-    Session.delete_all
+    #hash table for translating the edms.org.uk session format into the edmi session number
+    edmi_sessions = {
+      "2009-2010" => "903", 
+      "2008-2009" => "899", 
+      "2007-2008" => "891",
+      "2006-2007" => "885",
+      "2005-2006" => "875",
+      "2004-2005" => "873",
+      "2003-2004" => "682",
+      "2002-2003" => "681",
+      "2001-2002" => "680",
+      "2000-2001" => "679",
+      "1999-2000" => "703",
+      "1998-1999" => "702",
+      "1997-1998" => "701",
+      "1996-1997" => "700",
+      "1995-1996" => "699",
+      "1994-1995" => "698",
+      "1993-1994" => "697",
+      "1992-1993" => "696",
+      "1991-1992" => "695",
+      "1990-1991" => "694",
+      "1989-1990" => "693"
+      }
     
     EDMS_FILES.each do |file|
       
       # TODO: check file actually exists!
       doc = Nokogiri::XML(open(file))
-
-      amendments = []
     
-      doc.xpath('//motion').each do |motion|
-        
-        # make or find a Session
-        session = Session.find_or_create_by_name(motion.xpath("session/text()").to_s)
-        
-        # create an Edm
+      doc.xpath('//motion').each do |motion|  
         log << "\n#{motion.xpath("number/text()").to_s} "
         
-        edm_text = motion.xpath("text/text()").to_s
+        edm_text   = motion.xpath("text/text()").to_s
+        edm_id     = motion.xpath("id/text()").to_s
+        edm_title  = motion.xpath("title/text()").to_s
+        edm_number = motion.xpath("number/text()").to_s
+        
+        session_name = motion.xpath("session/text()").to_s
         
         # to get around invalid markup
         edm_text.gsub!('&#xC3;&#xBA;', '&pound;')
         
-        edm = Edm.new(:motion_xml_id => motion.xpath("id/text()").to_s,
-                     :session_id => session.id,
-                     :number => motion.xpath("number/text()").to_s,
-                     :title => motion.xpath("title/text()").to_s,
-                     :text => edm_text,
-                     :signature_count => motion.xpath("signature_count/text()").to_s
-                     )
-        edm.save
-        
-        # store amendment edms in an array to deal with once we've finished loading        
-        # (we can't do anything with them yet as the parent EDM may not exist at this point)  
-        if edm.is_amendment?
-          amendments << edm
-        end
-      
-        # loop through the signatures, and for each one
-        motion.xpath('signatures/signature').each do |signature|
-          
-          # make or find a Member
-          member =  Member.find_or_create_by_name_and_member_xml_id(signature.xpath("mp/text()").to_s, signature.xpath("mp/@id").to_s)
-        
-          signature_date = signature.xpath("date/text()").to_s
-          signature_type = signature.xpath("type/text()").to_s
-        
-          # make an appropriate sub-type of Signature and attach it to the Edm and the Session
-          case signature_type
-            when 'Proposed'
-              new_signature = Proposer.new :date => signature_date, :member_id => member.id, :edm_id => edm.id, :session_id => session.id
-              edm.proposers << new_signature
-              session.proposers << new_signature
-              log << 'p'
-            when 'Seconded'
-              new_signature = Seconder.new :date => signature_date, :member_id => member.id, :edm_id => edm.id, :session_id => session.id
-              edm.seconders << new_signature
-              session.seconders << new_signature
-              log << '2nd'
-            when 'Signed'
-              new_signature = Signatory.new :date => signature_date, :member_id => member.id, :edm_id => edm.id, :session_id => session.id
-              edm.signatories << new_signature
-              session.signatories << new_signature
-              log << 's'
-            else
-              raise "Unrecognised signature type: #{signature_type}"
-          end
-        end
-      end
-    
-      amendments.each do |amendment|
-        parts = amendment.number.split("A")
-        log << parts
-        amendment_number = parts.pop()
-        amended_edm = parts.join("A")
-        parent = Edm.find_by_number_and_session_id(amended_edm, amendment.session_id)
-        
-        if parent
-          amendment.amendment_number = amendment_number
-          amendment.parent_id = parent.id
-          amendment.save!
-        end
-        log << "\n"
-      end
-    end  
-  end
-  
-  def create_edm_items
-    
-    log = Logger.new(STDOUT)
-    
-    Item.delete_all
-    log << "Deleted all Items\n"
+        item = Item.new (
+          :url => "http://edmi.parliament.uk/EDMi/EDMDetails.aspx?EDMID=#{edm_id}&SESSION=#{edmi_sessions[session_name]}",
+          :title => "#{edm_number} - #{edm_title}",
+          :kind => 'Edm'
+        )
+        log << "i"
 
-    Edm.all.each do |edm|
-      term_extractor = TextParser.new(edm.text)
-      #tag_list = term_extractor.terms.join(",")
-      
-      #hash table for translating the edms.org.uk session format into the edmi session number
-      edmi_sessions = {
-        "2009-2010" => "903", 
-        "2008-2009" => "899", 
-        "2007-2008" => "891",
-        "2006-2007" => "885",
-        "2005-2006" => "875",
-        "2004-2005" => "873",
-        "2003-2004" => "682",
-        "2002-2003" => "681",
-        "2001-2002" => "680",
-        "2000-2001" => "679",
-        "1999-2000" => "703",
-        "1998-1999" => "702",
-        "1997-1998" => "701",
-        "1996-1997" => "700",
-        "1995-1996" => "699",
-        "1994-1995" => "698",
-        "1993-1994" => "697",
-        "1992-1993" => "696",
-        "1991-1992" => "695",
-        "1990-1991" => "694",
-        "1989-1990" => "693"
-        }
-      
-      item = Item.new (
-        :url => "http://edmi.parliament.uk/EDMi/EDMDetails.aspx?EDMID=#{edm.motion_xml_id}&SESSION=#{edmi_sessions[edm.session_name]}",
-        :title => "#{edm.number} - #{edm.title}",
-        :kind => 'Edm'
-      )
-      log << "i"
-      
-      term_extractor.terms.each do |term|
-        tag = Tag.find_or_create_by_name(term)
-        item.tags << tag
-        log << "t"
+        term_extractor = TextParser.new(edm_text)
+
+        term_extractor.terms.each do |term|
+          tag = Tag.find_or_create_by_name(term)
+          item.tags << tag
+          log << "t"
+        end
+
+        item.save
+        log << "s"
+        item.populate_placetags
+        log << "p"
       end
       
-      item.save
-      log << "s"
-      item.populate_placetags
-      log << "p"
+      log << "\n"
     end
   end
   
