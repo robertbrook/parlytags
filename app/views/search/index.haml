@@ -23,8 +23,13 @@
       
         -unless alternate == @place.alternative_places.last
           &middot;
-
+  
+- if @ukparliament_twitter_results && @ukparliament_twitter_results.length > 0
+  %ol.ukparliament-twitter-results
+    =render :partial => "partials/twitter_result", :collection => @ukparliament_twitter_results
+          
 - if @results && !@results.empty?
+  
   %h2
   - if @place
     = "Within about 40km of #{h(sanitize(@searched_for.titlecase))}"
@@ -32,7 +37,7 @@
     = "Results for #{h(sanitize(@searched_for))}"
   
     #pagination
-      = will_paginate @results
+      = will_paginate @results    
         
   %ul.search-results
     =render :partial => "partials/item_result", :collection => @results
