@@ -1,6 +1,0 @@
--if @member
-  #member
-    %h2= link_to @member.display_name, member_path(@member)
-    =render :partial => "partials/edm", :collection => @edms
-        
-    #pagination= will_paginate @edms
