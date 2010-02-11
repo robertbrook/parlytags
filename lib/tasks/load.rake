@@ -19,4 +19,9 @@ namespace :parlytags do
   task :load_edms => :environment do
     load_edms
   end
+  
+  desc "Populate data for Written Answers in DB"
+  task :load_wras => :environment do
+    load_written_answers
+  end
 end

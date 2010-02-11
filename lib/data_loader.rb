@@ -45,8 +45,7 @@ module ParlyTags::DataLoader
     end
   end
   
-  def load_edms
-    
+  def load_edms  
     log = Logger.new(STDOUT)
     
     #hash table for translating the edms.org.uk session format into the edmi session number
@@ -80,7 +79,7 @@ module ParlyTags::DataLoader
       doc = Nokogiri::XML(open(file))
     
       doc.xpath('//motion').each do |motion|  
-        log << "\n#{motion.xpath("number/text()").to_s} "
+        log << "\nEDM - #{motion.xpath("number/text()").to_s} "
         
         edm_text   = motion.xpath("text/text()").to_s
         edm_id     = motion.xpath("id/text()").to_s
@@ -117,4 +116,55 @@ module ParlyTags::DataLoader
     end
   end
   
+  def load_written_answers
+    log = Logger.new(STDOUT)
+    
+    files = ["#{DATA_DIR}/written-answers/answers2010-02-10a.xml"]
+    
+    files.each do |file|
+      doc = Nokogiri::XML(open(file))
+      
+      doc.xpath('//publicwhip/ques').each do |question|
+        question_ref =  question.xpath('@id').to_s
+        answer_ref = question_ref.gsub(".q", ".r")
+        
+        title_date = ""
+        if question_ref =~ /(\d{4})-(\d{2})-(\d{2})/
+          title_date = "from #{$3}/#{$2}/#{$1}"
+        end
+        
+        question_text   = question.inner_text
+        question_number = question.xpath('p/@qnum').to_s
+        question_url = question.xpath('@url').to_s
+        
+        answer = doc.xpath("publicwhip/reply[@id='#{answer_ref}']")
+        answer_text = answer.inner_text
+        
+        title = "Written Answer #{question_number} #{title_date}".strip
+        
+        log << "\nWRA - #{question_number} "
+        
+        item = Item.new (
+          :url => question_url,
+          :title => title,
+          :kind => 'Written Answer'
+        )
+        log << "i"
+        
+        term_extractor = TextParser.new(question_text + " " + answer_text)
+
+        term_extractor.terms.each do |term|
+          tag = Tag.find_or_create_by_name(term)
+          item.tags << tag
+          log << "t"
+        end
+
+        item.save
+        log << "s"
+        item.populate_placetags
+        log << "p"
+      end
+      log << "\n"
+    end
+  end
 end
