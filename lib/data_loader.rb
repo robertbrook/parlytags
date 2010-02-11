@@ -201,7 +201,7 @@ module ParlyTags::DataLoader
                 :url => wms_url,
                 :title => "#{wms_speaker_name} - #{wms_speaker_office}",
                 :kind => 'WMS',
-                :text => wms_text.strip!.slice(0..400) + " ..."
+                :text => wms_text.strip!.slice(0..255) + " ..."
               )
               log << "i"
               
