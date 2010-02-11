@@ -19,7 +19,9 @@ module ParlyTags::DataLoader
     load_edms
     log << "\nloaded edm data\nloading wms data"
     load_wms
-    log << "\nloaded wms data\n"
+    log << "\nloaded wms data\nloading written answers"
+    load_load_written_answers
+    log << "\nloaded written answers\n"
     
   end
   
