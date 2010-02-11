@@ -188,8 +188,6 @@ module ParlyTags::DataLoader
   
     WMS_FILES.each do |file|
       log << File.basename(file)
-      # file = File.new(file)
-      # log << file.read
       log << "\n"
       doc = Nokogiri::XML(open(file))
       doc.xpath('//speech').each do |speech|  
@@ -200,9 +198,6 @@ module ParlyTags::DataLoader
               wms_speaker_name  = speech.xpath('@speakername')
               wms_speaker_office  = speech.xpath('@speakeroffice')
               wms_url = speech.xpath('@url').to_s
-
-      #         # to get around invalid markup
-      #         edm_text.gsub!('&#xC3;&#xBA;', '&pound;')
                
               item = Item.new (
                 :url => wms_url,
@@ -211,19 +206,19 @@ module ParlyTags::DataLoader
                 :text => wms_text.strip!.slice(0..400) + " ..."
               )
               log << "i"
-      # 
+              
               term_extractor = TextParser.new(wms_text)
                     
-                            term_extractor.terms.each do |term|
-                              tag = Tag.find_or_create_by_name(term)
-                              item.tags << tag
-                              log << "t" 
-                            end
-      # 
+              term_extractor.terms.each do |term|
+                tag = Tag.find_or_create_by_name(term)
+                item.tags << tag
+                log << "t" 
+              end
+      
               item.save
-                          log << "s"
-                          item.populate_placetags
-                          log << "p"
+              log << "s"
+              item.populate_placetags
+              log << "p"
             end
             
             log << "\n"
