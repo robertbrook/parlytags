@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="a" latest="yes">
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-21a.29WS.0" nospeaker="true" colnum="29WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0001.htm#100121m0001.htm_dpthd0">
+	DEFENCE
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-21a.29WS.1" nospeaker="true" colnum="29WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0001.htm#10012124000008">
+	Afghanistan Roulement
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-21a.29WS.2" speakerid="uk.org.publicwhip/member/1516" speakername="Bob Ainsworth" speakeroffice="The Secretary of State for Defence" colnum="29WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0001.htm#10012124000163">
+	<p pid="a.29WS.2/1">In his statement to the House on <phrase class="date" code="2009-11-30">30 November 2009</phrase>, <phrase class="offrep" id="debates/2009-11-30.835"><i>Official Report</i>, column 835</phrase>, the Prime Minister announced the UK's conventional military forces in Afghanistan comprise 9,500 personnel. That will be maintained with the next roulement of UK forces in Afghanistan, due to take place in April 2010. Headquarters, 6 (UK) Division will remain as Headquarters, Regional Command (South) but the current lead formation in Helmand, 11 (Light) Brigade, will be replaced by 4th Mechanized Brigade, which will command the majority of the units serving in Afghanistan. The forces deploying include:</p>
+	<p pid="a.29WS.2/2" class="indent">Headquarters, 6 (UK) Division</p>
+	<p pid="a.29WS.2/3" class="indent">4th Mechanised Brigade Headquarters and Signal Squadron (204)</p>
+	<p pid="a.29WS.2/4" class="indent">Elements of 52 Infantry Brigade Headquarters and Signal Squadron (258)</p>
+	<p pid="a.29WS.2/5" class="indent">Headquarters, 101 Logistic Brigade</p>
+	<p pid="a.29WS.2/6" class="indent">Headquarters, 102 Logistic Brigade</p>
+	<p pid="a.29WS.2/7" class="indent">Elements of 845 Naval Air Squadron</p>
+	<p pid="a.29WS.2/8" class="indent">Elements of 846 Naval Air Squadron</p>
+	<p pid="a.29WS.2/9" class="indent">Elements of 857 Naval Air Squadron</p>
+	<p pid="a.29WS.2/10" class="indent">40 Commando Royal Marines</p>
+	<p pid="a.29WS.2/11" class="indent">The Royal Dragoon Guards</p>
+	<p pid="a.29WS.2/12" class="indent">The Queen's Royal Lancers</p>
+	<p pid="a.29WS.2/13" class="indent">4th Regiment Royal Artillery</p>
+	<p pid="a.29WS.2/14" class="indent">21 Engineer Regiment</p>
+	<p pid="a.29WS.2/15" class="indent">1st Battalion The Scots Guards</p>
+	<p pid="a.29WS.2/16" class="indent">The Royal Scots Borderers, 1st Battalion The Royal Regiment of Scotland</p>
+	<p pid="a.29WS.2/17" class="indent">1st Battalion The Duke of Lancaster's Regiment</p>
+	<p pid="a.29WS.2/18" class="indent">1st Battalion The Mercian Regiment</p>
+	<p pid="a.29WS.2/19" class="indent">1st Battalion The Royal Gurkha Rifles</p>
+	<p pid="a.29WS.2/20" class="indent">3 Medical Regiment</p>
+	<p pid="a.29WS.2/21" class="indent">34 Field Hospital</p>
+	<p pid="a.29WS.2/22" class="indent">1 Close Support Battalion Royal Electrical and Mechanical Engineers</p>
+	<p pid="a.29WS.2/23" class="indent">101 Force Support Battalion Royal Electrical and Mechanical Engineers</p>
+	<p pid="a.29WS.2/24" class="indent">Elements of 3rd Regiment Royal Horse Artillery</p>
+	<p pid="a.29WS.2/25" class="indent">Elements of 5th Regiment Royal Artillery</p>
+	<p pid="a.29WS.2/26" class="indent">Elements of 16th Regiment Royal Artillery</p>
+	<p pid="a.29WS.2/27" class="indent">Elements of 32nd Regiment Royal Artillery</p>
+	<p pid="a.29WS.2/28" class="indent">Elements of 39th Regiment Royal Artillery</p>
+	<p pid="a.29WS.2/29" class="indent">Elements of 47th Regiment Royal Artillery</p>
+	<p pid="a.29WS.2/30" class="indent">Elements of 33 Engineer Regiment (Explosive Ordnance Disposal)</p>
+	<p pid="a.29WS.2/31" class="indent">Elements of 39 Engineer Regiment (Air Support)</p>
+	<p pid="a.29WS.2/32" class="indent">Elements of 42 Engineer Regiment (Geographic)</p>
+	<p pid="a.29WS.2/33" class="indent">Elements of 170 (Infrastructure Support) Engineer Group</p>
+	<p pid="a.29WS.2/34" class="indent">Elements of 2 Signal Regiment</p>
+	<p pid="a.29WS.2/35" class="indent">Elements of 10th Signal Regiment</p>
+	<p pid="a.29WS.2/36" class="indent">Elements of 14th Signals Regiment (Electronic Warfare)</p>
+	<p pid="a.29WS.2/37" class="indent">Elements of 16 Signal Regiment</p>
+	<p pid="a.29WS.2/38" class="indent">Elements of 21st Signal Regiment (Air Support)</p>
+	<p pid="a.29WS.2/39" class="indent">Elements of 5th Battalion The Rifles</p>
+	<p pid="a.29WS.2/40" class="indent">Elements of 1 Regiment, Army Air Corps</p>
+	<p pid="a.29WS.2/41" class="indent">Elements of 4 Regiment, Army Air Corps</p>
+	<p pid="a.29WS.2/42" class="indent">Elements of 9 Regiment, Army Air Corps</p>
+	<p pid="a.29WS.2/43" class="indent">Elements of 6 Regiment, The Royal Logistic Corps</p>
+	<p pid="a.29WS.2/44" class="indent">Elements of 7 Regiment, The Royal Logistic Corps</p>
+	<p pid="a.29WS.2/45" class="indent">Elements of 8 Regiment, The Royal Logistic Corps</p>
+	<p pid="a.29WS.2/46" class="indent">Elements of 11 Explosive Ordnance Disposal Regiment, The Royal Logistic Corps</p>
+	<p pid="a.29WS.2/47" class="indent">Elements of 12 Logistic Support Regiment, The Royal Logistic Corps</p>
+	<p pid="a.29WS.2/48" class="indent">Elements of 17 Port and Maritime Regiment, The Royal Logistic Corps</p>
+	<p pid="a.29WS.2/49" class="indent">Elements of 23 Pioneer Regiment, The Royal Logistic Corps</p>
+	<p pid="a.29WS.2/50" class="indent">Elements of 24 Postal Courier and Movement Regiment, The Royal Logistic Corps</p>
+	<p pid="a.29WS.2/51" class="indent">Elements of 27 Regiment, The Royal Logistic Corps</p>
+	<p pid="a.29WS.2/52" class="indent">Elements of 29 Postal Courier and Movement Regiment, The Royal Logistic Corps</p>
+	<p pid="a.29WS.2/53" class="indent">Elements of 5th Regiment Royal Military Police</p>
+	<p pid="a.29WS.2/54" class="indent">101 Provost Company Royal Military Police</p>
+	<p pid="a.29WS.2/55" class="indent">150 Provost Company Royal Military Police</p>
+	<p pid="a.29WS.2/56" class="indent">Elements of 105 Military Working Dog Support Unit</p>
+	<p pid="a.29WS.2/57" class="indent">Elements of 1 Military Intelligence Brigade</p>
+	<p pid="a.29WS.2/58" class="indent">Elements of the Military Stabilisation Support Group</p>
+	<p pid="a.29WS.2/59" class="indent">Elements of The Honourable Artillery Company</p>
+	<p pid="a.29WS.2/60" class="indent">Elements of 100 Regiment Royal Artillery (Volunteers)</p>
+	<p pid="a.29WS.2/61" class="indent">Elements of 101 Regiment Royal Artillery (Volunteers)</p>
+	<p pid="a.29WS.2/62" class="indent">Elements of 104 Regiment Royal Artillery (Volunteers)</p>
+	<p pid="a.29WS.2/63" class="indent">Elements of 106 Regiment Royal Artillery (Volunteers)</p>
+	<p pid="a.29WS.2/64" class="indent">Elements of 101 Engineer Regiment (Explosive Ordnance Disposal) (Volunteers)</p>
+	<p pid="a.29WS.2/65" class="indent">Elements of 6th Battalion The Royal Regiment of Scotland (Volunteers)</p>
+	<p pid="a.29WS.2/66" class="indent">Elements of 4th Battalion The Duke Of Lancaster's Regiment (King's, Lancashire and Border) (Volunteers)</p>
+	<p pid="a.29WS.2/67" class="indent">Elements of The London Regiment (Volunteers)</p>
+	<p pid="a.29WS.2/68" class="indent">Elements of 150 Transport Regiment, The Royal Logistic Corps (Volunteers)</p>
+	<p pid="a.29WS.2/69" class="indent">Elements of 159 Supply Regiment, The Royal Logistic Corps (Volunteers)</p>
+	<p pid="a.29WS.2/70" class="indent">Elements of 160 Transport Regiment, The Royal Logistic Corps (Volunteers)</p>
+	<p pid="a.29WS.2/71" class="indent">Elements of 148 Expeditionary Force Institute Squadron (Volunteers), The Royal Logistic Corps</p>
+	<p pid="a.29WS.2/72" class="indent">Number 1 Royal Air Force, Force Protection Wing Headquarters</p>
+	<p pid="a.29WS.2/73" class="indent">Number 3 Royal Air Force, Force Protection Wing Headquarters</p>
+	<p pid="a.29WS.2/74" class="indent">Number 4 Royal Air Force, Force Protection Wing Headquarters</p>
+	<p pid="a.29WS.2/75" class="indent">Number 5 Royal Air Force, Force Protection Wing Headquarters</p>
+	<p pid="a.29WS.2/76" class="indent">Elements of Number 2 Royal Air Force Police Wing</p>
+	<p pid="a.29WS.2/77" class="indent">Elements of Number 3 Royal Air Force Police Wing</p>
+	<p pid="a.29WS.2/78" class="indent">2 Squadron, Royal Air Force Regiment</p>
+	<p pid="a.29WS.2/79" class="indent">51 Squadron, Royal Air Force Regiment</p>
+	<p pid="a.29WS.2/80" class="indent">Elements of 1 Squadron, Royal Air Force Regiment</p>
+	<p pid="a.29WS.2/81" class="indent">Elements of 3 Squadron, Royal Air Force Regiment</p>
+	<p pid="a.29WS.2/82" class="indent">2 Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/83" class="indent">9 Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/84" class="indent">13 Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/85" class="indent">14 Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/86" class="indent">Elements of 5 (Army Co-Operation) Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/87" class="indent">Elements of 18 Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/88" class="indent">Elements of 24 Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/89" class="indent">Elements of 27 Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/90" class="indent">Elements of 28 Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/91" class="indent">Elements of 30 Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/92" class="indent">Elements of 78 Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/93" class="indent">Elements of the Tactical Supply Wing, Royal Air Force</p>
+	<p pid="a.29WS.2/94" class="indent">Elements of 1 Air Mobility Wing, Royal Air Force</p>
+	<p pid="a.29WS.2/95" class="indent">Elements of 1 Air Control Centre, Royal Air Force</p>
+	<p pid="a.29WS.2/96" class="indent">Elements of 90 Signals Unit, Royal Air Force</p>
+	<p pid="a.29WS.2/97" class="indent">Elements of 2 (Mechanical Transport) Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/98" class="indent">Elements of 5001 Squadron, Royal Air Force</p>
+	<p pid="a.29WS.2/99" class="indent">Elements of 3 Mobile Catering Squadron</p>
+	<p pid="a.29WS.2/100" class="indent">Elements of Tactical Medical Wing</p>
+	<p pid="a.29WS.2/101" class="indent">Elements of 1 (Expeditionary Logistics) Squadron</p>
+	<p pid="a.29WS.2/102" class="indent">Elements of 93 (Expeditionary Armaments) Squadron</p>
+	<p pid="a.29WS.2/103" class="indent">Elements of Tactical Imagery Wing</p>
+	<p pid="a.29WS.2/104">Volunteer and regular members of the reserve forces will continue to deploy to Afghanistan as part of our integrated force package, and we expect to issue around 700 call-out notices to fill some 600 posts. On completion of their mobilisation procedures, the reservists will undertake a period of training and, where applicable, integration with their respective receiving units. The majority will serve on operations for six or so months. As part of this commitment, we expect up to 17 members of the sponsored reserves to be in theatre at any one time.</p>
+	<p pid="a.29WS.2/105">I shall make a further statement on the units we expect to serve under 4th Mechanized Brigade's planned replacement formation, 16 Air Assault Brigade, nearer the time of their deployment.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-21a.31WS.0" nospeaker="true" colnum="31WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0001.htm#100121m0001.htm_dpthd1">
+	ENVIRONMENT FOOD AND RURAL AFFAIRS
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-21a.31WS.1" nospeaker="true" colnum="31WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0001.htm#10012124000009">
+	Agriculture Council
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-21a.31WS.2" speakerid="uk.org.publicwhip/member/1669" speakername="Hilary Benn" speakeroffice="The Secretary of State for Environment, Food and Rural Affairs" colnum="31WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0001.htm#10012124000164">
+	<p pid="a.31WS.2/1">The Minister responsible for marine and the natural environment, my hon. Friend <phrase class="honfriend" id="uk.org.publicwhip/member/1750" name="Huw Irranca-Davies">the Member for Ogmore (Huw Irranca-Davies)</phrase> and the Minister responsible for food, farming and environment, my hon. Friend <phrase class="honfriend" id="uk.org.publicwhip/member/1765" name="Jim Fitzpatrick">the Member for Poplar and Canning Town (Jim Fitzpatrick)</phrase> represented the United Kingdom at the Agriculture and Fisheries Council in Brussels on <phrase class="date" code="2010-11-20">20 November</phrase>. Richard Lochhead MSP and Michelle Gildernew MLA also attended. Due to the European Council, Agriculture and Fisheries Council was shortened to one day, with the majority of agriculture business now being taken in December.</p>
+	<p pid="a.31WS.2/2">On agriculture, the Council approved Poland's state aid application enabling farmers to purchase agricultural land. The UK, Czech Republic, Slovakia, Estonia, Spain, Netherlands, Austria, Germany all abstained, agreeing with the Commission that the application was not justified, and on the overriding of state aid rules, but stopped short of blocking the application. Latvia and Hungary would now bring similar applications for approval at the December Agriculture Council.</p>
+	<p pid="a.31WS.2/3">There was a brief discussion to clarify member states' voting intentions with regard to the authorisation of GM maize for use in the EU. There was no qualified majority in favour of the authorisation and the proposal will now revert to Commission competence and be adopted.</p>
+	<p pid="a.31WS.2/4">A number of issues were raised under any other agriculture business. Belgium and France requested that export refunds for the fresh and frozen pigmeat be reactivated. Only the UK and Malta expressed dissatisfaction with the use of such market management measures. The Commission sympathised with the request but also did not agree with reactivating export refunds.</p>
+	<p pid="a.31WS.2/5">France outlined its support for the Commission's forthcoming Green Paper on forest protection, emphasising the importance of taking a holistic approach-covering everything from the benefits that forests bring in respect of climate change to forest-based industries. A number of member states supported, including the UK, emphasising the importance of the EU forest action plan and a member state led-approach. The Commission agreed.</p>
+	<p pid="a.31WS.2/6">France requested more details about the parameters within which the Commission intended to prepare for and conduct the forthcoming WTO ministerial conference. The Commission emphasised that these were regular events, and that trade colleagues within the Council were informed of the Commission's approach.</p>
+	<p pid="a.31WS.2/7">Hungary, supported by the Czech Republic and Slovakia, presented a paper seeking to resurrect a proposal, previously rejected through comitology, that sheep and goats going direct to slaughter on intra-Community trade do not have to be electronically identified. The UK also intervened to sympathise, and while making it clear that it would not go back on its agreement not to seek further changes, urged the Commission to thoroughly review implementation of the regulation at the earliest opportunity.</p>
+	<p pid="a.31WS.2/8">With regard to fisheries, and the technical conservation measures regulation, Council reached political agreement (with the UK and Ireland voting against) on an interim compromise for 18 months only of the current annual provisions governing mesh sizes, gear types and catch composition, having failed to agree the main framework proposal. This was in the context of the impending entry into force of the Lisbon treaty which would require co-decision with the European Parliament on this aspect of fisheries. An absence of any decision would have left a legal gap on such technical measures from <phrase class="date" code="2010-01-01">1 January 2010</phrase> given current measures are in the annual fishing opportunities regulation which will remain as a Council only decision.</p>
+	<p pid="a.31WS.2/9">The UK and Ireland worked very hard in bilaterals with the presidency and the Commission to find an acceptable solution. The Commission was inflexible, claiming that the relaxation of the relevant catch composition measures would be detrimental to haddock stocks. The UK asserted that this had no effect on fishing mortality and merely led to increased discarding. Regrettably, the presidency was not able to accept UK and Irish requests and a final compromise was agreed with no concessions offered. Agreement was reached by qualified majority, with the final formal adoption by written procedure by <phrase class="date" code="2010-11-30">30 November</phrase>.</p>
+	<p pid="a.31WS.2/10">The Commission then updated the Council on the progress of the annual fisheries negotiations with Norway. They explained that the negotiations were particularly difficult his year after the Community's decision not to allow Norway to access mackerel in the North sea. It is therefore possible that the negotiations will carry on into 2010 or even fail completely with the danger of a precipitate rush to fish quotas and no access to each other's waters. The UK underlined the need for a balanced outcome on mackerel and the need for progress on the Danish discards initiative.</p>
+	<p pid="a.31WS.2/11">Next, the proposal fixing the 2010 total allowable catches (TACs) and quotas for the Black sea was agreed. The TAC for turbot was increased to 96 tonnes from the 76 proposed by the Commission (a 4 per cent. reduction, not 24 per cent.) on condition that Bulgaria and Romania developed by <phrase class="date" code="2010-02-15">15 February 2010</phrase> national plans to control the turbot fisheries and landings. The Commission also announced that it would speak to Turkey about its introducing similar measures for turbot.</p>
+	<p pid="a.31WS.2/12">Finally, there were two issues raised under any other fisheries business. The Commission had tabled a seven page statement outlining their plans to combat seabird by-catch. The UK underlined the importance, calling for the Commission to publish a formal action plan as this would give a chance for a full consultation with stakeholders including the European Parliament.</p>
+	<p pid="a.31WS.2/13">Italy called for the cut in bluefin tuna quota agreed at the recent International Commission for the Conservation of Atlantic Tuna (ICCAT) meeting to be phased in by 15 per cent. per year.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-21a.33WS.0" nospeaker="true" colnum="33WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0002.htm#100121m0002.htm_dpthd0">
+	FOREIGN AND COMMONWEALTH AFFAIRS
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-21a.33WS.1" nospeaker="true" colnum="33WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0002.htm#10012124000010">
+	General Affairs Council and Foreign Affairs Council
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-21a.33WS.2" speakerid="uk.org.publicwhip/member/1779" speakername="Chris Bryant" speakeroffice="The Minister for Europe" colnum="33WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0002.htm#10012124000165">
+	<p pid="a.33WS.2/1">The General Affairs Council (GAC) and Foreign Affairs Council (FAC) have replaced the General Affairs and External Relations Council (GAERC) under the provisions of the Lisbon treaty, which came into force on <phrase class="date" code="2009-12-01">1 December 2009</phrase>. The GAC and FAC will be held on <phrase class="date" code="2010-01-25">25 January</phrase> in Brussels. My right hon. Friend the Foreign Secretary and I will represent the UK.</p>
+	<p pid="a.33WS.2/2">The agenda items are as follows:</p>
+	<p pid="a.33WS.2/3">General Affairs Council</p>
+	<p pid="a.33WS.2/4" class="italic">Spanish <i>p</i>residency programme</p>
+	<p pid="a.33WS.2/5">The Spanish presidency will present its programme and priorities. Supporting Europe's economic recovery, in particular through developing the new EU strategy for jobs and growth (EU 2020), will be a high priority for Spain. The presidency will also focus on the international stage, with a number of full EU summits, and preparation for the UN millennium development goals summit in September. We look to Spain to provide continued EU leadership on climate change and implementing the Copenhagen accord. Finally, Spain will focus on the rights of EU citizens by implementing the Stockholm programme on Justice and Home Affairs and continue work on implementing the Lisbon treaty.</p>
+	<p pid="a.33WS.2/6">We look forward to working with our Spanish colleagues on such a broad agenda and welcome in particular Spain's focus on economic recovery with a low carbon, social agenda at its core. The EU 2020 strategy will be vital to improving Europe's global competitiveness and we will work to ensure the strategy is ambitious and innovative.</p>
+	<p pid="a.33WS.2/7">Foreign Affairs Council</p>
+	<p pid="a.33WS.2/8" class="italic">Iran</p>
+	<p pid="a.33WS.2/9">Ministers will discuss recent developments on the nuclear dossier. Ministers may consider the way forward in the context of the dual track policy, in order to persuade Iran to enter into meaningful negotiations. They will also continue to play close attention to the human rights situation inside Iran.</p>
+	<p pid="a.33WS.2/10" class="italic">Bosnia and Herzegovina</p>
+	<p pid="a.33WS.2/11">Ministers are likely to consider further the future of EUFOR operation Althea, following a decision at the December FAC to revert to this issue in January. The Government believe that EUFOR makes a vital contribution to stability and security in BiH and should therefore only be reconfigured when the time is right. Ministers will also discuss the broader political situation in BiH. The Government will underline the importance of giving strong support to the High Representative/EU Special Representative in BiH. The Government continue to support the EU/US initiative and to believe that the conditionality set by the Peace Implementation Council must be met before the Office of the High Representative can close.</p>
+	<p pid="a.33WS.2/12" class="italic">Somalia</p>
+	<p pid="a.33WS.2/13">Ministers will discuss a possible CSDP mission to train security forces in Somalia, and may also consider whether to agree to the legal basis for this mission.</p>
+	<p pid="a.33WS.2/14" class="italic">Afghanistan/Pakistan</p>
+	<p pid="a.33WS.2/15">Discussion is likely to focus on the London conference on <phrase class="date" code="2010-01-28">28 January</phrase> and on how to strengthen the EU's engagement in Afghanistan and Pakistan in 2010. This might include restructuring the architecture of the EU contribution in Afghanistan, pushing forward the implementation of the EU action plan for Afghanistan and Pakistan, agreed at the October European Council, and cementing plans for a second EU-Pakistan summit, to be held during the Spanish presidency.</p>
+	<p pid="a.33WS.2/16" class="italic">Yemen</p>
+	<p pid="a.33WS.2/17">Ministers will discuss the situation in Yemen. In particular they may focus on how to build on the EU's response to date, following on from conclusions at the October GAERC, including the need for urgent political and economic reform to address Yemen's challenges. The UK will also brief on plans for the meeting on Yemen in London on <phrase class="date" code="2010-01-27">27 January</phrase>.</p>
+	<p pid="a.33WS.2/18" class="italic">Ukraine</p>
+	<p pid="a.33WS.2/19">Ministers may discuss the latest developments, including the first round of the presidential elections held on <phrase class="date" code="2010-01-17">17 January</phrase>. We welcome the fact that the elections have taken place under calm conditions and will continue to urge the contenders in the second round to rely on the Office for Democratic Institutions and Human Rights (ODIHR) to ensure as trouble-free and conclusive an election as possible. We believe that whoever wins the elections will pursue Ukraine's progress towards European integration. Their challenge will be to make Ukraine's governance work better, which would help European integration proceed more smoothly.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-21a.35WS.0" nospeaker="true" colnum="35WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0002.htm#100121m0002.htm_dpthd1">
+	PRIME MINISTER
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-21a.35WS.1" nospeaker="true" colnum="35WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0002.htm#10012124000011">
+	Appointment of a Surveillance Commissioner
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-21a.35WS.2" speakerid="uk.org.publicwhip/member/1997" speakername="Gordon Brown" speakeroffice="The Prime Minister" colnum="35WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0002.htm#10012124000166">
+	<p pid="a.35WS.2/1">In accordance with section 91 of the Police Act 1997, I have agreed to appoint the hon. Sir George Newman as a Surveillance Commissioner from <phrase class="date" code="2010-01-01">1 January 2010</phrase> to <phrase class="date" code="2012-12-31">31 December 2012</phrase>. He succeeds the right hon. Sir Philip Otton in this role.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-21a.35WS.3" nospeaker="true" colnum="35WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0002.htm#100121m0002.htm_dpthd2">
+	TRANSPORT
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-21a.35WS.4" nospeaker="true" colnum="35WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0002.htm#10012124000012">
+	Rail Franchises
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-21a.35WS.5" speakerid="uk.org.publicwhip/member/1653" speakername="Chris Mole" speakeroffice="The Parliamentary Under-Secretary of State for Transport" colnum="35WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100121/wmstext/100121m0002.htm#10012124000167">
+	<p pid="a.35WS.5/1">My right hon. and noble Friend the Secretary of State for Transport, Lord Adonis has made the following ministerial statement:</p>
+	<p pid="a.35WS.5/2" class="indent">I am today launching public consultations for the new InterCity East Coast, Greater Anglia, and Essex Thameside franchises. The formal accreditation process for bidders for Greater Anglia and Essex Thameside also starts today.</p>
+	<p pid="a.35WS.5/3" class="indent">Our overall aim for the new franchises is to continue the existing operations and make improvements based on emerging value for money and affordability requirements.</p>
+	<p pid="a.35WS.5/4" class="indent">The InterCity East Coast franchise will build on the new east coast main line timetable that is being introduced in May 2011 to take advantage of planned infrastructure enhancements to enable extra trains to run, to accelerate journey times and to introduce a standard interval clockface timetable. Further major service improvements are proposed from 2016 when super express trains will be introduced, providing more capacity, more frequent trains and shorter journey times. Franchisees will also be asked for proposals to improve the overall passenger experience, including better stations, improved catering and simpler ticketing.</p>
+	<p pid="a.35WS.5/5" class="indent">Passengers on the Greater Anglia franchise are set to benefit from longer trains, enhancements at stations, more security and other service improvements. The new franchise operator will have to consider quicker journey times between Norwich and London, improving the performance and reliability of long distance services and introducing minimum catering standards on InterCity trains. They will also set national passenger survey targets for trains, stations and customer service with a requirement to invest more to make improvements in those areas if they fail to meet those targets.</p>
+	<p pid="a.35WS.5/6" class="indent">Passengers on the Essex Thameside franchise will benefit from longer trains and better security. The new operator will be expected to provide better service information for passengers and improved facilities at stations, including more secure cycle spaces and additional car parking facilities. They will also be required to monitor service quality and ensure stations and trains are cleaned and maintained to a high standard.</p>
+	<p pid="a.35WS.5/7" class="indent">The new Greater Anglia franchise will begin operation on <phrase class="date" code="2011-04-01">Friday 1 April 2011</phrase>, Essex Thameside on <phrase class="date" code="2011-05-29">Sunday 29 May 2011</phrase> and InterCity East Coast in autumn 2011. All three franchises are proposed to last for a franchise term of at least 10 years with provisions made to allow the termination of the contracts earlier if the franchise fails to deliver good quality service to passengers. The franchise length may also be extended dependent on proposals to deliver investment and significant passenger benefit. Any such proposals would have to offer good value for money to the taxpayer.</p>
+	<p pid="a.35WS.5/8" class="indent">The consultation documents set out the main challenges that the new franchises will face and highlights the key requirements that the Department currently proposes to include within each invitation to tender (ITT). They set out proposals to increase peak capacity and improve security, access to stations and overall service quality.</p>
+	<p pid="a.35WS.5/9" class="indent">Responses to the consultations will inform the development of the invitation to tender that bidders for each franchise will be asked to bid against. We expect to publish the ITT for both Greater Anglia and Essex Thameside in summer 2010 and will award these franchises in late 2010 and early 2011. The ITT for InterCity East Coast will be published in autumn 2010. The franchise will be awarded in summer 2011.</p>
+	<p pid="a.35WS.5/10" class="indent">Over the coming weeks the Department will be having extensive discussions with local interested stakeholders, via a series of stakeholder meetings.</p>
+	<p pid="a.35WS.5/11" class="indent">All three consultations will run until the <phrase class="date" code="2010-04-19">19 April 2010</phrase>. Copies of the consultation documents, as well as the recently published discussion paper on general franchise policy have been placed in the House Library and are available on the Department for Transport website.</p>
+</speech>
+</publicwhip>
+

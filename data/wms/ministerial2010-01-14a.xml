@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="a" latest="yes">
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-14a.25WS.0" nospeaker="true" colnum="25WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0001.htm#100114m0001.htm_dpthd0">
+	BUSINESS, INNOVATION AND SKILLS
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-14a.25WS.1" nospeaker="true" colnum="25WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0001.htm#10011433000007">
+	East of England Regional Development Agency
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-14a.25WS.2" speakerid="uk.org.publicwhip/member/1544" speakername="Rosie Winterton" speakeroffice="The Minister for Regional Economic Development and Co-ordination" colnum="25WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0001.htm#10011433000073">
+	<p pid="a.25WS.2/1">My noble Friend the Secretary of State for Business, Innovation and Skills has made today the following announcement:</p>
+	<p pid="a.25WS.2/2" class="indent">I would like to announce a new chair appointment to the board of the East Of England Regional Development Agency (EEDA).</p>
+	<p pid="a.25WS.2/3" class="indent">William Pope will commence as chair designate, to ensure continuity from <phrase class="date" code="2010-02-01">1 February 2010</phrase> and take up post as chair from <phrase class="date" code="2010-04-01">1 April 2010</phrase>.</p>
+	<p pid="a.25WS.2/4" class="indent">The appointment will be initially until <phrase class="date" code="2012-12-13">13 December 2012</phrase>.</p>
+	<p pid="a.25WS.2/5" class="indent">The appointment has been made in accordance with the Commissioner for Public Appointments code of practice. I have placed further details of the appointments in the Libraries of both Houses.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-14a.25WS.3" nospeaker="true" colnum="25WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0001.htm#100114m0001.htm_dpthd1">
+	CABINET OFFICE
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-14a.25WS.4" nospeaker="true" colnum="25WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0001.htm#10011433000008">
+	Government Data
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-14a.25WS.5" speakerid="uk.org.publicwhip/member/1388" speakername="Angela Smith" speakeroffice="The Minister of State, Cabinet Office" colnum="25WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0001.htm#10011433000074">
+	<p pid="a.25WS.5/1">On <phrase class="date" code="2008-06-25">25 June 2008</phrase> <phrase class="offrep" id="wms/2008-06-25.26"><i>Official Report</i> column 26WS</phrase>, the former Minister for the Cabinet Office, my right hon. Friend <phrase class="honfriend" id="uk.org.publicwhip/member/1545" name="Edward Miliband">the Member for Doncaster, North (Edward Miliband)</phrase>, placed a report on Government data handling procedures before Parliament.</p>
+	<p pid="a.25WS.5/2">That report put in place reforms to strengthen the Government's data handling capability and management of risks to information. As part of this, the report committed to the publication of an annual report on information risk to be placed before Parliament. I am placing today the first annual report on Protecting Information in Government in the Libraries of both Houses.</p>
+	<p pid="a.25WS.5/3">The data handling report set out measures to improve the handling of information by putting in place a set of core measures to protect personal data and other information across Government including:</p>
+	<p pid="a.25WS.5/4" class="indent">the use of protective measures, such as encryption and penetration testing of systems;</p>
+	<p pid="a.25WS.5/5" class="indent">identifying the key individuals responsible for managing departmental information risk and information assets and setting out their responsibilities;</p>
+	<p pid="a.25WS.5/6" class="indent">mandating regular training for all staff involved in handling personal data;</p>
+	<p pid="a.25WS.5/7" class="indent">introducing greater scrutiny and monitoring through statements on internal control, which are scrutinised by the National Audit Office and through spot checks by the Information Commissioner;</p>
+	<p pid="a.25WS.5/8" class="indent">enhancing transparency, through the reporting of data loss incident in departments annual resource accounts and this first annual report to Parliament on progress and information risk as a whole.</p>
+	<p pid="a.25WS.5/9">The report published today lays out the progress that has been made to meet these new data handling requirements; how we will continue to drive improvements in our data handling and information risk management capability, and the challenges which lie ahead.</p>
+	<p pid="a.25WS.5/10">The report highlights the considerable work that has been carried out across government in relation to improving data handling such as:</p>
+	<p pid="a.25WS.5/11" class="indent">the roll out of enhanced data security training to over 450,000 public servants;</p>
+	<p pid="a.25WS.5/12" class="indent">the establishment of a network of more than 150 senior information risk owners at board level within organisations and over 9,000 people who are now responsible for ensuring that data is handled responsibly at a working level;</p>
+	<p pid="a.25WS.5/13" class="indent">the extent of the encryption of mobile devices including laptops and removable media with over 100,000 devices encrypted to date;</p>
+	<p pid="a.25WS.5/14" class="indent">penetration testing of ICT systems to protect systems from electronic attack and other threats (to date over 650 tests have been conducted), and;</p>
+	<p pid="a.25WS.5/15" class="indent">work to conduct privacy impact assessments across government with over 270 PIAs carried out on new projects handling personal data.</p>
+	<p pid="a.25WS.5/16">But the report also recognises that ensuring personal and sensitive information is treated as a valuable asset is a continuous task. It also highlights the remaining challenges and the work that is under way to build our information assurance capability across government.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-14a.26WS.0" nospeaker="true" colnum="26WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0001.htm#100114m0001.htm_dpthd2">
+	COMMUNITIES AND LOCAL GOVERNMENT
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-14a.26WS.1" nospeaker="true" colnum="26WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0001.htm#10011433000009">
+	&quot;Tackling Race Inequality: A Statement on Race&quot;
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-14a.26WS.2" speakerid="uk.org.publicwhip/member/1827" speakername="John Denham" speakeroffice="The Secretary of State for Communities and Local Government" colnum="26WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0001.htm#10011433000075">
+	<p pid="a.26WS.2/1">I have today published &quot;Tackling Race Inequality: A Statement on Race&quot;. This document sets out the Government's approach to tackling the inequalities that people from minority ethnic groups continue to face and also sets out the increasing complexity of those problems. The statement was informed by the responses to the publication &quot;Tackling Race Inequalities: A Discussion Document&quot; and the listening events held in April and May 2009 which supplemented the written document.</p>
+	<p pid="a.26WS.2/2">Over the past decade, the Government have worked tirelessly to build a fairer, more equal society. A society where a person's chances and opportunities in life are determined solely by their talent and effort-not by their class, gender, beliefs, sexuality or their race. The Macpherson report in 1999 has helped achieve substantial strides towards racial equality throughout our society.</p>
+	<p pid="a.26WS.2/3">However, there is still much to do. We know that there are still areas of concern, especially in school exclusions and stop and search. But we must also recognise that Britain today is not the same place as it was a decade ago. Migration, the growing importance of community cohesion, and our better understanding of the way in which race interacts with class and other factors, such as religion and identity have all changed the terms of the debate and made promoting race equality a much more complex challenge.</p>
+	<p pid="a.26WS.2/4">So we must recognise that we will not succeed in tackling racism without tackling all forms of discrimination, prejudice and inequality. We have to redouble our efforts to promote greater equality for all, and combine that with action to target the specific problems faced by particular groups. And we have to do that in ways which are fair, and seen to be fair, so that no group is neglected or overlooked.</p>
+	<p pid="a.26WS.2/5">This statement sets out how we will build on the remarkable achievements of the past 10 years. We now have a very strong legal framework to tackle racism and promote equality-this will be simplified once the new Equality Bill becomes law.</p>
+	<p pid="a.26WS.2/6">The emphasis in this statement is on enforcing those laws, particularly through the EHRC and through effective inspection of public services. We stress the commitment across Government Departments to promoting race equality. And we make clear that we will continue to promote targeted approaches to address the specific obstacles and barriers which hold particular groups back-such as the very successful Reach programme for black boys and young men. I am grateful to all those who have contributed to and commented on this statement. It reflects the concerns and priorities of a whole variety of individuals, community groups, and public bodies-and I look forward to working with them to deliver its ambitions.</p>
+	<p pid="a.26WS.2/7">Copies of the statement have been placed in the Libraries of both Houses.</p>
+</speech>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-14a.27WS.0" nospeaker="true" colnum="27WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0001.htm#10011433000010">
+	Urban Development Corporations
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-14a.27WS.1" speakerid="uk.org.publicwhip/member/1542" speakername="Shahid Malik" speakeroffice="The Parliamentary Under-Secretary of State for Communities and Local Government" colnum="27WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0001.htm#10011433000076">
+	<p pid="a.27WS.1/1">The Under-Secretary of State for Communities and Local Government, my hon. Friend <phrase class="honfriend" id="uk.org.publicwhip/member/1553" name="Ian Austin">the Member for Dudley, North (Mr. Austin)</phrase> and I are today announcing the outcome of the quinquennial review of England's three urban development corporations (UDCs): London Thames Gateway; Thurrock Thames Gateway; and West Northamptonshire. We are also outlining new delivery arrangements that will take forward the regeneration and sustainable growth of these areas that would allow for a shorter lifespan for the UDCs than was originally envisaged, and where possible, the return of certain planning responsibilities to local planning authorities.</p>
+	<p pid="a.27WS.1/2">The three UDCs were established in 2003 and 2004 to secure the regeneration of their areas as part of the planned housing and economic growth in the Thames Gateway and Milton Keynes-South Midlands growth areas. At the time of their establishment, the Government committed to reviewing the UDCs after five years. The quinquennial review fulfils that commitment.</p>
+	<p pid="a.27WS.1/3">The situation of each UDC is very different, and the review has therefore been carried out in such a way as to allow different decisions about the future of each UDC. In each case the review has considered:</p>
+	<p pid="a.27WS.1/4" class="indent">whether the UDCs have fulfilled the rationale for establishing them, and how well they have performed, including progress against the targets they were set, since they were established;</p>
+	<p pid="a.27WS.1/5" class="indent">whether changes locally or regionally affect the continuing need for a UDC, or the extent of its powers;</p>
+	<p pid="a.27WS.1/6" class="indent">the impact of the changing national context, particularly the establishment of the Homes and Communities Agency;</p>
+	<p pid="a.27WS.1/7" class="indent">efficiency in the light of the Government's operational efficiency programme, which is looking at achieving greater efficiencies in a number of cross-cutting areas, including back office operations and IT and collaborative procurement; and</p>
+	<p pid="a.27WS.1/8" class="indent">whether there are obstacles that if removed, or greater freedoms that if given, would enable the UDCs to operate more effectively.</p>
+	<p pid="a.27WS.1/9">The review included stakeholder consultation which began on <phrase class="date" code="2009-06-22">22 June 2009</phrase> and lasted 12 weeks.</p>
+	<p pid="a.27WS.1/10">We will publish a response to the consultation exercise on the Communities and Local Government website, make a summary of the review and its findings publicly available on request, and place copies of both in the Library of the House. Key findings common to each UDC are that:</p>
+	<p pid="a.27WS.1/11" class="indent">there continues to be a need to secure the regeneration of their respective areas, and there continues to be a need for focused delivery arrangements to support this;</p>
+	<p pid="a.27WS.1/12" class="indent">each UDC has a mixed track record of success so far, but this largely reflects that they have only been in existence for a relatively limited period of time. However, the UDCs have now started, or are on the cusp of delivering, some significant projects. We have been concerned that any proposed changes should not risk delivery.</p>
+	<p pid="a.27WS.1/13" class="indent">planning performance of each UDC against major planning applications is below the national target, but this reflects the more complex characteristics of the case load they are dealing with, the relatively limited time that they have had to put in place new arrangements to handle planning applications, and that the UDCs do not have plan making functions. However, planning performance is now improving.</p>
+	<p pid="a.27WS.1/14">The conclusions for each UDC are set out below:</p>
+	<p pid="a.27WS.1/15" class="italic">London Thames Gateway Development Corporation</p>
+	<p pid="a.27WS.1/16">London Thames Gateway Development Corporation (LTGDC) has performed well, working in an extremely complicated environment, handling a complex planning case load. The organisation has existed for a relatively limited period, but in this time it has put in place innovative planning processes, and is starting to deliver real and tangible benefit for the area through its investment in new homes, jobs, open space, transport infrastructure and its education and skills programme.</p>
+	<p pid="a.27WS.1/17">The proximity of the Olympic park to LTGDC's area means that the corporation has an important role to play in securing a long-term legacy in east London from the 2012 Olympic games. It is important that LTGDC is focused on this in the run-up to the games, and the Government have therefore decided not to make any changes to the structure or responsibilities of the corporation prior to the Olympics.</p>
+	<p pid="a.27WS.1/18">Following the games, the Olympic Delivery Authority (ODA) will be wound up and new planning arrangements will need to be put in place to discharge the responsibilities currently undertaken by the authority. The Government intend to consider the future of LTGDC's planning powers alongside those of the ODA, and has today invited the London boroughs of Newham, Tower Hamlets, and Hackney to submit proposals for a new planning regime for the Lower Lea Valley. The Government will also consider how, in addition to the work that the Olympic Park Legacy Company will be undertaking, to best take forward the development and regeneration of the Lower Lea Valley.</p>
+	<p pid="a.27WS.1/19">We are also inviting the London boroughs of Havering and Barking and Dagenham to bring forward proposals for the future planning regime in their area.</p>
+	<p pid="a.27WS.1/20" class="italic">Thurrock Thames Gateway Development Corporation</p>
+	<p pid="a.27WS.1/21">The review has demonstrated Thurrock Thames Gateway Development Corporation (TTGDC) to be an effective organisation well liked by its stakeholders and on the point of delivering real change. The Government are keen to build on and strengthen this success. Since TTGDC was established, the Government have created the Homes and Communities Agency (HCA) which is already establishing a strong track record of strong and successful delivery of housing and regeneration. The Government have concluded that the economic development of Thurrock would be further enhanced if TTGDC were to become part of the HCA from April 2011, allowing the regeneration and development of Thurrock to benefit from strength in depth and regeneration expertise of the largest regeneration agency in western Europe. From that date, TTGDC's staff will transfer to the HCA and will operate in a manner similar to the arrangements the HCA already has in place in Milton Keynes. The HCA's work in Thurrock will continue to be based, as now, within the borough. An HCA board, and planning sub-committee acting as a local planning authority, will be established to ensure continued strong local leadership and stakeholder engagement. Over time, the HCA intends that all of its operations in Thurrock will be undertaken from the current TTGDC offices in the borough, and the opportunity to widen the reach of its Thurrock based team will also be explored.</p>
+	<p pid="a.27WS.1/22">In order to give effect to these changes, the Government will be bringing forward orders to formally confer TTGDC's planning powers on the HCA.</p>
+	<p pid="a.27WS.1/23" class="italic">West Northamptonshire Development Corporation.</p>
+	<p pid="a.27WS.1/24">My hon. Friend the Member for Dudley, North believes that the regeneration of Northampton, Daventry and Towcester continues to be an important priority, particularly given the importance of Northampton to the economic strength of Northamptonshire, and growth across the Milton Keynes-South Midlands growth area. The West Northamptonshire Development Corporation (WNDC) was established to tackle the regeneration challenges in West Northamptonshire and there is recognition that it has had some significant successes and has put the foundations in place to deliver this.</p>
+	<p pid="a.27WS.1/25">There continues to be a need for a strong delivery vehicle to support this, and in particular a number of critical regeneration projects in Northampton, Daventry and Towcester. Over time we would like to see a new type of local partnership take forward and deliver the work started by WNDC. In the interim, there is scope for WNDC to become a more strategic delivery focused organisation, working closely with the Homes and Communities Agency and other partners.</p>
+	<p pid="a.27WS.1/26">WNDC has had a significant role in making planning decisions for West Northamptonshire. However, the time is now right to start to return these to local planning authorities. However, it is important that this is done in a proper and managed process, which supports the local planning authorities and does not distract from delivery. The Government will therefore provide for planning responsibilities to be returned on a staged basis, and will work with the local planning authorities to achieve this, with support from the Planning Advisory Service. The first stage will be to raise the threshold for residential applications handled by WNDC from 50 homes to 200 homes; to return other applications in the Northampton central planning area to Northampton borough council; and return waste and minerals applications to Northamptonshire county council. The Government intend this should take effect from April 2011.</p>
+	<p pid="a.27WS.1/27">The return of planning responsibilities and a reduction in the number of planning applications that WNDC will have to deal with will enable WNDC to play a more strategic delivery focused role concentrating on large housing and commercial developments across its area, but this will require greater partnership working between WNDC and the local authorities and delivery partners in West Northamptonshire, including the Homes and Communities Agency, with the opportunity for more joint working and delivery, with the potential for efficiencies and savings through shared services. These new joint working arrangements will provide the basis for moving to new non-statutory delivery arrangements, and the Government will invite the local authorities and delivery partners to work with WNDC and bring forward proposals for a new delivery model which might succeed WNDC in 2013-14. As part of the discussion of these proposals Government will review the timetable for the return of the remaining planning responsibilities.</p>
+	<p pid="a.27WS.1/28">The local authorities in West Northamptonshire will be key in delivering the next phase of this important agenda, and the WNDC board members nominated by the local authorities will have an important role to play. They, and the other board members, play a valuable role and we will preserve the number of local authority nominated positions on the board, and ensure that we strengthen the link between nominated members and the local authorities they represent.</p>
+	<p pid="a.27WS.1/29">As part of Government's operational efficiency programme, WNDC is already planning to achieve cumulative savings of around &#163;4 million by 2013-14. Through re-focusing WNDC as a more strategic delivery organisation, with more joint working, delivery and shared services with partners, it should be possible to achieve further cumulative savings of at least &#163;l million by 2013-14.</p>
+	<p pid="a.27WS.1/30">The Government believe these new arrangements will maintain a strong focus on the important job of regenerating and delivering growth in West Northamptonshire, strengthen partnerships, provide improved delivery and joint working arrangements with efficiencies across delivery partners, as well as providing greater responsibility and accountability to local planning authorities for planning decisions, and provide the basis for moving to non-statutory delivery arrangements.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-14a.30WS.0" nospeaker="true" colnum="30WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0002.htm#100114m0002.htm_dpthd0">
+	DEFENCE
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-14a.30WS.1" nospeaker="true" colnum="30WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0002.htm#10011433000011">
+	Typhoon Support Contract
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-14a.30WS.2" speakerid="uk.org.publicwhip/member/2025" speakername="Quentin Davies" speakeroffice="The Parliamentary Under-Secretary of State for Defence" colnum="30WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100114/wmstext/100114m0002.htm#10011433000077">
+	<p pid="a.30WS.2/1">I am pleased to announce that the Ministry of Defence has today signed a 10-year contract with Rolls-Royce, worth &#163;865 million, for an enduring spares inclusive availability service for the Typhoon engine (EJ200).</p>
+	<p pid="a.30WS.2/2">This contract will see Rolls-Royce taking a major role in ensuring the availability of the Typhoon fleet to meet its standing and operational commitments and demonstrates the Ministry of Defence's commitment to partnering with British industry to get more efficient support for our front-line Typhoon fighter force.</p>
+	<p pid="a.30WS.2/3">The innovative partnering arrangement will help to sustain up to 3,000 highly skilled jobs throughout Rolls-Royce and the supply chain. Contracting for the long term will enable Rolls-Royce to consolidate its cost base and provide stability to its workforce while providing the optimised support service that the RAF requires.</p>
+</speech>
+</publicwhip>
+

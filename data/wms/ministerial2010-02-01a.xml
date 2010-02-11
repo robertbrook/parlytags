@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="a" latest="no">
+<gidredirect oldgid="uk.org.publicwhip/wms/2010-02-01a.1WS.0" newgid="uk.org.publicwhip/wms/2010-02-01b.1WS.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/wms/2010-02-01a.1WS.1" newgid="uk.org.publicwhip/wms/2010-02-01b.1WS.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/wms/2010-02-01a.1WS.2" newgid="uk.org.publicwhip/wms/2010-02-01b.1WS.2" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/wms/2010-02-01a.1WS.3" newgid="uk.org.publicwhip/wms/2010-02-01b.1WS.3" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/wms/2010-02-01a.1WS.4" newgid="uk.org.publicwhip/wms/2010-02-01b.1WS.4" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/wms/2010-02-01a.1WS.5" newgid="uk.org.publicwhip/wms/2010-02-01b.1WS.5" matchtype="changes"/>
+<speech id="uk.org.publicwhip/wms/2010-02-01a.1WS.5" speakerid="uk.org.publicwhip/member/1899" speakername="Angela Eagle" speakeroffice="The Minister for Pensions and the Ageing Society" colnum="1WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/wmstext/100201m0001.htm#1002014000056">
+	<p pid="a.1WS.5/1">Two years ago I announced our commitment to a fundamental change in how the criminal justice system deals with women. In December last year we reported on the substantial progress made through the Government's strategy to divert women away from crime.</p>
+	<p pid="a.1WS.5/2">Today, I am announcing the creation of a Women's Diversionary Fund, a &#163;2 million joint funding venture between the Ministry of Justice and the Corston Independent Funders' Coalition. The Women's Diversionary Fund will offer grants of up to two years and will assist us in consolidating good progress and in taking forward our strategy to divert women from crime, and reduce reoffending.</p>
+	<p pid="a.1WS.5/3">This exciting partnership between the Ministry of Justice and the alliance of charitable trusts forming the coalition represents a commitment on both sides to transform further the way women are treated by the criminal justice system. By working together in this exceptional way we will build on the initiatives already announced.</p>
+	<p pid="a.1WS.5/4">The fund will focus on:</p>
+	<p pid="a.1WS.5/5" class="indent">service development or continuation, meeting gaps and further developing services; and</p>
+	<p pid="a.1WS.5/6" class="indent">building organisational capacity.</p>
+	<p pid="a.1WS.5/7">This new initiative will support further growth in community services for women and contribute to building the confidence of courts in alternatives to custody.</p>
+</speech>
+<gidredirect oldgid="uk.org.publicwhip/wms/2010-02-01a.1WS.6" newgid="uk.org.publicwhip/wms/2010-02-01b.1WS.6" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/wms/2010-02-01a.1WS.7" newgid="uk.org.publicwhip/wms/2010-02-01b.1WS.7" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/wms/2010-02-01a.2WS.0" newgid="uk.org.publicwhip/wms/2010-02-01b.2WS.0" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/wms/2010-02-01a.2WS.1" newgid="uk.org.publicwhip/wms/2010-02-01b.2WS.1" matchtype="perfectmatch"/>
+<gidredirect oldgid="uk.org.publicwhip/wms/2010-02-01a.2WS.2" newgid="uk.org.publicwhip/wms/2010-02-01b.2WS.2" matchtype="perfectmatch"/>
+</publicwhip>
+

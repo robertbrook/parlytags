@@ -1,5 +1,5 @@
 %li.uk_parliament_twitter_result
   %span.kind @UKParliament
-  = twitter_result["text"]
+  %span.text= twitter_result["text"]
   %br
   %span.created_at= link_to twitter_result["created_at"], 'http://twitter.com/UKParliament/status/' + twitter_result["id"].to_s

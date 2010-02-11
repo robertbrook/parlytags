@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="a" latest="yes">
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-19a.5WS.0" nospeaker="true" colnum="5WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#100119m0001.htm_dpthd0">
+	TREASURY
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-19a.5WS.1" nospeaker="true" colnum="5WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000011">
+	ECOFIN
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-19a.5WS.2" speakerid="uk.org.publicwhip/member/1981" speakername="Alistair Darling" speakeroffice="The Chancellor of the Exchequer" colnum="5WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000108">
+	<p pid="a.5WS.2/1">The Economic and Financial Affairs Council will be held in Brussels on <phrase class="date" code="2010-01-19">19 January 2010</phrase>. The following items are on the agenda:</p>
+	<p pid="a.5WS.2/2" class="italic">Legislative <i>d</i>eliberations</p>
+	<p pid="a.5WS.2/3">Taxation</p>
+	<p pid="a.5WS.2/4" class="italic">a) Savings Tax Directive</p>
+	<p pid="a.5WS.2/5">ECOFIN will discuss proposed amendments to the Savings Tax Directive to tackle cross-border tax evasion on savings income, by automatic exchange of information. This and the following items have strong links to the international transparency agenda, including work by the G20 on tax havens and non-co-operative jurisdictions under the UK's G20 presidency in 2009.</p>
+	<p pid="a.5WS.2/6" class="italic">b) Recovery Directive</p>
+	<p pid="a.5WS.2/7">The Recovery Directive is aimed at improving existing procedures for recovery of direct and indirect tax debts, including on income tax, VAT, excise duties and EU agricultural levies. The Government support the extended provisions, which will reduce the opportunities for businesses and individuals to escape paying tax that is legally due in one member state, by moving to another member state.</p>
+	<p pid="a.5WS.2/8" class="italic">c) Administrative Co<i>-</i>operation Directive</p>
+	<p pid="a.5WS.2/9">ECOFIN will seek a general approach on this directive, which will improve exchange of information and bring the EU into line with OECD standards by removing the right to refuse information on grounds of bank secrecy. The Government support these goals.</p>
+	<p pid="a.5WS.2/10" class="italic">Non-legislative activities</p>
+	<p pid="a.5WS.2/11">Taxation</p>
+	<p pid="a.5WS.2/12" class="italic">Anti-fraud agreements with third countries</p>
+	<p pid="a.5WS.2/13">ECOFIN will discuss the draft anti-fraud agreement with Liechtenstein, and a negotiating mandate for anti-fraud agreements with Andorra, Monaco, Switzerland and San Marino. The proposed agreements provide for exchange of information to international standards in administrative and criminal matters in the tax field and related areas.</p>
+	<p pid="a.5WS.2/14" class="italic">Presentation of the Presidency Work Programme</p>
+	<p pid="a.5WS.2/15">The Spanish presidency will present its ECOFIN work programme for the first half of 2010.</p>
+	<p pid="a.5WS.2/16" class="italic">Statistics: Eurostat report</p>
+	<p pid="a.5WS.2/17">ECOFIN will agree a set of conclusions on a report by the Commission's statistics agency into the quality of official statistics in Greece. This follows a request from the November 2009 ECOFIN for the Commission to examine the issues regarding the Greek Government deficit and debt statistics. The Government support the taking of prompt action to rectify the situation in Greece.</p>
+</speech>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-19a.6WS.0" nospeaker="true" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000012">
+	Fiscal Responsibility Bill
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-19a.6WS.1" speakerid="uk.org.publicwhip/member/1554" speakername="Ian Pearson" speakeroffice="The Economic Secretary to the Treasury" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000109">
+	<p pid="a.6WS.1/1">The Treasury has today published a revised draft of the Code for Fiscal Stability, updated to reflect the provisions of the Fiscal Responsibility Bill. Copies of the document are available in the Vote Office and have been deposited in the Libraries of both Houses.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-19a.6WS.2" nospeaker="true" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#100119m0001.htm_dpthd1">
+	COMMUNITIES AND LOCAL GOVERNMENT
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-19a.6WS.3" nospeaker="true" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000013">
+	Planning
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-19a.6WS.4" speakerid="uk.org.publicwhip/member/1918" speakername="John Healey" speakeroffice="The Minister for Housing" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000110">
+	<p pid="a.6WS.4/1">During the passage of the Planning Act in November 2008, the Government committed to carry out a review to establish the nature and extent of development on garden land. We said that if the evidence confirmed a problem we would look at how best to remedy the situation, provided that any changes should not have the effect of undermining our policy objectives on housing.</p>
+	<p pid="a.6WS.4/2">I am today publishing the independent research and review carried out by Kingston University, and I can also announce changes I am making today to strengthen national policy advice, making it clearer that the powers to take the decisions on whether to grant applications for development on gardens rest firmly in the hands of local authorities.</p>
+	<p pid="a.6WS.4/3">The research finds that problems with inappropriate building on back gardens is not a widespread, national or growing problem, and that local authorities can deal successfully with unwanted applications for garden development through the development of specific local policies. The report also finds that the planning inspectorate supports around four out of five of the decisions made by local authorities on such land-especially where local policies are in place.</p>
+	<p pid="a.6WS.4/4">Based on the conclusions of this independent report, I believe a blanket ban on back garden development-which no local authority advocated-would be wrong, as these are precisely the types of decisions that are best taken locally within an effective planning system that is responsive to the specifics of an area.</p>
+	<p pid="a.6WS.4/5">However, I do recognise that more needs to be done to reinforce the current policy position and encourage local authorities to take seriously the concerns of communities if development on gardens is a particular concern. So I am today announcing that the Government are strengthening Planning Policy Statement 3 to make clear it that there is no presumption that land that is previously developed is suitable for development, or that all of the curtilage should be developed.</p>
+	<p pid="a.6WS.4/6">This is an important development, as it reinforces the PPS3 message that local authorities are best placed to consider whether different types of land are suitable for housing. PPS3 retains a focus on brownfield land, where this is suitable for housing.</p>
+	<p pid="a.6WS.4/7">Local authorities need to be able to defend decisions on any planning application, whether for garden land or otherwise, based on established strong local policies. The report finds that a very small number of the authorities reviewed as part of the work had local policies on back garden development. I have therefore asked the Government's chief planner to write to every local authority in England today to remind them about the issues they should take into account when considering the use of garden land for development and whether or not this is a local problem for their area.</p>
+	<p pid="a.6WS.4/8">I am also committed to collecting better data on the use of gardens for housing, and work is underway with Ordnance Survey to improve land use change statistics.</p>
+	<p pid="a.6WS.4/9">I have placed a copy of the report and the data received in the Library of the House.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-19a.7WS.0" nospeaker="true" colnum="7WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#100119m0001.htm_dpthd2">
+	DEFENCE
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-19a.7WS.1" nospeaker="true" colnum="7WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000014">
+	Defence Information Infrastructure Contract
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-19a.7WS.2" speakerid="uk.org.publicwhip/member/2025" speakername="Quentin Davies" speakeroffice="The Parliamentary Under-Secretary of State for Defence" colnum="7WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000111">
+	<p pid="a.7WS.2/1">On the <phrase class="date" code="2009-12-18">18 December 2009</phrase> the Ministry of Defence signed the next programmed critical phase to its incremental contract to deliver the Defence Information Infrastructure (DII) Programme which is placed with its delivery partner, the Atlas Consortium. The contract amendment to include DII Increment 3a is worth around &#163;540 million and the cost of ownership of the whole DII programme remains unchanged at &#163;7.1 billion.</p>
+	<p pid="a.7WS.2/2">DII Increment 3a will provide a further 42,000 computer terminals operating in the restricted and secret domains at the remaining MOD permanent sites, replacing outdated legacy IT systems with improved capability to meet the current and future threats to the UK and its allies. Increment 3a will provide enhanced capability to around 60,000 personnel, notably within the RAF, at Joint Helicopter Command and at other defence locations.</p>
+	<p pid="a.7WS.2/3">DII is the largest defence IT programme of its type in the world and is already delivering operational benefits to the UK's front-line troops and to the wider Department. Once delivered in full DII will provide a single, secure and coherent IT infrastructure across the whole of defence, providing support to some 300,000 users, using around 140,000 computer terminals. Through delivery, DII will ensure essential IT operational capability is maintained and enhanced to meet the challenges defence must be prepared for. The overall DII contract currently runs to 2015.</p>
+	<p pid="a.7WS.2/4">DII is on track to deliver estimated benefits to the Department in excess of &#163;1.6 billion over the 10 years of the contract.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-19a.7WS.3" nospeaker="true" colnum="7WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#100119m0001.htm_dpthd3">
+	ENVIRONMENT FOOD AND RURAL AFFAIRS
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-19a.7WS.4" nospeaker="true" colnum="7WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000015">
+	Inland Waterways
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-19a.7WS.5" speakerid="uk.org.publicwhip/member/1750" speakername="Huw Irranca-Davies" speakeroffice="The Parliamentary Under-Secretary of State for Environment, Food and Rural Affairs" colnum="7WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000112">
+	<p pid="a.7WS.5/1">I will today place copies of the consultation document setting out the Government's proposed strategy for Inland Waterways of England and Wales-&quot;Waterways for Everyone&quot; in the Libraries of both Houses. A copy of the consultation document and details of how to respond to the consultation can be found on DEFRA's website at:</p>
+	<p pid="a.7WS.5/2" class="indent"><a href="http://www.defra.gov.uk/corporate/consult/waterways/index.htm">www.defra.gov.uk/corporate/consult/waterways/index.htm</a>.</p>
+	<p pid="a.7WS.5/3">&quot;Waterways for Everyone&quot; sets out the Governments proposals for an updated strategy for the inland waterways of England and Wales. This builds on the Government's 2000 strategy &quot;Waterways for Tomorrow&quot; and sets out our approach to further enhance the public benefits provided by our inland waterways through widening the involvement of stakeholders and potential beneficiaries in the management and development of the waterways.</p>
+	<p pid="a.7WS.5/4">&quot;Waterways for Everyone&quot; also demonstrates the valuable contribution that the inland waterways can make to a wide range of public policy objectives. These include place making and shaping, climate change mitigation and sustainable transport, health, well-being, recreation and sport, tourism and business development and developing fairer, stronger and more active communities.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-19a.8WS.0" nospeaker="true" colnum="8WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#100119m0001.htm_dpthd4">
+	HEALTH
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-19a.8WS.1" nospeaker="true" colnum="8WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000016">
+	Safeguarding Adults
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-19a.8WS.2" speakerid="uk.org.publicwhip/member/1512" speakername="Phil Hope" speakeroffice="The Minister of State, Department of Health" colnum="8WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000113">
+	<p pid="a.8WS.2/1">Safeguarding vulnerable adults who are at risk of harm sits at the heart of Government. Those who need safeguarding help are often elderly and frail, living on their own in the community, or without much family support in care homes; they are often people with physical or learning disabilities, and people with mental health needs at risk of suffering harm both in institutions and in the community. It is to these and to many others that Government have a duty of safeguarding.</p>
+	<p pid="a.8WS.2/2">Safeguarding encompasses three key concepts: protection, justice and empowerment. Government have an important role in the protection of members of the public from harm-before harm has happened and after it has happened. This includes ensuring that services and support are delivered in ways that are high quality and safe. Government have an important role in facilitating justice where vulnerable adults become the victims of crime; and finally, Government have a role in the empowerment of people at risk: to empower them to recognise, avoid and stop harm; to empower them to make decisions based on informed choices, to balance taking risks with quality of life decisions; and to empower people if they have been harmed, to heal and to live with self-confidence and self determination.</p>
+	<p pid="a.8WS.2/3">&quot;No Secrets: Guidance on developing and implementing multi-agency policies and procedures to protect vulnerable adults from abuse&quot; was Government guidance on safeguarding, issued in 2000. In 2008-09 a national consultation exercise was held, in which some 12,000 people took part. Many sent us detailed responses; others wrote us very personal letters about their own experiences. Safeguarding partnerships met and discussed many of the 100 questions we posed; they debated and analysed and explored the issues with commitment, with passion and with dedication. Rarely have so many different professionals-social workers, police officers, nurses, housing officers, lawyers and voluntary sector workers-all responded to the same consultation. We are grateful to all who responded and we have listened carefully to the views expressed. A summary of responses was published on <phrase class="date" code="2009-07-17">17 July 2009</phrase>. This written ministerial statement sets out the Government's programme of actions in response to the consultation.</p>
+	<p pid="a.8WS.2/4">There were a number of key messages from the consultation. These included that stronger national leadership was needed, that local arrangements should be placed on a statutory basis; and that revision and updating is needed to the &quot;No Secrets&quot; guidance. Our plans respond to all these points.</p>
+	<p pid="a.8WS.2/5">Around 3,000 people participated in the consultation as members of the public, as users of social care and health care, including some who had suffered abuse in some form. Of the wide-ranging views expressed, first and foremost was that the voice of vulnerable people needed to be heard much more than it currently is. Vulnerable people wanted to be heard in safeguarding policy and practice and in situations where they were victims of harm. We will reflect these views very carefully in developing our response.</p>
+	<p pid="a.8WS.2/6">First, the Government will establish an Inter-Departmental Ministerial Group (IDMG) on Safeguarding Vulnerable Adults. This group will include Ministers from the Department of Health, Home Office, Ministry of Justice, the Attorney-General's Office and the Department for Communities and Local Government. The Inter-Departmental Ministerial group will demonstrate Government commitment to the issue of safeguarding vulnerable adults; provide national leadership; co-ordinate Government policy and set the framework for effective local arrangements. We plan to have the first meeting in March. The IDMG will have three roles. It will:</p>
+	<p pid="a.8WS.2/7" class="indent">i) determine policy and work priorities for the forthcoming year;</p>
+	<p pid="a.8WS.2/8" class="indent">ii) provide a strategic and co-ordination role; and</p>
+	<p pid="a.8WS.2/9" class="indent">iii) provide public and parliamentary advocacy for this policy area.</p>
+	<p pid="a.8WS.2/10">Secondly, the Government will introduce new legislation to strengthen the local governance of safeguarding by putting Safeguarding Adults Boards on a statutory footing.</p>
+	<p pid="a.8WS.2/11">Local Safeguarding Adults Boards bring together the key agencies that have a part to play in safeguarding-particularly social services, the national health service and the police, but also other organisations. They are one of the main drivers in effective safeguarding arrangements founded on effective partnership and joint working. An effective board provides clear leadership and helps individual organisations develop complementary safeguarding and empowerment strategies.</p>
+	<p pid="a.8WS.2/12">Safeguarding Adults Boards exist in many parts of the country, but they are not mandatory and their effectiveness is variable. A key message from the consultation was that local leadership and scrutiny of safeguarding needs to be improved and strengthened. The Government will therefore introduce legislation to put Safeguarding Adults Boards on a statutory footing, to ensure that effective leadership and co-ordination in this important area is assured for all vulnerable people wherever they live.</p>
+	<p pid="a.8WS.2/13">Thirdly, the Government are launching a programme of work with representative agencies and stakeholders to support effective policy and practice in safeguarding vulnerable adults.</p>
+	<p pid="a.8WS.2/14">We will produce in the autumn, new, comprehensive, multi-agency guidance to set out clearly the roles and responsibilities for all those involved in safeguarding vulnerable adults. This will be built on and bring together targeted guidance and support materials, which will be developed in the coming months, including:</p>
+	<p pid="a.8WS.2/15" class="indent">a guide to the law on safeguarding, to help professionals understand and effectively use the range of legal powers that can prevent and deal with harm-including the Criminal Justice Act 1988, the Fraud Act, the Domestic Violence, Crime and Victims Act 2004, and the Mental Capacity Act 2005;</p>
+	<p pid="a.8WS.2/16" class="indent">targeted guidance and toolkits for specific professionals, including general practitioners, nurses, housing staff and police officers; and</p>
+	<p pid="a.8WS.2/17" class="indent">the Association of Chief Police Officers has set up a working group under the umbrella of the economic crime portfolio to lead a programme of work to improve our response to financial crime against vulnerable adults. Work is currently underway to complete an intelligence assessment with additional work to follow to further aid those involved at the frontline.</p>
+	<p pid="a.8WS.2/18">Finally, I wish to thank those on the advisory group and those in the local safeguarding partnerships who have helped us in this review of safeguarding. We will continue to draw on the expertise and views of relevant organisations and stakeholders, through a newly convened advisory board, as we develop the full programme of work to see through the plan of action announced today.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-19a.10WS.0" nospeaker="true" colnum="10WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#100119m0001.htm_dpthd5">
+	HOME DEPARTMENT
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-19a.10WS.1" nospeaker="true" colnum="10WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000017">
+	Alcohol Retailers
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-19a.10WS.2" speakerid="uk.org.publicwhip/member/1648" speakername="Alan Johnson" speakeroffice="The Secretary of State for the Home Department" colnum="10WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0001.htm#10011949000114">
+	<p pid="a.10WS.2/1">The Home Office has today published the Government's response to the consultation on the new code of practice for alcohol retailers. The consultation ran from May to August 2009 and invited responses from the public, the licensed trade, enforcement agencies and health bodies. More than 7,000 responses were received from across a range of respondents and independently analysed.</p>
+	<p pid="a.10WS.2/2">The Government's response to this consultation has been published on the Home Office website, and can be read at:</p>
+	<p pid="a.10WS.2/3" class="indent"><a href="http://www.homeoffice.gov.uk/crime-victims/reducing-crime/alcohol-related-crime/index.html">http://www.homeoffice.gov.uk/crime-victims/reducing-crime/alcohol-related-crime/index.html</a>.</p>
+	<p pid="a.10WS.2/4">A copy will be placed in the Libraries of both Houses.</p>
+	<p pid="a.10WS.2/5">We are committed to reducing alcohol related crime, violent crime and anti-social behaviour on a number of fronts, including educating young people, campaigns encouraging people to drink more responsibly, and tough enforcement when those who drink too much cause harm to themselves and others. We also need those who retail alcohol to work in partnership with Government, the police and local authorities to reduce these risks. The majority of alcohol retailers behave responsibly, but a minority conduct irresponsible promotions or practices-the mandatory code will stop these where they take place.</p>
+	<p pid="a.10WS.2/6">Subject to the parliamentary timetable, we intend to introduce the following mandatory licensing conditions that will apply to pubs, clubs and hotels and other &quot;on-licensed&quot; premises:</p>
+	<p pid="a.10WS.2/7" class="indent">banning irresponsible promotions, such as drinking games, speed drinking, women drink for free, and all you can drink for &#163;10;</p>
+	<p pid="a.10WS.2/8" class="indent">banning pouring drinks directly into the mouths of customers;</p>
+	<p pid="a.10WS.2/9" class="indent">ensuring free tap water for customers; and</p>
+	<p pid="a.10WS.2/10" class="indent">ensuring that all on trade premises offer small measures of beers, wine and spirits to customers.</p>
+	<p pid="a.10WS.2/11">In addition, we will also introduce a mandatory licensing condition to ensure that all those who sell or supply alcohol have an age verification policy in place requiring them to ask anyone who looks under 18 for proof of age by providing appropriate identification.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-19a.11WS.0" nospeaker="true" colnum="11WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0002.htm#100119m0002.htm_dpthd0">
+	INTERNATIONAL DEVELOPMENT
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-19a.11WS.1" nospeaker="true" colnum="11WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0002.htm#10011949000018">
+	Haiti Earthquake
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-19a.11WS.2" speakerid="uk.org.publicwhip/member/2008" speakername="Douglas Alexander" speakeroffice="The Secretary of State for International Development" colnum="11WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0002.htm#10011949000115">
+	<p pid="a.11WS.2/1">An earthquake of magnitude 7.0 struck Haiti, near the capital Port-au-Prince at 16:53 local time on <phrase class="date" code="2010-01-12">12 January</phrase>. Numerous significant aftershocks followed the initial quake. This is a major international humanitarian disaster and a tragedy for the people of Haiti. In Port-au-Prince, the tremors destroyed more than 20 per cent. of buildings. At the epicentre 10 miles away, 80 to 90 per cent. of buildings were damaged. It is clear that the scale of the human tragedy is enormous. UN Secretary-General, Ban Ki-Moon said that the Haitian emergency was the &quot;most serious humanitarian crisis faced by the United Nations&quot; in decades, surpassing those caused by the Asian tsunami, the recent Pakistan earthquake and cyclone Nargis in Burma.</p>
+	<p pid="a.11WS.2/2">The Haitian Interior Minister has estimated that the death toll could reach 200,000 with many more injured and an estimated 3 million people affected. The United Nations estimates that at least 2 million of these people will require immediate relief assistance for the next six months. So far, we know of one British citizen who has lost his life in the earthquake, Frederick Wooldridge, who worked for the UN Mission in Haiti. We pay tribute to the important work of Mr. Wooldridge and others like him in the UN Stabilisation Mission, working for the security and stability of Haiti. We have received reports that other British nationals are missing but do not have any further information to give at this stage.</p>
+	<p pid="a.11WS.2/3">The Department for International Development's response began within an hour of the earthquake and we had an assessment team in the air within 10 hours. Relief agencies are having to overcome enormous challenges to get help into the affected areas and we share their frustration and the urgency of meeting desperate needs. Damage sustained by the main airport in Port-au-Prince, together with air traffic control restrictions, meant that getting into Haiti was difficult. The British Government's own search and rescue team of 64 people were in the neighbouring Dominican Republic in the early hours of the morning of <phrase class="date" code="2010-01-14">Thursday 14 January</phrase>. The first UK search and rescue team was established in Port-au-Prince on <phrase class="date" code="2010-01-14">14 January</phrase> and since then have been searching for trapped people. They have so far rescued three people alive from the debris and helped treat many more. I would like to pay particular tribute to the professionalism and dedication of our team in Haiti, made up of members of the UK Fire and Rescue Service as well as volunteer medical staff, and DFID staff.</p>
+	<p pid="a.11WS.2/4">DFID announced an initial contribution of &#163;6.2 million on <phrase class="date" code="2010-01-14">14 January</phrase>. These funds are already providing immediate relief in the form of the 64-person UK search and rescue team; &#163;1 million to help the UN's humanitarian agency provide 30 or more staff to help with co-ordination; &#163;2 million for the World Food Programme for logistical support, including trucks and other vehicles, and humanitarian base camps, to get assistance to those in need in Port-au-Prince and remote areas; &#163;l million for the Red Cross to support urgent medical care; and &#163;300,000 to World Health Organisation for disease surveillance work.</p>
+	<p pid="a.11WS.2/5">DFID announced a tripling of funding to &#163;20 million on <phrase class="date" code="2010-01-18">18 January</phrase> and we will make further funding decisions based on the ongoing assessment of needs and discussion with the United Nations and Government of Haiti. We have agreed to help the Red Cross fly supplies from Panama into Haiti over the coming days. We are considering options for how the UK could deliver further relief supplies to Haiti.</p>
+	<p pid="a.11WS.2/6">A shortage of trucks and fuel, exacerbated by the airport's limited capacity to receive, warehouse, and dispatch relief supplies, continues to hamper relief efforts in and around Port-au-Prince, although road access from the Dominican Republic is possible and the port at Cap Haitian in the north of Haiti is operating. Getting food in through shattered infrastructure is an enormous problem. This is why we have made an early contribution to the World Food Programme for logistical support.</p>
+	<p pid="a.11WS.2/7">Needs are huge with food shortages in many areas, but food distribution is accelerating, with the World Food Programme distributing emergency rations to over 70,000 people yesterday (Monday), up from 20,000 on Friday. Large numbers of doctors and other health staff are arriving. There are at least nine field hospitals operational in Haiti as well as a 1,000-bed hospital ship. DFID has provided &#163;200,000 funding for a specialised surgical team from Merlin to operate for the next two weeks in Haiti. The team of 11 medical staff should be on the ground in Haiti later today.</p>
+	<p pid="a.11WS.2/8">International co-ordination in such disasters rests with the United Nations. However, given the extensive damage to UN headquarters and their loss of staff, they are struggling to meet demands, and the US is bringing vital resources to bear. Our &#163;1 million funding allocation to OCHA is being used to bolster capacity and we have sent a humanitarian adviser to support United Nations operations .The British Government are willing to support further secondments and have offered staff to the World Food Programme. We are also looking at whether practical assistance can be given to the Government of Haiti.</p>
+	<p pid="a.11WS.2/9">Together with the United Nations, we are working with the US humanitarian teams and military. We have an adviser working in the USAID operations room in Washington liaising with American counterparts. The EU humanitarian working group met to discuss the situation in Haiti on Friday, and my hon. Friend the Parliamentary Under-Secretary of State for International Development, <phrase class="honfriend" id="uk.org.publicwhip/member/1939" name="Michael Foster">the Member for Worcester (Mr. Foster)</phrase> attended the EU Foreign Affairs Council meeting yesterday to discuss the immediate humanitarian response and also longer-term recovery and reconstruction. We will support that process and press for strong EU co-ordination and commitment to Haiti.</p>
+	<p pid="a.11WS.2/10">We are following the security situation very closely, both for our teams and for the wider operation. Ban-Ki-Moon yesterday called for an additional 2,000 troops and 1,500 police for the peacekeeping mission. We hope that the UN Security Council will approve this and that these personnel will be mobilised as a matter of urgency.</p>
+	<p pid="a.11WS.2/11">The challenges that lie ahead are formidable. Access to food, water, shelter and medicines are the immediate concern for the people of Haiti and those involved in the disaster response. Haitians will also need law and order, electricity, and a return to something approximating normality if people are to begin the grieving process and start to rebuild their lives. We did not have a bilateral development programme with Haiti before the earthquake, and our focus will be on ensuring a substantial effort from the EU, World Bank and other multilaterals to provide the long-term reconstruction support that Haiti will need.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-19a.13WS.0" nospeaker="true" colnum="13WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0002.htm#100119m0002.htm_dpthd1">
+	JUSTICE
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-19a.13WS.1" nospeaker="true" colnum="13WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0002.htm#10011949000019">
+	UK Foreign Bribery Strategy
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-19a.13WS.2" speakerid="uk.org.publicwhip/member/1423" speakername="Jack Straw" speakeroffice="The Secretary of State for Justice and Lord Chancellor" colnum="13WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0002.htm#10011949000116">
+	<p pid="a.13WS.2/1">I have today laid before the House the UK Foreign Bribery Strategy, CM 7791. Copies are available in the Vote Office and the Printed Paper Office, and online at: <a href="http://www.justice.gov.uk/publications/foreign-bribery-strategy.htm">www.justice.gov.uk/publications/foreign-bribery-strategy.htm</a>. This follows my written ministerial statement of <phrase class="date" code="2008-10-15">15 October 2008</phrase>, <phrase class="offrep" id="wms/2008-10-15.44"><i>Official Report</i>, column 44WS</phrase>.</p>
+	<p pid="a.13WS.2/2">The overarching aim of the strategy is to reduce the involvement of UK nationals and companies in foreign bribery and the harm it causes. Our work is grouped under four strategic objectives: strengthening the law, supporting ethical business, enforcing the law, and international co-operation and capacity building. Throughout, the strategy draws on the wide-range of responsibilities across Departments, devolved Administrations, law enforcement, prosecution authorities and regulatory agencies which contribute to the overarching aim.</p>
+	<p pid="a.13WS.2/3">This strategy will be implemented and monitored through a Foreign Bribery Strategy Board, made up of officials from across Whitehall Departments, devolved Administrations, law enforcement, prosecution authorities and regulatory agencies. We will measure success through the delivery of specific pieces of work and the UK's performance in international anti-corruption surveys and corporate studies. The work will be informed by continuing dialogue with domestic stakeholders and international partners, and by analysis of trends from overseas corruption assessments and research. We will review the strategy in 2012 in the light of our next OECD evaluation, and provide annual progress updates to Parliament.</p>
+</speech>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-19a.13WS.3" nospeaker="true" colnum="13WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0002.htm#10011949000020">
+	Success Fees (Publication Proceedings)
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-19a.13WS.4" speakerid="uk.org.publicwhip/member/1423" speakername="Jack Straw" speakeroffice="The Secretary of State for Justice and Lord Chancellor" colnum="13WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100119/wmstext/100119m0002.htm#10011949000117">
+	<p pid="a.13WS.4/1">Today I published a consultation paper entitled &quot;Controlling Costs in Defamation Proceedings-Reducing Conditional Fee Agreement Success Fees&quot;. The paper sets out the Government's interim proposal to reduce the maximum success fee currently permissible under a conditional fee agreement in defamation proceedings, while it considers Sir Rupert Jackson's &quot;Review Of Civil Litigation Costs&quot;, published on <phrase class="date" code="2010-01-14">14 January</phrase>, for longer-term reform.</p>
+	<p pid="a.13WS.4/2">Conditional fee agreements (CFAs), a type of &quot;no win no fee&quot; agreement, were first made enforceable in 1995 to improve access to justice for consumers of legal services. Changes introduced in the Access to Justice Act 1999 further extended their use and attractiveness to claimants. However, in the light of experience over the past decade, it has become clear that-in publication proceedings in particular-the balance has swung too far in favour of the interests of claimants and against the interests of defendants, for whom access to justice needs to be a reality too.</p>
+	<p pid="a.13WS.4/3">CFAs allow lawyers to take a case on a &quot;no win no fee&quot; basis. This means that if the case is lost, the lawyer does not get paid. However, if the case is successful, the lawyer can recover his costs as well as an additional uplift or &quot;success fee&quot;. The Conditional Fee Agreements Order 2000 currently prescribes the maximum success fee that lawyers can charge at 100 per cent. in all categories of case, including publication proceedings. That 100 per cent. maximum was intended to allow lawyers to cover the costs of those cases which failed with a success fee from those which won. The consultation paper proposes that the maximum permitted success fee in defamation and some other publication proceedings in England and Wales be reduced to 10 per cent..</p>
+	<p pid="a.13WS.4/4">The Government have been concerned for some time about the impact of high legal costs in defamation proceedings, particularly the impact of 100 per cent. success fees. The Government do not believe that the present maximum success fee for defamation proceedings is justifiable. Evidence shows that the success rate of defamation actions does not justify such a generous success fee. This view is supported by the conclusions of the &quot;Review of Civil Litigation Costs: Final Report&quot;, available at:</p>
+	<p pid="a.13WS.4/5" class="indent"><a href="http://www.judiciary.gov.uk/about_judiciary/cost-review/index.htm">http://www.judiciary.gov.uk/about_judiciary/cost-review/index.htm</a>.</p>
+	<p pid="a.13WS.4/6">The proposal in the consultation paper is intended to be an interim measure to complement changes introduced on <phrase class="date" code="2009-10-01">1 October 2009</phrase> designed to control the costs of individual cases, while the Government give detailed consideration to the recommendations from Sir Rupert Jackson. The proposal to reduce success fees would help reduce the costs further and limit the potential harmful effect that very high costs could have on the publication decisions of publishers.</p>
+	<p pid="a.13WS.4/7">Copies of the consultation paper will be placed in the Libraries of both Houses and on the Department's website at: <a href="http://www.justice.gov.uk">www.justice.gov.uk</a>.</p>
+</speech>
+</publicwhip>
+

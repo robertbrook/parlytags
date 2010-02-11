@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="a" latest="yes">
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-06a.5WS.0" nospeaker="true" colnum="5WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#100106m0001.htm_dpthd0">
+	TREASURY
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-06a.5WS.1" nospeaker="true" colnum="5WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#10010646000007">
+	Corporate Taxation
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-06a.5WS.2" speakerid="uk.org.publicwhip/member/1563" speakername="Stephen Timms" speakeroffice="The Financial Secretary to the Treasury" colnum="5WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#10010646000039">
+	<p pid="a.5WS.2/1">I am announcing today the Government's intention to present to Parliament proposed legislative changes to the corporation tax rules for capital gains of companies for inclusion in Finance Bill 2010. The changes, which have immediate effect from <phrase class="date" code="2010-01-06">6 January 2010</phrase>, will ensure that a postponed charge on gains arising where assets of an overseas branch are transferred to a non-resident company is brought back into charge at the appropriate time.</p>
+	<p pid="a.5WS.2/2">The changes will affect UK companies that transfer assets of an overseas branch to a non-resident company in exchange for securities consisting of shares or loan stock. In these circumstances corporation tax on gains arising from the transfer are postponed until the disposal of the securities.</p>
+	<p pid="a.5WS.2/3">In some situations, however, the security received in exchange can be an exempt asset. Where loan stock is received it can fall within the definition of a Qualifying Corporate Bond ('QCB'). Section 115 of the Taxation of Capital Gains Act 1992 exempts QCB's from tax on capital gains. As a result any postponed gain arising from a transfer of an overseas branch's assets is exempt on the subsequent disposal of a security received in exchange where that security is a QCB. This can create unintended outcomes in the treatment of postponed gains.</p>
+	<p pid="a.5WS.2/4">The proposed legislative change will correct this defect in the current rules. Where a gain on the transfer of an overseas branch's assets to a non-resident company in exchange for securities has been postponed, the change will ensure that the disposal of securities will create a deemed gain that is chargeable to tax. Instead of treating the postponed gain as additional consideration for the disposal of an exempt asset, a separate chargeable gain equal to the postponed gain will be deemed to accrue at the time of disposal of the securities. This change will apply where the securities themselves are exempt from a charge to tax.</p>
+	<p pid="a.5WS.2/5">HM Revenue and Customs will today publish a Technical Note on its website setting out further detail, including the draft legislative amendments.</p>
+</speech>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-06a.5WS.3" nospeaker="true" colnum="5WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#10010646000008">
+	Double Taxation Arrangement (United Kingdom and Montserrat)
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-06a.5WS.4" speakerid="uk.org.publicwhip/member/1563" speakername="Stephen Timms" speakeroffice="The Financial Secretary to the Treasury" colnum="5WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#10010646000040">
+	<p pid="a.5WS.4/1">An arrangement amending the 1947 double taxation arrangement between the Government of the United Kingdom of Great Britain and Northern Ireland and the Government of Montserrat was signed in London on <phrase class="date" code="2009-12-09">9 December 2009</phrase>.</p>
+	<p pid="a.5WS.4/2">After signature, the text of the arrangement was deposited in the Libraries of both Houses and made available on HM Revenue and Customs' website. The text will be scheduled to a draft Order in Council and laid before the House of Commons shortly.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-06a.6WS.0" nospeaker="true" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#100106m0001.htm_dpthd1">
+	CHILDREN, SCHOOLS AND FAMILIES
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-06a.6WS.1" nospeaker="true" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#10010646000009">
+	Independent Advisory Group on Teenage Pregnancy (Annual Report)
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-06a.6WS.2" speakerid="uk.org.publicwhip/member/1457" speakername="Dawn Primarolo" speakeroffice="The Minister for Children, Young People and Families" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#10010646000041">
+	<p pid="a.6WS.2/1">I would inform the House that the Independent Advisory Group on Teenage Pregnancy has published its annual report for 2008-09. Copies will be placed in the House Libraries.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-06a.6WS.3" nospeaker="true" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#100106m0001.htm_dpthd2">
+	DEFENCE
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-06a.6WS.4" nospeaker="true" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#10010646000010">
+	Call-Out Order (Iraq and the Gulf)
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-06a.6WS.5" speakerid="uk.org.publicwhip/member/1616" speakername="Bill Rammell" speakeroffice="The Minister of State, Ministry of Defence" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#10010646000042">
+	<p pid="a.6WS.5/1">A new call-out order has been made under section 56 of the Reserve Forces Act 1996 so that reservists may continue to be called-out into permanent service to support operations in the region of Iraq and the Gulf. The order takes effect from <phrase class="date" code="2010-01-05">5 January 2010</phrase> and ceases to have effect on <phrase class="date" code="2011-01-04">4 January 2011</phrase>.</p>
+	<p pid="a.6WS.5/2">Although the main body of the UK's armed forces were withdrawn from Iraq last June, a number of operational tasks remain including: the Royal Navy training team set up under the UK training and maritime support agreement; RN patrols to protect offshore oil platforms and shipping lanes; staff and liaison posts; the NATO training mission (training of Iraqi army officers). Reservists may be called out to support any of these tasks although we envisage that the majority will be from the Royal Naval Reserve to support the maritime operations.</p>
+	<p pid="a.6WS.5/3">Members of the reserve forces have made an important contribution to the UK's operations in Iraq and the Gulf and their continued support is greatly appreciated and valued.</p>
+</speech>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-06a.6WS.6" nospeaker="true" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#10010646000011">
+	Veterans in Prison
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-06a.6WS.7" speakerid="uk.org.publicwhip/member/1556" speakername="Kevan Jones" speakeroffice="The Parliamentary Under-Secretary of State for Defence" colnum="6WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#10010646000043">
+	<p pid="a.6WS.7/1">The Minister with responsibility for the National Offender Management Service, the Minister of State, Ministry of Justice, my hon. Friend <phrase class="honfriend" id="uk.org.publicwhip/member/1687" name="Maria Eagle">the Member for Liverpool, Garston (Maria Eagle)</phrase> and I wish to make the following joint statement.</p>
+	<p pid="a.6WS.7/2">The MOD and the Ministry of Justice (MOJ) have been working to provide up to date and authoritative data on the number of veterans in prison in England and Wales. We can today confirm that the Defence Analytical Services and Advice (DASA) of the MOD has estimated that ex-service personnel in prison represent almost 3 per cent. of offenders in prison.</p>
+	<p pid="a.6WS.7/3">The estimate was determined by matching a database of prisoners aged 18 and over in England and Wales from the MOJ against a database of service leavers held by the MOD. The analysis does not include reservists nor those who had left the service prior to 1979 (Navy), 1972 (Army), and 1968 (RAF). Further work will seek to quantify the likely effect of the incompleteness of the MOD database. DASA estimates that a more complete database is unlikely to increase the estimated proportion of offenders who are ex-service to more than 4 per cent. This is because reservists have other employment and it is possible that it makes them less likely to come into contact with the criminal justice system; and, because evidence from previous studies suggests that crimes tend to be committed soon after discharge from service.</p>
+	<p pid="a.6WS.7/4">The 3 per cent. figure compares with the Home Office survey of 2,000 nationally representative offenders at the point of release in 2001, 2003 and 2004, which reported the armed forces proportion to be 6 per cent., 4 per cent. and 5 per cent. respectively.</p>
+	<p pid="a.6WS.7/5">The next stage in this project will be to evaluate the ex-service prison population in terms of demographic and service variables such as age, gender, service branch, length of service, rank, deployment history, time since discharge, and offence type. This qualitative analysis should allow for informed policy decisions to be made where necessary to ensure that resources are better targeted at appropriate groups of offenders. The MOD will also investigate where relevant improvements could be made in-service to minimise contact with the criminal justice system once personnel are discharged from the armed forces.</p>
+	<p pid="a.6WS.7/6">The Howard League for Penal Reform in November 2009 launched an independent inquiry into former armed forces personnel in prison. We understand that the inquiry will take a year to conclude, but we intend to work closely with Sir John Nutting QC and his team and have offered to share the findings of our analysis with them.</p>
+	<p pid="a.6WS.7/7">We will keep the House informed of developments.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-06a.7WS.0" nospeaker="true" colnum="7WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#100106m0001.htm_dpthd3">
+	HEALTH
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-06a.7WS.1" nospeaker="true" colnum="7WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#10010646000012">
+	NHS Pay Review Body (2010-11)
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-06a.7WS.2" speakerid="uk.org.publicwhip/member/1678" speakername="Andy Burnham" speakeroffice="The Secretary of State for Health" colnum="7WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100106/wmstext/100106m0001.htm#10010646000044">
+	<p pid="a.7WS.2/1">I am responding to the letter and supporting paper received from the NHS Pay Review Body (NHSPRB) on <phrase class="date" code="2009-12-10">10 December 2009</phrase>. Copies of the letter and supporting paper have been placed in the Library and copies are available to hon. Members from the Vote Office. I am grateful to the chair and members of the NHSPRB for their work in support of the three-year deal and the other issues they have considered this year.</p>
+	<p pid="a.7WS.2/2">I welcome the NHSPRB's decision not to seek a remit from me to review the 2010-11 pay uplift for NHS staff on the three-year pay deal. This means we can fulfil our commitment to implement the deal in full.</p>
+	<p pid="a.7WS.2/3">The NHSPRB did not make any formal recommendations but suggested parties reconsider their recommendation in their 24th report that pharmacists employed in the NHS and paid at Agenda for Change payband 6 and 7 should receive a short-term national Recruitment and Retention Premium (RRP). The NHSPRB</p>
+	<p pid="a.7WS.2/4" class="indent">&quot;expect to return to the matter in 2010&quot;.</p>
+	<p pid="a.7WS.2/5">I am content that the actions we have been taking in England, described in my written ministerial statement of <phrase class="date" code="2009-07-03">3 July 2009</phrase>, <phrase class="offrep" id="wms/2009-07-03.31"><i>Official Report</i>, column 31WS</phrase> are the right ones to address the pharmacist recruitment and retention challenges. I am keeping the situation under review.</p>
+	<p pid="a.7WS.2/6">The NHSPRB concluded that available evidence does not support the case for a national RRP for building craft workers put forward by the Union of Construction Allied Trades and Technicians but suggested they were included in the review of national RRPs being conducted by the NHS Staff Council. That is a matter for the NHS Staff Council which is responsible for overseeing Agenda for Change pay, terms and conditions which cover about 1.1 million NHS staff.</p>
+	<p pid="a.7WS.2/7">I note the NHSPRB's concerns about the lack of sufficiently detailed workforce statistics relating to building craft workers and other non clinical staff in the NHS. My Department is working with the NHSPRB's Secretariat (the Office for Manpower Economics) and the NHS Health and Social Care Information Centre to agree how to improve workforce statistics available for these staff groups.</p>
+</speech>
+</publicwhip>
+

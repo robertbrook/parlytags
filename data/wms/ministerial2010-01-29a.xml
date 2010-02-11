@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="a" latest="yes">
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-29a.67WS.0" nospeaker="true" colnum="67WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100129/wmstext/100129m0001.htm#100129m0001.htm_dpthd0">
+	FOREIGN AND COMMONWEALTH AFFAIRS
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-29a.67WS.1" nospeaker="true" colnum="67WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100129/wmstext/100129m0001.htm#10012983000004">
+	European Union in 2010
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-29a.67WS.2" speakerid="uk.org.publicwhip/member/1779" speakername="Chris Bryant" speakeroffice="The Minister for Europe" colnum="67WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100129/wmstext/100129m0001.htm#10012983000011">
+	<p pid="a.67WS.2/1">Today I will lay before the House the Foreign and Commonwealth Office Command Paper on prospects for the European Union in 2010. Copies will be placed in the Library of the House. Additional copies can be obtained from the Vote Office and the Printed Paper Office. A copy will also be available on the Foreign and Commonwealth Office website <a href="http://www.fco.gov.uk">www.fco.gov.uk</a>.</p>
+	<p pid="a.67WS.2/2">This Command Paper provides an overview of the priorities of the Spanish presidency for the first half of 2010 as set out in their political programme, which is available at <a href="http://www.eu2010.es">www.eu2010.es</a>. The main priorities of the Spanish presidency are full and effective implementation of the provisions of the Lisbon treaty, including establishment of the European external action service; recovery from economic crisis; reinforcing the global influence of the EU; and developing further the rights and freedoms of EU citizens.</p>
+	<p pid="a.67WS.2/3">The primary focus of the Spanish presidency's work on securing economic recovery will be to ensure quality job creation for EU citizens. In order to achieve that goal, the presidency will seek agreement on a successor to the EU's 2000-10 Lisbon strategy for jobs and growth. The UK fully supports this initiative and will work to ensure an ambitious reform programme consistent with the Prime Minister's proposal in October 2009 for a new EU compact for jobs and growth.</p>
+	<p pid="a.67WS.2/4">At the heart of any sustainable recovery must be measures to assist transition to a low-carbon economy. It is essential that the political agreement on emissions reductions and climate financing reached at the Copenhagen climate conference in December 2009 is now transformed effectively into a binding legal treaty. The Spanish presidency must be at the heart of EU work on this; the UK will support the presidency in ensuring agreements are turned into action.</p>
+	<p pid="a.67WS.2/5">The Spanish presidency will assist the new High Representative for Foreign Affairs and Security Policy in bolstering further the EU's presence in the global arena. It will hold multilateral summits with Latin America and the Caribbean and the Union of the Mediterranean, and bilateral summits with the United States, Russia, Canada, Chile, Egypt, Japan, Morocco, Mexico and Pakistan. Other priorities include seeking to develop the eastern partnership; ensuring greater energy security; and preparing for the United Nations millennium development goals summit in September.</p>
+	<p pid="a.67WS.2/6">The Spanish presidency will seek to promote the rights, freedoms and security of EU citizens. The Stockholm programme for EU justice and home affairs co-operation was agreed during the Swedish presidency; the Spanish will take forward work on agreeing an action plan for its implementation. It will seek agreement on an EU internal security strategy, take forward work on gender equality, and assess the European pact on immigration and asylum.</p>
+</speech>
+</publicwhip>
+
