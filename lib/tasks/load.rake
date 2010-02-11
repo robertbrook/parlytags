@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../data_loader')
 
-namespace :parlytags do
+namespace :pt do
   include ParlyTags::DataLoader
   
   desc "Populate all the data for a demo"
