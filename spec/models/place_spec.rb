@@ -88,12 +88,12 @@ describe Place do
     end
     
     it 'should pass the correct parameters to the finder' do
-      Place.should_receive(:find).with(:all, :origin => @place, :within => 40,:units => :kms, :conditions => {:feature_class => 'P', :has_placetag => true}, :order => 'distance', :limit => 10)
+      Place.should_receive(:find).with(:all, :origin => @place, :within => 40,:units => :kms, :conditions => {:feature_class => 'P', :has_placetag => true}, :order => 'distance', :limit => 10).and_return([])
       @place.find_nearby_tagged_places()
     end
     
     it 'should look limit the returned items to 50 if passed a limit of 50' do
-      Place.should_receive(:find).with(:all, :origin => @place, :within => 40,:units => :kms, :conditions => {:feature_class => 'P', :has_placetag => true}, :order => 'distance', :limit => 50)
+      Place.should_receive(:find).with(:all, :origin => @place, :within => 40,:units => :kms, :conditions => {:feature_class => 'P', :has_placetag => true}, :order => 'distance', :limit => 50).and_return([])
       @place.find_nearby_tagged_places(50)
     end
   end
@@ -112,24 +112,15 @@ describe Place do
       @item9 = mock_model(Item)
       @item10 = mock_model(Item)
       @item11 = mock_model(Item)
-      @tag1 = mock_model(Tag, :items => [@item1, @item2])
-      @tag2 = mock_model(Tag, :items => [@item3])
-      @tag3 = mock_model(Tag, :items => [@item4, @item5])
-      @tag4 = mock_model(Tag, :items => [@item6, @item7])
-      @tag5 = mock_model(Tag, :items => [@item7])
-      @tag6 = mock_model(Tag, :items => [@item8])
-      @tag7 = mock_model(Tag, :items => [@item9])
-      @tag8 = mock_model(Tag, :items => [@item10])
-      @tag9 = mock_model(Tag, :items => [@item11])
-      @placetag1 = mock_model(Placetag, :tags => [@tag1])
-      @placetag2 = mock_model(Placetag, :tags => [@tag2])
-      @placetag3 = mock_model(Placetag, :tags => [@tag3])
-      @placetag4 = mock_model(Placetag, :tags => [@tag4])
-      @placetag5 = mock_model(Placetag, :tags => [@tag5])
-      @placetag6 = mock_model(Placetag, :tags => [@tag6])
-      @placetag7 = mock_model(Placetag, :tags => [@tag7])
-      @placetag8 = mock_model(Placetag, :tags => [@tag8])
-      @placetag9 = mock_model(Placetag, :tags => [@tag9])
+      @placetag1 = mock_model(Placetag, :items => [@item1, @item2])
+      @placetag2 = mock_model(Placetag, :items => [@item3])
+      @placetag3 = mock_model(Placetag, :items => [@item4, @item5])
+      @placetag4 = mock_model(Placetag, :items => [@item6, @item7])
+      @placetag5 = mock_model(Placetag, :items => [@item7])
+      @placetag6 = mock_model(Placetag, :items => [@item8])
+      @placetag7 = mock_model(Placetag, :items => [@item9])
+      @placetag8 = mock_model(Placetag, :items => [@item10])
+      @placetag9 = mock_model(Placetag, :items => [@item11])
       @place1 = mock_model(Place, :placetag => @placetag1)
       @place2 = mock_model(Place, :placetag => @placetag2)
       @place3 = mock_model(Place, :placetag => @placetag3)
@@ -158,10 +149,10 @@ describe Place do
     
     it 'should not continue looping through items once the required number have been found' do
       @place.should_receive(:find_nearby_tagged_places).and_return([@place1, @place2, @place3, @place4, @place5, @place6, @place7, @place8, @place9])
-      @tag1.should_receive(:items).and_return([@item1, @item2])
-      @tag2.should_receive(:items).and_return([@item3])
-      @tag3.should_receive(:items).and_return([@item4, @item5])
-      @tag4.should_not_receive(:items)
+      @placetag1.should_receive(:items).and_return([@item1, @item2])
+      @placetag2.should_receive(:items).and_return([@item3])
+      @placetag3.should_receive(:items).and_return([@item4, @item5])
+      @placetag4.should_not_receive(:items)
       
       @place.find_nearby_items(5).count.should == 5
     end

@@ -10,7 +10,6 @@ module ParlyTags::DataLoader
   CONSTITUENCY_FILE = "#{DATA_DIR}/constituencies.txt"
 
   def load_all_data
-    
     log = Logger.new(STDOUT)
     
     log << "loading place data"
@@ -20,11 +19,9 @@ module ParlyTags::DataLoader
     log << "\nloaded edm data\nloading wms data"
     load_wms
     log << "\nloaded wms data\n"
-    
   end
   
   def load_places
-    
     log = Logger.new(STDOUT)
     
     Place.delete_all
@@ -87,7 +84,6 @@ module ParlyTags::DataLoader
       }
     
     EDMS_FILES.each do |file|
-      
       # TODO: check file actually exists!
       doc = Nokogiri::XML(open(file))
     
@@ -112,17 +108,12 @@ module ParlyTags::DataLoader
         log << "i"
 
         term_extractor = TextParser.new(edm_text)
+        add_placetags(term_extractor.terms, item, log)
 
-        term_extractor.terms.each do |term|
-          tag = Tag.find_or_create_by_name(term)
-          item.tags << tag
-          log << "t"
+        unless item.placetags.empty?
+          item.save
+          log << "s"
         end
-
-        item.save
-        log << "s"
-        item.populate_placetags
-        log << "p"
       end
       
       log << "\n"
@@ -165,17 +156,12 @@ module ParlyTags::DataLoader
         log << "i"
         
         term_extractor = TextParser.new(question_text + " " + answer_text)
+        add_placetags(term_extractor.terms, item, log)
 
-        term_extractor.terms.each do |term|
-          tag = Tag.find_or_create_by_name(term)
-          item.tags << tag
-          log << "t"
+        unless item.placetags.empty?
+          item.save
+          log << "s"
         end
-
-        item.save
-        log << "s"
-        item.populate_placetags
-        log << "p"
       end
       log << "\n"
     end
@@ -193,35 +179,55 @@ module ParlyTags::DataLoader
       doc.xpath('//speech').each do |speech|  
         log << "\n"
 
-              wms_text   = speech.content
-              wms_id     = speech.xpath('@id')
-              wms_speaker_name  = speech.xpath('@speakername')
-              wms_speaker_office  = speech.xpath('@speakeroffice')
-              wms_url = speech.xpath('@url').to_s
-               
-              item = Item.new (
-                :url => wms_url,
-                :title => "#{wms_speaker_name} - #{wms_speaker_office}",
-                :kind => 'WMS',
-                :text => wms_text.strip!.slice(0..400) + " ..."
-              )
-              log << "i"
-              
-              term_extractor = TextParser.new(wms_text)
-                    
-              term_extractor.terms.each do |term|
-                tag = Tag.find_or_create_by_name(term)
-                item.tags << tag
-                log << "t" 
-              end
+        wms_text   = speech.content
+        wms_id     = speech.xpath('@id')
+        wms_speaker_name  = speech.xpath('@speakername')
+        wms_speaker_office  = speech.xpath('@speakeroffice')
+        wms_url = speech.xpath('@url').to_s
+         
+        item = Item.new (
+          :url => wms_url,
+          :title => "#{wms_speaker_name} - #{wms_speaker_office}",
+          :kind => 'WMS',
+          :text => wms_text.strip!.slice(0..400) + " ..."
+        )
+        log << "i"
+        
+        term_extractor = TextParser.new(wms_text)
+        add_placetags(term_extractor.terms, item, log)
+
+        unless item.placetags.empty?
+          item.save
+          log << "s"
+        end
+      end
       
-              item.save
-              log << "s"
-              item.populate_placetags
-              log << "p"
-            end
-            
-            log << "\n"
+      log << "\n"
     end
   end
+  
+  private
+    def add_placetags terms, item, log
+      terms.each do |term|
+        places = Place.find_all_by_ascii_name_or_alternate_names(term)
+        places.each do |place|
+          placetag = Placetag.find_by_geoname_id(place.geoname_id)
+          if placetag.nil?
+            placetag = Placetag.new(:name => term)
+            county = place.county_name
+            placetag.county = county if county
+            country = place.country_name
+            placetag.country = place.country_name if country
+            placetag.place_id = place.id
+            placetag.geoname_id = place.geoname_id
+            place.has_placetag = true
+            place.save
+          end
+          unless item.placetags.include?(placetag)
+            item.placetags << placetag
+            log << "p"
+          end
+        end
+      end
+    end
 end

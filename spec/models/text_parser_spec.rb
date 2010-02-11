@@ -147,7 +147,22 @@ describe TextParser do
       parser.terms.should == ["Mr C M J Matthews", "MAFF", "Mr Whyte"]
     end
     
-    it 'should not all include the term "London \'"' do
+    it 'should not allow terms ending with and' do
+      parser = TextParser.new("Mr C M J Matthews and")
+      parser.terms.should == ["Mr C M J Matthews"]
+    end
+    
+    it 'should not allow terms starting with "Between"' do
+      parser = TextParser.new("Between 1 and 17 January")
+      parser.terms.should == []
+    end
+    
+    it 'should not include the term "Our"' do
+      parser = TextParser.new("Our favourite")
+      parser.terms.should == []
+    end
+    
+    it 'should not include the term "London \'"' do
       parser = TextParser.new("concessionary fares in London.'.")
       parser.terms.should == ["London"]
     end

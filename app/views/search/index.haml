@@ -28,16 +28,9 @@
   %ol.ukparliament-twitter-results
     =render :partial => "partials/twitter_result", :collection => @ukparliament_twitter_results
           
-- if @results && !@results.empty?
-  
+- if @results && !@results.empty?  
   %h2
-  - if @place
     = "Within about 40km of #{h(sanitize(@searched_for.titlecase))}"
-  -else
-    = "Results for #{h(sanitize(@searched_for))}"
-  
-    #pagination
-      = will_paginate @results    
         
   %ul.search-results
     =render :partial => "partials/item_result", :collection => @results
@@ -49,14 +42,8 @@
 - else
   
   - if @last_search_term
-    - if @place
-      %p.no-nearest= "We couldn't find any items within about 40km of here."
-    - else
-      %p.no-results 
-        There are no items tagged 
-        %em.search_term= h(sanitize(@last_search_term))
+    %p.no-nearest= "We couldn't find any items within about 40km of here."
       
 - content_for :footer do
   %br
   <a href="http://github.com/robertbrook/parlytags">Source code</a> | <a href="mailto:mail@robertbrook.com">Contact email</a> | <a href="http://www.parliament.uk/site_information/parliamentary_copyright.cfm">Parliamentary Copyright</a>
-            

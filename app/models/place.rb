@@ -94,7 +94,8 @@ class Place < ActiveRecord::Base
   end
   
   def find_nearby_tagged_places(limit=10)
-    Place.find(:all, :origin => self, :within => 40, :units => :kms, :conditions => {:feature_class => 'P', :has_placetag => true}, :order => 'distance', :limit => limit )
+    places = [self]
+    places += Place.find(:all, :origin => self, :within => 40, :units => :kms, :conditions => {:feature_class => 'P', :has_placetag => true}, :order => 'distance', :limit => limit )
   end
   
   def find_nearest_city
@@ -107,7 +108,7 @@ class Place < ActiveRecord::Base
     items = []
     nearby_places.each do |place|
       if place.placetag
-        place.placetag.tags.first.items.each do |item|
+        place.placetag.items.each do |item|
           items << item unless items.include?(item)
         end
       end
