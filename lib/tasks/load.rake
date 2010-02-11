@@ -3,9 +3,9 @@ require File.expand_path(File.dirname(__FILE__) + '/../data_loader')
 namespace :parlytags do
   include ParlyTags::DataLoader
   
-  desc "Populate all the dummy data for a demo"
-  task :load_dummy_data => :environment do
-    load_dummy_data
+  desc "Populate all the data for a demo"
+  task :load_all_data => :environment do
+    load_all_data
   end
 
   desc "Populate data for Places in DB"

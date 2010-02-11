@@ -9,14 +9,24 @@ module ParlyTags::DataLoader
   GEO_FILE = "#{DATA_DIR}/GB.txt"
   CONSTITUENCY_FILE = "#{DATA_DIR}/constituencies.txt"
 
-  def load_dummy_data
-    puts "loading place data"
+  def load_all_data
+    
+    log = Logger.new(STDOUT)
+    
+    log << "loading place data"
     load_places
-    puts "loading edm data"
+    log << "\nloaded place data\nloading edm data"
     load_edms
+    log << "\nloaded edm data\nloading wms data"
+    load_wms
+    log << "\nloaded wms data\n"
+    
   end
   
   def load_places
+    
+    log = Logger.new(STDOUT)
+    
     Place.delete_all
     
     file = File.open(GEO_FILE)
@@ -43,7 +53,9 @@ module ParlyTags::DataLoader
         :timezone => fields[17],
         :last_modified => fields[18]
       )
+      log << 'p'
     end
+    log << '\n'
   end
   
   def load_edms
