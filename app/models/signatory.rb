@@ -1,2 +1,0 @@
-class Signatory < Signature
-end

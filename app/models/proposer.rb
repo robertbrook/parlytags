@@ -1,2 +1,0 @@
-class Proposer < Signature
-end

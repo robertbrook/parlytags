@@ -1,8 +1,0 @@
-- @sessions.each do |session|
-  = link_to_unless_current session.name, edm_session_path(session.name)
-  &middot;
-= link_to_unless_current "All EDMs", root_path
-
-=render :partial => "partials/edm", :collection => @edms
-  
-#pagination= will_paginate @edms

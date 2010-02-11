@@ -31,21 +31,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "search"
-  
-  map.member '/members/:member', :controller => "members", :action => 'show'
-  map.member_proposed 'members/:member/proposed', :controller => "members", :action => 'proposed'
-  map.member_seconded 'members/:member/seconded', :controller => "members", :action => 'seconded'
-  map.member_signed   'members/:member/signed', :controller => "members", :action => 'signed'
-  
-  map.member_proposed_session 'members/:member/:session/proposed', :controller => "members", :action => 'proposed'
-  map.member_seconded_session 'members/:member/:session/seconded', :controller => "members", :action => 'seconded'
-  map.member_signed_session   'members/:member/:session/signed', :controller => "members", :action => 'signed'
-  map.member_session 'members/:member/:session', :controller => "members", :action => 'show'
-  map.members '/members', :controller => "members", :action => 'index'
-  map.edm ':session/edms/:edm', :controller => "edms", :action => 'show'
-  map.edm_session '/:session/edms', :controller => "edms", :action => 'session'
-  
+  map.root :controller => "search"  
   map.search '/search', :controller => "search", :action => 'index'
 
   # See how all your routes lay out with "rake routes"
