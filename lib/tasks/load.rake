@@ -18,9 +18,13 @@ namespace :pt do
     load_edms
   end
   
+  desc "Populate data for Written Answers in DB"
+  task :load_wras => :environment do
+    load_written_answers
+  end
+  
   desc "Populate data for WMS Items in DB"
   task :load_wms => :environment do
     load_wms
   end
-  
 end
