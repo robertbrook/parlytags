@@ -178,6 +178,8 @@ module ParlyTags::DataLoader
         log << "p"
       end
       log << "\n"
+    end
+  end
 
   def load_wms
     Item.delete_all("kind = 'WMS'")
