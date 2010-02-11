@@ -19,6 +19,9 @@ module ParlyTags::DataLoader
     log << "\nloaded edm data\nloading wms data"
     load_wms
     log << "\nloaded wms data\n"
+    log << "\nloaded wms data\nloading written answers"
+    load_written_answers
+    log << "\nloaded written answers\n"
   end
   
   def load_places
@@ -189,7 +192,7 @@ module ParlyTags::DataLoader
           :url => wms_url,
           :title => "#{wms_speaker_name} - #{wms_speaker_office}",
           :kind => 'WMS',
-          :text => wms_text.strip!.slice(0..400) + " ..."
+          :text => wms_text.strip!.slice(0..255) + " ..."
         )
         log << "i"
         
@@ -201,8 +204,6 @@ module ParlyTags::DataLoader
           log << "s"
         end
       end
-      
-      log << "\n"
     end
   end
   
