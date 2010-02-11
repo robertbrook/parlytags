@@ -1,7 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + '/../data_loader')
 
-# require 'htmlentities'
-
 namespace :parlytags do
   include ParlyTags::DataLoader
   
@@ -23,5 +21,10 @@ namespace :parlytags do
   desc "Populate data for Written Answers in DB"
   task :load_wras => :environment do
     load_written_answers
+  end
+  
+  desc "Populate data for WMS Items in DB"
+  task :load_wms => :environment do
+    load_wms
   end
 end

@@ -1,11 +1,11 @@
 %li.item
   %span.kind= item_result.kind
   = link_to item_result.title, item_result.url
+  - if item_result.text
+    = item_result.text
   %ul.tags
     - item_result.tags.each do |tag|
       -if tag.placetags.count > 0
         %li.tag.geo= link_to tag.name, '/search?q=' + tag.name
       -else
         %li.tag= link_to tag.name, '/search?q=' + tag.name      
-      -unless tag == item_result.tags.last
-        &middot;

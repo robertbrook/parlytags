@@ -4,7 +4,8 @@ module ParlyTags; end
 module ParlyTags::DataLoader
   
   DATA_DIR = File.expand_path(File.dirname(__FILE__) + '/../data')
-  EDMS_FILES = ["#{DATA_DIR}/2009-2010.xml"]  
+  EDMS_FILES = ["#{DATA_DIR}/2009-2010.xml"] 
+  WMS_FILES = Dir.glob("#{DATA_DIR}/wms/*.xml")
   GEO_FILE = "#{DATA_DIR}/GB.txt"
   CONSTITUENCY_FILE = "#{DATA_DIR}/constituencies.txt"
 
@@ -165,6 +166,53 @@ module ParlyTags::DataLoader
         log << "p"
       end
       log << "\n"
+
+  def load_wms
+    Item.delete_all("kind = 'WMS'")
+    
+    log = Logger.new(STDOUT)
+  
+    WMS_FILES.each do |file|
+      log << File.basename(file)
+      # file = File.new(file)
+      # log << file.read
+      log << "\n"
+      doc = Nokogiri::XML(open(file))
+      doc.xpath('//speech').each do |speech|  
+        log << "\n"
+
+              wms_text   = speech.content
+              wms_id     = speech.xpath('@id')
+              wms_speaker_name  = speech.xpath('@speakername')
+              wms_speaker_office  = speech.xpath('@speakeroffice')
+              wms_url = speech.xpath('@url').to_s
+
+      #         # to get around invalid markup
+      #         edm_text.gsub!('&#xC3;&#xBA;', '&pound;')
+               
+              item = Item.new (
+                :url => wms_url,
+                :title => "#{wms_speaker_name} - #{wms_speaker_office}",
+                :kind => 'WMS',
+                :text => wms_text.strip!.slice(0..400) + " ..."
+              )
+              log << "i"
+      # 
+              term_extractor = TextParser.new(wms_text)
+                    
+                            term_extractor.terms.each do |term|
+                              tag = Tag.find_or_create_by_name(term)
+                              item.tags << tag
+                              log << "t" 
+                            end
+      # 
+              item.save
+                          log << "s"
+                          item.populate_placetags
+                          log << "p"
+            end
+            
+            log << "\n"
     end
   end
 end

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="a" latest="yes">
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-13a.23WS.0" nospeaker="true" colnum="23WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100113/wmstext/100113m0001.htm#100113m0001.htm_dpthd0">
+	BUSINESS, INNOVATION AND SKILLS
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-13a.23WS.1" nospeaker="true" colnum="23WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100113/wmstext/100113m0001.htm#10011360000004">
+	Groceries Supply Code of Practice
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-13a.23WS.2" speakerid="uk.org.publicwhip/member/1483" speakername="Kevin Brennan" speakeroffice="The Minister for Further Education, Skills, Apprenticeships and Consumer Affairs" colnum="23WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100113/wmstext/100113m0001.htm#10011360000009">
+	<p pid="a.23WS.2/1">Today the Government are publishing the Government response accepting the Competition Commission's recommendation to establish an enforcer to monitor and enforce the Groceries Supply Code of Practice (GSCOP).</p>
+	<p pid="a.23WS.2/2">The Government want to ensure that the GSCOP can be independently enforced, and have the important power to hear anonymous complaints. However, the Government are mindful of placing unnecessary costs on to business especially in a period of economic difficulty, which is why we plan to issue a consultation on how best to take matters forward.</p>
+	<p pid="a.23WS.2/3">We have also taken the decision to revoke the Land Agreements Exclusion Order following a recent public consultation resulting from a related Competition Commission recommendation. We will proceed to make the Revocation Order at the earliest opportunity but give businesses a transitional period to ensure that their agreements are compatible with competition rules.</p>
+	<p pid="a.23WS.2/4">Copies of the responses, have been deposited in the Libraries of both Houses and will be available on the BIS website at: <a href="http://www.berr.gov.uk/files/file54194.pdf">www.berr.gov.uk/files/file54194.pdf</a></p>
+</speech>
+</publicwhip>
+

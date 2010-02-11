@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="a" latest="yes">
+
+<major-heading id="uk.org.publicwhip/wms/2010-02-04a.21WS.0" nospeaker="true" colnum="21WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#100204m0001.htm_dpthd0">
+	TREASURY
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-02-04a.21WS.1" nospeaker="true" colnum="21WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000010">
+	Terrorist Asset Freezing
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-02-04a.21WS.2" speakerid="uk.org.publicwhip/member/1766" speakername="Sarah McCarthy-Fry" speakeroffice="The Exchequer Secretary to the Treasury" colnum="21WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000096">
+	<p pid="a.21WS.2/1">The Supreme Court has today ruled that it will not grant a stay of its <phrase class="date" code="2010-01-27">27 January 2010</phrase> judgment on the legality of the Orders in Council HM Treasury uses to freeze terrorist assets. The effect of this judgment is to quash with immediate effect the Terrorism Order 2006 and all designations made under it. The court has not directly quashed the Terrorism Order 2001 and the Terrorism Order 2009, but the reason for its decision also makes those orders unsustainable.</p>
+	<p pid="a.21WS.2/2">Over &#163;150,000 belonging to suspected terrorists is currently frozen in the UK under the Terrorism Orders. The UK takes its obligations under the UN charter very seriously and the Government believe that allowing this money to be unfrozen and returned to individuals designated under the orders and giving them access to the financial system would not be in the interests of national security.</p>
+	<p pid="a.21WS.2/3">In order to prevent assets frozen under the Terrorism Orders from being released, the Government will introduce primary legislation tomorrow to restore the validity of the Terrorism Orders and the designations made under them. The Government hope that this legislation should be passed by early next week. The legislation will include a provision backdated to today's judgment, providing legal authority to banks and other persons covered by the existing orders so as to allow the existing asset freezes to be maintained without a gap.</p>
+	<p pid="a.21WS.2/4">The legislation will extend the current Terrorism Orders only for a temporary period. This will give Parliament time in which to consider more fully how best to legislate to give effect to our UN terrorist asset-freezing commitments, while ensuring that national security is protected in the meantime.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-02-04a.21WS.3" nospeaker="true" colnum="21WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#100204m0001.htm_dpthd1">
+	CABINET OFFICE
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-02-04a.21WS.4" nospeaker="true" colnum="21WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000011">
+	Public Bodies 2009
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-02-04a.21WS.5" speakerid="uk.org.publicwhip/member/1555" speakername="Tessa Jowell" speakeroffice="The Minister for the Cabinet Office and for the Olympics, and Paymaster General" colnum="21WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000097">
+	<p pid="a.21WS.5/1">The Cabinet Office has today published &quot;Public Bodies 2009&quot; which lists all non-departmental public bodies (NDPB) sponsored by the UK Government as at <phrase class="date" code="2009-03-31">31 March 2009</phrase>. &quot;Public Bodies 2009&quot; also provides summary information on the size and expenditure of the NDPB sector and statistical information on public appointments.</p>
+	<p pid="a.21WS.5/2">Public Bodies 2009 can be downloaded from the civil service website at: <a href="http://www.civilservice.gov.uk/ndpb">www.civilservice.gov.uk/ndpb</a>. Copies have been placed in the Libraries of both Houses.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-02-04a.22WS.0" nospeaker="true" colnum="22WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#100204m0001.htm_dpthd2">
+	ENERGY AND CLIMATE CHANGE
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-02-04a.22WS.1" nospeaker="true" colnum="22WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000012">
+	Offshore Oil and Gas Licensing Round
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-02-04a.22WS.2" speakerid="uk.org.publicwhip/member/1833" speakername="David Kidney" speakeroffice="The Parliamentary Under-Secretary of State for Energy and Climate Change" colnum="22WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000098">
+	<p pid="a.22WS.2/1">My noble Friend the Minister of State, Department for Energy and Climate Change, Lord Hunt, today made the following statement:</p>
+	<p pid="a.22WS.2/2" class="indent">I am pleased to inform the House that on <phrase class="date" code="2010-01-26">26 January 2010</phrase> we invited applications for petroleum licences for unlicensed seaward blocks which will form the 26th round of offshore petroleum licensing. These blocks are widely distributed on the UK continental shelf and fall within the areas covered by the strategic environmental assessments 1-8; a map of the SEA areas can be found at:</p>
+	<p pid="a.22WS.2/3" class="indent"><a href="http://www.offshore-sea.org.uk">www.offshore-sea.org.uk</a>.</p>
+	<p pid="a.22WS.2/4" class="indent">A copy will also be placed in the Libraries of the House.</p>
+	<p pid="a.22WS.2/5" class="indent">DECC's draft plan to offer licences for offshore oil and gas exploration and production through a 26th licensing round was the subject of a strategic environmental assessment completed in 2009. The SEA is documented on a dedicated website, <a href="http://www.offshore-sea.org.uk">www.offshore-sea.org.uk</a>, and includes commissioned reports on various components of the natural environment, cultural features and socio-economic considerations. In addition, as part of the SEA new information was collected, in particular: on selected sea-bed features through sea-floor mapping, sampling and photography, on the offshore distribution of large cetaceans, and on important navigation routes and commercial fishing areas. The draft plan for the 26th licensing round included offering blocks to the south-west of England and Wales, and also in those areas that had been subject to earlier DECC SEAs-1, 2, 3, 4, 5, 6 and 7-which covered the remainder of the UK continental shelf.</p>
+	<p pid="a.22WS.2/6" class="indent">The potential implications of the exploration and production activities which could follow, if the draft plan were adopted, were considered at an expert assessment workshop and a series of stakeholder workshops. The results of these workshops were assessed further and documented in an environmental report which then formed the basis for consultation with the consultation bodies and the public. The three-month consultation period on DECC's draft plan and the environmental report were advertised in a number of local and national newspapers and notified by e-mail to a wide range of individuals and organisations.</p>
+	<p pid="a.22WS.2/7" class="indent">All responses received from statutory and other consultees on the draft plan and the environmental report have been considered by DECC and a post-consultation report for the offshore energy SEA prepared and placed on the SEA website. This summarises consultee comments and DECC responses to them. The full texts of consultee comments have also been placed on the SEA website.</p>
+	<p pid="a.22WS.2/8" class="indent">In deciding to proceed with a 26th offshore licensing round, DECC has had regard to the conclusions and recommendations of the environmental report together with feedback received from consultees. As a result of the SEA process, blocks in the deepest waters of the SW Approaches are being withheld from licensing for the present because of inadequacy of data.</p>
+	<p pid="a.22WS.2/9" class="indent">A number of blocks excluded on the basis of recommendations of previous SEAs, or currently in the process of appropriate assessment consultation, have likewise been excluded from the offer.</p>
+	<p pid="a.22WS.2/10" class="indent">The environmental report recommended that the blocks in, or overlapping, the boundaries of the Moray firth and Cardigan bay SACs should also be withheld from licensing for the present while the further assessments initiated following the 24th licensing round applications are concluded. We have therefore excluded 11 blocks in the Cardigan bay area and 10 in the Moray firth.</p>
+	<p pid="a.22WS.2/11" class="indent">In addition, 228 blocks will not be offered for licensing in the areas covered by SEAs 1-8 at the request of the Ministry of Defence</p>
+	<p pid="a.22WS.2/12" class="indent">Licensing of the blocks excluded from the round may be revisited in the future, for example as more information on the features of interest becomes available.</p>
+	<p pid="a.22WS.2/13" class="indent">In addition, a number of blocks may be licensed but with conditions attached restricting or prohibiting certain marine activities. It should be noted that the Offshore Petroleum Production and Pipe-lines (Assessment of Environmental Effects) Regulations 1999 and the Offshore Petroleum Activities (Conservation of Habitats) Regulations 2001, variously require that all major activities undertaken in connection with UK offshore hydrocarbon exploration and production should be subject to environmental assessment before consent is given for these activities.</p>
+	<p pid="a.22WS.2/14" class="indent">Before any licence awards are made, DECC will assess whether the grant of licences applied for in the 26th Round is likely to have a significant effect on the management of any protected conservation sites. Where such effects cannot be excluded, a further detailed assessment will be needed to determine whether there are any adverse effects on the integrity of these protected conservation sites. This is required under Council directive 92/43/EEC, on the conservation of natural habitats and wild fauna and flora, and UK implementing regulations.</p>
+	<p pid="a.22WS.2/15" class="indent">DECC has, with industry and statutory environmental advisors, established an offshore oil and gas environmental monitoring committee which is charged with co-ordinating the strategic monitoring of potentially significant environmental effects of the industry, including those that could arise from the implementation of the plan to hold a 26th round of offshore licensing.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-02-04a.23WS.0" nospeaker="true" colnum="23WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#100204m0001.htm_dpthd3">
+	ENVIRONMENT FOOD AND RURAL AFFAIRS
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-02-04a.23WS.1" nospeaker="true" colnum="23WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000013">
+	Commons Act (Part 1)
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-02-04a.23WS.2" speakerid="uk.org.publicwhip/member/1750" speakername="Huw Irranca-Davies" speakeroffice="The Parliamentary Under-Secretary of State for Environment, Food and Rural Affairs" colnum="23WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000099">
+	<p pid="a.23WS.2/1">Part 1 of the Commons Act 2006 seeks to achieve a comprehensive current record of common land and town or village greens. It enables commons registration authorities (county councils in two-tier areas; district councils in areas without a county council; London borough councils) to bring up-to-date their registers of commons and greens, established under the Commons Registration Act 1965. Individuals may apply to register past unrecorded events, and registration authorities can make proposals in the public interest to update the registers. People may also apply to deregister wrongly registered land, and to register new land as common land.</p>
+	<p pid="a.23WS.2/2">In England, implementation of Part 1 began with a pilot scheme, in October 2008. Seven authorities are participating in the pilot: Cornwall, Devon, Hertfordshire, Kent and Lancashire county councils, the County of Herefordshire district council, and Blackburn with Darwen borough council, representing about 18 per cent. of the registered common land in England. The pilot implementation was designed to test the efficacy of procedures, guidance, costs and benefits, with the intention to commence national implementation in England from October 2010 onwards.</p>
+	<p pid="a.23WS.2/3">Following slower progress by pilot authorities with implementation than expected, regulations were made in July 2009 to extend the period during which applications to bring their registers up-to-date could be made free of charge until September 2010. This was to ensure that those individuals who stood to benefit from the provisions in the Act would have sufficient time to make applications to update the registers free of charge before the initial pilot period came to an end.</p>
+	<p pid="a.23WS.2/4">In order to ensure that we are able to learn fully all the lessons from the pilot, I have decided that the decision on whether, how and when to go ahead with national commencement should await the completion of the extended pilot period in September 2010. This means a delay in national implementation of at least a year from our original intention to commence from October 2010, but will help ensure that decisions on how best to proceed following the pilot are based on the best possible information.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-02-04a.24WS.0" nospeaker="true" colnum="24WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#100204m0001.htm_dpthd4">
+	HEALTH
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-02-04a.24WS.1" nospeaker="true" colnum="24WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000014">
+	Out-of-Hours Primary Care Services (Report)
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-02-04a.24WS.2" speakerid="uk.org.publicwhip/member/1910" speakername="Mike O'Brien" speakeroffice="The Minister of State, Department of Health" colnum="24WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000100">
+	<p pid="a.24WS.2/1">A report on the current arrangements for the local commissioning and provision of out-of-hours primary care services has today been published by the Department of Health and placed in the Library.</p>
+</speech>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-02-04a.24WS.3" nospeaker="true" colnum="24WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000015">
+	Out-of-Hours Primary Care Services (Response)
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-02-04a.24WS.4" speakerid="uk.org.publicwhip/member/1910" speakername="Mike O'Brien" speakeroffice="The Minister of State, Department of Health" colnum="24WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000101">
+	<p pid="a.24WS.4/1">Following concerns about delivery of out-of-hours primary care services being raised in summer 2009, I met with primary care professionals in order to understand the issues in more detail and consider what action might be taken to improve out-of-hours services to patients. The broader context to this was that in June 2009, the Care Quality Commission began an investigation into the out-of-hours primary care services in five primary care trusts provided by the company Take Care Now. The inquiry was prompted by the tragic death of a patient in February 2008 after he was administered 100mg of diamorphine by a locum doctor from Germany.</p>
+	<p pid="a.24WS.4/2">CQC published an update on its independent inquiry in October 2009. This included a preliminary conclusion that all PCTs needed to improve their monitoring of out-of-hours services, particularly of the quality of the service patients receive. Dr. David Colin-Thom&#233;, national clinical director for primary care, subsequently wrote to PCTs in support of the CQC's recommendation in their update report, and reminding them of their responsibilities around performance management of OOHs providers and ensuring general practitioners working in OOHs are fit to practise that role.</p>
+	<p pid="a.24WS.4/3">I also asked, Dr David Colin-Thom&#233;, national clinical director for primary care at the Department of Health, and Professor Steve Field, chairman of council, Royal College of General Practitioners, as two respected and experienced general practitioners, to jointly lead a review of current arrangements for the local commissioning and provision of out-of-hours services. In so doing, they considered the commissioning and performance management of OOH services; the selection, induction, training and use of OOH clinicians; and the management and operation of medical performers lists</p>
+	<p pid="a.24WS.4/4">I have published Dr Colin-Thom&#233; and Professor Field's subsequent report today and placed copies in the Library. The report sets out a number of recommendations including:</p>
+	<p pid="a.24WS.4/5" class="indent">PCTs should review the performance management arrangements in place for their out-of-hours services, ensure they are robust, and fit for purpose;</p>
+	<p pid="a.24WS.4/6" class="indent">the Department of Health should issue guidance to PCTs to assist them in making decisions about whether or not a doctor has the necessary knowledge of English to be admitted to their medical performers list;</p>
+	<p pid="a.24WS.4/7" class="indent">the Department of Health should develop and introduce an improvement programme for PCTs to support their commissioning and performance management of out-of-hours services;</p>
+	<p pid="a.24WS.4/8" class="indent">out-of-hours providers should consider the recruitment and selection processes in place for clinical staff, ensure they are robust, and follow best practice; and</p>
+	<p pid="a.24WS.4/9" class="indent">strategic health authorities should consider how they monitor action taken by PCTs in response to the report and in carrying out appropriate performance management of out-of-hours providers.</p>
+	<p pid="a.24WS.4/10">The report's recommendations are an important reminder to PCTs and providers, of their obligations to ensure safe and effective out-of-hours services for patients and as such-in so far as they apply to the Department or the national health service-I have not only accepted them in full but I am announcing today further improvements to out-of-hours GP services. I will:</p>
+	<p pid="a.24WS.4/11" class="indent">review the existing national quality requirements in order to develop a stronger set of national minimum standards which all out-of-hours providers will be required to meet;</p>
+	<p pid="a.24WS.4/12" class="indent">introduce a new national model contract for out-of-hours provision, based on the new national minimum standards, to reflect the characteristics of existing high-quality provision;</p>
+	<p pid="a.24WS.4/13" class="indent">through stronger performance management by SHAs, tighten existing controls to ensure PCTs are meeting their legal obligations through commissioning and contracting arrangements, and to ensure that providers are employing competent clinicians to practise as GPs in primary care out-of-hours. It is also my intention to direct PCTs to review their current procedures and to ensure that they have a clear policy in place for assessing the language knowledge of persons applying for inclusion on the local perfomers list; and</p>
+	<p pid="a.24WS.4/14" class="indent">require PCTs to increase their engagement and involvement of GPs in ensuring high-quality provision of out-of-hours services through, for example, local medical committees, RCGP groups, RCGP faculties, clinical executive groups, and with local practice-based commissioning consortia.</p>
+	<p pid="a.24WS.4/15">We will be consulting relevant stakeholders on these proposals including the British Medical Association, The Royal College of General Practitioners, the NHS Alliance and the National Association of Primary Care.</p>
+	<p pid="a.24WS.4/16">In the meantime, officials in the Department will continue working with the NHS to ensure they are implemented. In particular, to continue to implement the recommendations of the &quot;Tackling Concerns Locally: the Performers List system, A review of current arrangements and recommendations for the future&quot; published in March 2009.</p>
+	<p pid="a.24WS.4/17">The NHS chief executive Sir David Nicholson will be writing to NHS organisations to bring this report to their attention and to seek assurances that they are meeting their obligations as set out in the report. At the same time, the Department will issue new interim guidance to PCTs to assist them in complying with their obligations to ensure all doctors admitted to their performers list have a satisfactory knowledge of English.</p>
+</speech>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-02-04a.25WS.0" nospeaker="true" colnum="25WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000016">
+	National Pandemic Flu Service
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-02-04a.25WS.1" speakerid="uk.org.publicwhip/member/1686" speakername="Gillian Merron" speakeroffice="The Minister of State, Department of Health" colnum="25WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0001.htm#10020457000102">
+	<p pid="a.25WS.1/1">With the global spread of the swine flu virus, the World Health Organisation declared a pandemic on <phrase class="date" code="2009-06-11">11 June 2009</phrase>. In response to increasing pressures on front line national health service and social care services, the national pandemic flu service (NPFS) was activated on <phrase class="date" code="2009-07-23">23 July 2009</phrase>. This was to provide a self-care service for people to assess their symptoms and, if necessary, to access antiviral medicines rapidly from antiviral collection points.</p>
+	<p pid="a.25WS.1/2">The Department is today announcing the decision to stand down the NPFS with effect from 1 am on <phrase class="date" code="2010-02-11">11 February 2010</phrase>.</p>
+	<p pid="a.25WS.1/3">This is being done in response to the steady reduction in the estimated number of swine flu cases in the community, and is in line with our overall aim of ensuring the operational response is appropriate to the level of threat posed by the virus. General practitioners and primary care trusts have indicated that they can now manage the clinical caseload themselves. As we did with the launch of the NPFS, we are now standing it down with the full support of the key professional bodies (the Royal College of General Practitioners (RCGP) the British Medical Association (BMA) and appropriate pharmacy organisations).</p>
+	<p pid="a.25WS.1/4">We will continue to monitor the spread of the swine flu virus, and, should it become necessary, the NPFS can be re-activated in seven days.</p>
+	<p pid="a.25WS.1/5">Anyone who suspects they have swine flu from <phrase class="date" code="2010-02-11">11 February</phrase> will be advised to contact their doctor for assessment of their symptoms; the doctor will issue an antiviral authorisation voucher if needed. For the time being, antivirals will continue to be collected through antiviral collection points. People with swine flu should ask their flu friend to collect their antivirals on their behalf. Antivirals will continue to be issued to patients with swine flu symptoms, under this system, free of charge until at least the end March 2010, the end of the seasonal flu period.</p>
+	<p pid="a.25WS.1/6">Many people have felt reassured by the fall in disease incidence, and the relatively mild illness that has characterised most people's infections. Deaths, however small relative to previous pandemics, are tragedies for families and vaccination could help avoid them. The current vaccination programme is continuing and we must remain vigilant. We have therefore asked GPs to make further contact with people in the priority groups who are at higher risk from the disease and who have not yet had the vaccine. These include individuals aged over six months and in the seasonal at-risk groups; pregnant women; those who live with immunocompromised individuals; and children aged over six months and under five years and eligible front line health and social care workers. Good progress has been made in delivery of the vaccination programme to date but we must not be complacent. It is important that people in these groups continue to receive the vaccine as it offers the best protection against the virus.</p>
+	<p pid="a.25WS.1/7">I would like to record my thanks to all those involved in setting up and running the NPFS. It has broken new ground in healthcare delivery and has played an important role in our response to the swine flu pandemic. With the support of the RCGP, the BMA, and the pharmacy organisations, the NPFS has been very successful in easing pressure on primary care services during the busiest times of the pandemic, allowing GPs to focus on those most ill and ensuring high volumes of people get access to antiviral medicines, when they need them.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-02-04a.27WS.0" nospeaker="true" colnum="27WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0002.htm#100204m0002.htm_dpthd0">
+	INTERNATIONAL DEVELOPMENT
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-02-04a.27WS.1" nospeaker="true" colnum="27WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0002.htm#10020457000017">
+	Haiti
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-02-04a.27WS.2" speakerid="uk.org.publicwhip/member/2008" speakername="Douglas Alexander" speakeroffice="The Secretary of State for International Development" colnum="27WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0002.htm#10020457000103">
+	<p pid="a.27WS.2/1">Three weeks have now passed since an earthquake of magnitude 7.0 struck Haiti. The Government of Haiti have confirmed 112,000 bodies recovered from the rubble in and around the capital Port-au-Prince. Estimates of the final death toll are close to 170,000.</p>
+	<p pid="a.27WS.2/2">Following my written statement to the House on <phrase class="date" code="2010-01-25">25 January 2010</phrase>, <phrase class="offrep" id="wms/2010-01-25.42"><i>Official Report</i>, column 42WS</phrase>, the Foreign and Commonwealth Office have confirmed that a second British citizen, Ann Barnes, has lost her life in Haiti. Like Frederick Wooldridge who also died in the earthquake, Ms. Barnes worked for the UN mission in Haiti. We pay tribute to the work of Ms. Barnes and Mr. Wooldridge and more than 80 members of the United Nations mission in Haiti now confirmed to have lost their lives.</p>
+	<p pid="a.27WS.2/3">I would also like to pay tribute to the British public for their continued generosity in responding to Haiti's plight. The Disaster Emergency Committee appeal has now raised &#163;70 million. This is a remarkable achievement.</p>
+	<p pid="a.27WS.2/4">Effective co-ordination of the relief effort remains vital. The Department for International Development is working hard to improve the situation on the ground and overcome the logistical bottlenecks that are hampering relief efforts. Our assessment is that co-ordination of the relief effort is improving. Systems are now in place to deliver clean drinking water to those who need it, with 500,000 people able to receive five litres per person per day. The United Nations Office for the Co-ordination of Humanitarian Affairs (OCHA) reports that operations on the ground continue to expand. In addition to the &#163;1 million we have already provided to assist the United Nations with aid co-ordination, we have also taken the decision to provide a second secondee to OCHA in Haiti.</p>
+	<p pid="a.27WS.2/5">Shelter and sanitation for 900,000 people in Port-au-Prince and a further 200,000 in rural areas made homeless by the earthquake are now the top priority. Our field team reports that co-ordination of water and sanitation relief efforts continues to improve despite the scope and complexity of needs. There are still problems, but donors, cluster leads and OCHA are working to identify solutions.</p>
+	<p pid="a.27WS.2/6">The Department for International Development has also purchased 5,700 sheets of corrugated iron roofing materials that are vital for constructing durable shelters for about 2,000 families to bridge the gap until permanent homes can be rebuilt. Working closely with our colleagues in the Ministry of Defence, these materials weighing over 55 tons are being transported to Haiti by ship, on Royal Fleet Auxiliary Largs Bay.</p>
+	<p pid="a.27WS.2/7">RFA Largs Bay departed from Marchwood, Southampton yesterday, <phrase class="date" code="2010-02-03">Wednesday 3 February</phrase>, carrying these shelter materials as well as critically needed port handling equipment and vehicles for use by Save the Children, the International Federation of the Red Cross and other humanitarian agencies. The port handling equipment will help unblock critical supply bottlenecks at Haiti's ports.</p>
+	<p pid="a.27WS.2/8">Weather permitting, we expect the ship to arrive off Cap Haitien on or around the <phrase class="date" code="2010-02-18">18 February</phrase>. Once there, RFA Largs Bay is expected to stay in the region for a number of weeks to help the United Nations transport supplies around Haiti.</p>
+	<p pid="a.27WS.2/9">In addition to the materials sent on the RFA Largs Bay, three aircraft sent by the Department for International Development have also delivered plastic sheeting and other shelter materials for temporary shelters. We have also provided &#163;1 million to Oxfam and &#163;400,000 to the Agency for Technical Co-operation and Development (ACTED) to provide clean drinking water, shelter materials, hygiene kits and water tanks for the construction of latrines and bathing spaces. On <phrase class="date" code="2010-02-02">2 February</phrase>, we made a further &#163;1.12 million available to the International Organisation for Migration (IOM) to support their work in providing temporary shelter, including two secondees from CARE International to support temporary settlement management. We have also provided a seconded specialist in transitional shelter to IOM, and all three secondees are now working on the ground, with exemplary support from the British embassy in Santo Domingo.</p>
+	<p pid="a.27WS.2/10">We have also deployed three civilian experts from the joint DFID, MOD and FCO stabilisation unit to help restore vital Government functions-specifically to get the prison service working again. We are liaising closely with the European Union, Canada and the United Nations and the unit stands ready to provide further civilian support to help the Haitian Government get back on their feet.</p>
+	<p pid="a.27WS.2/11">The British Government are mindful of the risks to the safety and protection of children in the aftermath of the earthquake, and their well-being is our primary concern. Priority must be given to efforts to reunite children with their birth families. Advice has been issued by the Hague bureau, Children and Families across Borders and the Disaster and Emergency Committee and the Prime Minister of Haiti has stated that the Government share the deep concern of the international community to avoid any trafficking of Haitian children. We welcome his commitment to sign personally all adoption authorisations so that no children will be allowed to leave the country without legal adoption documentation.</p>
+	<p pid="a.27WS.2/12">In the aftermath of this terrible tragedy and for the foreseeable future, we will continue to work with the international community to support recovery in Haiti. The Department for International Development has provided funding for development work through multilateral channels, such as the United Nations agencies, the European Commission and World Bank. The World Bank is allocating $100 million from the current IDA 15 replenishment, to which UK was biggest contributor. The United Kingdom's contribution to European Union humanitarian assistance for Haiti totals &#163;42 million.</p>
+	<p pid="a.27WS.2/13">The Government of Haiti have asked the World Bank and United Nations to be the joint international leads with respect to longer-term rehabilitation, and we expect the other international financial institutions, the European Commission and Haiti's major bilateral donors also to have a strong role. A World Bank team is already in Port-au-Prince working with the Government to identify priority areas for their assistance and preparing for the joint needs assessment due on <phrase class="date" code="2010-02-08">8 February</phrase>. The international community needs to continue its efforts to address the terrible plight of Haitians, and we will play our part through our very substantial support to the multilaterals involved, and the continuation of the humanitarian operation now under way.</p>
+	<p pid="a.27WS.2/14">DFID, the Department for International Development: leading the UK Government's fight against world poverty. Find out more at: <a href="http://www.dfid.gov.uk">http://www.dfid.gov.uk</a>.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/wms/2010-02-04a.29WS.0" nospeaker="true" colnum="29WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0002.htm#100204m0002.htm_dpthd1">
+	TRANSPORT
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-02-04a.29WS.1" nospeaker="true" colnum="29WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0002.htm#10020457000018">
+	Private Hire Vehicle Contract Exemption
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-02-04a.29WS.2" speakerid="uk.org.publicwhip/member/1878" speakername="Sadiq Khan" speakeroffice="The Minister of State, Department for Transport" colnum="29WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100204/wmstext/100204m0002.htm#10020457000104">
+	<p pid="a.29WS.2/1">The exemption from private hire vehicle licensing for vehicles working on long-term contracts was repealed in 2008 by virtue of the Road Safety Act 2006. A similar change was made to the PHV legislation in London.</p>
+	<p pid="a.29WS.2/2">The Government decided to repeal the exemption at short notice during the passage of the Bill, which meant that a formal consultation exercise was not possible.</p>
+	<p pid="a.29WS.2/3">The Department undertook to review the impact of the repeal of the PHV contract exemption and today has published the report. The report has been published on the Department's website and a copy has been placed in the Libraries of the House.</p>
+	<p pid="a.29WS.2/4">In compiling their report, the consultants asked a range of stakeholders-including licensing authorities, conventional PHV operators, operators of services where there were doubts about their position in relation to PHV law and consumers-about their views and their experiences since the repeal of the contract exemption.</p>
+	<p pid="a.29WS.2/5">It is apparent from the report that the impact of the repeal has been mixed; it has brought within the licensing regime many thousands of operators and drivers who had previously been working under the exemption, which is a desirable outcome in terms of enhancing safety. However, it has also generated questions about the position of a number of operators who would not regard themselves as conventional private hire but who carry passengers in a car as part of their wider jobs and who do not know whether they must be licensed.</p>
+	<p pid="a.29WS.2/6">The report concludes that licensing authorities and operators would like to see a more robust message from central Government about the extent to which a range of operators at the margins of the definition of private hire vehicle do, or do not, fall to be licensed as PHVs.</p>
+	<p pid="a.29WS.2/7">The Department recognises that although Parliament has delegated responsibility for the licensing function to individual local authorities, there is a role for the Department in terms of offering guidance with the objective of achieving a degree of uniformity of approach throughout the country.</p>
+	<p pid="a.29WS.2/8">Accordingly, the Department will undertake to revise the guidance note which it produced in November 2007 in such a way as to offer a more robust view about which categories of operators should be licensed.</p>
+	<p pid="a.29WS.2/9">The review also showed that the other main taxi provision contained in the Road Safety Act 2006-allowing licensing authorities to suspend or revoke a driver's licence with immediate effect in certain circumstances rather than allowing them to continue working pending appeal-has been welcomed by licensing authorities as a useful additional tool in undertaking their licensing responsibilities.</p>
+</speech>
+</publicwhip>
+
