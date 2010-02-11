@@ -47,7 +47,7 @@ class SearchController < ApplicationController
       results = []
       twitter_results = ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
       twitter_results.each do |result|
-        item = Item.new (
+        item = Item.new(
           :url => "http://twitter.com/ukparliament/status/#{result["id"].to_s}",
           :title => result["text"],
           :kind => 'Tweet',
