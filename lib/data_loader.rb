@@ -140,9 +140,15 @@ module ParlyTags::DataLoader
           title_date = ", #{$3}/#{$2}/#{$1}"
         end
         
-        question_text   = question.inner_text
-        question_number = question.xpath('p/@qnum').to_s
-        question_url = question.xpath('@url').to_s
+        question_text = question.inner_text
+        question_url  = question.xpath('@url').to_s
+        
+        question_number = ""
+        question_numbers = question.xpath('p/@qnum')
+        question_numbers.each do |qnum|
+          question_number += "[#{qnum.to_s}]"
+        end
+        question_number.gsub!("][", "], [")
         
         answer = doc.xpath("publicwhip/reply[@id='#{answer_ref}']")
         answer_text = answer.inner_text
@@ -164,8 +170,7 @@ module ParlyTags::DataLoader
           major_heading = last.inner_text.strip
         end
         
-        
-        title = "#{major_heading} #{minor_heading} [#{question_number}] - #{speaker}"
+        title = "#{major_heading} #{minor_heading} #{question_number} - #{speaker}"
         
         log << "\nWRA - #{question_number} "
         
@@ -227,8 +232,7 @@ module ParlyTags::DataLoader
         item = Item.new (
           :url => wms_url,
           :title => "#{major_heading} #{minor_heading} - #{wms_speaker_name} - #{wms_speaker_office}".strip,
-          :kind => 'WMS',
-          :text => wms_text.strip!.slice(0..255) + " ..."
+          :kind => 'WMS'
         )
         log << "i"
         
