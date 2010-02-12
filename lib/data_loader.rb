@@ -137,7 +137,7 @@ module ParlyTags::DataLoader
         
         title_date = ""
         if question_ref =~ /(\d{4})-(\d{2})-(\d{2})/
-          title_date = "from #{$3}/#{$2}/#{$1}"
+          title_date = ", #{$3}/#{$2}/#{$1}"
         end
         
         question_text   = question.inner_text
@@ -147,7 +147,25 @@ module ParlyTags::DataLoader
         answer = doc.xpath("publicwhip/reply[@id='#{answer_ref}']")
         answer_text = answer.inner_text
         
-        title = "Written Answer #{question_number} #{title_date}".strip
+        speaker = question.xpath('@speakername').to_s
+        
+        last = question.previous_sibling
+        while (last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
+          last = last.previous_sibling
+        end
+        if last.to_s[0..13] == "<minor-heading"
+          minor_heading = last.inner_text.strip
+        end
+        
+        while (last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
+          last = last.previous_sibling
+        end
+        if last.to_s[0..13] == "<major-heading"
+          major_heading = last.inner_text.strip
+        end
+        
+        
+        title = "#{major_heading} #{minor_heading} [#{question_number}] - #{speaker}"
         
         log << "\nWRA - #{question_number} "
         
