@@ -148,7 +148,7 @@ class TextParser
           "November", "December", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "EDM", "Her Majesty's Ministers",
           "They", "They're", "That", "That'll", "There", "Additionally", "Between", "Written Answer", "Our",
           "United Kingdom", "British Isles", "Post Office", "President", "West Bank", "Queen", "Crown", "Commons",
-          "President", "Britain", "Great Britain", "Royal", "House", "Over"]
+          "President", "Britain", "Great Britain", "Royal", "House", "Over", "More"]
       stop_phrases.include?(term.strip)
     end
     
