@@ -176,8 +176,8 @@ module ParlyTags::DataLoader
     log = Logger.new(STDOUT)
   
     WMS_FILES.each do |file|
-      log << File.basename(file)
       log << "\n"
+      log << File.basename(file)
       doc = Nokogiri::XML(open(file))
       doc.xpath('//speech').each do |speech|  
         log << "\n"
@@ -208,7 +208,7 @@ module ParlyTags::DataLoader
         
         item = Item.new (
           :url => wms_url,
-          :title => "#{major_heading} #{minor_heading} #{wms_speaker_name} - #{wms_speaker_office}".strip,
+          :title => "#{major_heading} #{minor_heading} - #{wms_speaker_name} - #{wms_speaker_office}".strip,
           :kind => 'WMS',
           :text => wms_text.strip!.slice(0..255) + " ..."
         )
