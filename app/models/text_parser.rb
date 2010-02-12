@@ -109,7 +109,7 @@ class TextParser
     end
     
     def joining_word? word
-      joining_words = ["of", "the", "and", "for", "le", "de"]
+      joining_words = ["of", "the", "and", "for", "le", "de", "upon", "under"]
       joining_words.include?(word)
     end
     
@@ -136,7 +136,7 @@ class TextParser
     end
     
     def is_stop_word? word
-      stop_words = ["That", "This", "House"]
+      stop_words = ["That", "This"]
       stop_words.include?(word)
     end
     
@@ -146,7 +146,9 @@ class TextParser
           "The Status", "Agency", "Address", "State", "Members of the House", "Minister", "Ministers",
           "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
           "November", "December", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "EDM", "Her Majesty's Ministers",
-          "They", "They're", "That", "That'll", "There", "Additionally", "Between", "Written Answer", "Our"]
+          "They", "They're", "That", "That'll", "There", "Additionally", "Between", "Written Answer", "Our",
+          "United Kingdom", "British Isles", "Post Office", "President", "West Bank", "Queen", "Crown", "Commons",
+          "President", "Britain", "Great Britain", "Royal"]
       stop_phrases.include?(term.strip)
     end
     
