@@ -23,7 +23,7 @@ class Item < ActiveRecord::Base
   end
   
   def placenames
-    names = placetags.collect { |x| x.name }
+    names = placetags.collect { |x| x.name.gsub('County of ', '') }
     names.uniq
   end
   
