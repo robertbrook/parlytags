@@ -187,10 +187,28 @@ module ParlyTags::DataLoader
         wms_speaker_name  = speech.xpath('@speakername')
         wms_speaker_office  = speech.xpath('@speakeroffice')
         wms_url = speech.xpath('@url').to_s
-         
+        
+        minor_heading = ""
+        major_heading = ""
+        
+        last = speech.previous_sibling
+        while (last.to_s[0..13] != "<minor-heading" && last.to_s[0..11] != "<gidredirect")
+          last = last.previous_sibling
+        end
+        if last.to_s[0..13] == "<minor-heading"
+          minor_heading = last.inner_text.strip
+        end
+        
+        while (last.to_s[0..13] != "<major-heading" && last.to_s[0..11] != "<gidredirect")
+          last = last.previous_sibling
+        end
+        if last.to_s[0..13] == "<major-heading"
+          major_heading = last.inner_text.strip
+        end
+        
         item = Item.new (
           :url => wms_url,
-          :title => "#{wms_speaker_name} - #{wms_speaker_office}",
+          :title => "#{major_heading} #{minor_heading} #{wms_speaker_name} - #{wms_speaker_office}".strip,
           :kind => 'WMS',
           :text => wms_text.strip!.slice(0..255) + " ..."
         )
@@ -221,6 +239,7 @@ module ParlyTags::DataLoader
             placetag.country = place.country_name if country
             placetag.place_id = place.id
             placetag.geoname_id = place.geoname_id
+            placetag.save
             place.has_placetag = true
             place.save
           end
