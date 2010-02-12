@@ -75,8 +75,8 @@ describe TextParser do
     end
     
     it 'should not return duplicate phrases' do
-      parser = TextParser.new("the United Kingdom, something something United Kingdom")
-      parser.terms.should == ["United Kingdom"]
+      parser = TextParser.new("the Phrase One, something something Phrase One")
+      parser.terms.should == ["Phrase One"]
     end
     
     it 'should return hyphenated place names' do
