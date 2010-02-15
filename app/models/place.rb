@@ -72,8 +72,14 @@ class Place < ActiveRecord::Base
         13
       when "ADM2"
         9
-      when "AREA", "A", "ADM1", "ISL"
+      when "AREA", "A", "ADM1"
         6
+      when "ISL"
+        if name == "Ireland"
+          6
+        else
+          10
+        end
       when "ADMD", "PCLI"
         5
       when "MNMT", "MUS"
