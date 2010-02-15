@@ -10,6 +10,7 @@ module ParlyTags::DataLoader
   CONSTITUENCY_FILE = "#{DATA_DIR}/constituencies.txt"
 
   def load_all_data
+    # Rails.logger.info !
     log = Logger.new(STDOUT)
     
     log << "loading place data"

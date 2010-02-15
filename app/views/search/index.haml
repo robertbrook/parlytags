@@ -23,10 +23,6 @@
       
         -unless alternate == @place.alternative_places.last
           &middot;
-  
-- if @ukparliament_twitter_results && @ukparliament_twitter_results.length > 0
-  %ol.ukparliament-twitter-results
-    =render :partial => "partials/twitter_result", :collection => @ukparliament_twitter_results
           
 - if @results && !@results.empty?  
   %h2
@@ -38,11 +34,19 @@
   - content_for :footer do
     = link_to image_tag("envelope.gif", :border=>0), "http://www.parliament.uk/site_information/email_alerting.cfm"
     = link_to "Subscribe to Email Alerts for this page", "http://www.parliament.uk/site_information/email_alerting.cfm"
-    
+
+- if @ukparliament_twitter_results && @ukparliament_twitter_results.length > 0
+  %ol.ukparliament-twitter-results
+    =render :partial => "partials/twitter_result", :collection => @ukparliament_twitter_results
+            
 - else
   
   - if @last_search_term
-    %p.no-nearest= "We couldn't find any items within about 40km of here."
+    %h2
+      Sorry, we don't have any results to show
+    %p.no-nearest
+      This is either because we can't find a place with that name, or we couldn't find that any items within about 40km of here.
+        
       
 - content_for :footer do
   %br
