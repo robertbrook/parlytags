@@ -39,6 +39,7 @@ class SearchController < ApplicationController
       else
         @results = do_tag_search(term) 
         @ukparliament_twitter_results = do_ukparliament_twitter_search(term)
+        # @hansard_archive_results = do_hansard_archive_search(term)
       end
       term
     end
@@ -46,6 +47,11 @@ class SearchController < ApplicationController
     def do_ukparliament_twitter_search term
       ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
     end
+    
+    # def do_hansard_archive_search term
+    #       results = Hash.from_xml(open("http://hansard.millbanksystems.com/search/" + URI.escape(term.strip) + ".atom").read)
+    #       results
+    #     end
     
     def do_place_search term
       places = Place.find_all_by_ascii_name_or_alternate_names(term)
