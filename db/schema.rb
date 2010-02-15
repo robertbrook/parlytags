@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100211163011) do
+ActiveRecord::Schema.define(:version => 20100215142616) do
 
   create_table "items", :force => true do |t|
     t.string   "title"
@@ -48,6 +48,10 @@ ActiveRecord::Schema.define(:version => 20100211163011) do
     t.boolean "has_placetag"
   end
 
+  add_index "places", ["ascii_name"], :name => "index_places_on_ascii_name"
+  add_index "places", ["feature_code"], :name => "index_places_on_feature_code"
+  add_index "places", ["name"], :name => "index_places_on_name"
+
   create_table "placetags", :force => true do |t|
     t.string  "name"
     t.string  "county"
@@ -55,5 +59,7 @@ ActiveRecord::Schema.define(:version => 20100211163011) do
     t.integer "place_id"
     t.integer "geoname_id"
   end
+
+  add_index "placetags", ["name"], :name => "index_placetags_on_name"
 
 end
