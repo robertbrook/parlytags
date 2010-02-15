@@ -42,7 +42,11 @@
 - else
   
   - if @last_search_term
-    %p.no-nearest= "We couldn't find any items within about 40km of here."
+    %h2
+      Sorry, we don't have any results to show
+    %p.no-nearest
+      This is either because we can't find a place with that name, or we couldn't find that any items within about 40km of here.
+        
       
 - content_for :footer do
   %br
