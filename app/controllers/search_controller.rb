@@ -26,9 +26,6 @@ class SearchController < ApplicationController
       unless places.empty?
         @place = places.first
         @place_title = get_place_title(@place)
-        if @place.display_name.downcase != term.downcase && @place.display_name.downcase != term.split(",")[0].downcase && @place.ascii_name.downcase != "county of #{term.downcase}"
-          @usually_known_as = @place.ascii_name
-        end
         @results = @place.find_nearby_items(10)
       else
         @ukparliament_twitter_results = do_ukparliament_twitter_search(term)

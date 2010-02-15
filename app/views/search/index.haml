@@ -6,9 +6,6 @@
     %span.nearby
       = "Including places nearby"
 
-  - if @usually_known_as
-    %span.also-known-as= "Also known as #{@usually_known_as}"
-
   #map
 
   -unless @place.alternative_places.empty?
