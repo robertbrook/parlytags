@@ -20,12 +20,6 @@ class SearchController < ApplicationController
       @searched_for = term
       if term.downcase.strip == "united kingdom"
         places = []
-      elsif term.upcase == term
-        places = []
-        @results = do_tag_search(term)
-        if @results == []
-          places = do_place_search(term)
-        end
       else
         places = do_place_search(term)
       end
@@ -68,16 +62,6 @@ class SearchController < ApplicationController
         end
       end
       places
-    end
-    
-    def do_tag_search term
-      results = []
-      tag = Tag.find_by_name(term)
-      if tag
-        items = Item.find_all_by_tag(tag.name)
-        results = items.paginate :page => params[:page]
-      end
-      results
     end
     
     def get_place_title place

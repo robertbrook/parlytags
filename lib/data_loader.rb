@@ -10,7 +10,6 @@ module ParlyTags::DataLoader
   CONSTITUENCY_FILE = "#{DATA_DIR}/constituencies.txt"
 
   def load_all_data
-    
     log = Logger.new(STDOUT)
     
     log << "loading place data"
@@ -19,14 +18,13 @@ module ParlyTags::DataLoader
     load_edms
     log << "\nloaded edm data\nloading wms data"
     load_wms
+    log << "\nloaded wms data\n"
     log << "\nloaded wms data\nloading written answers"
-    load_load_written_answers
+    load_written_answers
     log << "\nloaded written answers\n"
-    
   end
   
   def load_places
-    
     log = Logger.new(STDOUT)
     
     Place.delete_all
@@ -89,7 +87,6 @@ module ParlyTags::DataLoader
       }
     
     EDMS_FILES.each do |file|
-      
       # TODO: check file actually exists!
       doc = Nokogiri::XML(open(file))
     
@@ -114,17 +111,12 @@ module ParlyTags::DataLoader
         log << "i"
 
         term_extractor = TextParser.new(edm_text)
+        add_placetags(term_extractor.terms, item, log)
 
-        term_extractor.terms.each do |term|
-          tag = Tag.find_or_create_by_name(term)
-          item.tags << tag
-          log << "t"
+        unless item.placetags.empty?
+          item.save
+          log << "s"
         end
-
-        item.save
-        log << "s"
-        item.populate_placetags
-        log << "p"
       end
       
       log << "\n"
@@ -145,17 +137,40 @@ module ParlyTags::DataLoader
         
         title_date = ""
         if question_ref =~ /(\d{4})-(\d{2})-(\d{2})/
-          title_date = "from #{$3}/#{$2}/#{$1}"
+          title_date = ", #{$3}/#{$2}/#{$1}"
         end
         
-        question_text   = question.inner_text
-        question_number = question.xpath('p/@qnum').to_s
-        question_url = question.xpath('@url').to_s
+        question_text = question.inner_text
+        question_url  = question.xpath('@url').to_s
+        
+        question_number = ""
+        question_numbers = question.xpath('p/@qnum')
+        question_numbers.each do |qnum|
+          question_number += "[#{qnum.to_s}]"
+        end
+        question_number.gsub!("][", "], [")
         
         answer = doc.xpath("publicwhip/reply[@id='#{answer_ref}']")
         answer_text = answer.inner_text
         
-        title = "Written Answer #{question_number} #{title_date}".strip
+        speaker = question.xpath('@speakername').to_s
+        
+        last = question.previous_sibling
+        while (last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
+          last = last.previous_sibling
+        end
+        if last.to_s[0..13] == "<minor-heading"
+          minor_heading = last.inner_text.strip
+        end
+        
+        while (last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
+          last = last.previous_sibling
+        end
+        if last.to_s[0..13] == "<major-heading"
+          major_heading = last.inner_text.strip
+        end
+        
+        title = "#{major_heading} #{minor_heading} #{question_number} - #{speaker}"
         
         log << "\nWRA - #{question_number} "
         
@@ -167,17 +182,12 @@ module ParlyTags::DataLoader
         log << "i"
         
         term_extractor = TextParser.new(question_text + " " + answer_text)
+        add_placetags(term_extractor.terms, item, log)
 
-        term_extractor.terms.each do |term|
-          tag = Tag.find_or_create_by_name(term)
-          item.tags << tag
-          log << "t"
+        unless item.placetags.empty?
+          item.save
+          log << "s"
         end
-
-        item.save
-        log << "s"
-        item.populate_placetags
-        log << "p"
       end
       log << "\n"
     end
@@ -189,41 +199,77 @@ module ParlyTags::DataLoader
     log = Logger.new(STDOUT)
   
     WMS_FILES.each do |file|
-      log << File.basename(file)
       log << "\n"
+      log << File.basename(file)
       doc = Nokogiri::XML(open(file))
       doc.xpath('//speech').each do |speech|  
         log << "\n"
 
-              wms_text   = speech.content
-              wms_id     = speech.xpath('@id')
-              wms_speaker_name  = speech.xpath('@speakername')
-              wms_speaker_office  = speech.xpath('@speakeroffice')
-              wms_url = speech.xpath('@url').to_s
-               
-              item = Item.new (
-                :url => wms_url,
-                :title => "#{wms_speaker_name} - #{wms_speaker_office}",
-                :kind => 'WMS',
-                :text => wms_text.strip!.slice(0..255) + " ..."
-              )
-              log << "i"
-              
-              term_extractor = TextParser.new(wms_text)
-                    
-              term_extractor.terms.each do |term|
-                tag = Tag.find_or_create_by_name(term)
-                item.tags << tag
-                log << "t" 
-              end
-      
-              item.save
-              log << "s"
-              item.populate_placetags
-              log << "p"
-            end
-            
-            log << "\n"
+        wms_text   = speech.content
+        wms_id     = speech.xpath('@id')
+        wms_speaker_name  = speech.xpath('@speakername')
+        wms_speaker_office  = speech.xpath('@speakeroffice')
+        wms_url = speech.xpath('@url').to_s
+        
+        minor_heading = ""
+        major_heading = ""
+        
+        last = speech.previous_sibling
+        while (last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
+          last = last.previous_sibling
+        end
+        if last.to_s[0..13] == "<minor-heading"
+          minor_heading = last.inner_text.strip
+        end
+        
+        while (last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
+          last = last.previous_sibling
+        end
+        if last.to_s[0..13] == "<major-heading"
+          major_heading = last.inner_text.strip
+        end
+        
+        item = Item.new (
+          :url => wms_url,
+          :title => "#{major_heading} #{minor_heading} - #{wms_speaker_name} - #{wms_speaker_office}".strip,
+          :kind => 'WMS'
+        )
+        log << "i"
+        
+        term_extractor = TextParser.new(wms_text)
+        add_placetags(term_extractor.terms, item, log)
+
+        unless item.placetags.empty?
+          item.save
+          log << "s"
+        end
+      end
     end
   end
+  
+  private
+    def add_placetags terms, item, log
+      terms.each do |term|
+        places = Place.find_all_by_ascii_name_or_alternate_names(term)
+        places.each do |place|
+          placetag = Placetag.find_by_geoname_id(place.geoname_id)
+          if placetag.nil?
+            placetag = Placetag.new(:name => term)
+            county = place.county_name
+            placetag.county = county if county
+            country = place.country_name
+            placetag.country = place.country_name if country
+            placetag.place_id = place.id
+            placetag.geoname_id = place.geoname_id
+            placetag.save
+            place.has_placetag = true
+            place.save
+          end
+          unless item.placetags.include?(placetag)
+            item.placetags << placetag
+            log << "p"
+          end
+        end
+      end
+    end
 end

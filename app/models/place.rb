@@ -6,13 +6,13 @@ class Place < ActiveRecord::Base
     def find_all_by_ascii_name_or_alternate_names(term)
       original_term = term
       term = term.gsub("'", "\'").strip
-      places = find_all_by_name(term, :order => "feature_class")
+      places = find_all_by_name(term, :conditions => "feature_code != 'BNK'", :order => "feature_class")
       if places.empty?
-        places = find_all_by_ascii_name(term, :order => "feature_class")
+        places = find_all_by_ascii_name(term, :conditions => "feature_code != 'BNK'", :order => "feature_class")
       end
       other_places = find(
         :all,
-        :conditions => "alternate_names = \'#{term.gsub("'", "\\\\'")}\' or alternate_names like \'#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")}\'",
+        :conditions => "feature_code != 'BNK' and (alternate_names = \'#{term.gsub("'", "\\\\'")}\' or alternate_names like \'#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")}\')",
         :order => "feature_class"
         )
       other_places.each do |place|
@@ -94,7 +94,8 @@ class Place < ActiveRecord::Base
   end
   
   def find_nearby_tagged_places(limit=10)
-    Place.find(:all, :origin => self, :within => 40, :units => :kms, :conditions => {:feature_class => 'P', :has_placetag => true}, :order => 'distance', :limit => limit )
+    places = [self]
+    places += Place.find(:all, :origin => self, :within => 40, :units => :kms, :conditions => {:feature_class => 'P', :has_placetag => true}, :order => 'distance', :limit => limit )
   end
   
   def find_nearest_city
@@ -107,7 +108,7 @@ class Place < ActiveRecord::Base
     items = []
     nearby_places.each do |place|
       if place.placetag
-        place.placetag.tags.first.items.each do |item|
+        place.placetag.items.each do |item|
           items << item unless items.include?(item)
         end
       end

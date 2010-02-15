@@ -4,7 +4,6 @@
   - if item_result.text
     = item_result.text
   %ul.tags
-    - item_result.tags.each do |tag|
-      -if tag.placetags.count > 0
-        %li.tag.geo= link_to tag.name, '/search?q=' + tag.name
+    - item_result.placenames.each do |tag|
+      = link_to tag, '/search?q=' + tag
     

@@ -109,7 +109,7 @@ class TextParser
     end
     
     def joining_word? word
-      joining_words = ["of", "the", "and", "for", "le", "de"]
+      joining_words = ["of", "the", "and", "for", "le", "de", "upon", "under"]
       joining_words.include?(word)
     end
     
@@ -129,11 +129,14 @@ class TextParser
       return false unless term.to_i == 0
       return false unless remove_punctuation(term).length > 2
       return false if is_stop_phrase?(term)
+      parts = term.strip.split(" ")
+      return false if joining_word?(parts.last)
+      return false if invalid_start_word?(term)
       true
     end
     
     def is_stop_word? word
-      stop_words = ["That", "This", "House"]
+      stop_words = ["That", "This"]
       stop_words.include?(word)
     end
     
@@ -143,8 +146,16 @@ class TextParser
           "The Status", "Agency", "Address", "State", "Members of the House", "Minister", "Ministers",
           "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
           "November", "December", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "EDM", "Her Majesty's Ministers",
-          "They", "They're", "That", "That'll"]
+          "They", "They're", "That", "That'll", "There", "Additionally", "Between", "Written Answer", "Our",
+          "United Kingdom", "British Isles", "Post Office", "President", "West Bank", "Queen", "Crown", "Commons",
+          "President", "Britain", "Great Britain", "Royal", "House", "Over", "More"]
       stop_phrases.include?(term.strip)
+    end
+    
+    def invalid_start_word? term
+      invalid_starts = ["Between", "And"]
+      parts = term.strip.split(" ")
+      invalid_starts.include?(parts.first)
     end
     
     def within_term_phrase? words, current_offset
