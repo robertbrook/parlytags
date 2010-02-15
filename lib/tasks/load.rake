@@ -1,11 +1,13 @@
 require File.expand_path(File.dirname(__FILE__) + '/../data_loader')
 
-namespace :pt do
+namespace :parlytags do
   include ParlyTags::DataLoader
   
   desc "Populate all the data for a demo"
-  task :load_all_data => :environment do
+  task :reset_load_clone => :environment do
+    Rake::Task["db:migrate:reset"].invoke
     load_all_data
+    Rake::Task["db:test:clone_structure"].invoke
   end
 
   desc "Populate data for Places in DB"
