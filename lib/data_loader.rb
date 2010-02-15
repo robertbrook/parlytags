@@ -156,14 +156,14 @@ module ParlyTags::DataLoader
         speaker = question.xpath('@speakername').to_s
         
         last = question.previous_sibling
-        while (last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
+        while (last && last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
           last = last.previous_sibling
         end
         if last.to_s[0..13] == "<minor-heading"
           minor_heading = last.inner_text.strip
         end
         
-        while (last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
+        while (last && last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
           last = last.previous_sibling
         end
         if last.to_s[0..13] == "<major-heading"
@@ -215,14 +215,14 @@ module ParlyTags::DataLoader
         major_heading = ""
         
         last = speech.previous_sibling
-        while (last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
+        while (last && last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
           last = last.previous_sibling
         end
         if last.to_s[0..13] == "<minor-heading"
           minor_heading = last.inner_text.strip
         end
         
-        while (last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
+        while (last && last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
           last = last.previous_sibling
         end
         if last.to_s[0..13] == "<major-heading"
