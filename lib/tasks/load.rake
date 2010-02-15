@@ -3,10 +3,17 @@ require File.expand_path(File.dirname(__FILE__) + '/../data_loader')
 namespace :parlytags do
   include ParlyTags::DataLoader
   
-  desc "Populate all the data for a demo"
+  desc "Reset database, load data, clone structure"
   task :reset_load_clone => :environment do
+    log = Logger.new(STDOUT)
+    
+    log << "resetting database\n"
     Rake::Task["db:migrate:reset"].invoke
+    
+    log << "loading data\n"
     load_all_data
+    
+    log << "cloning structure\n"
     Rake::Task["db:test:clone_structure"].invoke
   end
 

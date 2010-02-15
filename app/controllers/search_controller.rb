@@ -31,7 +31,6 @@ class SearchController < ApplicationController
         end
         @results = @place.find_nearby_items(10)
       else
-        @results = do_tag_search(term) 
         @ukparliament_twitter_results = do_ukparliament_twitter_search(term)
         # @hansard_archive_results = do_hansard_archive_search(term)
       end
