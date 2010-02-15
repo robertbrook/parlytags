@@ -4,7 +4,7 @@ module ParlyTags; end
 module ParlyTags::DataLoader
   
   DATA_DIR = File.expand_path(File.dirname(__FILE__) + '/../data')
-  EDMS_FILES = ["#{DATA_DIR}/2009-2010.xml"] 
+  EDMS_FILES = ["#{DATA_DIR}/edms/2009-2010.xml"] 
   WMS_FILES = Dir.glob("#{DATA_DIR}/wms/*.xml")
   GEO_FILE = "#{DATA_DIR}/GB.txt"
   CONSTITUENCY_FILE = "#{DATA_DIR}/constituencies.txt"
@@ -101,6 +101,8 @@ module ParlyTags::DataLoader
         
         session_name = motion.xpath("session/text()").to_s
         
+        proposed_date = motion.xpath("signatures/signature/date/text()").first.to_s
+        
         # to get around invalid markup
         edm_text.gsub!('&#xC3;&#xBA;', '&pound;')
         
@@ -109,6 +111,10 @@ module ParlyTags::DataLoader
           :title => "#{edm_number} - #{edm_title}",
           :kind => 'Edm'
         )
+        unless proposed_date.blank?
+          item.created_at = proposed_date
+          item.updated_at = proposed_date
+        end
         log << "i"
 
         term_extractor = TextParser.new(edm_text)
@@ -136,9 +142,9 @@ module ParlyTags::DataLoader
         question_ref =  question.xpath('@id').to_s
         answer_ref = question_ref.gsub(".q", ".r")
         
-        title_date = ""
-        if question_ref =~ /(\d{4})-(\d{2})-(\d{2})/
-          title_date = ", #{$3}/#{$2}/#{$1}"
+        question_date = ""
+        if question_ref =~ /(\d{4}-\d{2}-\d{2})/
+          question_date = $1
         end
         
         question_text = question.inner_text
@@ -180,6 +186,10 @@ module ParlyTags::DataLoader
           :title => title,
           :kind => 'Written Answer'
         )
+        unless question_date.blank?
+          item.created_at = question_date
+          item.updated_at = question_date
+        end
         log << "i"
         
         term_extractor = TextParser.new(question_text + " " + answer_text)
@@ -207,13 +217,18 @@ module ParlyTags::DataLoader
         log << "\n"
 
         wms_text   = speech.content
-        wms_id     = speech.xpath('@id')
+        wms_id     = speech.xpath('@id').to_s
         wms_speaker_name  = speech.xpath('@speakername')
         wms_speaker_office  = speech.xpath('@speakeroffice')
         wms_url = speech.xpath('@url').to_s
         
         minor_heading = ""
         major_heading = ""
+        
+        wms_date = ""
+        if wms_id =~ /(\d{4}\-\d{2}\-\d{2})/
+          wms_date = $1
+        end
         
         last = speech.previous_sibling
         while (last && last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
@@ -235,6 +250,10 @@ module ParlyTags::DataLoader
           :title => "#{major_heading} #{minor_heading} - #{wms_speaker_name} - #{wms_speaker_office}".strip,
           :kind => 'WMS'
         )
+        unless wms_date.blank?
+          item.created_at = wms_date
+          item.updated_at = wms_date
+        end
         log << "i"
         
         term_extractor = TextParser.new(wms_text)
