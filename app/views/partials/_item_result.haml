@@ -1,8 +1,12 @@
 %li.item
   = link_to item_result.title, item_result.url
   %br
-  %span.kind= item_result.kind 
-  %span.days_ago= " - #{(Time.now.to_date - item_result.created_at.to_date).to_i} days ago"
+  %span.kind= item_result.kind
+  - days_ago = (Time.now.to_date - item_result.created_at.to_date).to_i
+  - if days_ago > 0
+    %span.days_ago= " - #{(Time.now.to_date - item_result.created_at.to_date).to_i} days ago"
+  - else
+    %span.days_ago Today
   %br
   %span.link= item_result.url
   %br
