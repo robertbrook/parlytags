@@ -29,7 +29,7 @@ class Place < ActiveRecord::Base
   end
   
   def display_name
-    ascii_name.gsub("County of ", "")
+    ascii_name.gsub(/^County of /, "")
   end
   
   def county_name
@@ -38,7 +38,7 @@ class Place < ActiveRecord::Base
     end
     counties = possible_counties
     if counties && counties.size > 0
-      return counties.first.ascii_name.gsub("County of ", "")
+      return counties.first.ascii_name.gsub(/^County of /, "")
     end
     if (counties.nil? || counties.size == 0) && feature_code == "PPLX"
       city = find_nearest_city()
