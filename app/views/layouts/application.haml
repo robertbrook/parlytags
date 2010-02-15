@@ -10,11 +10,8 @@
       %h1= link_to_unless_current "ParlyTags", root_path
       #search
         - form_tag(search_url, :name => 'search', :method => :get) do
-          %label{:for=>"q"}
-            Search for places in the UK Parliament Twitter feed, EDMs, Written answers and Ministerial Statements
-          %br
           = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :accesskey => 's'
-          = submit_tag 'Go'
+          = submit_tag 'Find'
     #content
       = yield      
     #footer
