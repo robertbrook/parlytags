@@ -1,9 +1,9 @@
 %li.item
-  %span.kind= item_result.kind
   = link_to item_result.title, item_result.url
-  - if item_result.text
-    = item_result.text
+  %br
+  %span.kind= item_result.kind
   %ul.tags
     - item_result.placenames.each do |tag|
-      = link_to tag, '/search?q=' + tag
+      - unless tag == @place.name
+        %li.tag= link_to tag, '/search?q=' + tag
     
