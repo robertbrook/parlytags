@@ -10,7 +10,7 @@ class Place < ActiveRecord::Base
       if places.empty?
         places = find_all_by_ascii_name(term, :conditions => "feature_code != 'BNK'", :order => "feature_class")
       end
-      unless places.empty?
+      if !places.empty? && places.size > 1
         append = []
         places.each do |place|
           if place.feature_code == "AIRP"
