@@ -10,6 +10,18 @@ class Place < ActiveRecord::Base
       if places.empty?
         places = find_all_by_ascii_name(term, :conditions => "feature_code != 'BNK'", :order => "feature_class")
       end
+      if !places.empty? && places.size > 1
+        append = []
+        places.each do |place|
+          if place.feature_code == "AIRP"
+            append << place
+          end
+        end
+        append.each do |place|
+          places.delete(place)
+          places << place
+        end
+      end
       other_places = find(
         :all,
         :conditions => "feature_code != 'BNK' and (alternate_names = \'#{term.gsub("'", "\\\\'")}\' or alternate_names like \'#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")}\')",
@@ -29,7 +41,10 @@ class Place < ActiveRecord::Base
   end
   
   def display_name
-    ascii_name.gsub("County of ", "")
+    return ascii_name.gsub(/^County of /, "")
+    if feature_code == "AIRP"
+      return "#{ascii_name} Airport"
+    end
   end
   
   def county_name
@@ -38,7 +53,7 @@ class Place < ActiveRecord::Base
     end
     counties = possible_counties
     if counties && counties.size > 0
-      return counties.first.ascii_name.gsub("County of ", "")
+      return counties.first.ascii_name.gsub(/^County of /, "")
     end
     if (counties.nil? || counties.size == 0) && feature_code == "PPLX"
       city = find_nearest_city()
@@ -72,8 +87,14 @@ class Place < ActiveRecord::Base
         13
       when "ADM2"
         9
-      when "AREA", "A", "ADM1", "ISL"
+      when "AREA", "A", "ADM1"
         6
+      when "ISL"
+        if name == "Ireland"
+          6
+        else
+          10
+        end
       when "ADMD", "PCLI"
         5
       when "MNMT", "MUS"

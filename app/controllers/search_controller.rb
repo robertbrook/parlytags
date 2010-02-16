@@ -1,15 +1,28 @@
+require 'open-uri'
+
 class SearchController < ApplicationController
   
   def index
+    @has_connection = true
+    if RAILS_ENV == "development"
+      begin
+        open("http://maps.google.com")
+      rescue
+        @has_connection = false
+      end
+    end
+    
     term = params[:q]
     if term
       term = do_search(term.strip)
       if @place.blank?
         @place = nil
       else
-        @map = GMap.new("map")
-        @map.control_init(:large_map => true,:map_type => false)
-        @map.center_zoom_init([@place.lat, @place.lng], @place.zoom_level)
+        if @has_connection
+          @map = GMap.new("map")
+          @map.control_init(:large_map => true,:map_type => false)
+          @map.center_zoom_init([@place.lat, @place.lng], @place.zoom_level)
+        end
       end
     end
   end
@@ -26,25 +39,35 @@ class SearchController < ApplicationController
       unless places.empty?
         @place = places.first
         @place_title = get_place_title(@place)
-        if @place.display_name.downcase != term.downcase && @place.display_name.downcase != term.split(",")[0].downcase && @place.ascii_name.downcase != "county of #{term.downcase}"
-          @usually_known_as = @place.ascii_name
-        end
         @results = @place.find_nearby_items(10)
-      else
-        @ukparliament_twitter_results = do_ukparliament_twitter_search(term)
-        # @hansard_archive_results = do_hansard_archive_search(term)
+      end
+      # @hansard_archive_results = do_hansard_archive_search(term)
+      if @has_connection
+        begin
+          @ukparliament_twitter_results = do_ukparliament_twitter_search(term)
+        rescue
+          #ignore the error
+        end
       end
       term
     end
     
     def do_ukparliament_twitter_search term
-      ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
+      results = ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
+      results.each do |result|
+        html = result["text"]
+        html.scan(/http:\/\/\S*/).each do |match|
+          html.gsub!(match, "<a href='#{match}'>#{match}</a>")
+        end
+        result["text"] = html
+      end
+      results
     end
     
     # def do_hansard_archive_search term
-    #       results = Hash.from_xml(open("http://hansard.millbanksystems.com/search/" + URI.escape(term.strip) + ".atom").read)
-    #       results
-    #     end
+    #   results = Hash.from_xml(open("http://hansard.millbanksystems.com/search/" + URI.escape(term.strip) + ".atom").read)
+    #   results
+    # end
     
     def do_place_search term
       places = Place.find_all_by_ascii_name_or_alternate_names(term)

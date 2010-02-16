@@ -22,8 +22,41 @@ class Item < ActiveRecord::Base
     end
   end
   
+  def age
+    days = (Time.now.to_date - created_at.to_date).to_i
+    puts days
+    case days
+      when 0
+        return "Today"
+      when 1
+        return "Yesterday"
+      else
+        return "#{days} days ago"
+    end
+  end
+  
+  def display_url
+    text = url.gsub("http://","")
+    text = text.gsub("https://","")
+    if text.length > 70
+      while text.length > 66
+        parts = text.split("/")
+        last_part = parts.pop
+        parts.pop
+        parts << last_part
+        text = parts.join("/")
+      end
+      parts = text.split("/")
+      last_part = parts.pop
+      parts << "..."
+      parts << last_part
+      text = parts.join("/")
+    end
+    return text
+  end
+  
   def placenames
-    names = placetags.collect { |x| x.name.gsub('County of ', '') }
+    names = placetags.collect { |x| x.name.gsub(/^County of /, '') }
     names.uniq
   end
   
