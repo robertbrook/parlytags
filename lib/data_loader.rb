@@ -1,4 +1,5 @@
 require 'nokogiri'
+require 'htmlentities'
 
 module ParlyTags; end
 module ParlyTags::DataLoader
@@ -23,6 +24,8 @@ module ParlyTags::DataLoader
     log << "\nloaded wms data\nloading written answers"
     load_written_answers
     log << "\nloaded written answers\n"
+    load_westminster_hall
+    log << "\nloaded westminster hall debates"
   end
   
   def load_places
@@ -162,20 +165,8 @@ module ParlyTags::DataLoader
         
         speaker = question.xpath('@speakername').to_s
         
-        last = question.previous_sibling
-        while (last && last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
-          last = last.previous_sibling
-        end
-        if last.to_s[0..13] == "<minor-heading"
-          minor_heading = last.inner_text.strip
-        end
-        
-        while (last && last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
-          last = last.previous_sibling
-        end
-        if last.to_s[0..13] == "<major-heading"
-          major_heading = last.inner_text.strip
-        end
+        minor_heading = get_minor_heading(question)
+        major_heading = get_major_heading(question)
         
         title = "#{major_heading} #{minor_heading} #{question_number} - #{speaker}"
         
@@ -201,6 +192,67 @@ module ParlyTags::DataLoader
         end
       end
       log << "\n"
+    end
+  end
+
+  def load_westminster_hall_debates
+    log = Logger.new(STDOUT)
+  
+    files = ["#{DATA_DIR}/westminster-hall/westminster2010-02-10a.xml"]
+  
+    files.each do |file|
+      log << "\n"
+      log << File.basename(file)
+      doc = Nokogiri::XML(open(file))
+      doc.xpath('//speech').each do |speech|  
+        debate_text   = speech.content
+        debate_id     = speech.xpath('@id').to_s
+        debate_speaker_name  = speech.xpath('@speakername')
+        debate_url = speech.xpath('@url').to_s
+        
+        minor_heading = ""
+        major_heading = ""
+        
+        debate_date = ""
+        if debate_id =~ /(\d{4}\-\d{2}\-\d{2})/
+          debate_date = $1
+        end
+        
+        minor_heading = get_minor_heading(speech)
+        major_heading = get_major_heading(speech)
+        if minor_heading =~ /(\[.*in the Chair.*\])()/
+          minor_heading = minor_heading.gsub($1,"").strip
+          minor_heading = minor_heading.gsub("\n", "")
+          minor_heading = HTMLEntities.new.encode(minor_heading, :decimal)
+          minor_heading = minor_heading.gsub('&#8212;', "").strip
+          minor_heading = minor_heading.gsub('&#9;', "").strip
+
+        end
+        
+        debate_title = "Debate on #{minor_heading}".strip
+        
+        item = Item.find_by_title_and_kind_and_created_at(debate_title, 'Westminster Hall Debate', debate_date)
+        unless item
+          item = Item.new (
+            :url => debate_url,
+            :title => debate_title,
+            :kind => 'Westminster Hall Debate'
+          )
+          unless debate_date.blank?
+            item.created_at = debate_date
+            item.updated_at = debate_date
+          end
+          log << "\ni"
+        end
+        
+        term_extractor = TextParser.new(debate_text)
+        add_placetags(term_extractor.terms, item, log)
+
+        unless item.placetags.empty?
+          item.save
+          log << "s"
+        end
+      end
     end
   end
 
@@ -230,20 +282,8 @@ module ParlyTags::DataLoader
           wms_date = $1
         end
         
-        last = speech.previous_sibling
-        while (last && last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
-          last = last.previous_sibling
-        end
-        if last.to_s[0..13] == "<minor-heading"
-          minor_heading = last.inner_text.strip
-        end
-        
-        while (last && last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
-          last = last.previous_sibling
-        end
-        if last.to_s[0..13] == "<major-heading"
-          major_heading = last.inner_text.strip
-        end
+        minor_heading = get_minor_heading(speech)
+        major_heading = get_major_heading(speech)
         
         item = Item.new (
           :url => wms_url,
@@ -290,6 +330,26 @@ module ParlyTags::DataLoader
             log << "p"
           end
         end
+      end
+    end
+    
+    def get_minor_heading section
+      last = section.previous_sibling
+      while (last && last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
+        last = last.previous_sibling
+      end
+      if last.to_s[0..13] == "<minor-heading"
+        return last.inner_text.strip
+      end
+    end
+    
+    def get_major_heading section
+      last = section.previous_sibling
+      while (last && last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
+        last = last.previous_sibling
+      end
+      if last.to_s[0..13] == "<major-heading"
+         return last.inner_text.strip
       end
     end
 end
