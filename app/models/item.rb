@@ -35,6 +35,26 @@ class Item < ActiveRecord::Base
     end
   end
   
+  def display_url
+    text = url.gsub("http://","")
+    text = text.gsub("https://","")
+    if text.length > 70
+      while text.length > 66
+        parts = text.split("/")
+        last_part = parts.pop
+        parts.pop
+        parts << last_part
+        text = parts.join("/")
+      end
+      parts = text.split("/")
+      last_part = parts.pop
+      parts << "..."
+      parts << last_part
+      text = parts.join("/")
+    end
+    return text
+  end
+  
   def placenames
     names = placetags.collect { |x| x.name.gsub(/^County of /, '') }
     names.uniq
