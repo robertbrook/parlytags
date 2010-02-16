@@ -22,6 +22,15 @@ class Item < ActiveRecord::Base
     end
   end
   
+  def age
+    days = (Time.now.to_date - created_at.to_date).to_i
+    if days == 0
+      "Today"
+    else
+      "#{days} days ago"
+    end
+  end
+  
   def placenames
     names = placetags.collect { |x| x.name.gsub(/^County of /, '') }
     names.uniq
