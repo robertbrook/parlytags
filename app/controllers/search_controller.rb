@@ -1,15 +1,28 @@
+require 'open-uri'
+
 class SearchController < ApplicationController
   
   def index
+    url = "http://maps.google.com" 
+    @has_connection = true
+    
+    begin
+      open(url)
+    rescue
+      @has_connection = false
+    end
+    
     term = params[:q]
     if term
       term = do_search(term.strip)
       if @place.blank?
         @place = nil
       else
-        @map = GMap.new("map")
-        @map.control_init(:large_map => true,:map_type => false)
-        @map.center_zoom_init([@place.lat, @place.lng], @place.zoom_level)
+        if @has_connection
+          @map = GMap.new("map")
+          @map.control_init(:large_map => true,:map_type => false)
+          @map.center_zoom_init([@place.lat, @place.lng], @place.zoom_level)
+        end
       end
     end
   end
@@ -27,9 +40,14 @@ class SearchController < ApplicationController
         @place = places.first
         @place_title = get_place_title(@place)
         @results = @place.find_nearby_items(10)
-      else
-        @ukparliament_twitter_results = do_ukparliament_twitter_search(term)
-        # @hansard_archive_results = do_hansard_archive_search(term)
+      end
+      # @hansard_archive_results = do_hansard_archive_search(term)
+      if @has_connection
+        begin
+          @ukparliament_twitter_results = do_ukparliament_twitter_search(term)
+        rescue
+          #ignore ther error
+        end
       end
       term
     end

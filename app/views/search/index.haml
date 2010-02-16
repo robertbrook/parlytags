@@ -4,9 +4,9 @@
   %h2.map_title= @place_title
   - if @results && !@results.empty?  
     %span.nearby
-      = "Including places nearby"
-
-  #map
+      = "Including places nearby"      
+  - if @has_connection
+    #map
 
   -unless @place.alternative_places.empty?
     %p.alternative-places
