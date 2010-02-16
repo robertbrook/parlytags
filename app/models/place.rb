@@ -10,6 +10,18 @@ class Place < ActiveRecord::Base
       if places.empty?
         places = find_all_by_ascii_name(term, :conditions => "feature_code != 'BNK'", :order => "feature_class")
       end
+      unless places.empty?
+        append = []
+        places.each do |place|
+          if place.feature_code == "AIRP"
+            append << place
+          end
+        end
+        append.each do |place|
+          places.delete(place)
+          places << place
+        end
+      end
       other_places = find(
         :all,
         :conditions => "feature_code != 'BNK' and (alternate_names = \'#{term.gsub("'", "\\\\'")}\' or alternate_names like \'#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")}\')",
@@ -29,7 +41,10 @@ class Place < ActiveRecord::Base
   end
   
   def display_name
-    ascii_name.gsub(/^County of /, "")
+    return ascii_name.gsub(/^County of /, "")
+    if feature_code == "AIRP"
+      return "#{ascii_name} Airport"
+    end
   end
   
   def county_name
