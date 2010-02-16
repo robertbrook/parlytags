@@ -3,13 +3,13 @@ require 'open-uri'
 class SearchController < ApplicationController
   
   def index
-    url = "http://maps.google.com" 
     @has_connection = true
-    
-    begin
-      open(url)
-    rescue
-      @has_connection = false
+    if RAILS_ENV == "development"
+      begin
+        open("http://maps.google.com")
+      rescue
+        @has_connection = false
+      end
     end
     
     term = params[:q]
@@ -46,7 +46,7 @@ class SearchController < ApplicationController
         begin
           @ukparliament_twitter_results = do_ukparliament_twitter_search(term)
         rescue
-          #ignore ther error
+          #ignore the error
         end
       end
       term
@@ -57,9 +57,9 @@ class SearchController < ApplicationController
     end
     
     # def do_hansard_archive_search term
-    #       results = Hash.from_xml(open("http://hansard.millbanksystems.com/search/" + URI.escape(term.strip) + ".atom").read)
-    #       results
-    #     end
+    #   results = Hash.from_xml(open("http://hansard.millbanksystems.com/search/" + URI.escape(term.strip) + ".atom").read)
+    #   results
+    # end
     
     def do_place_search term
       places = Place.find_all_by_ascii_name_or_alternate_names(term)

@@ -24,10 +24,14 @@ class Item < ActiveRecord::Base
   
   def age
     days = (Time.now.to_date - created_at.to_date).to_i
-    if days == 0
-      "Today"
-    else
-      "#{days} days ago"
+    puts days
+    case days
+      when 0
+        return "Today"
+      when 1
+        return "Yesterday"
+      else
+        return "#{days} days ago"
     end
   end
   
