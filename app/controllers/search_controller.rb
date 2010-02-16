@@ -53,7 +53,15 @@ class SearchController < ApplicationController
     end
     
     def do_ukparliament_twitter_search term
-      ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
+      results = ActiveSupport::JSON.decode(open("http://search.twitter.com/search.json?q=" + URI.escape(term.strip) + "&from=ukparliament").read)["results"]
+      results.each do |result|
+        html = result["text"]
+        html.scan(/http:\/\/\S*/).each do |match|
+          html.gsub!(match, "<a href='#{match}'>#{match}</a>")
+        end
+        result["text"] = html
+      end
+      results
     end
     
     # def do_hansard_archive_search term
