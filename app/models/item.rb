@@ -52,7 +52,7 @@ class Item < ActiveRecord::Base
       parts << last_part
       text = parts.join("/")
     end
-    return text
+    text
   end
   
   def placenames

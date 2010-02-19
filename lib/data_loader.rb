@@ -5,8 +5,6 @@ module ParlyTags; end
 module ParlyTags::DataLoader
   
   DATA_DIR = File.expand_path(File.dirname(__FILE__) + '/../data')
-  EDMS_FILES = ["#{DATA_DIR}/edms/2009-2010.xml"] 
-  WMS_FILES = Dir.glob("#{DATA_DIR}/wms/*.xml")
   GEO_FILE = "#{DATA_DIR}/GB.txt"
   CONSTITUENCY_FILE = "#{DATA_DIR}/constituencies.txt"
 
@@ -24,7 +22,7 @@ module ParlyTags::DataLoader
     log << "\nloaded wms data\nloading written answers"
     load_written_answers
     log << "\nloaded written answers\n"
-    load_westminster_hall
+    load_westminster_hall_debates
     log << "\nloaded westminster hall debates"
   end
   
@@ -90,8 +88,9 @@ module ParlyTags::DataLoader
       "1989-1990" => "693"
       }
     
-    EDMS_FILES.each do |file|
-      # TODO: check file actually exists!
+    edms_files = Dir.glob(RAILS_ROOT + '/data/edms/*.xml')
+    
+    edms_files.each do |file|
       doc = Nokogiri::XML(open(file))
     
       doc.xpath('//motion').each do |motion|  
@@ -136,7 +135,7 @@ module ParlyTags::DataLoader
   def load_written_answers
     log = Logger.new(STDOUT)
     
-    files = ["#{DATA_DIR}/written-answers/answers2010-02-10a.xml"]
+    files = Dir.glob(RAILS_ROOT + '/data/written-answers/*.xml')
     
     files.each do |file|
       doc = Nokogiri::XML(open(file))
@@ -198,7 +197,7 @@ module ParlyTags::DataLoader
   def load_westminster_hall_debates
     log = Logger.new(STDOUT)
   
-    files = ["#{DATA_DIR}/westminster-hall/westminster2010-02-10a.xml"]
+    files = Dir.glob(RAILS_ROOT + '/data/westminster-hall/*.xml')
   
     files.each do |file|
       log << "\n"
@@ -260,8 +259,10 @@ module ParlyTags::DataLoader
     Item.delete_all("kind = 'WMS'")
     
     log = Logger.new(STDOUT)
+    
+    wms_files = Dir.glob(RAILS_ROOT + '/data/wms/*.xml')
   
-    WMS_FILES.each do |file|
+    wms_files.each do |file|
       log << "\n"
       log << File.basename(file)
       doc = Nokogiri::XML(open(file))
