@@ -37,6 +37,11 @@ namespace :parlytags do
     load_westminster_hall_debates
   end
   
+  desc "Populate data for Hansard Debates in DB"
+  task :load_debates => :environment do
+    load_debates
+  end
+  
   desc "Populate data for WMS Items in DB"
   task :load_wms => :environment do
     load_wms
