@@ -193,6 +193,15 @@ module ParlyTags::DataLoader
       log << "\n"
     end
   end
+  
+  def load_debates
+    parser = DebateParser.new()
+    
+    files = [RAILS_ROOT + '/data/debates/debates2010-02-09b.xml']
+    files.each do |file|
+      parser.parse_debate_file file, "Hansard Debate"
+    end
+  end
 
   def load_westminster_hall_debates
     log = Logger.new(STDOUT)
@@ -225,7 +234,6 @@ module ParlyTags::DataLoader
           minor_heading = HTMLEntities.new.encode(minor_heading, :decimal)
           minor_heading = minor_heading.gsub('&#8212;', "").strip
           minor_heading = minor_heading.gsub('&#9;', "").strip
-
         end
         
         debate_title = "Debate on #{minor_heading}".strip
