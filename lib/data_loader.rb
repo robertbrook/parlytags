@@ -1,11 +1,10 @@
 require 'nokogiri'
+require 'htmlentities'
 
 module ParlyTags; end
 module ParlyTags::DataLoader
   
   DATA_DIR = File.expand_path(File.dirname(__FILE__) + '/../data')
-  EDMS_FILES = ["#{DATA_DIR}/edms/2009-2010.xml"] 
-  WMS_FILES = Dir.glob("#{DATA_DIR}/wms/*.xml")
   GEO_FILE = "#{DATA_DIR}/GB.txt"
   CONSTITUENCY_FILE = "#{DATA_DIR}/constituencies.txt"
 
@@ -23,6 +22,8 @@ module ParlyTags::DataLoader
     log << "\nloaded wms data\nloading written answers"
     load_written_answers
     log << "\nloaded written answers\n"
+    load_westminster_hall_debates
+    log << "\nloaded westminster hall debates"
   end
   
   def load_places
@@ -87,8 +88,9 @@ module ParlyTags::DataLoader
       "1989-1990" => "693"
       }
     
-    EDMS_FILES.each do |file|
-      # TODO: check file actually exists!
+    edms_files = Dir.glob(RAILS_ROOT + '/data/edms/*.xml')
+    
+    edms_files.each do |file|
       doc = Nokogiri::XML(open(file))
     
       doc.xpath('//motion').each do |motion|  
@@ -133,7 +135,7 @@ module ParlyTags::DataLoader
   def load_written_answers
     log = Logger.new(STDOUT)
     
-    files = ["#{DATA_DIR}/written-answers/answers2010-02-10a.xml"]
+    files = Dir.glob(RAILS_ROOT + '/data/written-answers/*.xml')
     
     files.each do |file|
       doc = Nokogiri::XML(open(file))
@@ -162,20 +164,8 @@ module ParlyTags::DataLoader
         
         speaker = question.xpath('@speakername').to_s
         
-        last = question.previous_sibling
-        while (last && last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
-          last = last.previous_sibling
-        end
-        if last.to_s[0..13] == "<minor-heading"
-          minor_heading = last.inner_text.strip
-        end
-        
-        while (last && last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
-          last = last.previous_sibling
-        end
-        if last.to_s[0..13] == "<major-heading"
-          major_heading = last.inner_text.strip
-        end
+        minor_heading = get_minor_heading(question)
+        major_heading = get_major_heading(question)
         
         title = "#{major_heading} #{minor_heading} #{question_number} - #{speaker}"
         
@@ -204,12 +194,75 @@ module ParlyTags::DataLoader
     end
   end
 
+  def load_westminster_hall_debates
+    log = Logger.new(STDOUT)
+  
+    files = Dir.glob(RAILS_ROOT + '/data/westminster-hall/*.xml')
+  
+    files.each do |file|
+      log << "\n"
+      log << File.basename(file)
+      doc = Nokogiri::XML(open(file))
+      doc.xpath('//speech').each do |speech|  
+        debate_text   = speech.content
+        debate_id     = speech.xpath('@id').to_s
+        debate_speaker_name  = speech.xpath('@speakername')
+        debate_url = speech.xpath('@url').to_s
+        
+        minor_heading = ""
+        major_heading = ""
+        
+        debate_date = ""
+        if debate_id =~ /(\d{4}\-\d{2}\-\d{2})/
+          debate_date = $1
+        end
+        
+        minor_heading = get_minor_heading(speech)
+        major_heading = get_major_heading(speech)
+        if minor_heading =~ /(\[.*in the Chair.*\])()/
+          minor_heading = minor_heading.gsub($1,"").strip
+          minor_heading = minor_heading.gsub("\n", "")
+          minor_heading = HTMLEntities.new.encode(minor_heading, :decimal)
+          minor_heading = minor_heading.gsub('&#8212;', "").strip
+          minor_heading = minor_heading.gsub('&#9;', "").strip
+
+        end
+        
+        debate_title = "Debate on #{minor_heading}".strip
+        
+        item = Item.find_by_title_and_kind_and_created_at(debate_title, 'Westminster Hall Debate', debate_date)
+        unless item
+          item = Item.new (
+            :url => debate_url,
+            :title => debate_title,
+            :kind => 'Westminster Hall Debate'
+          )
+          unless debate_date.blank?
+            item.created_at = debate_date
+            item.updated_at = debate_date
+          end
+          log << "\ni"
+        end
+        
+        term_extractor = TextParser.new(debate_text)
+        add_placetags(term_extractor.terms, item, log)
+
+        unless item.placetags.empty?
+          item.save
+          log << "s"
+        end
+      end
+    end
+  end
+
   def load_wms
     Item.delete_all("kind = 'WMS'")
     
     log = Logger.new(STDOUT)
+    
+    wms_files = Dir.glob(RAILS_ROOT + '/data/wms/*.xml')
   
-    WMS_FILES.each do |file|
+    wms_files.each do |file|
       log << "\n"
       log << File.basename(file)
       doc = Nokogiri::XML(open(file))
@@ -230,20 +283,8 @@ module ParlyTags::DataLoader
           wms_date = $1
         end
         
-        last = speech.previous_sibling
-        while (last && last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
-          last = last.previous_sibling
-        end
-        if last.to_s[0..13] == "<minor-heading"
-          minor_heading = last.inner_text.strip
-        end
-        
-        while (last && last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
-          last = last.previous_sibling
-        end
-        if last.to_s[0..13] == "<major-heading"
-          major_heading = last.inner_text.strip
-        end
+        minor_heading = get_minor_heading(speech)
+        major_heading = get_major_heading(speech)
         
         item = Item.new (
           :url => wms_url,
@@ -290,6 +331,26 @@ module ParlyTags::DataLoader
             log << "p"
           end
         end
+      end
+    end
+    
+    def get_minor_heading section
+      last = section.previous_sibling
+      while (last && last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
+        last = last.previous_sibling
+      end
+      if last.to_s[0..13] == "<minor-heading"
+        return last.inner_text.strip
+      end
+    end
+    
+    def get_major_heading section
+      last = section.previous_sibling
+      while (last && last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
+        last = last.previous_sibling
+      end
+      if last.to_s[0..13] == "<major-heading"
+         return last.inner_text.strip
       end
     end
 end
