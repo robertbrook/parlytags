@@ -3,6 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper.rb'
 describe Place do
   
   describe 'when asked to find by ascii_name or alternate_names' do
+        
     it 'should correctly escape the search term' do
       term = "Her Majesty's Opposition's"
       Place.should_receive(:find_all_by_ascii_name).with("Her Majesty\'s Opposition\'s", {:order => "feature_class", :conditions => "feature_code != 'BNK'"}).and_return([mock_model(Place)])
@@ -164,6 +165,8 @@ describe Place do
       @county1 = mock_model(Place, :ascii_name => "Hertfordshire")
       @county2 = mock_model(Place, :ascii_name => "Middlesex")
     end
+    
+    it 'should not provide a county name that is the same as the ascii_name'
     
     it 'should return the name of the nearest county when there is an array of counties' do
       @place.stub!(:ascii_name).and_return("West Drayton")
