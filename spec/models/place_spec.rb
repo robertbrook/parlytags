@@ -166,7 +166,13 @@ describe Place do
       @county2 = mock_model(Place, :ascii_name => "Middlesex")
     end
     
-    it 'should not provide a county name that is the same as the ascii_name'
+    it 'should not provide a county name that is the same as the ascii_name' do
+      @place.should_receive(:ascii_name).and_return("Hertfordshire")
+      @place.stub!(:admin2_code).and_return("F8")
+      Place.should_receive(:find_all_by_feature_code_and_admin2_code_and_admin1_code).with("ADM2", "F8", "ENG").and_return([@county1])
+      
+      @place.county_name.should == nil
+    end
     
     it 'should return the name of the nearest county when there is an array of counties' do
       @place.stub!(:ascii_name).and_return("West Drayton")

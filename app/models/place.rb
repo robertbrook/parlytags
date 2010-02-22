@@ -51,14 +51,17 @@ class Place < ActiveRecord::Base
     if ["AREA", "A", "ADM1", "ADM2", "ISL","ADMD", "PCLI"].include?(feature_code)
       return nil
     end
+    county = nil
     counties = possible_counties
     if counties && counties.size > 0
-      return counties.first.ascii_name.gsub(/^County of /, "")
+      county = counties.first.ascii_name.gsub(/^County of /, "")
     end
     if (counties.nil? || counties.size == 0) && feature_code == "PPLX"
       city = find_nearest_city()
-      return city.ascii_name if city
+      county = city.ascii_name if city
     end
+    return nil if county == ascii_name
+    county
   end
   
   def country_name
