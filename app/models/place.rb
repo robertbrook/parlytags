@@ -98,7 +98,9 @@ class Place < ActiveRecord::Base
         else
           10
         end
-      when "ADMD", "PCLI"
+      when "ADMD"
+        8
+      when "PCLI"
         5
       when "MNMT", "MUS"
         17
