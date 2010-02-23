@@ -24,6 +24,8 @@ module ParlyTags::DataLoader
     log << "\nloaded written answers\n"
     load_westminster_hall_debates
     log << "\nloaded westminster hall debates"
+    load_debates
+    log << "\nloaded debates"
   end
   
   def load_places
