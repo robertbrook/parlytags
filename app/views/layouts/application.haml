@@ -7,16 +7,27 @@
       = @map.to_html
   %body
     #header 
-      #search
-        - form_tag(search_url, :name => 'search', :method => :get) do
-          = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :accesskey => 's'
-          = submit_tag 'Find'
+      - form_tag(search_url, :name => 'search', :method => :get) do
+        = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :accesskey => 's'
+        = submit_tag 'Find'
     #content
       = yield      
     #footer
-      = link_to_unless_current "ParlyTags", root_path
-      is a prototype from the UK Parliament.
-      = yield :footer
+      %strong= link_to_unless_current "ParlyTags", root_path
+      is a prototype for searching by place names from the UK Parliament.
+      %br
+      %br
+      The <a href="http://github.com/robertbrook/parlytags">source code</a> for this site is available to download.
+      %br
+      We welcome feedback at <a href="mailto:mail@robertbrook.com">mail@robertbrook.com</a>.
+      %br
+      Material is published on this site under <a href="http://www.parliament.uk/site_information/parliamentary_copyright.cfm">Parliamentary copyright</a>
+      %br
+      The place names recognised are from <a href="http://www.geonames.org">GeoNames</a> data.
+      %br
+      EDMs are displayed using data from <a href="http://www.edms.org.uk">edms.org.uk</a>.
+      %br
+      Westminster Hall Debates, Written Ministerial Statements and Written Answers are displayed using data from the <a href="http://ukparse.kforge.net/parlparse/">Parliament Parser (parlparse)</a> project.
       
     
   
