@@ -6,8 +6,7 @@
       = GMap.header
       = @map.to_html
   %body
-    #header
-      #home= link_to_unless_current "PARLYTAGS", root_path  
+    #header 
       #search
         - form_tag(search_url, :name => 'search', :method => :get) do
           = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :accesskey => 's'
@@ -15,6 +14,8 @@
     #content
       = yield      
     #footer
+      = link_to_unless_current "ParlyTags", root_path
+      is a prototype from the UK Parliament.
       = yield :footer
       
     
