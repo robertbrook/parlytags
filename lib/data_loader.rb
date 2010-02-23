@@ -204,62 +204,12 @@ module ParlyTags::DataLoader
   end
 
   def load_westminster_hall_debates
-    log = Logger.new(STDOUT)
-  
+    parser = DebateParser.new()
+    
     files = Dir.glob(RAILS_ROOT + '/data/westminster-hall/*.xml')
   
     files.each do |file|
-      log << "\n"
-      log << File.basename(file)
-      doc = Nokogiri::XML(open(file))
-      doc.xpath('//speech').each do |speech|  
-        debate_text   = speech.content
-        debate_id     = speech.xpath('@id').to_s
-        debate_speaker_name  = speech.xpath('@speakername')
-        debate_url = speech.xpath('@url').to_s
-        
-        minor_heading = ""
-        major_heading = ""
-        
-        debate_date = ""
-        if debate_id =~ /(\d{4}\-\d{2}\-\d{2})/
-          debate_date = $1
-        end
-        
-        minor_heading = get_minor_heading(speech)
-        major_heading = get_major_heading(speech)
-        if minor_heading =~ /(\[.*in the Chair.*\])()/
-          minor_heading = minor_heading.gsub($1,"").strip
-          minor_heading = minor_heading.gsub("\n", "")
-          minor_heading = HTMLEntities.new.encode(minor_heading, :decimal)
-          minor_heading = minor_heading.gsub('&#8212;', "").strip
-          minor_heading = minor_heading.gsub('&#9;', "").strip
-        end
-        
-        debate_title = "Debate on #{minor_heading}".strip
-        
-        item = Item.find_by_title_and_kind_and_created_at(debate_title, 'Westminster Hall Debate', debate_date)
-        unless item
-          item = Item.new (
-            :url => debate_url,
-            :title => debate_title,
-            :kind => 'Westminster Hall Debate'
-          )
-          unless debate_date.blank?
-            item.created_at = debate_date
-            item.updated_at = debate_date
-          end
-          log << "\ni"
-        end
-        
-        term_extractor = TextParser.new(debate_text)
-        add_placetags(term_extractor.terms, item, log)
-
-        unless item.placetags.empty?
-          item.save
-          log << "s"
-        end
-      end
+     parser.parse_debate_file file, "Westminster Hall Debate"
     end
   end
 
