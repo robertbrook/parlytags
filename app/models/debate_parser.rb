@@ -109,7 +109,7 @@ class DebateParser
     
     item = Item.find_by_title_and_kind_and_created_at(debate_title, debate_type, debate_date)
     unless item
-      item = Item.new (
+      item = Item.new(
         :url => debate_url,
         :title => debate_title,
         :kind => debate_type
