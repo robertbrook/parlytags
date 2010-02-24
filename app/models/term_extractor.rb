@@ -1,4 +1,4 @@
-class TextParser
+class TermExtractor
   attr  :text, true
   
   def initialize(input_text)
@@ -128,6 +128,7 @@ class TextParser
       return false if term.nil?
       return false unless term.to_i == 0
       return false unless remove_punctuation(term).length > 2
+      term = remove_punctuation(term)
       return false if is_stop_phrase?(term)
       parts = term.strip.split(" ")
       return false if joining_word?(parts.last)
@@ -148,7 +149,7 @@ class TextParser
           "November", "December", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "EDM", "Her Majesty's Ministers",
           "They", "They're", "That", "That'll", "There", "Additionally", "Between", "Written Answer", "Our",
           "United Kingdom", "British Isles", "Post Office", "President", "West Bank", "Queen", "Crown", "Commons",
-          "President", "Britain", "Great Britain", "Royal", "House", "Over", "More"]
+          "Britain", "Great Britain", "Royal", "House", "Over", "More"]
       stop_phrases.include?(term.strip)
     end
     

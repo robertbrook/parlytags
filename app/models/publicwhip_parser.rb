@@ -1,8 +1,8 @@
 require 'hpricot'
 require 'htmlentities'
 
-class DebateParser
-  def parse_debate_file file, type, log=nil
+class PublicwhipParser
+  def parse_file file, type, log=nil
     unless log
       @log = Logger.new(STDOUT)
     else
@@ -63,31 +63,36 @@ class DebateParser
   def handle_speech element
     debate_type = @type
     
-    if @oral_answers
-     debate_type= "Oral Answer"
+    if @type == 'WMS'
+      wms_speaker_name = element.attributes['speakername']
+      wms_speaker_office = element.attributes['speakeroffice']
+      debate_title = "#{@major_heading} #{@minor_heading} - #{wms_speaker_name} - #{wms_speaker_office}".strip
     else
-     debate_title = "Debate -"
-    end
- 
-    unless @major_heading.blank?
-      if @major_heading =~ /^BILL PRESENTED\s*(?:-)*\s*(.*)/
-        debate_title = "#{$1}".strip
-        @major_heading = ''
-      elsif @major_heading =~ /^PETITIONS\s*(?:-)*\s*(.*)/
-        debate_title = $1.strip
-        debate_type = "Petition"
-      else
-        debate_title = "#{debate_title} #{@major_heading}".strip
+      if @oral_answers
+       debate_type= "Oral Answer"
+       debate_title = "Debate -"
       end
-    end
  
-    unless @minor_heading.blank?
-      if debate_title.blank?
-        debate_title = @minor_heading.strip
-      elsif @major_heading.blank?
-        debate_title = "#{debate_title} #{@minor_heading}".strip
-      else
-        debate_title = "#{debate_title} - #{@minor_heading}".strip
+      unless @major_heading.blank?
+        if @major_heading =~ /^BILL PRESENTED\s*(?:-)*\s*(.*)/
+          debate_title = "#{$1}".strip
+          @major_heading = ''
+        elsif @major_heading =~ /^PETITIONS\s*(?:-)*\s*(.*)/
+          debate_title = $1.strip
+          debate_type = "Petition"
+        else
+          debate_title = "#{debate_title} #{@major_heading}".strip
+        end
+      end
+ 
+      unless @minor_heading.blank?
+        if debate_title.blank?
+          debate_title = @minor_heading.strip
+        elsif @major_heading.blank?
+          debate_title = "#{debate_title} #{@minor_heading}".strip
+        else
+          debate_title = "#{debate_title} - #{@minor_heading}".strip
+        end
       end
     end
     
@@ -106,6 +111,10 @@ class DebateParser
     debate_url = element.attributes['url']
     
     debate_text = element.inner_text.strip
+    #puts ""
+    #puts debate_text
+    #puts ""
+    #puts "****"
     
     item = Item.find_by_title_and_kind_and_created_at(debate_title, debate_type, debate_date)
     unless item
@@ -121,7 +130,7 @@ class DebateParser
       @log << "\ni"
     end
     
-    term_extractor = TextParser.new(debate_text)
+    term_extractor = TermExtractor.new(debate_text)
     add_placetags(term_extractor.terms, item)
 
     unless item.placetags.empty?

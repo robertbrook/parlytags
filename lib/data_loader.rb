@@ -121,7 +121,7 @@ module ParlyTags::DataLoader
         end
         log << "i"
 
-        term_extractor = TextParser.new(edm_text)
+        term_extractor = TermExtractor.new(edm_text)
         add_placetags(term_extractor.terms, item, log)
 
         unless item.placetags.empty?
@@ -184,7 +184,7 @@ module ParlyTags::DataLoader
         end
         log << "i"
         
-        term_extractor = TextParser.new(question_text + " " + answer_text)
+        term_extractor = TermExtractor.new(question_text + " " + answer_text)
         add_placetags(term_extractor.terms, item, log)
 
         unless item.placetags.empty?
@@ -197,74 +197,31 @@ module ParlyTags::DataLoader
   end
   
   def load_debates
-    parser = DebateParser.new()
+    parser = PublicwhipParser.new()
     
     files = [RAILS_ROOT + '/data/debates/debates2010-02-09b.xml']
     files.each do |file|
-      parser.parse_debate_file file, "Hansard Debate"
+      parser.parse_file file, "Hansard Debate"
     end
   end
 
   def load_westminster_hall_debates
-    parser = DebateParser.new()
+    parser = PublicwhipParser.new()
     
     files = Dir.glob(RAILS_ROOT + '/data/westminster-hall/*.xml')
   
     files.each do |file|
-     parser.parse_debate_file file, "Westminster Hall Debate"
+      parser.parse_file file, "Westminster Hall Debate"
     end
   end
 
   def load_wms
-    Item.delete_all("kind = 'WMS'")
-    
-    log = Logger.new(STDOUT)
+    parser = PublicwhipParser.new()
     
     wms_files = Dir.glob(RAILS_ROOT + '/data/wms/*.xml')
   
     wms_files.each do |file|
-      log << "\n"
-      log << File.basename(file)
-      doc = Nokogiri::XML(open(file))
-      doc.xpath('//speech').each do |speech|  
-        log << "\n"
-
-        wms_text   = speech.content
-        wms_id     = speech.xpath('@id').to_s
-        wms_speaker_name  = speech.xpath('@speakername')
-        wms_speaker_office  = speech.xpath('@speakeroffice')
-        wms_url = speech.xpath('@url').to_s
-        
-        minor_heading = ""
-        major_heading = ""
-        
-        wms_date = ""
-        if wms_id =~ /(\d{4}\-\d{2}\-\d{2})/
-          wms_date = $1
-        end
-        
-        minor_heading = get_minor_heading(speech)
-        major_heading = get_major_heading(speech)
-        
-        item = Item.new (
-          :url => wms_url,
-          :title => "#{major_heading} #{minor_heading} - #{wms_speaker_name} - #{wms_speaker_office}".strip,
-          :kind => 'WMS'
-        )
-        unless wms_date.blank?
-          item.created_at = wms_date
-          item.updated_at = wms_date
-        end
-        log << "i"
-        
-        term_extractor = TextParser.new(wms_text)
-        add_placetags(term_extractor.terms, item, log)
-
-        unless item.placetags.empty?
-          item.save
-          log << "s"
-        end
-      end
+      parser.parse_file file, "WMS"
     end
   end
   
