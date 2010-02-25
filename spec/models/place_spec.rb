@@ -22,7 +22,7 @@ describe Place do
     it 'should return a single result where there is a direct name match' do
       term = "Big Ben"
       place = mock_model(Place)
-      Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => {:name => 'Big Ben'}, :conditions => "feature_code != 'BNK'").and_return([place])
+      Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => {:name => 'Big Ben'}, :conditions => "feature_code != 'BNK' and feature_code != 'AIRP'").and_return([place])
       Place.should_not_receive(:find).with(:all, :order => "feature_class", :conditions => {:ascii_name => 'Big Ben'})
       Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => "feature_code != 'BNK' and (alternate_names = 'Big Ben' or alternate_names like 'Big Ben,%' or alternate_names like '%,Big Ben,%' or alternate_names like '%,Big Ben')").and_return([])
       
@@ -32,7 +32,7 @@ describe Place do
     it 'should return a single result where there is a direct ascii_name match' do
       term = "Big Ben"
       place = mock_model(Place)
-      Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => {:name => 'Big Ben'}, :conditions => "feature_code != 'BNK'").and_return([])
+      Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => {:name => 'Big Ben'}, :conditions => "feature_code != 'BNK' and feature_code != 'AIRP'").and_return([])
       Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => {:ascii_name => 'Big Ben'}, :conditions => "feature_code != 'BNK'").and_return([place])
       Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => "feature_code != 'BNK' and (alternate_names = 'Big Ben' or alternate_names like 'Big Ben,%' or alternate_names like '%,Big Ben,%' or alternate_names like '%,Big Ben')").and_return []
       
@@ -42,7 +42,7 @@ describe Place do
     it 'should return a single result where there is one match within alternate_names' do
       term = "Essex"
       place = mock_model(Place, :name => 'County of Essex', :alternate_names => 'Essex', :feature_code => 'ADM2')
-      Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => {:name => 'Essex'}, :conditions => "feature_code != 'BNK'").and_return([])
+      Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => {:name => 'Essex'}, :conditions => "feature_code != 'BNK' and feature_code != 'AIRP'").and_return([])
       Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => {:ascii_name => 'Essex'}, :conditions => "feature_code != 'BNK'").and_return([])
       Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => "feature_code != 'BNK' and (alternate_names = 'Essex' or alternate_names like 'Essex,%' or alternate_names like '%,Essex,%' or alternate_names like '%,Essex')").and_return [place]
       
@@ -54,7 +54,7 @@ describe Place do
        place1 = mock_model(Place, :feature_code => 'PPL')
        place2 = mock_model(Place, :feature_code => 'PPL')
        place3 = mock_model(Place, :feature_code => 'PPL')
-       Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => {:name => 'Bedford'}, :conditions => "feature_code != 'BNK'").and_return([])
+       Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => {:name => 'Bedford'}, :conditions => "feature_code != 'BNK' and feature_code != 'AIRP'").and_return([])
        Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => {:ascii_name => 'Bedford'}, :conditions => "feature_code != 'BNK'").and_return([place1])
        Place.should_receive(:find).with(:all, :order => "feature_class", :conditions => "feature_code != 'BNK' and (alternate_names = 'Bedford' or alternate_names like 'Bedford,%' or alternate_names like '%,Bedford,%' or alternate_names like '%,Bedford')").and_return [place2, place1, place3]
 
