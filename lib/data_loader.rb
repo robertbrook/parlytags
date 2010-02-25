@@ -135,64 +135,11 @@ module ParlyTags::DataLoader
   end
   
   def load_written_answers
-    log = Logger.new(STDOUT)
+    parser = PublicwhipParser.new()
     
     files = Dir.glob(RAILS_ROOT + '/data/written-answers/*.xml')
-    
     files.each do |file|
-      doc = Nokogiri::XML(open(file))
-      
-      doc.xpath('//publicwhip/ques').each do |question|
-        question_ref =  question.xpath('@id').to_s
-        answer_ref = question_ref.gsub(".q", ".r")
-        
-        question_date = ""
-        if question_ref =~ /(\d{4}-\d{2}-\d{2})/
-          question_date = $1
-        end
-        
-        question_text = question.inner_text
-        question_url  = question.xpath('@url').to_s
-        
-        question_number = ""
-        question_numbers = question.xpath('p/@qnum')
-        question_numbers.each do |qnum|
-          question_number += "[#{qnum.to_s}]"
-        end
-        question_number.gsub!("][", "], [")
-        
-        answer = doc.xpath("publicwhip/reply[@id='#{answer_ref}']")
-        answer_text = answer.inner_text
-        
-        speaker = question.xpath('@speakername').to_s
-        
-        minor_heading = get_minor_heading(question)
-        major_heading = get_major_heading(question)
-        
-        title = "#{major_heading} #{minor_heading} #{question_number} - #{speaker}"
-        
-        log << "\nWRA - #{question_number} "
-        
-        item = Item.new (
-          :url => question_url,
-          :title => title,
-          :kind => 'Written Answer'
-        )
-        unless question_date.blank?
-          item.created_at = question_date
-          item.updated_at = question_date
-        end
-        log << "i"
-        
-        term_extractor = TermExtractor.new(question_text + " " + answer_text)
-        add_placetags(term_extractor.terms, item, log)
-
-        unless item.placetags.empty?
-          item.save
-          log << "s"
-        end
-      end
-      log << "\n"
+      parser.parse_file file, "Written Answers"
     end
   end
   

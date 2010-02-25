@@ -59,6 +59,74 @@ class PublicwhipParser
     @minor_heading = cleanup_text(@minor_heading)
     @minor_heading.strip!    
   end
+
+  def handle_question element
+    question_ref =  element.attributes['id']
+    @question_date = ""
+    if question_ref =~ /(\d{4}-\d{2}-\d{2})/
+      @question_date = $1
+    end
+    
+    questions = []
+    question_text = ''
+    (element/'p').each do |para|
+      question_text << " #{para.inner_text}"
+      questions << "[#{para.attributes['qnum']}]" if para.attributes['qnum']
+    end
+    
+    speaker = element.attributes['speakername']
+    @question_url = element.attributes['url']
+    
+    @question_title = "#{@major_heading} #{@minor_heading} #{questions.join(', ')} - #{speaker}"
+    
+    @log << "\nWRA - #{questions.join(', ')} "
+    
+    item = Item.new (
+      :url => @question_url,
+      :title => @question_title,
+      :kind => 'Written Answer'
+    )
+    unless @question_date.blank?
+      item.created_at = @question_date
+      item.updated_at = @question_date
+    end
+    @log << "i"
+    
+    term_extractor = TermExtractor.new(question_text)
+    add_placetags(term_extractor.terms, item)
+
+    unless item.placetags.empty?
+      item.save
+      @log << "s"
+    end
+  end
+  
+  def handle_answer element
+    title = @question_title
+    
+    item = Item.find_by_title_and_created_at(title, @question_date)
+    unless item
+      item = Item.new (
+        :url => @question_url,
+        :title => @question_title,
+        :kind => @type
+      )
+      unless @question_date.blank?
+        item.created_at = @question_date
+        item.updated_at = @question_date
+      end
+    end
+    @log << "i"
+    
+    answer_text = element.inner_text
+    term_extractor = TermExtractor.new(answer_text)
+    add_placetags(term_extractor.terms, item)
+    
+    unless item.placetags.empty?
+      item.save
+      @log << "s"
+    end
+  end
   
   def handle_speech element
     debate_type = @type
@@ -111,10 +179,6 @@ class PublicwhipParser
     debate_url = element.attributes['url']
     
     debate_text = element.inner_text.strip
-    #puts ""
-    #puts debate_text
-    #puts ""
-    #puts "****"
     
     item = Item.find_by_title_and_kind_and_created_at(debate_title, debate_type, debate_date)
     unless item
@@ -151,6 +215,10 @@ class PublicwhipParser
           handle_minor_heading element
         when 'speech'
           handle_speech element
+        when 'ques'
+          handle_question element
+        when 'reply'
+          handle_answer element
       end
     end
   end
