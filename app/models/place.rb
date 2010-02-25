@@ -6,22 +6,17 @@ class Place < ActiveRecord::Base
     def find_all_by_ascii_name_or_alternate_names(term)
       original_term = term
       term = term.gsub("'", "\'").strip
-      places = find_all_by_name(term, :conditions => "feature_code != 'BNK'", :order => "feature_class")
+      parts = term.split(" ")
+      if parts.pop.downcase == "airport"
+        place_name = parts.join(" ")
+        places = find_all_by_name_and_feature_code(place_name, "AIRP")
+      else
+        places = find_all_by_name(term, :conditions => "feature_code != 'BNK' and feature_code != 'AIRP'", :order => "feature_class")
+      end
       if places.empty?
         places = find_all_by_ascii_name(term, :conditions => "feature_code != 'BNK'", :order => "feature_class")
       end
-      if !places.empty? && places.size > 1
-        append = []
-        places.each do |place|
-          if place.feature_code == "AIRP"
-            append << place
-          end
-        end
-        append.each do |place|
-          places.delete(place)
-          places << place
-        end
-      end
+      
       other_places = find(
         :all,
         :conditions => "feature_code != 'BNK' and (alternate_names = \'#{term.gsub("'", "\\\\'")}\' or alternate_names like \'#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")}\')",
@@ -41,10 +36,10 @@ class Place < ActiveRecord::Base
   end
   
   def display_name
-    return ascii_name.gsub(/^County of /, "")
-    if feature_code == "AIRP"
+    if feature_code == "AIRP" && !ascii_name =~ /[A|a]irport$/
       return "#{ascii_name} Airport"
     end
+    return ascii_name.gsub(/^County of /, "")
   end
   
   def county_name
@@ -76,8 +71,8 @@ class Place < ActiveRecord::Base
       unless place.id == self.id || 
           place.ascii_name == county_name || 
           place.county_name == county_name || 
-          place.feature_code == "BNK" || place.feature_code == "AIRP" || place.feature_code == "SWT" ||
-          (place.ascii_name.downcase == ascii_name.downcase && place.county_name.nil?)
+          place.feature_code == "BNK" || place.feature_code == "SWT" ||
+          (place.display_name.downcase == display_name.downcase && place.county_name.nil?)
         places << place
       end
     end

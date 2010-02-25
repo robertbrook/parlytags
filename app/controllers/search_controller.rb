@@ -87,18 +87,16 @@ class SearchController < ApplicationController
     end
     
     def get_place_title place
+      place_title = place.display_name
       if place.placetag
-        place_title = place.placetag.name
-        if place.placetag.county
-          place_title = "#{place_title.strip} (#{place.placetag.county.strip})"
-        end
+        county = place.placetag.county
       else
-        place_title = place.display_name
         county = place.county_name
-        if county
-          place_title = "#{place_title.strip}, #{county.strip}"
-        end
       end
+      if county
+        place_title = "#{place_title.strip} (#{county.strip})"
+      end
+      
       place_title
     end
 end
