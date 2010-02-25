@@ -24,7 +24,6 @@ class Item < ActiveRecord::Base
   
   def age
     days = (Time.now.to_date - created_at.to_date).to_i
-    puts days
     case days
       when 0
         return "Today"
