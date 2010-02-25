@@ -57,6 +57,14 @@ describe Item do
       
       item.placenames.should == ["Essex", "City and County of Cardiff"]
     end
+    
+    it 'should not return duplicate placenames' do
+      placetag1 = mock_model(Placetag, :name => 'County of Essex')
+      placetag2 = mock_model(Placetag, :name => 'Essex')
+      item = Item.new(:placetags => [placetag1, placetag2])
+      
+      item.placenames.should == ["Essex"]
+    end
   end
   
   describe 'when asked for a display_url' do
