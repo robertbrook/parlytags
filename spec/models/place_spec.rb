@@ -29,6 +29,14 @@ describe Place do
       Place.find_all_by_ascii_name_or_alternate_names(term).should == [place]
     end
     
+    it 'should return an airport match when the search term ends with "Airport"' do
+      term = "Islay Airport"
+      place = mock_model(Place)
+      Place.should_receive(:find_all_by_name_and_feature_code).with("Islay", "AIRP").and_return([place])
+      
+      Place.find_all_by_ascii_name_or_alternate_names(term).should == [place]
+    end
+    
     it 'should return a single result where there is a direct ascii_name match' do
       term = "Big Ben"
       place = mock_model(Place)
@@ -159,7 +167,7 @@ describe Place do
     end
   end
   
-  describe 'when asked for county' do
+  describe 'when asked for county_name' do
     before do
       @place = Place.new(:admin1_code => "ENG")
       @county1 = mock_model(Place, :ascii_name => "Hertfordshire")
@@ -171,6 +179,14 @@ describe Place do
       @place.stub!(:admin2_code).and_return("F8")
       Place.should_receive(:find_all_by_feature_code_and_admin2_code_and_admin1_code).with("ADM2", "F8", "ENG").and_return([@county1])
       
+      @place.county_name.should == nil
+    end
+    
+    it 'should not provide a county name for a country or an island' do
+      @place.stub!(:feature_code).and_return('ADMD')
+      @place.county_name.should == nil
+      
+      @place.stub!(:feature_code).and_return('ISL')
       @place.county_name.should == nil
     end
     
@@ -195,6 +211,13 @@ describe Place do
     
       @place.county_name.should == "Hertfordshire"
     end
+    
+    it 'should return the nearest city for a suburb' do
+      @place.stub!(:feature_code).and_return('PPLX')
+      Place.should_receive(:find).with(:all, :origin => @place, :within => 5, :units => :kms, :conditions => {:feature_code => 'PPLC'}, :order => 'distance', :limit => 1).and_return([mock_model(Place, :ascii_name => "London")])
+      
+      @place.county_name.should == "London"
+    end
   end
   
   describe 'when asked for country' do
@@ -210,6 +233,145 @@ describe Place do
     it 'should return nil where there is no matching country record' do
       Place.should_receive(:find_by_feature_code_and_admin1_code).with("ADM1", "ENG").and_return(nil)
       @place.country_name.should == nil
+    end
+  end
+
+  describe 'when asked for display_name' do
+    it 'should remove "County of " from the start of the name' do
+      place = Place.new(:ascii_name => 'County of Essex', :feature_code => 'PPL')
+      place.display_name.should == "Essex"
+    end
+    
+    it 'should not remove "County of " from the middle of the name' do
+      place = Place.new(:ascii_name => 'City and County of Cardiff', :feature_code => 'PPL')
+      place.display_name.should == "City and County of Cardiff"
+    end
+    
+    it 'should append " Airport" to the name if the place is an airport' do
+      place = Place.new(:ascii_name => 'Islay', :feature_code => 'AIRP')
+      place.display_name.should == "Islay Airport"
+    end
+    
+    it 'should not append " Airport" if the name already ends with " Airport"' do
+      place = Place.new(:ascii_name => 'Luton Airport', :feature_code => 'AIRP')
+      place.display_name.should == "Luton Airport"
+    end
+  end
+  
+  describe 'when asked for alternative_places' do
+    before do
+      @place = Place.new(:ascii_name => "Sudbury", :id => 4)
+      @place.stub!(:county_name => "Suffolk", :feature_code => "PPL")
+      @place.stub!(:display_name => "Sudbury (Suffolk)")
+      
+      @alt_place1 = mock_model(Place, :ascii_name => "Sudbury", :feature_code => "PPL")
+      @alt_place1.stub!(:county_name => "Staffordshire")
+      @alt_place1.stub!(:display_name => "Sudbury (Staffordshire)")
+      
+      @alt_place2 = mock_model(Place, :ascii_name => "Sudbury", :feature_code => "PPL")
+      @alt_place2.stub!(:county_name => "Greater London")
+      @alt_place2.stub!(:display_name => "Sudbury (Greater London)")
+      
+      @alt_place3 = mock_model(Place, :ascii_name => "Sudbury Bank", :feature_code => "BNK")
+      @alt_place3.stub!(:county_name => "Greater London")
+      
+      @alt_place4 = mock_model(Place, :ascii_name => "Sudbury", :feature_code => "PPL")
+      @alt_place4.stub!(:county_name => "Suffolk")
+      @alt_place4.stub!(:display_name => "Sudbury (Suffolk)")
+      
+      @alt_place5 = mock_model(Place, :ascii_name => "Sudbury", :feature_code => "PPL")
+      @alt_place5.stub!(:display_name => "Sudbury")
+      @alt_place5.stub!(:county_name => nil)
+      
+      @alt_place6 = mock_model(Place, :ascii_name => "Sudbury End", :feature_code => "PPL")
+      @alt_place6.stub!(:county_name => "Suffolk")
+      @alt_place6.stub!(:display_name => "Sudbury End (Suffolk)")
+    end
+    
+    it 'should return an empty array where no alternative places are found' do
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([])
+      @place.alternative_places.should == []
+    end
+    
+    it 'should return a list of places where valid alternative places are found' do
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2])
+      @place.alternative_places.should == [@alt_place1, @alt_place2]
+    end
+    
+    it 'should not include itself in the list' do
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2, @place])
+      @place.alternative_places.should == [@alt_place1, @alt_place2]
+    end
+    
+    it 'should not include sandbanks in the list' do
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2, @alt_place3])
+      @place.alternative_places.should == [@alt_place1, @alt_place2]
+    end
+    
+    it 'should not include places with the same display name and county in the list' do
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2, @alt_place4])
+      @place.alternative_places.should == [@alt_place1, @alt_place2]
+    end
+    
+    it 'should not include places that have a matching ascii_name but not county name' do
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2, @alt_place5])
+      @place.alternative_places.should == [@alt_place1, @alt_place2]
+    end
+    
+    it 'should include places from the same county that have a different display name' do
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2, @alt_place6])
+      @place.alternative_places.should == [@alt_place1, @alt_place2, @alt_place6]
+    end
+    
+  end
+
+  describe 'when asked for zoom level' do
+    it 'should return 13 when place is a major city' do
+      @place = Place.new(:feature_code => 'PPLC')
+      @place.zoom_level.should == 13
+    end
+    
+    it 'should return 17 when place is a monument' do
+      @place = Place.new(:feature_code => 'MNMT')
+      @place.zoom_level.should == 17
+    end
+    
+    it 'should return 10 when place is an island' do
+      @place = Place.new(:feature_code => 'ISL', :name => 'Orkney')
+      @place.zoom_level.should == 10
+    end
+    
+    it 'should return 6 when place a country' do
+      @place = Place.new(:feature_code => 'ISL', :name => 'Ireland')
+      @place.zoom_level.should == 6
+      
+      @place = Place.new(:feature_code => 'AREA')
+      @place.zoom_level.should == 6
+    end
+    
+    it 'should return 10 when place is a bay' do
+      @place = Place.new(:feature_code => 'BAY')
+      @place.zoom_level.should == 10
+    end
+    
+    it 'should return 5 when place is a kingdom' do
+      @place = Place.new(:feature_code => 'PCLI')
+      @place.zoom_level.should == 5
+    end
+    
+    it 'should return 8 when placed is a county' do
+      @place = Place.new(:feature_code => 'ADMD')
+      @place.zoom_level.should == 8
+    end
+    
+    it 'should return 9 when place is a borough' do
+      @place = Place.new(:feature_code => 'ADM2')
+      @place.zoom_level.should == 9
+    end
+    
+    it 'should return a default value of 14 if the feature_code is not recognised' do
+      @place = Place.new(:feature_code => 'XXX')
+      @place.zoom_level.should == 14
     end
   end
 end

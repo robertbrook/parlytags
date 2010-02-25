@@ -36,7 +36,7 @@ class Place < ActiveRecord::Base
   end
   
   def display_name
-    if feature_code == "AIRP" && !ascii_name =~ /[A|a]irport$/
+    if feature_code == "AIRP" && !(ascii_name =~ /[A|a]irport$/)
       return "#{ascii_name} Airport"
     end
     return ascii_name.gsub(/^County of /, "")
@@ -69,10 +69,10 @@ class Place < ActiveRecord::Base
     places = []
     possible_places.each do |place|
       unless place.id == self.id || 
-          place.ascii_name == county_name || 
-          place.county_name == county_name || 
           place.feature_code == "BNK" || place.feature_code == "SWT" ||
-          (place.display_name.downcase == display_name.downcase && place.county_name.nil?)
+          (place.ascii_name == ascii_name && place.county_name.nil?) ||
+          (place.display_name.downcase == display_name.downcase && place.county_name.nil?) ||
+          (place.display_name.downcase == display_name.downcase && place.county_name == county_name)
         places << place
       end
     end
