@@ -81,7 +81,7 @@ class PublicwhipParser
     
     @log << "\nWRA - #{questions.join(', ')} "
     
-    item = Item.new (
+    item = Item.new(
       :url => @question_url,
       :title => @question_title,
       :kind => 'Written Answer'
@@ -106,7 +106,7 @@ class PublicwhipParser
     
     item = Item.find_by_title_and_created_at(title, @question_date)
     unless item
-      item = Item.new (
+      item = Item.new(
         :url => @question_url,
         :title => @question_title,
         :kind => @type
