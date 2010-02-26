@@ -33,6 +33,12 @@ class Place < ActiveRecord::Base
       end
       places
     end
+    
+    def find_all_within_constituency(constituency)
+      sw_point = GeoKit::LatLng.new(constituency.min_lat, constituency.min_lng)
+      ne_point = GeoKit::LatLng.new(constituency.max_lat, constituency.max_lng)
+      find :all, :bounds=>[sw_point,ne_point]
+    end
   end
   
   def display_name

@@ -31,6 +31,11 @@ class SearchController < ApplicationController
     def do_search term
       @last_search_term = term
       @searched_for = term
+      items = do_constituency_search(term)
+      if items
+        @results = items
+        return term
+      end
       if term.downcase.strip == "united kingdom"
         places = []
       else
@@ -84,6 +89,19 @@ class SearchController < ApplicationController
         end
       end
       places
+    end
+    
+    def do_constituency_search term
+      constituency = Constituency.find_by_name(term)
+      if constituency && constituency.max_lat
+        items = Item.find_all_within_constituency(constituency)
+      end
+      if items
+        @place = constituency
+        @place_title = "Constituency of #{constituency.name}"
+        @constituency = true
+      end
+      items
     end
     
     def get_place_title place

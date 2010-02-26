@@ -6,7 +6,7 @@ module ParlyTags::DataLoader
   
   DATA_DIR = File.expand_path(File.dirname(__FILE__) + '/../data')
   GEO_FILE = "#{DATA_DIR}/GB.txt"
-  CONSTITUENCY_FILE = "#{DATA_DIR}/constituencies.txt"
+  CONSTITUENCY_FILE = "#{DATA_DIR}/constituencies/2005_constituencies.xml"
 
   def load_all_data
     # Rails.logger.info !
@@ -14,7 +14,9 @@ module ParlyTags::DataLoader
     
     log << "loading place data"
     load_places
-    log << "\nloaded place data\nloading edm data"
+    log << "\nloaded place data\nloading constituency data"
+    load_constituencies
+    log << "\nloaded constituency data\nloading edm data"
     load_edms
     log << "\nloaded edm data\nloading wms data"
     load_wms
@@ -59,7 +61,38 @@ module ParlyTags::DataLoader
       )
       log << 'p'
     end
-    log << '\n'
+    log << "\n"
+  end
+  
+  def load_constituencies
+    log = Logger.new(STDOUT)
+    Constituency.delete_all
+    
+    doc = Nokogiri::XML(open(CONSTITUENCY_FILE))
+    doc.xpath('//constituency').each do |constituency|
+      name = constituency.xpath("name/text()").to_s
+      lat = constituency.xpath("centre_lat/text()").to_s
+      lng = constituency.xpath("centre_lon/text()").to_s
+      area = constituency.xpath("area/text()").to_s
+      max_lat = constituency.xpath("max_lat/text()").to_s
+      max_lng = constituency.xpath("max_lon/text()").to_s
+      min_lat = constituency.xpath("min_lat/text()").to_s
+      min_lng = constituency.xpath("min_lon/text()").to_s
+      
+      Constituency.create!(
+        :name => name.gsub('&amp;', '&'),
+        :lat => lat,
+        :lng => lng,
+        :area => area,
+        :max_lat => max_lat,
+        :min_lat => min_lat,
+        :max_lng => max_lng,
+        :min_lng => min_lng
+      )
+      
+      log << 'c'
+    end
+    log << "\n"
   end
   
   def load_edms  

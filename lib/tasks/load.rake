@@ -21,6 +21,11 @@ namespace :parlytags do
   task :load_places => :environment do
     load_places
   end
+  
+  desc "Populate data for Constituencies in DB"
+  task :load_constituencies => :environment do
+    load_constituencies
+  end
 
   desc "Populate data for EDM Items in DB"
   task :load_edms => :environment do

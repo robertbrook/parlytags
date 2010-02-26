@@ -9,7 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100215142616) do
+ActiveRecord::Schema.define(:version => 20100226150805) do
+
+  create_table "constituencies", :force => true do |t|
+    t.string  "name"
+    t.float   "lat"
+    t.float   "lng"
+    t.integer "area"
+    t.float   "max_lat"
+    t.float   "max_lng"
+    t.float   "min_lat"
+    t.float   "min_lng"
+  end
+
+  add_index "constituencies", ["name"], :name => "index_constituencies_on_name"
+
+  create_table "constituencies_items", :id => false, :force => true do |t|
+    t.integer "constituency_id"
+    t.integer "item_id"
+  end
 
   create_table "items", :force => true do |t|
     t.string   "title"

@@ -1,5 +1,6 @@
 class Item < ActiveRecord::Base
   has_and_belongs_to_many :placetags
+  has_and_belongs_to_many :constituencies
   
   class << self
     def find_all_by_placetag tag_name
@@ -19,6 +20,20 @@ class Item < ActiveRecord::Base
           return items
         end
       end
+    end
+    
+    def find_all_within_constituency(constituency, limit=10)
+      places = Place.find_all_within_constituency(constituency)
+      items = []
+      places.each do |place|
+        if place.placetag
+          place.placetag.items.each do |item|
+            items << item unless items.include?(item)
+          end
+        end
+        break if items.count >= limit
+      end
+      items[0..limit-1]
     end
   end
   
