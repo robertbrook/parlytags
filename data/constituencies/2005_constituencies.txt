@@ -1,0 +1,646 @@
+Aldershot
+Aldridge-Brownhills
+Altrincham and Sale West
+Amber Valley
+Arundel and South Downs
+Ashfield
+Ashford
+Ashton under Lyne
+Aylesbury
+Banbury
+Barking
+Barnsley Central
+Barnsley East and Mexborough
+Barnsley West and Penistone
+Barrow and Furness
+Basildon
+Basingstoke
+Bassetlaw
+Bath
+Batley and Spen
+Battersea
+Beaconsfield
+Beckenham
+Bedford
+Berwick-upon-Tweed
+Bethnal Green and Bow
+Beverley and Holderness
+Bexhill and Battle
+Bexleyheath and Crayford
+Billericay
+Birkenhead
+Birmingham, Edgbaston
+Birmingham, Erdington
+Birmingham, Hall Green
+Birmingham, Hodge Hill
+Birmingham, Ladywood
+Birmingham, Northfield
+Birmingham, Perry Barr
+Birmingham, Selly Oak
+Birmingham, Sparkbrook and Small Heath
+Birmingham, Yardley
+Bishop Auckland
+Blaby
+Blackburn
+Blackpool North and Fleetwood
+Blackpool South
+Blaydon
+Blyth Valley
+Bognor Regis and Littlehampton
+Bolsover
+Bolton North East
+Bolton South East
+Bolton West
+Bootle
+Boston and Skegness
+Bosworth
+Bournemouth East
+Bournemouth West
+Bracknell
+Bradford North
+Bradford South
+Bradford West
+Braintree
+Brent East
+Brent North
+Brent South
+Brentford and Isleworth
+Brentwood and Ongar
+Bridgwater
+Brigg and Goole
+Brighton, Kemptown
+Brighton, Pavilion
+Bristol East
+Bristol North West
+Bristol South
+Bristol West
+Bromley and Chislehurst
+Bromsgrove
+Broxbourne
+Broxtowe
+Buckingham
+Burnley
+Burton
+Bury North
+Bury South
+Bury St. Edmunds
+Calder Valley
+Camberwell and Peckham
+Cambridge
+Cannock Chase
+Canterbury
+Carlisle
+Carshalton and Wallington
+Castle Point
+Central Suffolk and North Ipswich
+Charnwood
+Chatham and Aylesford
+Cheadle
+Cheltenham
+Chesham and Amersham
+Chesterfield
+Chichester
+Chingford and Woodford Green
+Chipping Barnet
+Chorley
+Christchurch
+Cities of London and Westminster
+City of Chester
+City of Durham
+City of York
+Cleethorpes
+Colchester
+Colne Valley
+Congleton
+Copeland
+Corby
+Cotswold
+Coventry North East
+Coventry North West
+Coventry South
+Crawley
+Crewe and Nantwich
+Crosby
+Croydon Central
+Croydon North
+Croydon South
+Dagenham
+Darlington
+Dartford
+Daventry
+Denton and Reddish
+Derby North
+Derby South
+Devizes
+Dewsbury
+Doncaster Central
+Doncaster North
+Don Valley
+Dover
+Dudley North
+Dudley South
+Dulwich and West Norwood
+Ealing, Acton and Shepherd's Bush
+Ealing North
+Ealing, Southall
+Easington
+East Devon
+East Ham
+East Hampshire
+East Surrey
+East Worthing and Shoreham
+East Yorkshire
+Eastbourne
+Eastleigh
+Eccles
+Eddisbury
+Edmonton
+Ellesmere Port and Neston
+Elmet
+Eltham
+Enfield North
+Enfield, Southgate
+Epping Forest
+Epsom and Ewell
+Erewash
+Erith and Thamesmead
+Esher and Walton
+Exeter
+Falmouth and Camborne
+Fareham
+Faversham and Mid Kent
+Feltham and Heston
+Finchley and Golders Green
+Folkestone and Hythe
+Forest of Dean
+Fylde
+Gainsborough
+Gateshead East and Washington West
+Gedling
+Gillingham
+Gloucester
+Gosport
+Grantham and Stamford
+Gravesham
+Great Grimsby
+Great Yarmouth
+Greenwich and Woolwich
+Guildford
+Hackney North and Stoke Newington
+Hackney South and Shoreditch
+Halesowen and Rowley Regis
+Halifax
+Haltemprice and Howden
+Halton
+Hammersmith and Fulham
+Hampstead and Highgate
+Harborough
+Harlow
+Harrogate and Knaresborough
+Harrow East
+Harrow West
+Hartlepool
+Harwich
+Hastings and Rye
+Havant
+Hayes and Harlington
+Hazel Grove
+Hemel Hempstead
+Hemsworth
+Hendon
+Henley
+Hereford
+Hertford and Stortford
+Hertsmere
+Hexham
+Heywood and Middleton
+High Peak
+Hitchin and Harpenden
+Holborn and St. Pancras
+Hornchurch
+Hornsey and Wood Green
+Horsham
+Houghton and Washington East
+Hove
+Huddersfield
+Huntingdon
+Hyndburn
+Ilford North
+Ilford South
+Ipswich
+Isle of Wight
+Islington North
+Islington South and Finsbury
+Jarrow
+Keighley
+Kensington and Chelsea
+Kettering
+Kingston and Surbiton
+Kingston upon Hull East
+Kingston upon Hull North
+Kingston upon Hull West and Hessle
+Kingswood
+Knowsley North and Sefton East
+Knowsley South
+Lancaster and Wyre
+Leeds Central
+Leeds East
+Leeds North East
+Leeds North West
+Leeds West
+Leicester East
+Leicester South
+Leicester West
+Leigh
+Leominster
+Lewes
+Lewisham, Deptford
+Lewisham East
+Lewisham West
+Leyton and Wanstead
+Lichfield
+Lincoln
+Liverpool, Garston
+Liverpool, Riverside
+Liverpool, Walton
+Liverpool, Wavertree
+Liverpool, West Derby
+Loughborough
+Louth and Horncastle
+Ludlow
+Luton North
+Luton South
+Macclesfield
+Maidenhead
+Maidstone and The Weald
+Makerfield
+Maldon and East Chelmsford
+Manchester, Blackley
+Manchester Central
+Manchester, Gorton
+Manchester, Withington
+Mansfield
+Medway
+Meriden
+Mid Bedfordshire
+Mid Dorset and North Poole
+Mid Norfolk
+Mid Sussex
+Mid Worcestershire
+Middlesbrough
+Middlesbrough South and East Cleveland
+Milton Keynes South West
+Mitcham and Morden
+Mole Valley
+Morecambe and Lunesdale
+Morley and Rothwell
+New Forest East
+New Forest West
+Newark
+Newbury
+Newcastle upon Tyne Central
+Newcastle upon Tyne East and Wallsend
+Newcastle upon Tyne North
+Newcastle-under-Lyme
+Normanton
+North Cornwall
+North Devon
+North Dorset
+North Durham
+North East Bedfordshire
+North East Cambridgeshire
+North East Derbyshire
+North East Hampshire
+North East Hertfordshire
+North East Milton Keynes
+North Essex
+North Norfolk
+North Shropshire
+North Southwark and Bermondsey
+North Swindon
+North Thanet
+North Tyneside
+North Warwickshire
+North West Cambridgeshire
+North West Durham
+North West Hampshire
+North West Leicestershire
+North West Norfolk
+North Wiltshire
+Northampton North
+Northampton South
+Northavon
+Norwich North
+Norwich South
+Nottingham East
+Nottingham North
+Nottingham South
+Nuneaton
+Old Bexley and Sidcup
+Oldham East and Saddleworth
+Oldham West and Royton
+Orpington
+Oxford East
+Oxford West and Abingdon
+Pendle
+Penrith and The Border
+Peterborough
+Plymouth, Devonport
+Plymouth, Sutton
+Pontefract and Castleford
+Poole
+Poplar and Canning Town
+Portsmouth North
+Portsmouth South
+Preston
+Pudsey
+Putney
+Rayleigh
+Reading East
+Reading West
+Redcar
+Redditch
+Regent's Park and North Kensington
+Reigate
+Ribble Valley
+Richmond (Yorks)
+Richmond Park
+Rochdale
+Rochford and Southend East
+Romford
+Romsey
+Rossendale and Darwen
+Rother Valley
+Rotherham
+Rugby and Kenilworth
+Ruislip-Northwood
+Runnymede and Weybridge
+Rushcliffe
+Rutland and Melton
+Ryedale
+Saffron Walden
+St. Albans
+St. Helens North
+St. Helens South
+St. Ives
+Salford
+Salisbury
+Scarborough and Whitby
+Scunthorpe
+Sedgefield
+Selby
+Sevenoaks
+Sheffield, Attercliffe
+Sheffield, Brightside
+Sheffield Central
+Sheffield, Hallam
+Sheffield, Heeley
+Sheffield, Hillsborough
+Sherwood
+Shipley
+Shrewsbury and Atcham
+Sittingbourne and Sheppey
+Skipton and Ripon
+Sleaford and North Hykeham
+Slough
+Solihull
+Somerton and Frome
+South Cambridgeshire
+South Derbyshire
+South Dorset
+South East Cambridgeshire
+South East Cornwall
+South Holland and The Deepings
+South Norfolk
+South Ribble
+South Shields
+South Staffordshire
+South Suffolk
+South Swindon
+South Thanet
+South West Bedfordshire
+South West Devon
+South West Hertfordshire
+South West Norfolk
+South West Surrey
+Southampton, Itchen
+Southampton, Test
+Southend West
+Southport
+Spelthorne
+Stafford
+Staffordshire Moorlands
+Stalybridge and Hyde
+Stevenage
+Stockport
+Stockton North
+Stockton South
+Stoke-on-Trent Central
+Stoke-on-Trent North
+Stoke-on-Trent South
+Stone
+Stourbridge
+Stratford-on-Avon
+Streatham
+Stretford and Urmston
+Stroud
+Suffolk Coastal
+Sunderland North
+Sunderland South
+Surrey Heath
+Sutton and Cheam
+Sutton Coldfield
+Tamworth
+Tatton
+Taunton
+Teignbridge
+Telford
+Tewkesbury
+The Wrekin
+Thurrock
+Tiverton and Honiton
+Tonbridge and Malling
+Tooting
+Torbay
+Torridge and West Devon
+Totnes
+Tottenham
+Truro and St. Austell
+Tunbridge Wells
+Twickenham
+Tyne Bridge
+Tynemouth
+Upminster
+Uxbridge
+Vale of York
+Vauxhall
+Wakefield
+Wallasey
+Walsall North
+Walsall South
+Walthamstow
+Wansbeck
+Wansdyke
+Wantage
+Warley
+Warrington North
+Warrington South
+Warwick and Leamington
+Watford
+Waveney
+Wealden
+Weaver Vale
+Wellingborough
+Wells
+Welwyn Hatfield
+Wentworth
+West Bromwich East
+West Bromwich West
+West Chelmsford
+West Derbyshire
+West Dorset
+West Ham
+West Lancashire
+West Suffolk
+West Worcestershire
+Westbury
+Westmorland and Lonsdale
+Weston-Super-Mare
+Wigan
+Wimbledon
+Winchester
+Windsor
+Wirral South
+Wirral West
+Witney
+Woking
+Wokingham
+Wolverhampton North East
+Wolverhampton South East
+Wolverhampton South West
+Woodspring
+Worcester
+Workington
+Worsley
+Worthing West
+Wycombe
+Wyre Forest
+Wythenshawe and Sale East
+Yeovil
+Aberavon
+Alyn and Deeside
+Blaenau Gwent
+Brecon and Radnorshire
+Bridgend
+Caernarfon
+Caerphilly
+Cardiff Central
+Cardiff North
+Cardiff South and Penarth
+Cardiff West
+Carmarthen East and Dinefwr
+Carmarthen West and South Pembrokeshire
+Ceredigion
+Clwyd South
+Clwyd West
+Conwy
+Cynon Valley
+Delyn
+Gower
+Islwyn
+Llanelli
+Meirionnydd Nant Conwy
+Merthyr Tydfil and Rhymney
+Monmouth
+Montgomeryshire
+Neath
+Newport East
+Newport West
+Ogmore
+Pontypridd
+Preseli Pembrokeshire
+Rhondda
+Swansea East
+Swansea West
+Torfaen
+Vale of Clwyd
+Vale of Glamorgan
+Wrexham
+Ynys Mon
+Belfast East
+Belfast North
+Belfast South
+Belfast West
+East Antrim
+East Londonderry
+Fermanagh & South Tyrone
+Foyle
+Lagan Valley
+Mid Ulster
+Newry & Armagh
+North Antrim
+North Down
+South Antrim
+South Down
+Strangford
+Upper Bann
+West Tyrone
+Aberdeen North
+Aberdeen South
+Airdrie and Shotts
+Angus
+Argyll and Bute
+Ayr, Carrick and Cumnock
+Banff and Buchan
+Berwickshire, Roxburgh and Selkirk
+Caithness, Sutherland and Easter Ross
+Central Ayrshire
+Coatbridge, Chryston and Bellshill
+Cumbernauld, Kilsyth and Kirkintilloch East
+Dumfries and Galloway
+Dumfriesshire, Clydesdale and Tweeddale
+Dundee East
+Dundee West
+Dunfermline and West Fife
+East Dunbartonshire
+East Kilbride, Strathaven and Lesmahagow
+East Lothian
+East Renfrewshire
+Edinburgh East
+Edinburgh North and Leith
+Edinburgh South
+Edinburgh South West
+Edinburgh West
+Falkirk
+Glasgow Central
+Glasgow East
+Glasgow North
+Glasgow North East
+Glasgow North West
+Glasgow South
+Glasgow South West
+Glenrothes
+Gordon
+Inverclyde
+Inverness, Nairn, Badenoch and Strathspey
+Kilmarnock and Loudoun
+Kirkcaldy and Cowdenbeath
+Lanark and Hamilton East
+Linlithgow and East Falkirk
+Livingston
+Midlothian
+Moray
+Motherwell and Wishaw
+Na h-Eileanan an Iar
+North Ayrshire and Arran
+North East Fife
+Ochil and South Perthshire
+Orkney and Shetland
+Paisley and Renfrewshire North
+Paisley and Renfrewshire South
+Perth and North Perthshire
+Ross, Skye and Lochaber
+Rutherglen and Hamilton West
+Stirling
+West Aberdeenshire and Kincardine
+West Dunbartonshire
