@@ -197,24 +197,4 @@ module ParlyTags::DataLoader
         end
       end
     end
-    
-    def get_minor_heading section
-      last = section.previous_sibling
-      while (last && last.to_s[0..13] != "<minor-heading" && last.to_s[0..10] != "<publicwhip")
-        last = last.previous_sibling
-      end
-      if last.to_s[0..13] == "<minor-heading"
-        return last.inner_text.strip
-      end
-    end
-    
-    def get_major_heading section
-      last = section.previous_sibling
-      while (last && last.to_s[0..13] != "<major-heading" && last.to_s[0..10] != "<publicwhip")
-        last = last.previous_sibling
-      end
-      if last.to_s[0..13] == "<major-heading"
-         return last.inner_text.strip
-      end
-    end
 end
