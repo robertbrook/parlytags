@@ -183,4 +183,42 @@ describe PublicwhipParser do
       @parser.parse_file file, "Hansard Debate"
     end
   end
+
+  describe 'when parsing Written Ministerial Statements' do
+    it 'should create an item for each question and placetags for each matching place' do
+      file = RAILS_ROOT + '/spec/fixtures/wms-2010-01-05.xml'
+      
+      item1 = mock_model(Item, :id => 1)
+      place = mock_model(Place, :geoname_id => 2222, :county_name => 'London', :country_name => 'England')
+      placetag = mock_model(Placetag)
+      
+      Item.should_receive(:new).with(
+        :title => 'ENVIRONMENT FOOD AND RURAL AFFAIRS Food 2030 - Hilary Benn - The Secretary of State for Environment, Food and Rural Affairs',
+        :kind => 'WMS',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100105/wmstext/100105m0001.htm#1001052000050').and_return(item1)
+      item1.should_receive(:created_at=).with('2010-01-05')
+      item1.should_receive(:updated_at=).with('2010-01-05')
+      item1.should_receive(:placetags).exactly(2).times.and_return([placetag])
+      
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("August").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("October 2009").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Cabinet Office Strategy Unit July").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Food Matters").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Last August").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("August and October").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Food").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("With").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Spurious").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("London").and_return([place])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("All").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Copies").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Libraries").and_return([])
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Houses").and_return([])
+      
+      Placetag.should_receive(:find_by_geoname_id).with(2222).and_return(placetag)
+      item1.should_receive(:save)
+      
+      @parser.parse_file file, "WMS"
+    end
+  end
 end

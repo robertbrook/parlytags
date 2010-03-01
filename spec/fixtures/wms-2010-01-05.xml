@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="b" latest="yes">
+
+<major-heading id="uk.org.publicwhip/wms/2010-01-05b.1WS.0" nospeaker="true" colnum="1WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100105/wmstext/100105m0001.htm#100105m0001.htm_dpthd0">
+	ENVIRONMENT FOOD AND RURAL AFFAIRS
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wms/2010-01-05b.1WS.1" nospeaker="true" colnum="1WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100105/wmstext/100105m0001.htm#1001052000007">
+	Food 2030
+</minor-heading>
+
+<speech id="uk.org.publicwhip/wms/2010-01-05b.1WS.2" speakerid="uk.org.publicwhip/member/1669" speakername="Hilary Benn" speakeroffice="The Secretary of State for Environment, Food and Rural Affairs" colnum="1WS"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100105/wmstext/100105m0001.htm#1001052000050">
+	<p pid="b.1WS.2/1">I am today publishing the Government's new food strategy-&quot;Food 2030&quot;, which follows up the Cabinet Office Strategy Unit July 2008 report &quot;Food Matters&quot;.</p>
+	<p pid="b.1WS.2/2">Last August, we published our assessment of the UK's food security, and we held an online discussion forum on the future of food between August and October 2009. In total, over 600 people and organisations responded.</p>
+	<p pid="b.1WS.2/3">Food security has come to the fore following food prices rising sharply in 2008 for the first time in a generation, provoking riots in some parts of the world. With a growing global population, a changing climate, and pressure being put on land, we are going to need to produce more food, to do so sustainably, and to ensure that the food we eat safeguards our health.</p>
+	<p>Spurious and not even vaguely convincing paragraph mentioning London to trigger the placetag match.</p>
+	<p pid="b.1WS.2/4">&quot;Food 2030&quot; sets out the steps that all those involved in food can take to put us on this path, in particular by helping consumers to be better informed and able to buy healthy food from sustainable sources; by minimising waste; by making sure every part of the supply chain is resilient, competitive and has the skills that match the challenge; and by using science and technological advance to assist us.</p>
+	<p pid="b.1WS.2/5">All of this will require leadership and co-operation from all those involved in farming, fisheries, food production and public health. I will update the House as the strategy is implemented.</p>
+	<p pid="b.1WS.2/6">Copies of the strategy are available in the Libraries of both Houses and on DEFRA's website.</p>
+</speech>
+</publicwhip>
+
