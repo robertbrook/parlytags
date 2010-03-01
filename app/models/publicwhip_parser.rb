@@ -31,7 +31,7 @@ class PublicwhipParser
   def handle_major_heading element
     @major_heading = element.inner_text.strip
     @minor_heading = ''
-    @oral_answers = false if @major_heading == 'Point of Order'
+    @oral_answers = false if @major_heading =~ /Point(s*) of Order/
     
     @major_heading.gsub!("\n", "")
     @major_heading = HTMLEntities.new.encode(@major_heading, :decimal)
@@ -145,7 +145,7 @@ class PublicwhipParser
         if @major_heading =~ /^BILL PRESENTED\s*(?:-)*\s*(.*)/
           debate_title = "#{$1}".strip
           @major_heading = ''
-        elsif @major_heading =~ /^PETITIONS\s*(?:-)*\s*(.*)/
+        elsif @major_heading =~ /^PETITION(?:S?)\s*(?:-)*\s*(.*)/
           debate_title = $1.strip
           debate_type = "Petition"
         else

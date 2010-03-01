@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="a" latest="yes">
+
+<major-heading id="uk.org.publicwhip/debate/2010-02-10a.893.0" nospeaker="true" colnum="893"  time="11:30:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#10021063000018">
+	BUSINESS BEFORE QUESTIONS
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/debate/2010-02-10a.893.1" nospeaker="true" colnum="893"  time="11:30:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#10021063000032">
+	Electoral Commission
+</minor-heading>
+
+<speech id="uk.org.publicwhip/debate/2010-02-10a.893.2" nospeaker="true" colnum="893"  time="11:30:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#10021063000032">
+	<p pid="a.893.2/1">The Vice-Chamberlain of the Household reported to the House, That the address of <phrase class="date" code="2010-12-15">15 December</phrase>, praying that Her Majesty will appoint Anthony Hugh Burton Hobman as Electoral Commissioner with effect from <phrase class="date" code="2010-01-19">19 January 2010</phrase> for the period ending on <phrase class="date" code="2013-12-31">31 December 2013</phrase>, was presented to Her Majesty, who was graciously pleased to comply with the request.</p>
+</speech>
+
+<oral-heading id="uk.org.publicwhip/debate/2010-02-10a.893.3" nospeaker="true" colnum="893"  time="11:30:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#10021063000010">
+	ORAL ANSWERS TO QUESTIONS
+</oral-heading>
+
+<major-heading id="uk.org.publicwhip/debate/2010-02-10a.893.4" nospeaker="true" colnum="893"  time="11:30:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#100210-0001.htm_dpthd0">
+	WALES
+</major-heading>
+
+<speech id="uk.org.publicwhip/debate/2010-02-10a.893.5" nospeaker="true" colnum="893"  time="11:30:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#100210-0001.htm_dpthd0">
+	<p pid="a.893.5/1">The Secretary of State was asked-</p>
+</speech>
+
+<minor-heading id="uk.org.publicwhip/debate/2010-02-10a.893.6" nospeaker="true" colnum="893"  time="11:30:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#10021063000034">
+	Bovine Tuberculosis
+</minor-heading>
+
+<speech id="uk.org.publicwhip/debate/2010-02-10a.893.7" speakerid="uk.org.publicwhip/member/1737" speakername="Henry Bellingham" oral-qnum="1" colnum="893"  time="11:30:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#10021063001687">
+	<p pid="a.893.7/1" qnum="315864">When he next expects to hold discussions with ministerial colleagues and the Welsh Assembly Government on policy to tackle bovine tuberculosis.</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/debate/2010-02-10a.937.0" nospeaker="true" colnum="937"  time="013:16:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0008.htm#10021063000008">
+	Points of Order
+</major-heading>
+
+<speech id="uk.org.publicwhip/debate/2010-02-10a.937.1" speakerid="uk.org.publicwhip/member/1711" speakername="Caroline Spelman" colnum="937"  time="013:59:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0008.htm#10021063001886">
+	<p pid="a.937.1/1">On a point of order, Mr. Deputy Speaker. The Government have just released a written ministerial statement on the vexed subject of local government restructuring, which is going to force expensive and undemocratic restructuring on local government in Devon and Norfolk, and cast uncertainty over the future of the status of Suffolk. It represents a Government U-turn, reversing the position of the previous Secretary of State, and it ignores the advice of the Boundary Commission and introduces a wholly new concept of county constitutional conventions. Given the significant legal and financial implications of this statement, should it not have been an oral statement, so that Members on both sides of the House whose constituents are directly affected could properly debate the issue? The timing also raises serious questions about the probity of civil service activity so close to a general election. Do you not agree, Mr. Deputy Speaker, that this statement should have been the subject of a debate, and that to issue a statement of such significance in written form just hours before the House rises does this House a grave disservice?</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/debate/2010-02-10a.938.2" nospeaker="true" colnum="938"  time="013:59:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0008.htm#10021063000016">
+	BILL PRESENTED
+	 &mdash; 
+	Department for Work and Pensions (Electronic File Retention) Bill
+</major-heading>
+
+<speech id="uk.org.publicwhip/debate/2010-02-10a.938.3" nospeaker="true" colnum="938"  time="013:59:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0008.htm#10021063000031">
+	<p pid="a.938.3/1" class="italic"> Presentation and First Reading (<phrase class="standing-order" code="57">Standing Order No. 57</phrase>)</p>
+	<p pid="a.938.3/2" class="indent">Harry Cohen presented a Bill to exempt the Department for Work and Pensions from statutory requirements to retain files in written form where it holds electronic files of the information in an approved form; and for connected purposes.</p>
+	<p pid="a.938.3/3" class="italic"> Bill read the First time; to be read a Second time on <phrase class="date" code="2010-03-05">Friday 5 March</phrase>, and to be printed (Bill 6<i> 6</i> ).</p>
+</speech>
+
+<minor-heading id="uk.org.publicwhip/debate/2010-02-10a.939.0" nospeaker="true" colnum="939"  time="013:59:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0008.htm#10021063000002">
+	Water Tariffs Bill
+</minor-heading>
+
+<speech id="uk.org.publicwhip/debate/2010-02-10a.939.1" nospeaker="true" colnum="939"  time="013:59:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0008.htm#10021063000002">
+	<p pid="a.939.1/1" class="italic"> Motion for leave to<i> bring in </i> a Bill (<phrase class="standing-order" code="23">Standing Order No. 23</phrase>)</p>
+</speech>
+
+<major-heading id="uk.org.publicwhip/debate/2010-02-10a.1005.6" nospeaker="true" colnum="1005"  time="017:45:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0018.htm#10021063000017">
+	PETITION
+	 &mdash; 
+	Road Repairs (Northamptonshire)
+</major-heading>
+
+<speech id="uk.org.publicwhip/debate/2010-02-10a.1005.7" speakerid="uk.org.publicwhip/member/1915" speakername="Peter Bone" colnum="1005"  time="017:52:00" url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0018.htm#10021063002867">
+	<p pid="a.1005.7/1">With your permission, Mr. Deputy Speaker, I would like to present a public petition that should have been presented last night, but was not. That is entirely due to a mistake by me, and not in any way by the Table Office or the Chair. I apologise to the Chair for that.</p>
+	<p pid="a.1005.7/2">Dr. Collier, one of my constituents, has single-handedly collected 1,000 signatures about the state of the roads in Rushden. With your permission, Mr. Deputy Speaker, I will read out the petition, because it entirely explains the situation. The petition states:</p>
+	<p pid="a.1005.7/3" class="indent">The Humble Petition of members of Rushden, Northamptonshire and the surrounding areas,</p>
+	<p pid="a.1005.7/4" class="indent">Sheweth,</p>
+	<p pid="a.1005.7/5" class="indent">That the roads of Rushden are in a poor state and are desperately in need of repair; there are many potholes and these cause a hazard to drivers and pedestrians; they are dangerous for the vulnerable who have to cross the roads and risk causing much damage to vehicles and costing constituents large amounts of money during the recession; the roads are in a very bad condition and cannot cope with the current local population; action needs to be taken if they are to be able to cope with the planned expansion of north Northamptonshire.</p>
+	<p pid="a.1005.7/6" class="indent">Wherefore your Petitioners pray that your Honourable House urges the Secretary of State for Communities and Local Government to direct Northamptonshire County Council to take remedial action to repair the roads, thereby improving the situation for local residents.</p>
+	<p pid="a.1005.7/7" class="indent">And your Petitioners, as in duty bound, will ever pray, &amp;c.</p>
+	<p pid="a.1005.7/8">[P000731]</p>
+</speech>
+</publicwhip>
+

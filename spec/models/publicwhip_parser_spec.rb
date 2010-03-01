@@ -111,4 +111,76 @@ describe PublicwhipParser do
       @parser.parse_file file, "Westminster Hall Debate"
     end
   end
+
+  describe 'when parsing Hansard debates' do
+    it 'should create a new item for each debate, but not save it when no place data is found' do
+      file = RAILS_ROOT + '/spec/fixtures/debates-no-place-data.xml'
+      
+      item1 = mock_model(Item, :id => 1)
+      item2 = mock_model(Item, :id => 2)
+      item3 = mock_model(Item, :id => 3)
+      item4 = mock_model(Item, :id => 4)
+      item5 = mock_model(Item, :id => 5)
+      item6 = mock_model(Item, :id => 6)
+      item7 = mock_model(Item, :id => 7)
+
+      Item.should_receive(:new).with(
+        :title => 'BUSINESS BEFORE QUESTIONS - Electoral Commission',
+        :kind => 'Hansard Debate',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#10021063000032').and_return(item1)
+      item1.should_receive(:created_at=).with('2010-02-10')
+      item1.should_receive(:updated_at=).with('2010-02-10')
+      item1.should_receive(:placetags).and_return([])
+
+      Item.should_receive(:new).with(
+        :title => 'Debate - WALES',
+        :kind => 'Oral Answer',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#100210-0001.htm_dpthd0').and_return(item2)
+      item2.should_receive(:created_at=).with('2010-02-10')
+      item2.should_receive(:updated_at=).with('2010-02-10')
+      item2.should_receive(:placetags).and_return([])
+
+      Item.should_receive(:new).with(
+        :title => 'Debate - WALES - Bovine Tuberculosis',
+        :kind => 'Oral Answer',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#10021063001687').and_return(item3)
+      item3.should_receive(:created_at=).with('2010-02-10')
+      item3.should_receive(:updated_at=).with('2010-02-10')
+      item3.should_receive(:placetags).and_return([])
+      
+      Item.should_receive(:new).with(
+        :title => 'Points of Order',
+        :kind => 'Hansard Debate',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0008.htm#10021063001886').and_return(item4)
+      item4.should_receive(:created_at=).with('2010-02-10')
+      item4.should_receive(:updated_at=).with('2010-02-10')
+      item4.should_receive(:placetags).and_return([])
+      
+      Item.should_receive(:new).with(
+        :title => 'Department for Work and Pensions (Electronic File Retention) Bill',
+        :kind => 'Hansard Debate',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0008.htm#10021063000031').and_return(item5)
+      item5.should_receive(:created_at=).with('2010-02-10')
+      item5.should_receive(:updated_at=).with('2010-02-10')
+      item5.should_receive(:placetags).and_return([])
+      
+      Item.should_receive(:new).with(
+        :title => 'Water Tariffs Bill',
+        :kind => 'Hansard Debate',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0008.htm#10021063000002').and_return(item6)
+      item6.should_receive(:created_at=).with('2010-02-10')
+      item6.should_receive(:updated_at=).with('2010-02-10')
+      item6.should_receive(:placetags).and_return([])
+      
+      Item.should_receive(:new).with(
+        :title => 'Road Repairs (Northamptonshire)',
+        :kind => 'Petition',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0018.htm#10021063002867').and_return(item7)
+      item7.should_receive(:created_at=).with('2010-02-10')
+      item7.should_receive(:updated_at=).with('2010-02-10')
+      item7.should_receive(:placetags).and_return([])
+
+      @parser.parse_file file, "Hansard Debate"
+    end
+  end
 end
