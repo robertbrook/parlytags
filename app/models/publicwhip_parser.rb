@@ -12,12 +12,12 @@ class PublicwhipParser
     xml = IO.read(file)
     doc = Hpricot.XML xml
     @type = type
-    @log << file
+    @log << file unless RAILS_ENV == 'test'
     
     (doc/'publicwhip').each do |publicwhip|
       handle_data(publicwhip)
     end
-    @log << "\n"
+    @log << "\n" unless RAILS_ENV == 'test'
   end
   
   def initialize_values
@@ -79,7 +79,7 @@ class PublicwhipParser
     
     @question_title = "#{@major_heading} #{@minor_heading} #{questions.join(', ')} - #{speaker}"
     
-    @log << "\nWRA - #{questions.join(', ')} "
+    @log << "\nWRA - #{questions.join(', ')} "  unless RAILS_ENV == 'test'
     
     item = Item.new(
       :url => @question_url,
@@ -90,14 +90,14 @@ class PublicwhipParser
       item.created_at = @question_date
       item.updated_at = @question_date
     end
-    @log << "i"
+    @log << "i" unless RAILS_ENV == 'test'
     
     term_extractor = TermExtractor.new(question_text)
     add_placetags(term_extractor.terms, item)
 
     unless item.placetags.empty?
       item.save
-      @log << "s"
+      @log << "s" unless RAILS_ENV == 'test'
     end
   end
   
@@ -116,7 +116,7 @@ class PublicwhipParser
         item.updated_at = @question_date
       end
     end
-    @log << "i"
+    @log << "i" unless RAILS_ENV == 'test'
     
     answer_text = element.inner_text
     term_extractor = TermExtractor.new(answer_text)
@@ -124,7 +124,7 @@ class PublicwhipParser
     
     unless item.placetags.empty?
       item.save
-      @log << "s"
+      @log << "s" unless RAILS_ENV == 'test'
     end
   end
   
@@ -191,7 +191,7 @@ class PublicwhipParser
         item.created_at = debate_date
         item.updated_at = debate_date
       end
-      @log << "\ni"
+      @log << "\ni" unless RAILS_ENV == 'test'
     end
     
     term_extractor = TermExtractor.new(debate_text)
@@ -199,7 +199,7 @@ class PublicwhipParser
 
     unless item.placetags.empty?
       item.save
-      @log << "s"
+      @log << "s" unless RAILS_ENV == 'test'
     end
   end
   
@@ -244,7 +244,7 @@ class PublicwhipParser
           end
           unless item.placetags.include?(placetag)
             item.placetags << placetag
-            @log << "p"
+            @log << "p" unless RAILS_ENV == 'test'
           end
         end
       end

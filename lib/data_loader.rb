@@ -172,7 +172,7 @@ module ParlyTags::DataLoader
     
     files = Dir.glob(RAILS_ROOT + '/data/written-answers/*.xml')
     files.each do |file|
-      parser.parse_file file, "Written Answers"
+      parser.parse_file file, "Written Answer"
     end
   end
   

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="b" latest="yes">
+
+<major-heading id="uk.org.publicwhip/wrans/2010-02-01b.305867.mh" oldstyleid="uk.org.publicwhip/wrans/2010-02-01b.6W.6" nospeaker="true" colnum="6W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0002.htm#10020115000019">
+	ENVIRONMENT FOOD AND RURAL AFFAIRS
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wrans/2010-02-01b.309933.h" oldstyleid="uk.org.publicwhip/wrans/2010-02-01b.6W.7" nospeaker="true" colnum="6W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0002.htm#10020115000341">
+	Departmental Advertising
+</minor-heading>
+
+<ques id="uk.org.publicwhip/wrans/2010-02-01b.309933.q0" oldstyleid="uk.org.publicwhip/wrans/2010-02-01b.6W.8" speakerid="uk.org.publicwhip/member/1917" speakername="Grant Shapps" colnum="6W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0002.htm#10020115000341">
+	<p pid="b.6W.8/1" qnum="309933">To ask the Secretary of State for Environment, Food and Rural Affairs what estimate he has made of his Department's expenditure on <i> (a)</i> television, <i> (b)</i> radio, <i> (c)</i> print and <i> (d)</i> online advertising in (i) 2009-10 and (ii) 2010-11.</p>
+</ques>
+
+<reply id="uk.org.publicwhip/wrans/2010-02-01b.309933.r0" oldstyleid="uk.org.publicwhip/wrans/2010-02-01b.6W.9" speakerid="uk.org.publicwhip/member/1904" speakername="Dan Norris" colnum="6W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0002.htm#10020115000342">
+	<p pid="b.6W.9/1">The Department's estimated advertising spend for 2009-10 in the media specified is outlined in the table. Expenditure on advertising in these media for 2010-11 has yet to be agreed.</p>
+	<table>
+		<tbody>
+			<tr pid="b.6W.9/4"> <td><i> Medium</i></td> <td><i> Cost (&#163;)</i></td> </tr>
+			<tr pid="b.6W.9/5"> <td>Television</td> <td>0</td> </tr>
+			<tr pid="b.6W.9/6"> <td>Radio</td> <td>500,000</td> </tr>
+			<tr pid="b.6W.9/7"> <td>Print-campaigns</td> <td>1,000,000</td> </tr>
+			<tr pid="b.6W.9/8"> <td>Print-recruitment and statutory notices</td> <td>30,000</td> </tr>
+			<tr pid="b.6W.9/9"> <td>Online advertising</td> <td>180,000</td> </tr>
+		</tbody>
+	</table>
+</reply>
+
+<minor-heading id="uk.org.publicwhip/wrans/2010-02-01b.311259.h" oldstyleid="uk.org.publicwhip/wrans/2010-02-01b.6W.10" nospeaker="true" colnum="6W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0002.htm#10020115000343">
+	Departmental Billing
+</minor-heading>
+
+<ques id="uk.org.publicwhip/wrans/2010-02-01b.311259.q0" oldstyleid="uk.org.publicwhip/wrans/2010-02-01b.6W.11" speakerid="uk.org.publicwhip/member/2035" speakername="John Mason" colnum="6W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0002.htm#10020115000343">
+	<p pid="b.6W.11/1" qnum="311259">To ask the Secretary of State for Environment, Food and Rural Affairs what proportion of invoices from suppliers his Department paid within 10 days of receipt in December 2009.</p>
+</ques>
+
+<reply id="uk.org.publicwhip/wrans/2010-02-01b.311259.r0" oldstyleid="uk.org.publicwhip/wrans/2010-02-01b.6W.12" speakerid="uk.org.publicwhip/member/1904" speakername="Dan Norris" colnum="6W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0002.htm#10020115000344">
+	<p pid="b.6W.12/1">In December 2009 the Department for Environment, Food and Rural Affairs paid 99.92 per cent. of invoices within 10 days.</p>
+</reply>
+
+</publicwhip>

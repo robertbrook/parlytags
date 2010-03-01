@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="b" latest="yes">
+
+<major-heading id="uk.org.publicwhip/wrans/2010-02-01b.313128.mh" oldstyleid="uk.org.publicwhip/wrans/2010-02-01b.8W.6" nospeaker="true" colnum="8W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0002.htm#10020115000026">
+	CULTURE MEDIA AND SPORT
+</major-heading>
+
+<minor-heading id="uk.org.publicwhip/wrans/2010-02-01b.314679.h" oldstyleid="uk.org.publicwhip/wrans/2010-02-01b.10W.9" nospeaker="true" colnum="10W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0003.htm#10020115000363">
+	National Lottery: Bexley
+</minor-heading>
+
+<ques id="uk.org.publicwhip/wrans/2010-02-01b.314679.q0" oldstyleid="uk.org.publicwhip/wrans/2010-02-01b.10W.10" speakerid="uk.org.publicwhip/member/1408" speakername="David Evennett" colnum="10W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0003.htm#10020115000363">
+	<p pid="b.10W.10/1" qnum="314679">To ask the Secretary of State for Culture, Media and Sport how many organisations in the London borough of Bexley received grants from each different funding programme of the Big Lottery Fund in each of the last five years.</p>
+</ques>
+
+<reply id="uk.org.publicwhip/wrans/2010-02-01b.314679.r0" oldstyleid="uk.org.publicwhip/wrans/2010-02-01b.10W.11" speakerid="uk.org.publicwhip/member/1412" speakername="Siôn Simon" colnum="10W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0003.htm#10020115000364">
+	<p pid="b.10W.11/1">The information requested is not held by the Department and relates to matters that are the responsibility of the Big Lottery Fund.</p>
+	<p pid="b.10W.11/2">Accordingly, I have asked the chief executive of the Big Lottery Fund to write direct to the hon. Member for Bexleyheath and Crayford.</p>
+	<p pid="b.10W.11/3">Copies of the reply will be placed in the Libraries of both Houses.</p>
+</reply>
+
+</publicwhip>
