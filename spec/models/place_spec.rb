@@ -290,39 +290,67 @@ describe Place do
     
     it 'should return an empty array where no alternative places are found' do
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([])
+      Constituency.should_receive(:find_by_name).with("Sudbury").and_return(nil)
       @place.alternative_places.should == []
     end
     
     it 'should return a list of places where valid alternative places are found' do
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2])
+      Constituency.should_receive(:find_by_name).with("Sudbury").and_return(nil)
       @place.alternative_places.should == [@alt_place1, @alt_place2]
     end
     
     it 'should not include itself in the list' do
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2, @place])
+      Constituency.should_receive(:find_by_name).with("Sudbury").and_return(nil)
       @place.alternative_places.should == [@alt_place1, @alt_place2]
     end
     
     it 'should not include sandbanks in the list' do
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2, @alt_place3])
+      Constituency.should_receive(:find_by_name).with("Sudbury").and_return(nil)
       @place.alternative_places.should == [@alt_place1, @alt_place2]
     end
     
     it 'should not include places with the same display name and county in the list' do
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2, @alt_place4])
+      Constituency.should_receive(:find_by_name).with("Sudbury").and_return(nil)
       @place.alternative_places.should == [@alt_place1, @alt_place2]
     end
     
     it 'should not include places that have a matching ascii_name but not county name' do
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2, @alt_place5])
+      Constituency.should_receive(:find_by_name).with("Sudbury").and_return(nil)
       @place.alternative_places.should == [@alt_place1, @alt_place2]
     end
     
     it 'should include places from the same county that have a different display name' do
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2, @alt_place6])
+      Constituency.should_receive(:find_by_name).with("Sudbury").and_return(nil)
       @place.alternative_places.should == [@alt_place1, @alt_place2, @alt_place6]
     end
     
+    it 'should include a matching constituency if there is one' do
+      constituency = mock_model(Constituency)
+      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Sudbury").and_return([@alt_place1, @alt_place2])
+      Constituency.should_receive(:find_by_name).with("Sudbury").and_return(constituency)
+      @place.alternative_places.should == [@alt_place1, @alt_place2, constituency]
+    end
+  end
+  
+  describe 'when asked to find all places within a constituency' do
+    it 'should return an array of constituencies which fall within the passed constituency\'s bounding box' do
+      constituency = mock_model(Constituency, :min_lat => 53.9726, :min_lng => -2.9833, :max_lat => 54.2396, :max_lng => -2.45881)
+      place1 = mock_model(Place)
+      place2 = mock_model(Place)
+      geo1 = mock_model(GeoKit::LatLng)
+      geo2 = mock_model(GeoKit::LatLng)
+      GeoKit::LatLng.should_receive(:new).with(constituency.min_lat, constituency.min_lng).and_return(geo1)
+      GeoKit::LatLng.should_receive(:new).with(constituency.max_lat, constituency.max_lng).and_return(geo2)
+      Place.should_receive(:find).with(:all, :bounds => [geo1, geo2]).and_return([place1, place2])
+      
+      Place.find_all_within_constituency(constituency).should == [place1, place2]
+    end
   end
 
   describe 'when asked for zoom level' do

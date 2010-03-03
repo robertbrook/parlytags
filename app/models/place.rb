@@ -82,6 +82,8 @@ class Place < ActiveRecord::Base
         places << place
       end
     end
+    constituency = Constituency.find_by_name(ascii_name)
+    places << constituency if constituency
     places
   end
   
