@@ -10,7 +10,19 @@ class Constituency < ActiveRecord::Base
     end
   end
   
+  def county_name
+    nil
+  end
+  
+  def ascii_name
+    name
+  end
+  
+  def display_name
+    "Constituency of #{name}"
+  end
+  
   def alternative_places
-    []
+    Place.find_all_by_ascii_name_or_alternate_names(name)
   end
 end
