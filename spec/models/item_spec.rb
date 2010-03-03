@@ -42,6 +42,26 @@ describe Item do
     end
   end
   
+  describe 'when asked to find all items within a constituency' do
+    it 'should return a list of items' do
+      constituency = mock_model(Constituency)
+      item1 = mock_model(Item)
+      item2 = mock_model(Item)
+      item3 = mock_model(Item)
+      item4 = mock_model(Item)
+      placetag = mock_model(Placetag)
+      placetag.stub!(:items).and_return([item1, item2, item3, item4])
+      place1 = mock_model(Place)
+      place1.stub!(:placetag).and_return(nil)
+      place2 = mock_model(Place)
+      place2.stub!(:placetag).and_return(placetag)
+      
+      Place.should_receive(:find_all_within_constituency).with(constituency).and_return([place1, place2])
+      
+      Item.find_all_within_constituency(constituency).should == [item1, item2, item3, item4]
+    end
+  end
+  
   describe 'when asked for a list of placenames' do
     it 'should return "" when there are no placetags' do
       item = Item.new()
