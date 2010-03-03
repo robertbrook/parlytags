@@ -20,7 +20,10 @@
         
         - else
           - display_place_name = search_place_name = alternate.display_name
-        =link_to "#{display_place_name}", search_url + "?q=#{search_place_name}"
+        - if @place.display_name =~ /Constituency of/
+          =link_to "#{display_place_name}", search_url + "?q=#{search_place_name}&t=p"
+        -else
+          =link_to "#{display_place_name}", search_url + "?q=#{search_place_name}"
       
         -unless alternate == @place.alternative_places.last
           &middot;

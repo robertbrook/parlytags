@@ -13,8 +13,10 @@ class SearchController < ApplicationController
     end
     
     term = params[:q]
+    type = params[:t]
+          
     if term
-      term = do_search(term.strip)
+      term = do_search(term.strip, type)
       if @place.blank?
         @place = nil
       else
@@ -28,18 +30,34 @@ class SearchController < ApplicationController
   end
   
   private
-    def do_search term
+    def do_search term, type=nil
       @last_search_term = term
       @searched_for = term
-      items = do_constituency_search(term)
-      if items
-        @results = items
-        return term
+      if term =~ /Constituency of\ (.*)/
+        term = $1
+        type = "c"
       end
-      if term.downcase.strip == "united kingdom"
-        places = []
-      else
-        places = do_place_search(term)
+      case type
+        when "c"
+          @results = do_constituency_search(term)
+          return term
+        when "p"
+          if term.downcase.strip == "united kingdom"
+            places = []
+          else
+            places = do_place_search(term)
+          end
+        else
+          items = do_constituency_search(term)
+          if items
+            @results = items
+            return term
+          end
+          if term.downcase.strip == "united kingdom"
+            places = []
+          else
+            places = do_place_search(term)
+          end
       end
       unless places.empty?
         @place = places.first
