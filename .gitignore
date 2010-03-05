@@ -3,6 +3,7 @@ tmp/**/*
 test
 coverage
 config/database.yml
+config/virtualserver/*
 .DS_Store
 doc/api
 doc/app

@@ -7,3 +7,10 @@ rake db:migrate
 
 rake parlytags:load_places
 rake parlytags:load_edms
+
+
+== Deploy
+
+sprinkle -s ./config/install.rb
+cap deploy:setup
+cap deploy
