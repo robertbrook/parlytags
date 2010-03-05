@@ -17,7 +17,7 @@ ssh_options[:forward_agent] = true
 
 default_run_options[:pty] = true
 
-set :application, 'favtags'
+set :application, 'parlytags'
 
 namespace :deploy do
   set :user, deployuser
