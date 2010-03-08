@@ -4,6 +4,6 @@ geokit
 htmlentities
 rails
 haml-edge
-sass_on_heroku
+sass-on-heroku
 json
 hpricot
