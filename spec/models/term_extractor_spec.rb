@@ -166,5 +166,13 @@ describe TermExtractor do
       parser = TermExtractor.new("concessionary fares in London.'.")
       parser.terms.should == ["London"]
     end
+    
+    it 'should not include the term How when it is at the beginning of a sentence' do
+      parser = TermExtractor.new("in How, Cumbria")
+      parser.terms.should == ["How", "Cumbria"]
+      
+      parser = TermExtractor.new("How did this happen?")
+      parser.terms.should == []
+    end
   end
 end

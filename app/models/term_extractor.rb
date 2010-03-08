@@ -9,8 +9,26 @@ class TermExtractor
     if text.blank?
       return nil
     else
-      return text.gsub("\n"," ").split(" ")
+      return valid_sentences.join(". ").split(" ")
     end
+  end
+  
+  def valid_sentences
+    if text.blank?
+      return nil
+    else
+      new_sentences = []
+      sentences = text.gsub("\n", " ").split(".")
+      sentences.each do |sentence|
+        sentence_words = sentence.strip.split(" ").reverse
+        if invalid_start_word?(sentence_words.last)
+          sentence_words.pop
+        end
+        sentence = sentence_words.reverse.join(" ").strip
+        new_sentences << sentence
+      end
+    end
+    new_sentences
   end
   
   def terms
@@ -132,7 +150,6 @@ class TermExtractor
       return false if is_stop_phrase?(term)
       parts = term.strip.split(" ")
       return false if joining_word?(parts.last)
-      return false if invalid_start_word?(term)
       true
     end
     
@@ -149,14 +166,16 @@ class TermExtractor
           "November", "December", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "EDM", "Her Majesty's Ministers",
           "They", "They're", "That", "That'll", "There", "Additionally", "Between", "Written Answer", "Our",
           "United Kingdom", "British Isles", "Post Office", "President", "West Bank", "Queen", "Crown", "Commons",
-          "Britain", "Great Britain", "Royal", "House", "Over", "More"]
+          "Britain", "Great Britain", "Royal", "House", "The Court"]
       stop_phrases.include?(term.strip)
     end
     
     def invalid_start_word? term
-      invalid_starts = ["Between", "And"]
-      parts = term.strip.split(" ")
-      invalid_starts.include?(parts.first)
+      if term
+        invalid_starts = ["Between", "And", "How", "Press", "Quality", "International", "Law", "Over", "More", "School"]
+        parts = term.strip.split(" ")
+        invalid_starts.include?(parts.first)
+      end
     end
     
     def within_term_phrase? words, current_offset
