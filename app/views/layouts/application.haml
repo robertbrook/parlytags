@@ -2,6 +2,8 @@
   %head
     %title= @title ? @title : 'ParlyTags'
     = stylesheet_link_tag "screen"
+    - searched_for = @last_search_term ? @last_search_term : ""
+    = auto_discovery_link_tag(:atom, "http://#{request.host_with_port}/search?q=#{CGI.escape(searched_for)}&t=#{params[:t]}&format=atom")
     -if @map
       = GMap.header
       = @map.to_html

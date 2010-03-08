@@ -26,11 +26,24 @@ class SearchController < ApplicationController
           @map.center_zoom_init([@place.lat, @place.lng], @place.zoom_level)
         end
       end
+      respond_to do |format|
+        format.html
+        format.atom do
+          if @results
+            render :template => 'search/index.atom.builder', :layout => false and return false
+          else
+            render :template => 'search/query_error.atom.builder', :layout => false and return false
+          end
+        end
+      end
     end
   end
   
   private
     def do_search term, type=nil
+      if term.blank?
+        return nil
+      end
       @last_search_term = term
       @searched_for = term
       if term =~ /Constituency of\ (.*)/
