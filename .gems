@@ -2,3 +2,8 @@ nokogiri
 acts_as_tree
 geokit
 htmlentities
+rails
+haml-edge
+sass_on_heroku
+json
+hpricot
