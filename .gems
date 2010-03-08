@@ -1,3 +1,4 @@
 nokogiri
 acts_as_tree
 geokit
+htmlentities
