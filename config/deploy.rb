@@ -45,7 +45,7 @@ namespace :deploy do
     run "cd #{release_path}; rake db:migrate RAILS_ENV=production"
     
     run "cd #{release_path}; rake parlytags:reset_load_clone RAILS_ENV=production"
-    run "rm -rf #{release_path}/data"
+    run "cd #{release_path}; rake parlytags:delete_data_files RAILS_ENV=production"
   end
   
   task :install_gems, :roles => :app do

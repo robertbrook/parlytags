@@ -51,4 +51,9 @@ namespace :parlytags do
   task :load_wms => :environment do
     load_wms
   end
+  
+  desc "Delete files in data directory"
+  task :delete_data_files => :environment do
+    delete_data_files
+  end
 end

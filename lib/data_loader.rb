@@ -205,6 +205,11 @@ module ParlyTags::DataLoader
     end
   end
   
+  
+  def delete_data_files
+    `rm -rf "#{DATA_DIR}/*"`
+  end
+  
   private
     def add_placetags terms, item, log
       terms.each do |term|
