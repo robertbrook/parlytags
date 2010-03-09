@@ -87,6 +87,23 @@ describe PublicwhipParser do
       
       @parser.parse_file file, "Written Answer"
     end
+
+    it 'should handle multiple questions correctly without adding empty brackets for text with no question number' do
+      item1 = mock_model(Item, :id => 1)
+      file = RAILS_ROOT + '/spec/fixtures/wra-with-multiple-questions.xml'
+
+      Item.should_receive(:new).with(
+        :title => 'Olympic Games 2012: Food [316045], [316046] - Elliot Morley',
+        :kind => 'Written Answer',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/text/100210w0006.htm#10021085000677').and_return(item1)
+      item1.should_receive(:created_at=).with('2010-02-10')
+      item1.should_receive(:updated_at=).with('2010-02-10')
+      Item.should_receive(:find_by_title_and_created_at).with('Olympic Games 2012: Food [316045], [316046] - Elliot Morley', '2010-02-10').and_return(item1)
+
+      item1.should_receive(:placetags).exactly(2).times.and_return([])
+
+      @parser.parse_file file, "Written Answer"
+    end
   end
 
   describe 'when parsing Westminster Hall debates' do

@@ -1,5 +1,7 @@
 load File.expand_path(File.dirname(__FILE__) + '/virtualserver/deploy_secrets.rb')
 
+set :app, domain
+
 namespace :serverbuild do
   set :user, root_user
   set :password, root_password

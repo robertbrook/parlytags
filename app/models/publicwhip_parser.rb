@@ -71,13 +71,13 @@ class PublicwhipParser
     question_text = ''
     (element/'p').each do |para|
       question_text << " #{para.inner_text}"
-      questions << "[#{para.attributes['qnum']}]" if para.attributes['qnum']
+      questions << "[#{para.attributes['qnum']}]" if para.attributes['qnum'] && !para.attributes['qnum'].blank?
     end
     
     speaker = element.attributes['speakername']
     @question_url = element.attributes['url']
     
-    @question_title = "#{@major_heading} #{@minor_heading} #{questions.join(', ')} - #{speaker}"
+    @question_title = "#{@major_heading} #{@minor_heading} #{questions.join(', ')} - #{speaker}".strip
     
     @log << "\nWRA - #{questions.join(', ')} "  unless RAILS_ENV == 'test'
     
