@@ -32,7 +32,7 @@ namespace :deploy do
   desc "Upload Google Maps API key"
   task :upload_google_maps_api_key, :roles => :app do
     data = File.read("config/virtualserver/deployed_gmaps_api_key.xml")
-    put data, "#{release_path}/config/gmaps_api_key.xml", :mode => 0664
+    put data, "#{release_path}/config/gmaps_api_key.yml", :mode => 0664
   end
   
   task :link_to_data, :roles => :app do
