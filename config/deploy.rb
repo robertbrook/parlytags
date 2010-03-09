@@ -70,7 +70,7 @@ namespace :deploy do
 end
 
 after 'deploy:setup', 'serverbuild:user_setup', 'serverbuild:setup_apache', 'deploy:install_gems'
-after 'deploy:update_code', 'deploy:upload_deployed_database_yml', 'upload_google_maps_api_key', 'deploy:link_to_data'
+after 'deploy:update_code', 'deploy:upload_deployed_database_yml', 'deploy:upload_google_maps_api_key', 'deploy:link_to_data'
 after 'deploy:symlink', 'deploy:run_migrations'
 
 def create_deploy_user
