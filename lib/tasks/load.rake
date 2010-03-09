@@ -13,8 +13,10 @@ namespace :parlytags do
     log << "loading data\n"
     load_all_data
     
-    log << "cloning structure\n"
-    Rake::Task["db:test:clone_structure"].invoke
+    if RAILS_ENV == "development"
+      log << "cloning structure\n"
+      Rake::Task["db:test:clone_structure"].invoke
+    end
   end
 
   desc "Populate data for Places in DB"
