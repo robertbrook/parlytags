@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE publicwhip
+[
+<!ENTITY ndash   "&#8211;">
+<!ENTITY mdash   "&#8212;">
+<!ENTITY iexcl   "&#161;">
+<!ENTITY divide  "&#247;">
+<!ENTITY euro    "&#8364;">
+<!ENTITY trade   "&#8482;">
+<!ENTITY bull    "&#8226;">
+<!ENTITY lsquo   "&#8216;">
+<!ENTITY rsquo   "&#8217;">
+<!ENTITY sbquo   "&#8218;">
+<!ENTITY ldquo   "&#8220;">
+<!ENTITY rdquo   "&#8221;">
+<!ENTITY bdquo   "&#8222;">
+<!ENTITY dagger  "&#8224;">
+
+<!ENTITY Ouml   "&#214;" >
+<!ENTITY szlig  "&#223;" >
+<!ENTITY agrave "&#224;" >
+<!ENTITY aacute "&#225;" >
+<!ENTITY acirc  "&#226;" >
+<!ENTITY atilde "&#227;" >
+<!ENTITY auml   "&#228;" >
+<!ENTITY ccedil "&#231;" >
+<!ENTITY egrave "&#232;" >
+<!ENTITY eacute "&#233;" >
+<!ENTITY ecirc  "&#234;" >
+<!ENTITY euml   "&#235;" >
+<!ENTITY iacute "&#237;" >
+<!ENTITY icirc  "&#238;" >
+<!ENTITY iuml	"&#239;" >
+<!ENTITY ntilde "&#241;" >
+<!ENTITY nbsp   "&#160;" >
+<!ENTITY oacute "&#243;" >
+<!ENTITY ocirc  "&#244;" >
+<!ENTITY ouml   "&#246;" >
+<!ENTITY oslash "&#248;" >
+<!ENTITY uacute "&#250;" >
+<!ENTITY uuml   "&#252;" >
+<!ENTITY thorn  "&#254;" >
+
+<!ENTITY pound  "&#163;" >
+<!ENTITY sect   "&#167;" >
+<!ENTITY copy   "&#169;" >
+<!ENTITY reg    "&#174;" >
+<!ENTITY deg    "&#176;" >
+<!ENTITY plusmn "&#177;" >
+<!ENTITY sup2   "&#178;" >
+<!ENTITY micro  "&#181;" >
+<!ENTITY para   "&#182;" >
+<!ENTITY middot "&#183;" >
+<!ENTITY ordm   "&#186;" >
+<!ENTITY frac14 "&#188;" >
+<!ENTITY frac12 "&#189;" >
+<!ENTITY frac34 "&#190;" >
+<!ENTITY oelig "&#339;" >
+<!ENTITY aelig  "&#230;" >
+
+]>
+
+<publicwhip scrapeversion="b" latest="yes">
+
+  <minor-heading id="uk.org.publicwhip/wrans/2010-02-10a.316045.h" oldstyleid="uk.org.publicwhip/wrans/2010-02-10a.994W.3" nospeaker="true" colnum="994W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/text/100210w0006.htm#10021085000677">
+  	Olympic Games 2012: Food
+  </minor-heading>
+
+<ques id="uk.org.publicwhip/wrans/2010-02-10a.316045.q0" oldstyleid="uk.org.publicwhip/wrans/2010-02-10a.994W.4" speakerid="uk.org.publicwhip/member/1805" speakername="Elliot Morley" colnum="994W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/text/100210w0006.htm#10021085000677">
+	<p pid="a.994W.4/1">To ask the Minister for the Olympics </p>
+	<p pid="a.994W.4/2" class="numindent" qnum="316045">(1)  if she will direct the London Organising Committee for the Olympic Games to ensure that over half of the chicken and egg products on sale at the London 2012 Olympic Games are procured from producers which adhere to high animal welfare standards;</p>
+	<p pid="a.994W.4/3" class="numindent" qnum="316046">(2)  if she will require catering outlets and franchises awarded contracts for the London 2012 Olympic Games to undertake to <i> (a)</i> use (i) non-cage and (ii) domestically-produced eggs and <i> (b) </i>procure other food produced to high animal welfare standards.</p>
+</ques>
+
+<reply id="uk.org.publicwhip/wrans/2010-02-10a.316045.r0" oldstyleid="uk.org.publicwhip/wrans/2010-02-10a.995W.0" speakerid="uk.org.publicwhip/member/1555" speakername="Tessa Jowell" colnum="995W"  url="http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/text/100210w0006.htm#10021085000678">
+	<p pid="a.995W.0/1">Animal welfare is extremely important and this is a central part of the London 2012 Food Vision.</p>
+	<p pid="a.995W.0/2">The London Organising Committee of the Olympic Games and Paralympic Games (LOCOG), a company limited by guarantee, is responsible for staging the London 2012 Games.</p>
+	<p pid="a.995W.0/3">In line with the recently published sustainability plan 'Towards a One Planet 2012', LOCOG has now published 'For Starters', its policy for food. This proposes benchmark and aspirational standards for how it will source food for the Games. LOCOG has set out that the Red Tractor standard will be the benchmark standard across meat, fruit, vegetables, salads, cereals and dairy.</p>
+	<p pid="a.995W.0/4">Red Tractor is a food assurance scheme, run by the Assured Food Standards organisation. It covers production standards developed by experts on safety, hygiene, animal welfare and the environment; this means that all dairy products, beef, lamb and poultry must be British. In addition, eggs must be British Lion mark free range.</p>
+</reply>
+
+</publicwhip>
