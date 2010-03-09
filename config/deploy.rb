@@ -28,6 +28,12 @@ namespace :deploy do
     data = File.read("config/virtualserver/deployed_database.yml")
     put data, "#{release_path}/config/database.yml", :mode => 0664
   end
+
+  desc "Upload Google Maps API key"
+  task :upload_google_maps_api_key, :roles => :app do
+    data = File.read("config/virtualserver/deployed_gmaps_api_key.xml")
+    put data, "#{release_path}/config/gmaps_api_key.xml", :mode => 0664
+  end
   
   task :link_to_data, :roles => :app do
     data_dir = "#{deploy_to}/shared/cached-copy/data"
@@ -64,18 +70,19 @@ namespace :deploy do
 end
 
 after 'deploy:setup', 'serverbuild:user_setup', 'serverbuild:setup_apache', 'deploy:install_gems'
-after 'deploy:update_code', 'deploy:upload_deployed_database_yml', 'deploy:link_to_data'
+after 'deploy:update_code', 'deploy:upload_deployed_database_yml', 'upload_google_maps_api_key', 'deploy:link_to_data'
 after 'deploy:symlink', 'deploy:run_migrations'
 
 def create_deploy_user
-  create_user deployuser, deploygroup, deploypassword
+  create_user deployuser, deploygroup, deploypassword, true
 end
 
-def create_user username, group, newpassword
+def create_user username, group, newpassword, sudo=false
   begin
     sudo "grep '^#{group}:' /etc/group"
   rescue
     sudo "groupadd #{group}"
+    sudo "echo \"%#{group} ALL=(ALL) ALL\" >> /etc/sudoers" if sudo
   end
 
   begin
