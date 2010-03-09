@@ -25,7 +25,7 @@ module ParlyTags::DataLoader
     load_written_answers
     log << "\nloaded written answers\n"
     load_westminster_hall_debates
-    log << "\nloaded westminster hall debates"
+    log << "\nloaded westminster hall debates\n"
     load_debates
     log << "\nloaded debates"
   end
