@@ -202,7 +202,7 @@ class TermExtractor
         return true if valid_word?(next_word)
         if current_offset+2 < words.length
           word_after_next = words[current_offset+2]
-          return true if joining_word?(next_word) && valid_word?(word_after_next) && (word != "and" && next_word != "the")
+          return true if joining_word?(next_word) && valid_word?(word_after_next) && ("#{word} #{next_word}" != "and the")
           return true if next_word == "-" && valid_word?(word_after_next)
           return true if next_word =~ /[0-9*]/ && valid_word?(word_after_next)
         end
