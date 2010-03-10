@@ -20,7 +20,7 @@ class TermExtractor
       new_sentences = []
       sentences = text.gsub("\n", " ").split(".")
       sentences.each do |sentence|
-        sentence_words = sentence.strip.split(" ").reverse
+        sentence_words = sentence.remove_punctuation().strip.split(" ").reverse
         if invalid_start_word?(sentence_words.last)
           sentence_words.pop
         end
@@ -166,13 +166,15 @@ class TermExtractor
           "November", "December", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "EDM", "Her Majesty's Ministers",
           "They", "They're", "That", "That'll", "There", "Additionally", "Between", "Written Answer", "Our",
           "United Kingdom", "British Isles", "Post Office", "President", "West Bank", "Queen", "Crown", "Commons",
-          "Britain", "Great Britain", "Royal", "House", "The Court"]
+          "Britain", "Great Britain", "Royal", "House", "The Court", "Houses of Parliament"]
       stop_phrases.include?(term.strip)
     end
     
     def invalid_start_word? term
       if term
-        invalid_starts = ["Between", "And", "How", "Press", "Quality", "International", "Law", "Over", "More", "School"]
+        invalid_starts = ["And", "Back", "Between", "City", "Central", "Grade", "Grand", "How", 
+          "International", "Law", "Lords", "March", "More", "Over", "Press", "Quality", "Reading", 
+          "Rugby", "Salt", "School", "Standard", "Twenty", "Well"]
         parts = term.strip.split(" ")
         invalid_starts.include?(parts.first)
       end
