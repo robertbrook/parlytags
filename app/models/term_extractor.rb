@@ -133,7 +133,7 @@ class TermExtractor
     
     def valid_word? word
       return false if word.nil?
-      return false if is_stop_word?(remove_punctuation(word))
+      return false if is_stop_word?(remove_punctuation(word).strip)
       return true if remove_punctuation(word) =~ /^[0-9+]$/
       return true if remove_punctuation(word) =~ /^M(?:a?)c[A-Z]+[a-z]*$/
       return true if remove_punctuation(word) == remove_punctuation(word).capitalize
@@ -167,7 +167,7 @@ class TermExtractor
           "They", "They're", "That", "That'll", "There", "Additionally", "Between", "Written Answer", "Our",
           "United Kingdom", "British Isles", "Post Office", "President", "West Bank", "Queen", "Crown", "Commons",
           "Britain", "Great Britain", "Royal", "House", "The Court", "Houses of Parliament"]
-      stop_phrases.include?(term.strip)
+      stop_phrases.include?(remove_punctuation(term).strip)
     end
     
     def invalid_start_word? term
