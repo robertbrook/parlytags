@@ -177,5 +177,10 @@ describe TermExtractor do
       parser = TermExtractor.new("How? What happened here?")
       parser.terms.should == ["What"]
     end
+    
+    it 'should not include terms that are followed by the word report' do
+      parser = TermExtractor.new("Parliament voted for an Independent Parliamentary Standards Authority and received the Kelly report, but now there is confusion about which measure stands")
+      parser.terms.should == ["Independent Parliamentary Standards Authority"]
+    end
   end
 end

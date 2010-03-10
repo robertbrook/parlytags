@@ -44,16 +44,20 @@ class TermExtractor
         word = words[i]
         if valid_word?(word)
           term = word
-                
+          
           #check the words that follow...
           unless trailing_punctuation?(word) && !(word =~ /^(?:[A-Z]\.)+$/)
             next_offset = i+1
             next_word = words[next_offset]
-            while within_term_phrase?(words, next_offset)
-              term = "#{term} #{next_word}"
-              words_used << next_offset
-              next_offset += 1
-              next_word = words[next_offset]
+            if remove_punctuation(next_word) == "report"
+              term = ""
+            else
+              while within_term_phrase?(words, next_offset)
+                term = "#{term} #{next_word}"
+                words_used << next_offset
+                next_offset += 1
+                next_word = words[next_offset]
+              end
             end
           end
         
@@ -94,6 +98,9 @@ class TermExtractor
   
   private
     def remove_punctuation input
+      unless input
+        return ""
+      end
       output = input.strip
       output = output.gsub(',', ' ').strip unless output.nil?
       output = output.gsub(';', ' ').strip unless output.nil?
