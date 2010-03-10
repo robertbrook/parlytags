@@ -164,7 +164,7 @@ class PublicwhipParser
       end
     end
     
-    if debate_title == 'Debate -'
+    if debate_title == 'Debate -' || debate_title.blank?
       debate_title = @titles.last
     else
       @titles << debate_title
