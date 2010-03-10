@@ -173,6 +173,9 @@ describe TermExtractor do
       
       parser = TermExtractor.new("How did this happen?")
       parser.terms.should == []
+      
+      parser = TermExtractor.new("How? What happened here?")
+      parser.terms.should == ["What"]
     end
   end
 end

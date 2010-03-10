@@ -20,7 +20,7 @@ class TermExtractor
       new_sentences = []
       sentences = text.gsub("\n", " ").split(".")
       sentences.each do |sentence|
-        sentence_words = sentence.remove_punctuation().strip.split(" ").reverse
+        sentence_words = sentence.strip.split(" ").reverse
         if invalid_start_word?(sentence_words.last)
           sentence_words.pop
         end
@@ -172,6 +172,7 @@ class TermExtractor
     
     def invalid_start_word? term
       if term
+        term = remove_punctuation(term)
         invalid_starts = ["And", "Back", "Between", "City", "Central", "Grade", "Grand", "How", 
           "International", "Law", "Lords", "March", "More", "Over", "Press", "Quality", "Reading", 
           "Rugby", "Salt", "School", "Standard", "Twenty", "Well"]
