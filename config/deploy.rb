@@ -2,6 +2,7 @@ load File.expand_path(File.dirname(__FILE__) + '/virtualserver/deploy_secrets.rb
 
 # Fill slice_url in - where you're installing your stack to
 role :app, domain
+role :web, domain
 
 # Fill user in - if remote user is different to your local user
 set :user, root_user
