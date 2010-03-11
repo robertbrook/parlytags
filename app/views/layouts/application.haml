@@ -11,10 +11,11 @@
     
     #search
       - form_tag(search_url, :name => 'search', :method => :get) do
-        I want to find a place called
+        I want to search Parliament
+        %br
+        for a place in the UK called
         = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :accesskey => 's'
         = submit_tag 'Go!'
-        mentioned in Parliament
     = yield 
     -unless current_page?(:action => 'credits')
       %p
