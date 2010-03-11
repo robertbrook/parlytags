@@ -8,33 +8,13 @@
       = GMap.header
       = @map.to_html
   %body
-    #header 
-      - form_tag(search_url, :name => 'search', :method => :get) do
-        = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :accesskey => 's'
-        = submit_tag 'Find'
-    #content
-      = yield      
-    #footer
-      %strong= link_to_unless_current "ParlyTags", root_path
-      is a prototype for searching by place names from the UK Parliament.
-      %br
-      %br
-      The 
-      %a{:href => "http://github.com/robertbrook/parlytags", :title => 'Site source code on github'}
-        source code
-      for this site is available to download.
-      %br
-      We welcome feedback at
-      %a{:href => "mailto:mail@robertbrook.com", :title => 'Send us your feedback'}
-        mail@robertbrook.com
-      %br
-      Material is published on this site under
-      %a{:href => "http://www.parliament.uk/site_information/parliamentary_copyright.cfm", :title => 'Parliamentary copyright information'}
-        Parliamentary copyright
-      %br
+    #p 
+      A prototype for finding places mentioned in the UK Parliament &mdash;
       -unless current_page?(:action => 'credits')
-        Data retrieved from
-        =link_to("various sources", "credits", {:title => 'Data source credits'})
-      
-    
-  
+        =link_to("More about this site.", "credits", {:title => 'More about this site.'})
+      #search
+        - form_tag(search_url, :name => 'search', :method => :get) do
+          = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :accesskey => 's'
+          = submit_tag 'Find'
+      = yield            
+
