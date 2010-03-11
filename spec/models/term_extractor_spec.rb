@@ -207,5 +207,10 @@ describe TermExtractor do
       parser = TermExtractor.new("St. Thomas")
       parser.terms.should == ["St Thomas"]
     end
+    
+    it 'should not include the word "Grand" if the following word is "total"' do
+      parser = TermExtractor.new("the Grand total")
+      parser.terms.should == []
+    end
   end
 end

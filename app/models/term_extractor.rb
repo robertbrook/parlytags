@@ -51,6 +51,8 @@ class TermExtractor
             next_word = words[next_offset]
             if remove_punctuation(next_word) == "report"
               term << " report"
+            elsif word == "Grand" && remove_punctuation(next_word) == "total"
+              term = ""
             else
               while within_term_phrase?(words, next_offset)
                 term = "#{term} #{next_word}"
