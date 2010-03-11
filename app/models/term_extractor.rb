@@ -18,7 +18,9 @@ class TermExtractor
       return nil
     else
       new_sentences = []
-      sentences = text.gsub("\n", " ").split(".")
+      sentences = text.gsub("?", ".")
+      sentences = sentences.gsub("!", ".")
+      sentences = sentences.gsub("\n", " ").split(".")
       sentences.each do |sentence|
         sentence_words = sentence.strip.split(" ").reverse
         if invalid_start_word?(sentence_words.last)

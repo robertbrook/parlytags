@@ -212,5 +212,10 @@ describe TermExtractor do
       parser = TermExtractor.new("the Grand total")
       parser.terms.should == []
     end
+    
+    it 'should treat ! and ? as valid endings for sentences' do
+      parser = TermExtractor.new('ok! How? Standard! Central')
+      parser.terms.should == []
+    end
   end
 end
