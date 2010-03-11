@@ -143,7 +143,8 @@ class TermExtractor
     
     def trailing_punctuation? word
       last_char = word[-1,1]
-      ".,;!?".include?(last_char) unless word == "St."
+      recognised_shortenings = ["St.", "Dr.", "Mr.", "Mrs.", "Ms."]
+      ".,;!?".include?(last_char) unless recognised_shortenings.include?(word)
     end
     
     def already_used used, number

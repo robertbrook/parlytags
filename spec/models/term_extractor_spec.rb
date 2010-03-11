@@ -191,6 +191,21 @@ describe TermExtractor do
       parser.terms.should == ["Ofsted report", "Excelling"]
     end
     
-    
+    it 'should handle recognised shortenings instead of splitting them into separate terms' do
+      parser = TermExtractor.new("report relating to Dr. Jones")
+      parser.terms.should == ["Dr Jones"]
+      
+      parser = TermExtractor.new("Mr. Davis")
+      parser.terms.should == ["Mr Davis"]
+      
+      parser = TermExtractor.new("Mrs. Smith")
+      parser.terms.should == ["Mrs Smith"]
+      
+      parser = TermExtractor.new("Ms. Smith")
+      parser.terms.should == ["Ms Smith"]
+      
+      parser = TermExtractor.new("St. Thomas")
+      parser.terms.should == ["St Thomas"]
+    end
   end
 end
