@@ -203,7 +203,7 @@ class TermExtractor
           "November", "December", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "EDM", "Her Majesty's Ministers",
           "They", "They're", "That", "That'll", "There", "Additionally", "Between", "Written Answer", "Our",
           "United Kingdom", "British Isles", "Post Office", "President", "West Bank", "Queen", "Crown", "Commons",
-          "Britain", "Great Britain", "Royal", "House", "The Court", "Houses of Parliament"]
+          "Britain", "Great Britain", "Royal", "Palace", "House", "The Court", "Houses of Parliament"]
       stop_phrases.include?(term.strip) || stop_phrases.include?(remove_punctuation(term).strip)
     end
     
