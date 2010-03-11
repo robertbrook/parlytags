@@ -72,14 +72,16 @@ class TermExtractor
             term = remove_leading_dash(term)
             subterms = term.split(" ")
             if subterms.length == 3 && subterms[1] == "and"
-              found_terms << subterms[0]
-              found_terms << subterms[2]
+              found_terms << subterms[0] if valid_term?(subterms[0]) 
+              found_terms << subterms[2] if valid_term?(subterms[2])
             else
               if term.include?(" and ")
                 parts = term.split(" and ")
                 parts.each do |part|
-                  place = Place.find_all_by_ascii_name_or_alternate_names(part)
-                  found_terms << part unless place.blank?
+                  if valid_term?(part)
+                    place = Place.find_all_by_ascii_name_or_alternate_names(part)
+                    found_terms << part unless place.blank?
+                  end
                 end
               end
               if subterms.last =~ /^\d+$/
@@ -93,6 +95,8 @@ class TermExtractor
                 found_terms << term unless found_terms.include?(term)
               end
             end
+          else
+            term = ""
           end
         end
       end
@@ -178,10 +182,9 @@ class TermExtractor
     
     def valid_term? term
       return false if term.nil?
+      return false if is_stop_phrase?(term)
       return false unless term.to_i == 0
       return false unless remove_punctuation(term).length > 2
-      term = remove_punctuation(term)
-      return false if is_stop_phrase?(remove_punctuation(term).strip)
       parts = term.strip.split(" ")
       return false if joining_word?(parts.last)
       true
@@ -201,7 +204,7 @@ class TermExtractor
           "They", "They're", "That", "That'll", "There", "Additionally", "Between", "Written Answer", "Our",
           "United Kingdom", "British Isles", "Post Office", "President", "West Bank", "Queen", "Crown", "Commons",
           "Britain", "Great Britain", "Royal", "House", "The Court", "Houses of Parliament"]
-      stop_phrases.include?(remove_punctuation(term).strip)
+      stop_phrases.include?(term.strip) || stop_phrases.include?(remove_punctuation(term).strip)
     end
     
     def invalid_start_word? term

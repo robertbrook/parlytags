@@ -214,7 +214,12 @@ describe TermExtractor do
     end
     
     it 'should treat ! and ? as valid endings for sentences' do
-      parser = TermExtractor.new('ok! How? Standard! Central')
+      parser = TermExtractor.new( 'ok! How? Standard! Central')
+      parser.terms.should == []
+    end
+    
+    it 'should not include March as a valid term' do
+      parser = TermExtractor.new('between September and March;')
       parser.terms.should == []
     end
   end
