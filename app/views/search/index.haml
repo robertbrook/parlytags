@@ -1,13 +1,11 @@
 - @title = "#{h(sanitize(@searched_for))} (ParlyTags)" if @searched_for
 
 -if @place
-  %h2.map_title= @place_title
   - if @results && !@results.empty?
     - unless @constituency
-      %span.nearby
-        = "Including places nearby"      
-  - if @has_connection
-    #map
+      - @place_title = "#{@place_title} and places within about 40km"  
+
+  %h2.map_title= @place_title    
 
   -unless @place.alternative_places.empty?
     %p.alternative-places
@@ -27,6 +25,8 @@
       
         -unless alternate == @place.alternative_places.last
           &middot;
+  - if @has_connection
+    #map
           
 - if @results && !@results.empty?  
         
