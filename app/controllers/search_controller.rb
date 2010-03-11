@@ -39,6 +39,9 @@ class SearchController < ApplicationController
     end
   end
   
+  def credits
+  end
+  
   private
     def do_search term, type=nil
       if term.blank?

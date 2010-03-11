@@ -19,17 +19,22 @@
       is a prototype for searching by place names from the UK Parliament.
       %br
       %br
-      The <a href="http://github.com/robertbrook/parlytags">source code</a> for this site is available to download.
+      The 
+      %a{:href => "http://github.com/robertbrook/parlytags", :title => 'Site source code on github'}
+        source code
+      for this site is available to download.
       %br
-      We welcome feedback at <a href="mailto:mail@robertbrook.com">mail@robertbrook.com</a>.
+      We welcome feedback at
+      %a{:href => "mailto:mail@robertbrook.com", :title => 'Send us your feedback'}
+        mail@robertbrook.com
       %br
-      Material is published on this site under <a href="http://www.parliament.uk/site_information/parliamentary_copyright.cfm">Parliamentary copyright</a>
+      Material is published on this site under
+      %a{:href => "http://www.parliament.uk/site_information/parliamentary_copyright.cfm", :title => 'Parliamentary copyright information'}
+        Parliamentary copyright
       %br
-      The place names recognised are from <a href="http://www.geonames.org">GeoNames</a> data.
-      %br
-      EDMs are displayed using data from <a href="http://www.edms.org.uk">edms.org.uk</a>.
-      %br
-      Westminster Hall Debates, Written Ministerial Statements and Written Answers are displayed using data from the <a href="http://ukparse.kforge.net/parlparse/">Parliament Parser (parlparse)</a> project.
+      -unless current_page?(:action => 'credits')
+        Data retrieved from
+        =link_to("various sources", "credits", {:title => 'Data source credits'})
       
     
   
