@@ -216,8 +216,6 @@ describe PublicwhipParser do
       item1.should_receive(:created_at=).with('2010-01-05')
       item1.should_receive(:updated_at=).with('2010-01-05')
       item1.should_receive(:placetags).exactly(2).times.and_return([placetag])
-      
-      Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("August").and_return([])
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("October 2009").and_return([])
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Cabinet Office Strategy Unit July").and_return([])
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with("Food Matters").and_return([])
