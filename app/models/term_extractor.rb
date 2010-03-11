@@ -50,7 +50,7 @@ class TermExtractor
             next_offset = i+1
             next_word = words[next_offset]
             if remove_punctuation(next_word) == "report"
-              term = ""
+              term << " report"
             else
               while within_term_phrase?(words, next_offset)
                 term = "#{term} #{next_word}"
@@ -65,6 +65,7 @@ class TermExtractor
           if valid_term?(term.strip)
             term = remove_punctuation(term)
             term = remove_final_apostrophe(term)
+            term = remove_leading_dash(term)
             subterms = term.split(" ")
             if subterms.length == 3 && subterms[1] == "and"
               found_terms << subterms[0]
@@ -120,8 +121,24 @@ class TermExtractor
       output
     end
     
+    def start_of_quote? word
+      starting_quotes = ['"', "`", "'"]
+      if starting_quotes.include?(word[0..0])
+        return true
+      else
+        return false
+      end
+    end
+    
     def remove_final_apostrophe term
       term.gsub(/\'s$/, '')
+    end
+    
+    def remove_leading_dash term
+      if term[0..0].strip == "-"
+        term = term[1..term.length].strip
+      end
+      term
     end
     
     def trailing_punctuation? word
@@ -141,6 +158,11 @@ class TermExtractor
     def valid_word? word
       return false if word.nil?
       return false if is_stop_word?(remove_punctuation(word).strip)
+      if start_of_quote?(word.strip)
+        if invalid_start_word?(remove_punctuation(word).strip)
+          return false
+        end
+      end
       return true if remove_punctuation(word) =~ /^[0-9+]$/
       return true if remove_punctuation(word) =~ /^M(?:a?)c[A-Z]+[a-z]*$/
       return true if remove_punctuation(word) == remove_punctuation(word).capitalize
@@ -154,7 +176,7 @@ class TermExtractor
       return false unless term.to_i == 0
       return false unless remove_punctuation(term).length > 2
       term = remove_punctuation(term)
-      return false if is_stop_phrase?(term)
+      return false if is_stop_phrase?(remove_punctuation(term).strip)
       parts = term.strip.split(" ")
       return false if joining_word?(parts.last)
       true

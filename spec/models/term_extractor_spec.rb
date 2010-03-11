@@ -180,7 +180,17 @@ describe TermExtractor do
     
     it 'should not include terms that are followed by the word report' do
       parser = TermExtractor.new("Parliament voted for an Independent Parliamentary Standards Authority and received the Kelly report, but now there is confusion about which measure stands")
-      parser.terms.should == ["Independent Parliamentary Standards Authority"]
+      parser.terms.should == ["Independent Parliamentary Standards Authority", "Kelly report"]
     end
+    
+    it 'should not include the invalid start words when they appear at the beginning of a quote' do
+      parser = TermExtractor.new(%Q|Ted Heath went to the country and said, "Back me or sack me."|)
+      parser.terms.should == ["Ted Heath"]
+      
+      parser = TermExtractor.new(%Q|the recent Ofsted report `Twenty outstanding primary schools - Excelling against the odds';|)
+      parser.terms.should == ["Ofsted report", "Excelling"]
+    end
+    
+    
   end
 end
