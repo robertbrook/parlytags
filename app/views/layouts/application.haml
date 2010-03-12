@@ -14,7 +14,7 @@
         I want to search Parliament
         %br
         for a place in the UK called
-        = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :accesskey => 's'
+        = text_field_tag 'q', (@last_search_term ? h(sanitize(@last_search_term)) : ''), :accesskey => 's', :size => 18
         = submit_tag 'Go!'
     = yield 
     -unless current_page?(:action => 'credits')
