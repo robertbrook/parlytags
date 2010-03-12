@@ -44,7 +44,13 @@
       Sorry, we don't have any results to show
     %p.no-nearest
       This is either because we can't find a place with that name, or we couldn't find that any items within about 40km of here.
+    %h2
+      Search the UK Parliament site
     %p
       %a{:href => 'http://www.parliament.uk/search/search.aspx?search=' + @searched_for, :title => "Search for \"" + h(sanitize(@searched_for)) + "\" on parliament.uk"}
         ="Search for \"" + h(sanitize(@searched_for)) + "\" on the parliament.uk website"
+    %h2
+      Photos at Flickr
+    %p
+      You may find photos of the place you are looking for on <a href="http://www.flickr.com/photos/uk_parliament/map/">the UK Parliament Flickr Map</a>.
   
