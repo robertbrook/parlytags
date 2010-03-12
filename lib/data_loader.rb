@@ -135,7 +135,6 @@ module ParlyTags::DataLoader
         edm_id     = motion.xpath("id/text()").to_s
         edm_title  = motion.xpath("title/text()").to_s
         edm_number = motion.xpath("number/text()").to_s
-        
         session_name = motion.xpath("session/text()").to_s
         
         proposed_date = motion.xpath("signatures/signature/date/text()").first.to_s
