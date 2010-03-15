@@ -107,25 +107,23 @@ class TermExtractor
   
   private
     def remove_punctuation input
-      unless input
-        return ""
-      end
+      return "" unless input
       output = input.strip
-      output = output.gsub(',', ' ').strip unless output.nil?
-      output = output.gsub(';', ' ').strip unless output.nil?
-      output = output.gsub('.', ' ').strip unless output.nil?
-      output = output.gsub('!', ' ').strip unless output.nil?
-      output = output.gsub('?', ' ').strip unless output.nil?
-      output = output.gsub(')', ' ').strip unless output.nil?
-      output = output.gsub('(', ' ').strip unless output.nil?
-      output = output.gsub('"', '').strip unless output.nil?
-      output = output.gsub("`", '').strip unless output.nil?
-      output = output.gsub('  ', ' ').strip unless output.nil?
-      output = output.gsub('  ', ' ').strip unless output.nil?
-      output = output.gsub(/^&\W*/, '').strip unless output.nil?
-      output = output.gsub(/^\'/, '').strip unless output.nil?
-      output = output.gsub(/\'$/, '').strip unless output.nil?
       return "" if output.nil?
+      output = output.gsub(',', ' ').strip
+      output = output.gsub(';', ' ').strip
+      output = output.gsub('.', ' ').strip
+      output = output.gsub('!', ' ').strip
+      output = output.gsub('?', ' ').strip
+      output = output.gsub(')', ' ').strip
+      output = output.gsub('(', ' ').strip
+      output = output.gsub('"', '').strip
+      output = output.gsub("`", '').strip
+      output = output.gsub('  ', ' ').strip
+      output = output.gsub('  ', ' ').strip
+      output = output.gsub(/^&\W*/, '').strip
+      output = output.gsub(/^\'/, '').strip
+      output = output.gsub(/\'$/, '').strip
       output
     end
     
