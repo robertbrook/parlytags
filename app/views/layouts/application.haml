@@ -1,6 +1,6 @@
 %html
   %head
-    %title= @title ? @title : 'Places'
+    %title= @title ? @title : 'Places.MillbankSystems'
     = stylesheet_link_tag "screen"
     - searched_for = @last_search_term ? @last_search_term : ""
     = auto_discovery_link_tag(:atom, "http://#{request.host_with_port}/search?q=#{CGI.escape(searched_for)}&t=#{params[:t]}&format=atom")
