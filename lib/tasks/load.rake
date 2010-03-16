@@ -24,6 +24,11 @@ namespace :parlytags do
     load_places
   end
   
+  desc "Populate searchable data in DB"
+  task :load_search_data => :environment do
+    load_search_data
+  end
+  
   desc "Populate data for Constituencies in DB"
   task :load_constituencies => :environment do
     load_constituencies

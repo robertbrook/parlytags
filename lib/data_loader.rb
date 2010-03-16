@@ -14,9 +14,19 @@ module ParlyTags::DataLoader
     
     log << "loading place data"
     load_places
-    log << "\nloaded place data\nloading constituency data"
+    log << "\nloaded place data"
+    log << "\nloading constituency data"
     load_constituencies
-    log << "\nloaded constituency data\nloading edm data"
+    log << "\nloaded constituency data"
+    load_search_data
+  end
+  
+  def load_search_data
+    log = Logger.new(STDOUT)
+    
+    Placetag.delete_all
+    
+    log << "\nloading edm data"
     load_edms
     log << "\nloaded edm data\nloading wms data"
     load_wms

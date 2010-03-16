@@ -33,7 +33,7 @@ namespace :deploy do
   desc "Upload Google Maps API key"
   task :upload_google_maps_api_key, :roles => :app do
     data = File.read("config/virtualserver/deployed_gmaps_api_key.xml")
-    put data, "#{release_path}/config/gmaps_api_key.yml", :mode => 0664
+    put data, "#{deploy_to}/current/config/gmaps_api_key.yml", :mode => 0664
   end
   
   task :link_to_data, :roles => :app do
@@ -52,8 +52,21 @@ namespace :deploy do
   task :run_migrations, :roles => :app do
     run "cd #{release_path}; rake db:create:all"
     run "cd #{release_path}; rake db:migrate RAILS_ENV=production"
-    
+  end
+  
+  task :rebuild_database, :roles => :app do
     run "cd #{release_path}; rake parlytags:reset_load_clone RAILS_ENV=production"
+  end
+  
+  task :reload_places_data, :roles => :app do
+    run "cd #{release_path}; rake parlytags:load_places RAILS_ENV=production"
+  end
+  
+  task :reload_search_data, :roles => :app do
+    run "cd #{release_path}; rake parlytags:load_search_data RAILS_ENV=production"
+  end
+  
+  task :delete_data_files, :roles => :app do
     run "cd #{release_path}; rake parlytags:delete_data_files RAILS_ENV=production"
   end
   
@@ -73,8 +86,8 @@ namespace :deploy do
 end
 
 after 'deploy:setup', 'serverbuild:user_setup', 'serverbuild:setup_apache', 'deploy:install_gems'
-after 'deploy:update_code', 'deploy:upload_deployed_database_yml', 'deploy:upload_google_maps_api_key', 'deploy:link_to_data'
-after 'deploy:symlink', 'deploy:run_migrations'
+after 'deploy:update_code', 'deploy:link_to_data'
+after 'deploy:symlink', 'deploy:upload_deployed_database_yml', 'deploy:upload_google_maps_api_key', 'deploy:run_migrations'
 
 def create_deploy_user
   create_user deployuser, deploygroup, deploypassword, true
