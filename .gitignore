@@ -4,6 +4,7 @@ test
 coverage
 config/database.yml
 config/gmaps_api_key.yml
+config/newrelic.yml
 config/virtualserver/*
 .DS_Store
 doc/api
