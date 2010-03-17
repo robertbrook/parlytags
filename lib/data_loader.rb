@@ -33,7 +33,7 @@ module ParlyTags::DataLoader
     log << "\nloaded wms data\n"
     log << "\nloaded wms data\nloading written answers"
     load_written_answers
-    log << "\nloaded written answers\n"
+    log << "\nloaded written answers\nloading westminster hall debates"
     load_westminster_hall_debates
     log << "\nloaded westminster hall debates\n"
     load_debates
@@ -43,16 +43,17 @@ module ParlyTags::DataLoader
   def load_places
     log = Logger.new(STDOUT)
     
+    AlternateName.delete_all
     Place.delete_all
     
     file = File.open(GEO_FILE)
     file.each do |line|
       fields = line.split("\t")
-      Place.create!(
+      alt_names = fields[3]
+      place = Place.create!(
         :geoname_id => fields[0],
         :name => fields[1],
         :ascii_name => fields[2],
-        :alternate_names => fields[3],
         :lat => fields[4],
         :lng => fields[5],
         :feature_class => fields[6],
@@ -70,6 +71,17 @@ module ParlyTags::DataLoader
         :last_modified => fields[18]
       )
       log << 'p'
+      alt_places = alt_names.split(",")
+      alt_places.each do |place_name|
+        unless place_name == place.name
+          AlternateName.create!(
+            :name => place_name,
+            :place_id => place.id
+          )
+          log << 'a'
+        end
+      end
+      log << "\n"
     end
     log << "\n"
   end
@@ -165,11 +177,6 @@ module ParlyTags::DataLoader
 
         term_extractor = TermExtractor.new(edm_text)
         add_placetags(term_extractor.terms, item, log)
-
-        unless item.placetags.empty?
-          item.save
-          log << "s"
-        end
       end
       
       log << "\n"

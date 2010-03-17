@@ -94,11 +94,6 @@ class PublicwhipParser
     
     term_extractor = TermExtractor.new(question_text)
     add_placetags(term_extractor.terms, item)
-
-    unless item.placetags.empty?
-      item.save
-      @log << "s" unless RAILS_ENV == 'test'
-    end
   end
   
   def handle_answer element
@@ -121,11 +116,6 @@ class PublicwhipParser
     answer_text = element.inner_text
     term_extractor = TermExtractor.new(answer_text)
     add_placetags(term_extractor.terms, item)
-    
-    unless item.placetags.empty?
-      item.save
-      @log << "s" unless RAILS_ENV == 'test'
-    end
   end
   
   def handle_speech element
@@ -196,11 +186,6 @@ class PublicwhipParser
     
     term_extractor = TermExtractor.new(debate_text)
     add_placetags(term_extractor.terms, item)
-
-    unless item.placetags.empty?
-      item.save
-      @log << "s" unless RAILS_ENV == 'test'
-    end
   end
   
   def handle_data doc_root
@@ -245,6 +230,7 @@ class PublicwhipParser
           unless item.placetags.include?(placetag)
             item.placetags << placetag
             @log << "p" unless RAILS_ENV == 'test'
+            item.save
           end
         end
       end

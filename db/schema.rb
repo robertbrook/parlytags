@@ -9,7 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100226150805) do
+ActiveRecord::Schema.define(:version => 20100316172101) do
+
+  create_table "alternate_names", :force => true do |t|
+    t.string  "name"
+    t.integer "place_id"
+  end
 
   create_table "constituencies", :force => true do |t|
     t.string  "name"

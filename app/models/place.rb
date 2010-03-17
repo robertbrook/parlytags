@@ -1,6 +1,7 @@
 class Place < ActiveRecord::Base
   acts_as_mappable :default_units => :kms
   has_one :placetag
+  has_many :alternate_names
   
   class << self
     def find_all_by_ascii_name_or_alternate_names(term)
@@ -13,20 +14,21 @@ class Place < ActiveRecord::Base
       else
         places = find_all_by_name(term, :conditions => "feature_code != 'BNK' and feature_code != 'AIRP'", :order => "feature_class")
       end
+
       if places.empty?
         places = find_all_by_ascii_name(term, :conditions => "feature_code != 'BNK'", :order => "feature_class")
       end
-      
-      other_places = find(
-        :all,
-        :conditions => "feature_code != 'BNK' and (alternate_names = \'#{term.gsub("'", "\\\\'")}\' or alternate_names like \'#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")},%\' or alternate_names like \'%,#{term.gsub("'", "\\\\'")}\')",
-        :order => "feature_class"
-        )
+
+      alternates = AlternateName.find_all_by_name(term)
+      other_places = alternates.collect { |x| x.place }
       other_places.each do |place|
-        unless places.include?(place) || place.feature_code == 'BNK'
-          places << place
+        if place
+          unless places.include?(place) || place.feature_code == 'BNK'
+            places << place
+          end
         end
       end
+
       if places.empty? && original_term.include?("'")
         term = original_term.gsub("'", "").strip
         find_all_by_ascii_name_or_alternate_names(term)
