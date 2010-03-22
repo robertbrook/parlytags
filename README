@@ -9,11 +9,25 @@ rake db:migrate
 rake parlytags:reset_load_clone
 
 
-== Deploy
+== Deploy onto live site
 
 sprinkle -s ./config/install.rb
 cap deploy:setup
 cap deploy
+
+== Deploy data
+
+=== From scratch
+cap deploy:reload_places_data
+
+=== To existing site
+
+Choose from the following (equivalent to the individual data load steps of reload_places_data):
+
+cap deploy:reload_places_data
+cap deploy:reload_constituency_data
+cap deploy:reload_search_data
+
 
 
 == sprinkle gem installation
