@@ -62,6 +62,10 @@ namespace :deploy do
     run "cd #{release_path}; rake parlytags:load_places RAILS_ENV=production"
   end
   
+  task :reload_constituency_data, :roles => :app do
+    run "cd #{release_path}; rake parlytags:load_constituencies RAILS_ENV=production"
+  end
+  
   task :reload_search_data, :roles => :app do
     run "cd #{release_path}; rake parlytags:load_search_data RAILS_ENV=production"
   end
