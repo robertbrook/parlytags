@@ -7,8 +7,14 @@ describe PublicwhipParser do
 
   describe 'when parsing written answers' do
     it 'should create a new item for each question, but not save it when no place data is found' do
-      item1 = mock_model(Item, :id => 1)
-      item2 = mock_model(Item, :id => 2)
+      item1 = Item.new(
+        :title => 'ENVIRONMENT FOOD AND RURAL AFFAIRS Departmental Advertising [309933] - Grant Shapps',
+        :kind => 'Written Answer',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0002.htm#10020115000341')
+      item2 = Item.new(
+          :title => 'ENVIRONMENT FOOD AND RURAL AFFAIRS Departmental Billing [311259] - John Mason',
+          :kind => 'Written Answer',
+          :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0002.htm#10020115000343')
       file = RAILS_ROOT + '/spec/fixtures/wra-no-place-data.xml'
 
       Item.should_receive(:new).with(
@@ -31,7 +37,10 @@ describe PublicwhipParser do
     end
 
     it 'should create an item for each question and placetags for each matching place' do
-      item1 = mock_model(Item)
+      item1 = Item.new(
+        :title => 'CULTURE MEDIA AND SPORT National Lottery: Bexley [314679] - David Evennett',
+        :kind => 'Written Answer',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100201/text/100201w0003.htm#10020115000363')
       place1 = mock_model(Place, :geoname_id => 1234, :county_name => nil, :country_name => 'England')
       place2 = mock_model(Place, :geoname_id => 2222, :county_name => 'London', :country_name => 'England')
       placetag1 = mock_model(Placetag)
@@ -52,17 +61,11 @@ describe PublicwhipParser do
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).exactly(2).times.with('Big Lottery Fund').and_return([])
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with('London').and_return([place1])
       Place.should_receive(:find_all_by_ascii_name_or_alternate_names).with('Bexley').and_return([place2])
-      Placetag.should_receive(:new).with(:name => 'London').and_return(placetag1)
-      Placetag.should_receive(:new).with(:name => 'Bexley').and_return(placetag2)
-      placetag2.should_receive(:county=).with('London')
-      placetag1.should_receive(:country=).with('England')
-      placetag2.should_receive(:country=).with('England')
-      placetag1.should_receive(:place_id=).with(place1.id)
-      placetag2.should_receive(:place_id=).with(place2.id)
-      placetag1.should_receive(:geoname_id=).with(1234)
-      placetag2.should_receive(:geoname_id=).with(2222)
+      Placetag.should_receive(:new).with('London', place1).and_return(placetag1)
+      Placetag.should_receive(:new).with('Bexley', place2).and_return(placetag2)
       placetag1.should_receive(:save)
       placetag2.should_receive(:save)
+
       place1.should_receive(:has_placetag=).with(true)
       place2.should_receive(:has_placetag=).with(true)
       place1.should_receive(:save)
@@ -95,6 +98,7 @@ describe PublicwhipParser do
         :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/text/100210w0006.htm#10021085000677').and_return(item1)
       item1.should_receive(:created_at=).with('2010-02-10')
       item1.should_receive(:updated_at=).with('2010-02-10')
+      item1.should_receive(:add_placetags).exactly(2).times.and_return(false)
       Item.should_receive(:find_by_title_and_created_at).with('Olympic Games 2012: Food [316045], [316046] - Elliot Morley', '2010-02-10').and_return(item1)
 
       @parser.parse_file file, "Written Answer"
@@ -105,7 +109,10 @@ describe PublicwhipParser do
     it 'should create a new item for each debate, but not save it when no place data is found' do
       file = RAILS_ROOT + '/spec/fixtures/westminster-no-place-data.xml'
       
-      item1 = mock_model(Item, :id => 1)
+      item1 = Item.new(
+        :title => 'Fuel Duty (Rural Areas)',
+        :kind => 'Westminster Hall Debate',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/halltext/100210h0001.htm#10021066000001')
 
       Item.should_receive(:new).with(
         :title => 'Fuel Duty (Rural Areas)',
@@ -118,6 +125,9 @@ describe PublicwhipParser do
         :title => 'Fuel Duty (Rural Areas)',
         :kind => 'Westminster Hall Debate',
         :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/halltext/100210h0001.htm#10021066000546').and_return(item1)
+
+     item1.should_receive(:add_placetags).exactly(2).times.and_return(false)
+     item1.should_not_receive(:save)
 
       @parser.parse_file file, "Westminster Hall Debate"
     end
@@ -141,6 +151,8 @@ describe PublicwhipParser do
         :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#10021063000032').and_return(item1)
       item1.should_receive(:created_at=).with('2010-02-10')
       item1.should_receive(:updated_at=).with('2010-02-10')
+      item1.should_receive(:add_placetags).and_return(false)
+      item1.should_not_receive(:save)
 
       Item.should_receive(:new).with(
         :title => 'Debate - WALES',
@@ -148,6 +160,8 @@ describe PublicwhipParser do
         :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#100210-0001.htm_dpthd0').and_return(item2)
       item2.should_receive(:created_at=).with('2010-02-10')
       item2.should_receive(:updated_at=).with('2010-02-10')
+      item2.should_receive(:add_placetags).and_return(false)
+      item2.should_not_receive(:save)
 
       Item.should_receive(:new).with(
         :title => 'Debate - WALES - Bovine Tuberculosis',
@@ -155,6 +169,8 @@ describe PublicwhipParser do
         :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0001.htm#10021063001687').and_return(item3)
       item3.should_receive(:created_at=).with('2010-02-10')
       item3.should_receive(:updated_at=).with('2010-02-10')
+      item3.should_receive(:add_placetags).and_return(false)
+      item3.should_not_receive(:save)
       
       Item.should_receive(:new).with(
         :title => 'Points of Order',
@@ -162,6 +178,8 @@ describe PublicwhipParser do
         :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0008.htm#10021063001886').and_return(item4)
       item4.should_receive(:created_at=).with('2010-02-10')
       item4.should_receive(:updated_at=).with('2010-02-10')
+      item4.should_receive(:add_placetags).and_return(false)
+      item4.should_not_receive(:save)
       
       Item.should_receive(:new).with(
         :title => 'Department for Work and Pensions (Electronic File Retention) Bill',
@@ -169,6 +187,8 @@ describe PublicwhipParser do
         :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0008.htm#10021063000031').and_return(item5)
       item5.should_receive(:created_at=).with('2010-02-10')
       item5.should_receive(:updated_at=).with('2010-02-10')
+      item5.should_receive(:add_placetags).and_return(false)
+      item5.should_not_receive(:save)
       
       Item.should_receive(:new).with(
         :title => 'Water Tariffs Bill',
@@ -176,6 +196,8 @@ describe PublicwhipParser do
         :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0008.htm#10021063000002').and_return(item6)
       item6.should_receive(:created_at=).with('2010-02-10')
       item6.should_receive(:updated_at=).with('2010-02-10')
+      item6.should_receive(:add_placetags).and_return(false)
+      item6.should_not_receive(:save)
       
       Item.should_receive(:new).with(
         :title => 'Road Repairs (Northamptonshire)',
@@ -183,6 +205,8 @@ describe PublicwhipParser do
         :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100210/debtext/100210-0018.htm#10021063002867').and_return(item7)
       item7.should_receive(:created_at=).with('2010-02-10')
       item7.should_receive(:updated_at=).with('2010-02-10')
+      item7.should_receive(:add_placetags).and_return(false)
+      item7.should_not_receive(:save)
 
       @parser.parse_file file, "Hansard Debate"
     end
@@ -192,9 +216,12 @@ describe PublicwhipParser do
     it 'should create an item for each question and placetags for each matching place' do
       file = RAILS_ROOT + '/spec/fixtures/wms-2010-01-05.xml'
       
-      item1 = mock_model(Item, :id => 1, :placetags => [])
+      item1 = Item.new(
+        :title => 'ENVIRONMENT FOOD AND RURAL AFFAIRS Food 2030 - Hilary Benn - The Secretary of State for Environment, Food and Rural Affairs',
+        :kind => 'WMS',
+        :url => 'http://www.publications.parliament.uk/pa/cm200910/cmhansrd/cm100105/wmstext/100105m0001.htm#1001052000050')
       place = mock_model(Place, :geoname_id => 2222, :county_name => 'London', :country_name => 'England')
-      placetag = mock_model(Placetag)
+      placetag = Placetag.new("London", place)
       
       Item.should_receive(:new).with(
         :title => 'ENVIRONMENT FOOD AND RURAL AFFAIRS Food 2030 - Hilary Benn - The Secretary of State for Environment, Food and Rural Affairs',

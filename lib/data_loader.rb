@@ -2,8 +2,8 @@ require 'nokogiri'
 require 'htmlentities'
 
 module ParlyTags; end
-module ParlyTags::DataLoader
-  
+module ParlyTags::DataLoader  
+
   DATA_DIR = File.expand_path(File.dirname(__FILE__) + '/../data')
   GEO_FILE = "#{DATA_DIR}/GB.txt"
   CONSTITUENCY_FILE = "#{DATA_DIR}/constituencies/2005_constituencies.xml"
@@ -176,7 +176,9 @@ module ParlyTags::DataLoader
         log << "i"
 
         term_extractor = TermExtractor.new(edm_text)
-        add_placetags(term_extractor.terms, item, log)
+        if item.add_placetags(term_extractor.terms)
+          log << "p"
+        end
       end
       
       log << "\n"
@@ -225,30 +227,4 @@ module ParlyTags::DataLoader
   def delete_data_files
     `rm -rf "#{DATA_DIR}/*"`
   end
-  
-  private
-    def add_placetags terms, item, log
-      terms.each do |term|
-        places = Place.find_all_by_ascii_name_or_alternate_names(term)
-        places.each do |place|
-          placetag = Placetag.find_by_geoname_id(place.geoname_id)
-          if placetag.nil?
-            placetag = Placetag.new(:name => term)
-            county = place.county_name
-            placetag.county = county if county
-            country = place.country_name
-            placetag.country = place.country_name if country
-            placetag.place_id = place.id
-            placetag.geoname_id = place.geoname_id
-            placetag.save
-            place.has_placetag = true
-            place.save
-          end
-          unless item.placetags.include?(placetag)
-            item.placetags << placetag
-            log << "p"
-          end
-        end
-      end
-    end
 end

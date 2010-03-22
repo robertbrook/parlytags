@@ -93,7 +93,9 @@ class PublicwhipParser
     @log << "i" unless RAILS_ENV == 'test'
     
     term_extractor = TermExtractor.new(question_text)
-    add_placetags(term_extractor.terms, item)
+    if item.add_placetags(term_extractor.terms)
+      @log << "p" unless RAILS_ENV == 'test'
+    end
   end
   
   def handle_answer element
@@ -115,7 +117,7 @@ class PublicwhipParser
     
     answer_text = element.inner_text
     term_extractor = TermExtractor.new(answer_text)
-    add_placetags(term_extractor.terms, item)
+    item.add_placetags(term_extractor.terms)
   end
   
   def handle_speech element
@@ -185,7 +187,7 @@ class PublicwhipParser
     end
     
     term_extractor = TermExtractor.new(debate_text)
-    add_placetags(term_extractor.terms, item)
+    item.add_placetags(term_extractor.terms)
   end
   
   def handle_data doc_root
@@ -209,32 +211,7 @@ class PublicwhipParser
   end
 
   
-  private    
-    def add_placetags terms, item
-      terms.each do |term|
-        places = Place.find_all_by_ascii_name_or_alternate_names(term)
-        places.each do |place|
-          placetag = Placetag.find_by_geoname_id(place.geoname_id)
-          if placetag.nil?
-            placetag = Placetag.new(:name => term)
-            county = place.county_name
-            placetag.county = county if county
-            country = place.country_name
-            placetag.country = place.country_name if country
-            placetag.place_id = place.id
-            placetag.geoname_id = place.geoname_id
-            placetag.save
-            place.has_placetag = true
-            place.save
-          end
-          unless item.placetags.include?(placetag)
-            item.placetags << placetag
-            @log << "p" unless RAILS_ENV == 'test'
-            item.save
-          end
-        end
-      end
-    end
+  private
     
     def cleanup_text text
       text = text.gsub('&#8212;', "-")

@@ -74,4 +74,31 @@ class Item < ActiveRecord::Base
     names.uniq
   end
   
+  def add_placetags terms
+    tag_added = false
+    terms.each do |term|
+      places = Place.find_all_by_ascii_name_or_alternate_names(term)
+      places.each do |place|
+        placetag = Placetag.find_by_geoname_id(place.geoname_id)
+        if placetag.nil?
+          placetag = Placetag.new(term, place)
+          placetag.save
+          place.has_placetag = true
+          place.save
+        end
+        new_tag = self.add_placetag(placetag)
+        tag_added = true if new_tag
+      end
+    end
+    tag_added
+  end
+  
+  def add_placetag tag
+    unless self.placetags.include?(tag)
+      self.placetags << tag
+      self.save
+      return true
+    end
+    false
+  end
 end
